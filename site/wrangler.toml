@@ -1,5 +1,12 @@
 name = "ziiboxes"
 compatibility_date = "2026-07-24"
+main = "./src/worker.js"
 
 [assets]
 directory = "./dist"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[[send_email]]
+name = "EMAIL"
+destination_address = "Sales@ZiiBoxes.com"
