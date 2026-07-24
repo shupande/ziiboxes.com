@@ -9,4 +9,4 @@ run_worker_first = ["/api/*"]
 
 [[send_email]]
 name = "EMAIL"
-destination_address = "Sales@ZiiBoxes.com"
+destination_address = "sales@ziiboxes.com"
