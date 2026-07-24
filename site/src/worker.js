@@ -104,13 +104,13 @@ async function sendQuoteEmail(env, message) {
     }
 
     await session.command("AUTH LOGIN", 334);
-    await session.command(base64(username), 334);
-    await session.command(base64(env.SMTP_PASSWORD), 235);
+    await session.command(base64(username), 334, "AUTH username");
+    await session.command(base64(env.SMTP_PASSWORD), 235, "AUTH password");
     await session.command(`MAIL FROM:<${message.from}>`, 250);
     await session.command(`RCPT TO:<${message.to}>`, 250);
     await session.command("DATA", 354);
     await session.write(formatEmail(message) + "\r\n.\r\n");
-    await session.expect(250);
+    await session.expect(250, "message body");
     await session.command("QUIT", 221);
   } finally {
     await socket.close().catch(() => {});
@@ -128,14 +128,14 @@ function createSmtpSession(socket) {
     async write(value) {
       await writer.write(encoder.encode(value));
     },
-    async command(value, okCode) {
+    async command(value, okCode, label = value.split(/\s+/, 1)[0]) {
       await this.write(value + "\r\n");
-      return this.expect(okCode);
+      return this.expect(okCode, label);
     },
-    async expect(okCode) {
+    async expect(okCode, label = "SMTP") {
       const response = await readResponse();
       if (response.code !== okCode) {
-        throw smtpError(`SMTP_${response.code}`, response.text);
+        throw smtpError(`SMTP_${response.code}`, `${label}: ${response.text}`);
       }
       return response;
     },
