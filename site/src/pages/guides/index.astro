@@ -4,6 +4,50 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const guides = await getCollection("guides");
 guides.sort((a, b) => a.data.order - b.data.order);
+
+const boxImage = {
+  src: "/images/guides/cardboard-box-lids.jpg",
+  alt: "Close-up of kraft paper box lids and cardboard texture",
+};
+const stackImage = {
+  src: "/images/guides/stacked-cardboard-boxes.jpg",
+  alt: "Stacked cardboard boxes for custom packaging planning",
+};
+const orangeImage = {
+  src: "/images/guides/orange-cardboard-boxes.jpg",
+  alt: "Minimal kraft paper box on an orange studio surface",
+};
+const sustainableImage = {
+  src: "/images/guides/brown-cardboard-box.jpg",
+  alt: "Flat kraft paper boxes with simple black printing",
+};
+const conveyorImage = {
+  src: "/images/guides/corrugated-conveyor.jpg",
+  alt: "Corrugated cardboard sheets on a packaging production line",
+};
+const warehouseImage = {
+  src: "/images/guides/warehouse-cardboard-boxes.jpg",
+  alt: "Stacked cardboard cartons in a warehouse",
+};
+
+const categoryImages = {
+  "MOQ guide": stackImage,
+  "Cost guide": conveyorImage,
+  "Finish guide": orangeImage,
+  "Artwork checklist": conveyorImage,
+  "Artwork guide": conveyorImage,
+  "Box style guide": boxImage,
+  "Industry guide": orangeImage,
+  "Material guide": sustainableImage,
+  "Shipping guide": warehouseImage,
+};
+
+const imageOverrides = {
+  "mailer-boxes-vs-shipping-boxes": warehouseImage,
+  "kraft-soap-boxes-with-window": sustainableImage,
+  "low-moq-custom-packaging-small-brands": sustainableImage,
+  "shipping-carton-size-freight-cost": warehouseImage,
+};
 ---
 
 <BaseLayout
@@ -21,16 +65,21 @@ guides.sort((a, b) => a.data.order - b.data.order);
       </div>
     </section>
     <section class="section alt">
-      <div class="wrap guide-grid">
-        {guides.map((guide) => (
-          <a class="guide-card" href={`/guides/${guide.id}/`}>
-            <div>
-              <h3>{guide.data.title}</h3>
-              <p>{guide.data.description}</p>
-            </div>
-            <span>{guide.data.category}</span>
-          </a>
-        ))}
+      <div class="wrap guide-list">
+        {guides.map((guide) => {
+          const image = imageOverrides[guide.id] ?? categoryImages[guide.data.category] ?? boxImage;
+
+          return (
+            <a class="guide-row" href={`/guides/${guide.id}/`}>
+              <img src={image.src} alt={image.alt} decoding="async" />
+              <div class="guide-row-copy">
+                <span>{guide.data.category}</span>
+                <h2>{guide.data.title}</h2>
+                <p>{guide.data.description}</p>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </section>
   </main>
