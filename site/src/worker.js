@@ -57,7 +57,15 @@ export default {
       await sendQuoteEmail(env, message);
     } catch (error) {
       console.error("Quote email failed", error);
-      return json({ ok: false, error: "Email not sent", code: error.code || "EMAIL_SEND_FAILED" }, 502);
+      return json(
+        {
+          ok: false,
+          error: "Email not sent",
+          code: error.code || "EMAIL_SEND_FAILED",
+          detail: String(error.message || "").slice(0, 300),
+        },
+        502,
+      );
     }
 
     return json({ ok: true });
