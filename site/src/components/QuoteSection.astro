@@ -16,15 +16,56 @@ import { site } from "../data/site";
         <a class="button light" href={site.whatsapp}>WhatsApp</a>
       </div>
     </div>
-    <form class="quote-form" action={`mailto:${site.email}`} method="post" enctype="text/plain">
-      <input name="box_style" placeholder="Box style" />
-      <input name="quantity" placeholder="Quantity" />
-      <input name="size" placeholder="Size" />
-      <input name="destination" placeholder="Destination country" />
-      <input name="contact" placeholder="Email or WhatsApp" />
-      <input name="material_finish" placeholder="Material or finish" />
+    <form class="quote-form" action="/api/quote" method="post" data-email={site.email} data-quote-form>
+      <input name="box_style" placeholder="Box style" autocomplete="off" />
+      <input name="quantity" placeholder="Quantity" autocomplete="off" />
+      <input name="size" placeholder="Size" autocomplete="off" />
+      <input name="destination" placeholder="Destination country" autocomplete="country-name" />
+      <input name="contact" placeholder="Email or WhatsApp" autocomplete="email" required />
+      <input name="material_finish" placeholder="Material or finish" autocomplete="off" />
       <textarea name="notes" placeholder="Project notes or artwork link"></textarea>
       <button class="button gold quote-submit" type="submit">Send quote request</button>
+      <p class="quote-status" data-quote-status aria-live="polite"></p>
     </form>
   </div>
 </section>
+
+<script>
+  const quoteForms = document.querySelectorAll("[data-quote-form]");
+
+  quoteForms.forEach((form) => {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const quoteForm = event.currentTarget;
+      if (!(quoteForm instanceof HTMLFormElement)) return;
+
+      const status = quoteForm.querySelector("[data-quote-status]");
+      const button = quoteForm.querySelector("button[type='submit']");
+      if (!(status instanceof HTMLElement) || !(button instanceof HTMLButtonElement)) return;
+
+      status.textContent = "Sending...";
+      status.dataset.state = "";
+      button.disabled = true;
+
+      try {
+        const response = await fetch(quoteForm.action, {
+          method: "POST",
+          body: new FormData(quoteForm),
+        });
+
+        if (!response.ok) throw new Error("Quote request failed");
+
+        quoteForm.reset();
+        status.textContent = "Request sent. We will reply soon.";
+        status.dataset.state = "success";
+      } catch {
+        const email = quoteForm.dataset.email || "Sales@ZiiBoxes.com";
+        status.innerHTML = `The request form is being connected. Please email <a href="mailto:${email}">${email}</a> for now.`;
+        status.dataset.state = "error";
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+</script>

@@ -511,6 +511,33 @@ h2 {
   cursor: pointer;
 }
 
+.quote-submit:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.quote-status {
+  grid-column: 1 / -1;
+  min-height: 24px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+}
+
+.quote-status[data-state="success"] {
+  color: #f2d5a5;
+}
+
+.quote-status[data-state="error"] {
+  color: #ffd8c4;
+}
+
+.quote-status a {
+  color: inherit;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
 .page-hero {
   padding: 74px 0;
   background: var(--green-dark);
