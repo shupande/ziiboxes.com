@@ -9,6 +9,7 @@ node_modules/
 .vscode/
 qa-screenshots/
 CLAUDE.md
+.wrangler/
 
 # logs
 npm-debug.log*
