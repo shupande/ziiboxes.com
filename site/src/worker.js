@@ -57,7 +57,7 @@ export default {
       await env.EMAIL.send(message);
     } catch (error) {
       console.error("Quote email failed", error);
-      return json({ ok: false, error: "Email not sent" }, 502);
+      return json({ ok: false, error: "Email not sent", code: error.code || "EMAIL_SEND_FAILED" }, 502);
     }
 
     return json({ ok: true });
