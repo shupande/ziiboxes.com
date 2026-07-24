@@ -338,7 +338,7 @@ h2 {
 
 .industry-row {
   display: grid;
-  grid-template-columns: 240px 1fr 190px;
+  grid-template-columns: 240px 1fr;
   gap: 24px;
   padding: 24px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
@@ -356,10 +356,12 @@ h2 {
 }
 
 .industry-row a {
-  align-self: start;
-  color: var(--white);
-  font-size: 14px;
+  color: inherit;
   font-weight: 800;
+}
+
+.industry-row a:hover {
+  text-decoration: underline;
 }
 
 .process,

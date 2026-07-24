@@ -132,9 +132,10 @@ const schema = {
         <div class="industry-table">
           {industries.slice(0, 4).map((industry) => (
             <div class="industry-row">
-              <h3>{industry.title.replace("Custom ", "")}</h3>
+              <h3>
+                <a href={`/industries/${industry.slug}/`}>{industry.title.replace("Custom ", "")}</a>
+              </h3>
               <p>{industry.description}</p>
-              <a href={`/industries/${industry.slug}/`}>Open page</a>
             </div>
           ))}
         </div>
