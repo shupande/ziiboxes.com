@@ -621,6 +621,17 @@ h2 {
   font-weight: 700;
 }
 
+.text-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--green);
+  font-weight: 800;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
 .site-footer {
   padding: 40px 0;
   background: #101817;

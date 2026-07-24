@@ -1,0 +1,177 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import { site } from "../data/site";
+
+const faqs = [
+  {
+    q: "Can custom paper boxes use recycled paper?",
+    a: "Recycled paper options can be discussed at the quote stage. The right choice depends on box structure, print requirements, product weight and the documents your buyer needs.",
+  },
+  {
+    q: "Can I request FSC-certified paper for custom boxes?",
+    a: "If FSC-certified paper is required, mention it before quoting so material availability and documentation can be checked before sampling.",
+  },
+  {
+    q: "What labor or supplier documents should larger buyers send?",
+    a: "Send your supplier code of conduct, packaging policy, audit questionnaire, restricted material list or reporting template early. It is easier to review these before the first sample is made.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "Responsible Paper Packaging",
+      description:
+        "Responsible paper packaging options for custom printed boxes, including recycled paper, FSC paper requests, plastic reduction, waste control and supplier care documents.",
+      url: `${site.url}/responsible-packaging/`,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Responsible Paper Packaging"
+  description="Responsible custom paper packaging options for overseas buyers, including recycled paper, FSC paper requests, plastic reduction, waste control and supplier care documents."
+  path="/responsible-packaging/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Responsible packaging</p>
+        <h1>Paper packaging choices that support brand and supplier requirements.</h1>
+        <p>
+          Large buyers often need more than a printed box. They need material choices, clear documentation and supplier expectations reviewed before sampling.
+        </p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/factory-line.jpg" alt="Paper packaging production line and workshop" />
+        </div>
+        <div>
+          <p class="section-kicker">Buyer checklist</p>
+          <h2>Confirm responsibility requirements before the sample.</h2>
+          <p class="lede-copy">
+            The safest time to discuss environmental and labor requirements is before the dieline, material and finish are locked.
+            That keeps the quote realistic and avoids changing the box after artwork approval.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Material choices</h3>
+              <ul>
+                <li>Kraft paper, white paperboard and corrugated board options</li>
+                <li>Recycled paper discussions when the structure allows it</li>
+                <li>FSC-certified paper requests checked before quoting</li>
+                <li>Paper inserts when a plastic tray is not needed</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Lower-waste design</h3>
+              <ul>
+                <li>Right-size the box around product dimensions and weight</li>
+                <li>Use flat-packed structures when storage and freight matter</li>
+                <li>Avoid unnecessary windows, coatings or mixed materials</li>
+                <li>Sample first to reduce rework before bulk production</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Finish decisions</h3>
+              <ul>
+                <li>Keep foil, spot UV and lamination focused where they add value</li>
+                <li>Ask about simpler print when the box is mainly for shipping</li>
+                <li>Separate premium display goals from sustainability goals</li>
+                <li>Confirm food-contact needs before choosing paper or coating</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Supplier care documents</h3>
+              <ul>
+                <li>Supplier code of conduct or audit questionnaire</li>
+                <li>Restricted material list and packaging policy</li>
+                <li>Material certificate requests for selected paper</li>
+                <li>Packing details for warehouse and logistics review</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap prose">
+        <h2>How we discuss environmental packaging</h2>
+        <p>
+          Responsible packaging starts with the structure. A box that is too large, too heavy or over-finished can create waste even if the paper looks natural. For early quotes, send the product size, product weight, selling channel and destination. That makes it easier to compare paperboard, corrugated board, inserts and finish options.
+        </p>
+        <p>
+          If your company requires recycled content, FSC-certified paper, plastic reduction or a specific packaging policy, send that requirement before sampling. We can then check whether the material, print method and finish plan fit the requirement instead of treating sustainability as an afterthought.
+        </p>
+
+        <h2>How we discuss labor and supplier care</h2>
+        <p>
+          Larger companies often have supplier expectations around safe working conditions, reasonable working hours, no forced labor, no child labor and transparent production records. The useful first step is to share your supplier code or questionnaire early, so it can be reviewed alongside the quote.
+        </p>
+        <p>
+          We do not turn a website page into a certificate. If a buyer needs a specific audit, report or document, it should be named in the project brief. Clear requirements at the beginning are better than discovering them after the box is sampled.
+        </p>
+
+        <h2>What to send with your quote request</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Requirement</th>
+              <th>Helpful detail to send</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Recycled or FSC paper</td>
+              <td>Target paper requirement, certificate request and product weight.</td>
+            </tr>
+            <tr>
+              <td>Plastic reduction</td>
+              <td>Current packaging photo and whether a paper insert can replace a tray.</td>
+            </tr>
+            <tr>
+              <td>Supplier code</td>
+              <td>Your code of conduct, audit form or buyer questionnaire.</td>
+            </tr>
+            <tr>
+              <td>Food or cosmetic packaging</td>
+              <td>Whether the product touches the box directly and which market it ships to.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="faq">
+          {faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>
