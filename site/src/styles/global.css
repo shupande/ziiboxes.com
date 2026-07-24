@@ -484,6 +484,7 @@ h2 {
 
 .page-hero h1 {
   max-width: 900px;
+  overflow-wrap: anywhere;
 }
 
 .page-hero p {
@@ -504,6 +505,51 @@ h2 {
   border-left: 3px solid var(--green);
   background: var(--paper);
   font-size: 14px;
+}
+
+.lede-copy {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.detail-card,
+.note-panel {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+}
+
+.detail-card h3,
+.note-panel h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.detail-card ul,
+.check-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.detail-card li,
+.check-list li {
+  margin: 6px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.note-panel {
+  margin-top: 8px;
+  border-left: 4px solid var(--gold);
 }
 
 .faq {
@@ -544,6 +590,28 @@ h2 {
 .prose p,
 .prose li {
   color: var(--muted);
+}
+
+.prose table {
+  width: 100%;
+  margin: 18px 0;
+  border-collapse: collapse;
+  font-size: 15px;
+  table-layout: fixed;
+}
+
+.prose th,
+.prose td {
+  padding: 10px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.prose th {
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .prose a {
@@ -640,6 +708,10 @@ h2 {
     line-height: 1.05;
   }
 
+  .page-hero h1 {
+    font-size: 34px;
+  }
+
   .hero-lede,
   .page-hero p {
     font-size: 17px;
@@ -649,6 +721,7 @@ h2 {
   .product-grid,
   .product-grid.five,
   .guide-grid,
+  .detail-grid,
   .quote-form,
   .spec-list,
   .footer-grid {

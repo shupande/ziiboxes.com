@@ -13,10 +13,25 @@ export function getStaticPaths() {
 const { industry } = Astro.props;
 const schema = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: industry.title,
-  description: industry.description,
-  url: `${site.url}/industries/${industry.slug}/`,
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: industry.title,
+      description: industry.description,
+      url: `${site.url}/industries/${industry.slug}/`,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: industry.faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
 };
 ---
 
@@ -47,19 +62,40 @@ const schema = {
         <div>
           <p class="section-kicker">Packaging plan</p>
           <h2>Box styles and details buyers usually compare.</h2>
-          <div class="spec-list">
-            {industry.products.map((item) => <div class="spec">{item}</div>)}
-            {industry.notes.map((item) => <div class="spec">{item}</div>)}
+          <p class="lede-copy">{industry.description}</p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Box styles</h3>
+              <ul>
+                {industry.products.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Common applications</h3>
+              <ul>
+                {industry.applications.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Buyer checks</h3>
+              <ul>
+                {industry.notes.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Cost control</h3>
+              <ul>
+                {industry.costTips.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
           </div>
           <div class="faq">
-            <div class="faq-item">
-              <strong>What should I send for a quote?</strong>
-              <p>Send product size, box style, quantity, destination and finish requirements. A photo or reference box is also useful.</p>
-            </div>
-            <div class="faq-item">
-              <strong>Can this page support small brand launches?</strong>
-              <p>Yes. The first quote can compare a smaller pilot run with a bulk option, so you can understand the cost difference.</p>
-            </div>
+            {industry.faqs.map((item) => (
+              <div class="faq-item">
+                <strong>{item.q}</strong>
+                <p>{item.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

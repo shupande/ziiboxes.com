@@ -13,19 +13,34 @@ export function getStaticPaths() {
 const { product } = Astro.props;
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Product",
-  name: product.title,
-  description: product.description,
-  image: `${site.url}${product.image}`,
-  brand: {
-    "@type": "Brand",
-    name: site.name,
-  },
-  manufacturer: {
-    "@type": "Organization",
-    name: site.name,
-    url: site.url,
-  },
+  "@graph": [
+    {
+      "@type": "Product",
+      name: product.title,
+      description: product.description,
+      image: `${site.url}${product.image}`,
+      brand: {
+        "@type": "Brand",
+        name: site.name,
+      },
+      manufacturer: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.url,
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: product.faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
 };
 ---
 
@@ -56,11 +71,38 @@ const schema = {
         <div>
           <p class="section-kicker">Quote details</p>
           <h2>Useful details to prepare before asking for a quote.</h2>
-          <div class="spec-list">
-            <div class="spec"><strong>Use cases:</strong> {product.uses.join(", ")}</div>
-            <div class="spec"><strong>Materials:</strong> {product.materials.join(", ")}</div>
-            <div class="spec"><strong>Finishes:</strong> {product.finishes.join(", ")}</div>
-            <div class="spec"><strong>Location:</strong> Shenzhen, China</div>
+          <p class="lede-copy">{product.summary}</p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Common use cases</h3>
+              <ul>
+                {product.uses.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Material options</h3>
+              <ul>
+                {product.materials.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Printing and finishes</h3>
+              <ul>
+                {product.finishes.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Practical checks</h3>
+              <ul>
+                {product.specs.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          </div>
+          <div class="note-panel">
+            <h3>Before asking for a quote</h3>
+            <ul class="check-list">
+              {product.quoteTips.map((item) => <li>{item}</li>)}
+            </ul>
           </div>
           <div class="faq">
             {product.faqs.map((item) => (

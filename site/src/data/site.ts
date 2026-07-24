@@ -18,9 +18,22 @@ export const products = [
       "Custom printed mailer boxes for Shopify, Etsy, subscription boxes, PR kits and branded delivery.",
     image: "/images/mailer-boxes.jpg",
     alt: "Custom printed yellow mailer box",
+    summary:
+      "Mailer boxes are best when the packaging needs to protect the product and create a branded unboxing moment without using a separate retail carton. They are common for online orders, sample kits and small product launches.",
     uses: ["E-commerce shipping", "Subscription boxes", "PR kits", "Small product delivery"],
     materials: ["E-flute corrugated board", "Kraft corrugated board", "White corrugated board"],
     finishes: ["CMYK or Pantone printing", "Matte or gloss lamination", "Inside print", "Spot UV"],
+    specs: [
+      "Best for lightweight to medium-weight products",
+      "Can be printed outside, inside, or both",
+      "Works with paper inserts for organized presentation",
+      "Ships flat to reduce storage space before packing",
+    ],
+    quoteTips: [
+      "Send product weight and product size, not only the box size.",
+      "Choose kraft board when a natural paper look matters more than bright color.",
+      "Use inside print only when it supports the unboxing experience.",
+    ],
     faqs: [
       {
         q: "What quantity should I request for custom mailer boxes?",
@@ -41,9 +54,22 @@ export const products = [
       "Lightweight folding cartons for cosmetics, soap, food, supplements and retail products.",
     image: "/images/folding-cartons.jpg",
     alt: "Custom folding paper cartons",
+    summary:
+      "Folding cartons are a practical choice for retail products that need custom print, shelf presentation and efficient packing. They are usually lighter than rigid boxes and easier to store before filling.",
     uses: ["Cosmetic boxes", "Soap packaging", "Food cartons", "Small retail products"],
     materials: ["White card paper", "Kraft paper", "SBS paperboard", "Duplex board"],
     finishes: ["Matte lamination", "Gloss lamination", "Foil stamping", "Embossing"],
+    specs: [
+      "Good for retail shelf display and outer product packaging",
+      "Can include tuck ends, sleeves, hang tabs or window cutouts",
+      "Requires a dieline that matches product size and folding direction",
+      "Efficient for repeat orders once the structure is confirmed",
+    ],
+    quoteTips: [
+      "Send a product photo if you are unsure which carton structure fits.",
+      "Keep window cutouts simple if budget is tight.",
+      "Use Pantone only for brand-critical colors; CMYK is enough for many designs.",
+    ],
     faqs: [
       {
         q: "Are folding cartons good for small brands?",
@@ -64,9 +90,22 @@ export const products = [
       "Rigid gift and presentation boxes for beauty, fragrance, jewelry and premium retail products.",
     image: "/images/rigid-boxes.jpg",
     alt: "Pink rigid perfume packaging boxes",
+    summary:
+      "Rigid boxes are used when the packaging must feel premium before the product is opened. They are heavier, stronger and more gift-ready than folding cartons, but they also need more planning for size, inserts and freight.",
     uses: ["Beauty packaging", "Gift sets", "Jewelry packaging", "Premium retail"],
     materials: ["Greyboard", "Art paper wrap", "Specialty paper", "Paper inserts"],
     finishes: ["Foil stamping", "Embossing", "Debossing", "Spot UV", "Soft touch lamination"],
+    specs: [
+      "Best for premium products, gift sets and display packaging",
+      "Can use lift-off lid, magnetic closure, drawer or book-style structures",
+      "Often paired with paper, foam or molded inserts",
+      "Freight cost matters because rigid boxes take more space",
+    ],
+    quoteTips: [
+      "Confirm product size and insert layout before designing the outside artwork.",
+      "Use fewer finish effects when testing a new product launch.",
+      "Ask for packed carton dimensions when comparing landed cost.",
+    ],
     faqs: [
       {
         q: "When should I choose rigid boxes?",
@@ -87,9 +126,22 @@ export const products = [
       "Custom printed gift boxes with sleeves, inserts, special papers and brand finishes.",
     image: "/images/gift-boxes.jpg",
     alt: "Printed gift boxes",
+    summary:
+      "Gift boxes are useful for seasonal collections, retail bundles and promotional kits. The right structure depends on product count, display goal, launch timing and whether the box needs an insert.",
     uses: ["Holiday collections", "Gift sets", "Promotional kits", "Retail display"],
     materials: ["Paperboard", "Rigid board", "Kraft paper", "Specialty paper"],
     finishes: ["Foil stamping", "Ribbon options", "Embossing", "Matte lamination"],
+    specs: [
+      "Can combine outer box, sleeve, insert and printed tissue",
+      "Suitable for holiday launches and limited-edition packaging",
+      "Works with foil, ribbon, embossing or textured paper",
+      "Should be planned early when seasonal delivery dates are fixed",
+    ],
+    quoteTips: [
+      "Share the number of products in the set and how they should sit inside.",
+      "Avoid too many special finishes on the first sample.",
+      "Confirm whether the box is for retail display, shipping, or both.",
+    ],
     faqs: [
       {
         q: "Can gift boxes be made for seasonal campaigns?",
@@ -110,9 +162,22 @@ export const products = [
       "Corrugated shipping boxes for branded delivery, product protection and export packing.",
     image: "/images/shipping-boxes.jpg",
     alt: "Cardboard printed packaging boxes",
+    summary:
+      "Shipping boxes are designed first for protection and logistics, then for branding. They are best when product safety, carton strength and freight efficiency are more important than a luxury presentation feel.",
     uses: ["E-commerce delivery", "Export cartons", "Product protection", "Branded shipping"],
     materials: ["B-flute corrugated board", "E-flute corrugated board", "Kraft liner", "White liner"],
     finishes: ["Flexo printing", "CMYK printing", "Simple logo print", "Matte coating"],
+    specs: [
+      "Good for direct-to-consumer delivery and export cartons",
+      "Can use kraft or white liner depending on print and brand look",
+      "Board strength should match product weight and shipping route",
+      "Simple logo print often controls cost better than full coverage print",
+    ],
+    quoteTips: [
+      "Send product weight, packing method and destination country.",
+      "Ask whether one box can serve both protection and branding.",
+      "Use simple print if the box will be handled heavily in shipping.",
+    ],
     faqs: [
       {
         q: "Are shipping boxes different from mailer boxes?",
@@ -136,6 +201,22 @@ export const industries = [
     image: "/images/rigid-boxes.jpg",
     products: ["Folding cartons", "Rigid boxes", "Drawer boxes", "Sleeves"],
     notes: ["Pantone color matching", "Foil stamping", "Embossing", "Insert options"],
+    applications: ["Lipstick and lip gloss", "Perfume and fragrance", "Serum and skincare", "Beauty gift sets"],
+    costTips: [
+      "Use folding cartons for single products when unit cost matters.",
+      "Reserve rigid boxes for gift sets, premium launches or influencer kits.",
+      "Keep foil and embossing focused on the logo or key visual area.",
+    ],
+    faqs: [
+      {
+        q: "What box style is common for cosmetic packaging?",
+        a: "Folding cartons are common for single cosmetic products. Rigid boxes or drawer boxes are used when the brand needs a premium presentation.",
+      },
+      {
+        q: "Can cosmetic boxes use Pantone colors?",
+        a: "Yes. Pantone references are useful when brand color consistency matters across packaging, labels and retail display.",
+      },
+    ],
   },
   {
     slug: "custom-candle-boxes",
@@ -146,6 +227,22 @@ export const industries = [
     image: "/images/gift-boxes.jpg",
     products: ["Rigid boxes", "Folding cartons", "Corrugated mailers", "Gift sets"],
     notes: ["Glass jar protection", "Insert planning", "Seasonal artwork", "Gift-ready finishes"],
+    applications: ["Glass jar candles", "Scented candle sets", "Holiday gift boxes", "Subscription candle packs"],
+    costTips: [
+      "Prioritize protection when the candle is in glass.",
+      "Use inserts when multiple candles need to stay separated.",
+      "Plan seasonal artwork early because production and shipping dates matter.",
+    ],
+    faqs: [
+      {
+        q: "Do candle boxes need inserts?",
+        a: "Glass candle jars often need inserts or snug structures to reduce movement during shipping. The right insert depends on jar size and weight.",
+      },
+      {
+        q: "Can candle boxes be made for holiday collections?",
+        a: "Yes. Seasonal sleeves, gift boxes and printed inserts can be quoted once quantity, deadline and destination are clear.",
+      },
+    ],
   },
   {
     slug: "custom-jewelry-boxes",
@@ -156,6 +253,22 @@ export const industries = [
     image: "/images/jewelry-boxes.jpg",
     products: ["Drawer boxes", "Rigid boxes", "Small gift boxes", "Sleeves"],
     notes: ["Premium paper", "Foil stamping", "Soft-touch finish", "Insert options"],
+    applications: ["Rings and earrings", "Necklaces", "Bracelets", "Small luxury accessories"],
+    costTips: [
+      "Use one box structure across several SKUs when possible.",
+      "Keep inserts modular if product sizes vary.",
+      "Use foil stamping for logo detail instead of covering the whole box.",
+    ],
+    faqs: [
+      {
+        q: "What packaging works for small jewelry brands?",
+        a: "Small rigid boxes, drawer boxes and sleeves work well because they protect small items and create a premium first impression.",
+      },
+      {
+        q: "Can jewelry boxes include inserts?",
+        a: "Yes. Inserts can be designed for rings, earrings, necklaces or mixed sets. A product photo helps confirm the right structure.",
+      },
+    ],
   },
   {
     slug: "custom-soap-boxes",
@@ -166,6 +279,22 @@ export const industries = [
     image: "/images/folding-cartons.jpg",
     products: ["Kraft cartons", "Window boxes", "Sleeves", "Retail display boxes"],
     notes: ["Kraft paper", "Window cutouts", "Simple MOQ planning", "Retail shelf copy"],
+    applications: ["Handmade soap bars", "Natural soap brands", "Retail soap sleeves", "Gift soap sets"],
+    costTips: [
+      "Use kraft paper or sleeves for a natural brand look.",
+      "Keep the structure simple for early-stage handmade brands.",
+      "Use window cutouts only when seeing the product helps sell it.",
+    ],
+    faqs: [
+      {
+        q: "Are kraft boxes good for soap packaging?",
+        a: "Kraft boxes are common for handmade and natural soap brands because the paper texture supports a simple, natural shelf look.",
+      },
+      {
+        q: "Can soap boxes have a window?",
+        a: "Yes. A window can show color or texture, but it should be balanced with cost, protection and retail shelf requirements.",
+      },
+    ],
   },
   {
     slug: "custom-food-packaging-boxes",
@@ -176,6 +305,22 @@ export const industries = [
     image: "/images/cookie-boxes.jpg",
     products: ["Cookie boxes", "Gift food boxes", "Sleeves", "Folding cartons"],
     notes: ["Food-safe planning", "Window options", "Retail display", "Export packing"],
+    applications: ["Cookie boxes", "Snack gift sets", "Bakery retail boxes", "Food sleeves"],
+    costTips: [
+      "Confirm whether the food touches the box or uses an inner bag.",
+      "Use windows when product appearance helps buyers decide.",
+      "Keep export packing separate from the retail display box when needed.",
+    ],
+    faqs: [
+      {
+        q: "What should I confirm for food packaging boxes?",
+        a: "Confirm whether the food has direct contact with the paper, whether an inner bag is used, and what destination rules apply.",
+      },
+      {
+        q: "Can food boxes use window cutouts?",
+        a: "Yes. Window cutouts are common for cookies and snacks when product visibility improves shelf appeal.",
+      },
+    ],
   },
 ];
 
