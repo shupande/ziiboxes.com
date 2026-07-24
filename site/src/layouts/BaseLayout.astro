@@ -43,7 +43,12 @@ const pageTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
         <a class="brand" href="/">
           <img src="/images/logo.png" alt="ZiiBoxes" />
         </a>
-        <div class="nav-links">
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="primary-menu" aria-expanded="false" data-nav-toggle>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="primary-menu">
           <a href="/products/">Products</a>
           <a href="/industries/custom-cosmetic-boxes/">Industries</a>
           <a href="/services/">Process</a>
@@ -82,5 +87,24 @@ const pageTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
         </div>
       </div>
     </footer>
+    <script>
+      const navToggle = document.querySelector("[data-nav-toggle]");
+      const navMenu = document.querySelector("#primary-menu");
+
+      if (navToggle && navMenu) {
+        navToggle.addEventListener("click", () => {
+          const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+          navToggle.setAttribute("aria-expanded", String(!isOpen));
+          navMenu.classList.toggle("is-open", !isOpen);
+        });
+
+        navMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navToggle.setAttribute("aria-expanded", "false");
+            navMenu.classList.remove("is-open");
+          });
+        });
+      }
+    </script>
   </body>
 </html>
