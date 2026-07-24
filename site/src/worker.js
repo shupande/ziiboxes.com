@@ -1,5 +1,5 @@
 const RECIPIENT = "sales@ziiboxes.com";
-const SENDER = RECIPIENT;
+const SENDER = "quote@ziiboxes.com";
 const FIELD_LABELS = {
   box_style: "Box style",
   quantity: "Quantity",
