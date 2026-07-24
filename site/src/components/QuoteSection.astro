@@ -60,6 +60,7 @@ import { site } from "../data/site";
         quoteForm.reset();
         status.textContent = "Request sent. We will reply soon.";
         status.dataset.state = "success";
+        trackQuoteConversion();
       } catch {
         const email = quoteForm.dataset.email || "Sales@ZiiBoxes.com";
         status.innerHTML = `The request form is being connected. Please email <a href="mailto:${email}">${email}</a> for now.`;
@@ -69,4 +70,23 @@ import { site } from "../data/site";
       }
     });
   });
+
+  function trackQuoteConversion() {
+    const conversionData = {
+      lead_type: "quote_request",
+      form_path: window.location.pathname,
+    };
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "quote_request_submitted",
+      ...conversionData,
+    });
+
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "generate_lead", conversionData);
+    }
+
+    window.dispatchEvent(new CustomEvent("quote_request_submitted"));
+  }
 </script>
