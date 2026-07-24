@@ -22,4 +22,4 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-Sitemap: https://www.ziiboxes.com/sitemap-index.xml
+Sitemap: https://www.ziiboxes.com/sitemap-0.xml
