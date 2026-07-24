@@ -1,0 +1,29 @@
+---
+import { site } from "../data/site";
+---
+
+<section id="quote" class="section dark">
+  <div class="wrap quote-band">
+    <div>
+      <p class="section-kicker">Request a quote</p>
+      <h2>Send the basic box details. Get a practical answer back.</h2>
+      <p>
+        Share the box style, size, quantity and destination. Artwork is helpful, but not required for the first estimate.
+      </p>
+      <div class="actions">
+        <a class="button light" href={`mailto:${site.email}`}>{site.email}</a>
+        <a class="button light" href={site.whatsapp}>WhatsApp</a>
+      </div>
+    </div>
+    <form class="quote-form" action={`mailto:${site.email}`} method="post" enctype="text/plain">
+      <input name="box_style" placeholder="Box style" />
+      <input name="quantity" placeholder="Quantity" />
+      <input name="size" placeholder="Size" />
+      <input name="destination" placeholder="Destination country" />
+      <input name="contact" placeholder="Email or WhatsApp" />
+      <input name="material_finish" placeholder="Material or finish" />
+      <textarea name="notes" placeholder="Project notes or artwork link"></textarea>
+      <button class="button gold quote-submit" type="submit">Send quote request</button>
+    </form>
+  </div>
+</section>

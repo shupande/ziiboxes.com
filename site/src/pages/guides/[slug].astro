@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import QuoteSection from "../../components/QuoteSection.astro";
+import { site } from "../../data/site";
+
+export async function getStaticPaths() {
+  const guides = await getCollection("guides");
+  return guides.map((guide) => ({
+    params: { slug: guide.id },
+    props: { guide },
+  }));
+}
+
+const { guide } = Astro.props;
+const { Content } = await render(guide);
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: guide.data.title,
+  description: guide.data.description,
+  datePublished: guide.data.pubDate.toISOString(),
+  dateModified: guide.data.updatedDate.toISOString(),
+  author: {
+    "@type": "Organization",
+    name: site.name,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: site.name,
+    logo: {
+      "@type": "ImageObject",
+      url: `${site.url}/images/logo.png`,
+    },
+  },
+};
+---
+
+<BaseLayout
+  title={guide.data.title}
+  description={guide.data.description}
+  path={`/guides/${guide.id}/`}
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">{guide.data.category}</p>
+        <h1>{guide.data.title}</h1>
+        <p>{guide.data.description}</p>
+      </div>
+    </section>
+    <section class="section alt">
+      <article class="wrap prose">
+        <Content />
+      </article>
+    </section>
+    <QuoteSection />
+  </main>
+</BaseLayout>

@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import QuoteSection from "../../components/QuoteSection.astro";
+import { products, site } from "../../data/site";
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: product.title,
+  description: product.description,
+  image: `${site.url}${product.image}`,
+  brand: {
+    "@type": "Brand",
+    name: site.name,
+  },
+  manufacturer: {
+    "@type": "Organization",
+    name: site.name,
+    url: site.url,
+  },
+};
+---
+
+<BaseLayout
+  title={`${product.title} from China`}
+  description={product.description}
+  path={`/products/${product.slug}/`}
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">{product.keyword}</p>
+        <h1>{product.title}</h1>
+        <p>{product.description}</p>
+        <div class="actions">
+          <a class="button gold" href="/request-a-quote/">Request a quote</a>
+          <a class="button light" href="/products/">All products</a>
+        </div>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src={product.image} alt={product.alt} />
+        </div>
+        <div>
+          <p class="section-kicker">Quote details</p>
+          <h2>Useful details to prepare before asking for a quote.</h2>
+          <div class="spec-list">
+            <div class="spec"><strong>Use cases:</strong> {product.uses.join(", ")}</div>
+            <div class="spec"><strong>Materials:</strong> {product.materials.join(", ")}</div>
+            <div class="spec"><strong>Finishes:</strong> {product.finishes.join(", ")}</div>
+            <div class="spec"><strong>Location:</strong> Shenzhen, China</div>
+          </div>
+          <div class="faq">
+            {product.faqs.map((item) => (
+              <div class="faq-item">
+                <strong>{item.q}</strong>
+                <p>{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+    <QuoteSection />
+  </main>
+</BaseLayout>

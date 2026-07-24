@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import QuoteSection from "../../components/QuoteSection.astro";
+import { industries } from "../../data/site";
+---
+
+<BaseLayout
+  title="Custom Packaging by Industry"
+  description="Custom paper boxes for cosmetics, candles, jewelry, soap and food brands."
+  path="/industries/"
+  solidHeader
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Industries</p>
+        <h1>Packaging pages built around buyer use cases.</h1>
+        <p>Each industry page explains box styles, finishes and quote details for a specific product category.</p>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="wrap product-grid">
+        {industries.map((industry) => (
+          <a class="product-card" href={`/industries/${industry.slug}/`}>
+            <img src={industry.image} alt={industry.title} />
+            <div class="product-copy">
+              <small>{industry.keyword}</small>
+              <h3>{industry.title}</h3>
+              <p>{industry.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+    <QuoteSection />
+  </main>
+</BaseLayout>

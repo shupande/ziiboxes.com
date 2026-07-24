@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import { processSteps } from "../data/site";
+---
+
+<BaseLayout
+  title="Custom Box Quote and Production Process"
+  description="How ZiiBoxes handles custom printed paper box quotes, sampling, production and shipping."
+  path="/services/"
+  solidHeader
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Process</p>
+        <h1>One clear path from box idea to production.</h1>
+        <p>Use this page to understand what information is needed and what happens before mass production.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap process">
+        <div class="process-image">
+          <img src="/images/printing-machine.jpg" alt="Printing and packaging production machine" />
+        </div>
+        <div class="steps">
+          {processSteps.map((step, index) => (
+            <div class="step">
+              <div class="step-num">{index + 1}</div>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    <QuoteSection />
+  </main>
+</BaseLayout>

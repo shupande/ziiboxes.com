@@ -1,0 +1,192 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import { guideLinks, industries, processSteps, products, site } from "../data/site";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+      logo: `${site.url}/images/logo.png`,
+      email: site.email,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Shenzhen",
+        addressCountry: "CN",
+      },
+    },
+    {
+      "@type": "WebSite",
+      name: site.name,
+      url: site.url,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is the MOQ for custom printed boxes?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "MOQ depends on box structure, material, printing method, surface finish and destination. Send your style, size and quantity to get a practical estimate.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can ZiiBoxes make custom boxes with logo?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. ZiiBoxes can quote custom logo printing, full-color artwork, Pantone colors, foil stamping, embossing and other paper packaging finishes.",
+          },
+        },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Custom Printed Boxes Manufacturer in China"
+  description="ZiiBoxes makes custom printed paper boxes for e-commerce and retail brands, including mailer boxes, folding cartons, rigid boxes and gift boxes."
+  schema={schema}
+>
+  <main>
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true">
+        <img src="/images/mailer-boxes.jpg" alt="" />
+        <img src="/images/rigid-boxes.jpg" alt="" />
+        <img src="/images/jewelry-boxes.jpg" alt="" />
+        <img src="/images/printing-machine.jpg" alt="" />
+        <img src="/images/gift-boxes.jpg" alt="" />
+      </div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content wrap">
+        <div>
+          <p class="eyebrow">Custom paper packaging from Shenzhen, China</p>
+          <h1>Custom printed boxes for growing online and retail brands.</h1>
+          <p class="hero-lede">
+            Mailer boxes, folding cartons, rigid gift boxes and printed paper packaging made to your size, artwork, finish and export schedule.
+          </p>
+          <div class="actions">
+            <a class="button" href="/request-a-quote/">Start a box quote</a>
+            <a class="button light" href="/products/">View box styles</a>
+          </div>
+        </div>
+        <div class="hero-proof" aria-label="Key buying points">
+          <div class="proof-item">
+            <strong>20+ years</strong>
+            <span>printed paper packaging experience</span>
+          </div>
+          <div class="proof-item">
+            <strong>Custom size</strong>
+            <span>structure, board, printing and finish</span>
+          </div>
+          <div class="proof-item">
+            <strong>Sample first</strong>
+            <span>check the box before mass production</span>
+          </div>
+          <div class="proof-item">
+            <strong>Export ready</strong>
+            <span>quotes based on destination and quantity</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Box styles</p>
+            <h2>Start from the box your product actually needs.</h2>
+          </div>
+          <p>Each page answers buyer questions first: use case, material, MOQ, finishes, sample timing and shipping notes.</p>
+        </div>
+        <div class="product-grid five">
+          {products.map((product) => (
+            <a class="product-card" href={`/products/${product.slug}/`}>
+              <img src={product.image} alt={product.alt} />
+              <div class="product-copy">
+                <small>{product.eyebrow}</small>
+                <h3>{product.title}</h3>
+                <p>{product.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Industry pages</p>
+            <h2>Write pages around buyer use cases, not just product names.</h2>
+          </div>
+          <p>These pages target long-tail searches like custom cosmetic boxes manufacturer and custom candle boxes wholesale.</p>
+        </div>
+        <div class="industry-table">
+          {industries.slice(0, 4).map((industry) => (
+            <div class="industry-row">
+              <h3>{industry.title.replace("Custom ", "")}</h3>
+              <p>{industry.description}</p>
+              <a href={`/industries/${industry.slug}/`}>Open page</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap process">
+        <div class="process-image">
+          <img src="/images/factory-line.jpg" alt="Packaging assembly line in a clean workshop" />
+        </div>
+        <div>
+          <p class="section-kicker">How quotes work</p>
+          <h2>A clear path from idea to export-ready boxes.</h2>
+          <div class="steps">
+            {processSteps.map((step, index) => (
+              <div class="step">
+                <div class="step-num">{index + 1}</div>
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">SEO content system</p>
+            <h2>Useful buyer guides instead of generic blog posts.</h2>
+          </div>
+          <p>These articles are practical enough for buyers and specific enough for search engines and AI answers to cite.</p>
+        </div>
+        <div class="guide-grid">
+          {guideLinks.map((guide) => (
+            <a class="guide-card" href={`/guides/${guide.slug}/`}>
+              <div>
+                <h3>{guide.title}</h3>
+                <p>{guide.description}</p>
+              </div>
+              <span>Guide</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>

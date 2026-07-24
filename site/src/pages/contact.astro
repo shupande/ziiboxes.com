@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout
+  title="Contact ZiiBoxes"
+  description="Contact ZiiBoxes for custom printed paper boxes, packaging samples and export quotes."
+  path="/contact/"
+  solidHeader
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Contact</p>
+        <h1>Send your custom paper box request.</h1>
+        <p>Email or WhatsApp works best for the first quote. Include size, quantity, destination and artwork if available.</p>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="content-card product-copy">
+          <h2>Contact details</h2>
+          <p><strong>Email:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></p>
+          <p><strong>WhatsApp:</strong> <a href={site.whatsapp}>Open WhatsApp</a></p>
+          <p><strong>Location:</strong> {site.location}</p>
+        </div>
+        <div class="prose">
+          <h2>Helpful details for a faster quote</h2>
+          <ul>
+            <li>Box style or reference photo</li>
+            <li>Product size and box size</li>
+            <li>Quantity and destination country</li>
+            <li>Material, printing and finish requirements</li>
+            <li>Artwork file or brand color reference if ready</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <QuoteSection />
+  </main>
+</BaseLayout>

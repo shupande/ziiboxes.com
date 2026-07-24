@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import QuoteSection from "../../components/QuoteSection.astro";
+import { products } from "../../data/site";
+---
+
+<BaseLayout
+  title="Custom Paper Box Products"
+  description="Explore custom mailer boxes, folding cartons, rigid boxes, gift boxes and shipping boxes from ZiiBoxes."
+  path="/products/"
+  solidHeader
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Products</p>
+        <h1>Custom paper box styles for online, retail and gift packaging.</h1>
+        <p>Start with the box structure, then quote material, size, printing, finish, sample and shipping.</p>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="wrap product-grid">
+        {products.map((product) => (
+          <a class="product-card" href={`/products/${product.slug}/`}>
+            <img src={product.image} alt={product.alt} />
+            <div class="product-copy">
+              <small>{product.keyword}</small>
+              <h3>{product.title}</h3>
+              <p>{product.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+    <QuoteSection />
+  </main>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+---
+
+<BaseLayout
+  title="About ZiiBoxes"
+  description="ZiiBoxes is a Shenzhen-based custom printed paper packaging supplier serving overseas e-commerce and retail brands."
+  path="/about/"
+  solidHeader
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">About</p>
+        <h1>A practical paper packaging supplier in Shenzhen, China.</h1>
+        <p>ZiiBoxes focuses on custom printed paper boxes for overseas buyers who need clear quoting, sampling and export-ready production.</p>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/factory-line.jpg" alt="Packaging workshop and assembly line" />
+        </div>
+        <div class="prose">
+          <h2>What we keep simple</h2>
+          <p>
+            Most buyers do not need a complicated packaging presentation. They need to know whether the supplier can make the box, quote it clearly, sample it properly and ship it on schedule.
+          </p>
+          <p>
+            The site is built around that path: choose a box style, prepare size and quantity, confirm material and finish, then request a quote.
+          </p>
+          <h2>What we make</h2>
+          <p>
+            ZiiBoxes works on mailer boxes, folding cartons, rigid boxes, gift boxes, shipping boxes and industry packaging for cosmetics, candles, jewelry, soap and food brands.
+          </p>
+        </div>
+      </div>
+    </section>
+    <QuoteSection />
+  </main>
+</BaseLayout>

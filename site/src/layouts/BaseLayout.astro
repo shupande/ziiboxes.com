@@ -1,0 +1,81 @@
+---
+import "../styles/global.css";
+import { site } from "../data/site";
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+  solidHeader?: boolean;
+  schema?: unknown;
+}
+
+const { title, description, path = "/", solidHeader = false, schema } = Astro.props;
+const canonical = new URL(path, site.url).toString();
+const pageTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={`${site.url}/images/mailer-boxes.jpg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  </head>
+  <body>
+    <header class:list={["site-header", { solid: solidHeader }]}>
+      <nav class="nav wrap" aria-label="Primary navigation">
+        <a class="brand" href="/">
+          <img src="/images/logo.png" alt="ZiiBoxes" />
+        </a>
+        <div class="nav-links">
+          <a href="/products/">Products</a>
+          <a href="/industries/custom-cosmetic-boxes/">Industries</a>
+          <a href="/services/">Process</a>
+          <a href="/guides/custom-box-moq/">Guides</a>
+          <a class="nav-quote" href="/request-a-quote/">Request a quote</a>
+        </div>
+      </nav>
+    </header>
+    <slot />
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <strong>{site.name}</strong>
+          <p>{site.description}</p>
+          <p>{site.location}</p>
+        </div>
+        <div>
+          <strong>Products</strong>
+          <a href="/products/custom-mailer-boxes/">Mailer boxes</a>
+          <a href="/products/custom-folding-cartons/">Folding cartons</a>
+          <a href="/products/custom-rigid-boxes/">Rigid boxes</a>
+        </div>
+        <div>
+          <strong>Guides</strong>
+          <a href="/guides/custom-box-moq/">MOQ guide</a>
+          <a href="/guides/custom-box-cost/">Cost guide</a>
+          <a href="/guides/artwork-file-checklist/">Artwork checklist</a>
+        </div>
+        <div>
+          <strong>Contact</strong>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <a href={site.whatsapp}>WhatsApp</a>
+          <a href="/request-a-quote/">Request a quote</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

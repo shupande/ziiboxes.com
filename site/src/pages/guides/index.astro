@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const guides = await getCollection("guides");
+guides.sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Custom Packaging Buyer Guides"
+  description="Practical guides about custom printed box MOQ, cost, printing finishes and artwork files."
+  path="/guides/"
+  solidHeader
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Guides</p>
+        <h1>Buyer guides for custom printed paper boxes.</h1>
+        <p>Short, practical pages that answer the questions buyers ask before requesting a packaging quote.</p>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="wrap guide-grid">
+        {guides.map((guide) => (
+          <a class="guide-card" href={`/guides/${guide.id}/`}>
+            <div>
+              <h3>{guide.data.title}</h3>
+              <p>{guide.data.description}</p>
+            </div>
+            <span>{guide.data.category}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
