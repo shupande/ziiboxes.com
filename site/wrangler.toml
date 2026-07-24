@@ -7,6 +7,9 @@ directory = "./dist"
 binding = "ASSETS"
 run_worker_first = ["/api/*"]
 
-[[send_email]]
-name = "EMAIL"
-destination_address = "sales@ziiboxes.com"
+[vars]
+SMTP_HOST = "smtp.ym.163.com"
+SMTP_PORT = "994"
+SMTP_USERNAME = "sales@ziiboxes.com"
+SMTP_FROM = "sales@ziiboxes.com"
+QUOTE_RECIPIENT = "sales@ziiboxes.com"

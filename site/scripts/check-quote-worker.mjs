@@ -17,16 +17,14 @@ const response = await worker.fetch(
     body: form,
   }),
   {
-    EMAIL: {
-      async send(message) {
-        sent = message;
-      },
+    async SMTP_SEND(message) {
+      sent = message;
     },
   },
 );
 
 assert.equal(response.status, 200);
 assert.equal(sent.to, "sales@ziiboxes.com");
-assert.equal(sent.from.email, "quote@ziiboxes.com");
+assert.equal(sent.from, "sales@ziiboxes.com");
 assert.equal(sent.replyTo, "buyer@example.com");
 assert.match(sent.text, /Quantity: 1000/);
