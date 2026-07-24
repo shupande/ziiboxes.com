@@ -77,13 +77,15 @@ async function sendQuoteEmail(env, message) {
     return env.SMTP_SEND(message);
   }
 
-  if (!env.SMTP_PASSWORD) {
+  const password = (env.SMTP_PASSWORD || "").trim();
+
+  if (!password) {
     throw smtpError("SMTP_NOT_CONFIGURED");
   }
 
   const host = env.SMTP_HOST || "smtp.ym.163.com";
   const port = Number(env.SMTP_PORT || 994);
-  const username = env.SMTP_USERNAME || message.from;
+  const username = (env.SMTP_USERNAME || message.from).trim();
   const { connect } = await import("cloudflare:sockets");
   const secureTransport = port === 587 ? "starttls" : "on";
   let socket = connect({ hostname: host, port }, { secureTransport });
@@ -105,7 +107,7 @@ async function sendQuoteEmail(env, message) {
 
     await session.command("AUTH LOGIN", 334);
     await session.command(base64(username), 334, "AUTH username");
-    await session.command(base64(env.SMTP_PASSWORD), 235, "AUTH password");
+    await session.command(base64(password), 235, "AUTH password");
     await session.command(`MAIL FROM:<${message.from}>`, 250);
     await session.command(`RCPT TO:<${message.to}>`, 250);
     await session.command("DATA", 354);
