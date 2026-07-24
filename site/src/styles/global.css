@@ -537,16 +537,27 @@ h2 {
 }
 
 .detail-card ul,
-.check-list {
+.check-list,
+.link-list {
   margin: 0;
   padding-left: 18px;
 }
 
 .detail-card li,
-.check-list li {
+.check-list li,
+.link-list li {
   margin: 6px 0;
   color: var(--muted);
   font-size: 14px;
+}
+
+.link-list a {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.link-list a:hover {
+  text-decoration: underline;
 }
 
 .note-panel {

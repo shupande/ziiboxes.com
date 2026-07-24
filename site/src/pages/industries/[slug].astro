@@ -11,6 +11,34 @@ export function getStaticPaths() {
 }
 
 const { industry } = Astro.props;
+const industryGuideLinks: Record<string, [string, string][]> = {
+  "custom-cosmetic-boxes": [
+    ["How to choose cosmetic packaging boxes", "/guides/cosmetic-packaging-structure-guide/"],
+    ["Paper inserts vs plastic trays", "/guides/paper-inserts-vs-plastic-trays/"],
+    ["Printing finishes explained", "/guides/printing-finishes/"],
+  ],
+  "custom-candle-boxes": [
+    ["Custom candle boxes and inserts", "/guides/candle-box-inserts-protection/"],
+    ["Mailer boxes vs shipping boxes", "/guides/mailer-boxes-vs-shipping-boxes/"],
+    ["Responsible packaging options", "/responsible-packaging/"],
+  ],
+  "custom-jewelry-boxes": [
+    ["Jewelry boxes with logo", "/guides/jewelry-box-inserts-logo/"],
+    ["Rigid boxes vs folding cartons", "/guides/rigid-boxes-vs-folding-cartons/"],
+    ["Printing finishes explained", "/guides/printing-finishes/"],
+  ],
+  "custom-soap-boxes": [
+    ["Kraft soap boxes with window", "/guides/kraft-soap-boxes-with-window/"],
+    ["Custom box dieline guide", "/guides/custom-box-dieline-guide/"],
+    ["Responsible packaging options", "/responsible-packaging/"],
+  ],
+  "custom-food-packaging-boxes": [
+    ["Custom box dieline guide", "/guides/custom-box-dieline-guide/"],
+    ["Paper inserts vs plastic trays", "/guides/paper-inserts-vs-plastic-trays/"],
+    ["Responsible packaging options", "/responsible-packaging/"],
+  ],
+};
+const relatedGuides = industryGuideLinks[industry.slug] ?? [];
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -96,6 +124,14 @@ const schema = {
                 <p>{item.a}</p>
               </div>
             ))}
+          </div>
+          <div class="note-panel">
+            <h3>Helpful guides</h3>
+            <ul class="link-list">
+              {relatedGuides.map(([title, href]) => (
+                <li><a href={href}>{title}</a></li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

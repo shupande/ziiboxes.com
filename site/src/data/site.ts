@@ -345,6 +345,56 @@ export const guideLinks = [
     title: "Artwork file checklist for custom boxes",
     description: "What to prepare before requesting a printed packaging quote.",
   },
+  {
+    slug: "mailer-boxes-vs-shipping-boxes",
+    title: "Mailer boxes vs shipping boxes",
+    description: "How to choose between branded mailers and protective shipping cartons.",
+  },
+  {
+    slug: "rigid-boxes-vs-folding-cartons",
+    title: "Rigid boxes vs folding cartons",
+    description: "Compare structure, cost, storage, freight and premium presentation.",
+  },
+  {
+    slug: "cosmetic-packaging-structure-guide",
+    title: "How to choose cosmetic packaging boxes",
+    description: "Box structures, inserts and finishes for beauty and skincare products.",
+  },
+  {
+    slug: "candle-box-inserts-protection",
+    title: "Custom candle boxes and inserts",
+    description: "Protection, inserts and gift packaging for glass jars and candle sets.",
+  },
+  {
+    slug: "kraft-soap-boxes-with-window",
+    title: "Kraft soap boxes with window",
+    description: "When window soap boxes help retail display, and when to skip them.",
+  },
+  {
+    slug: "jewelry-box-inserts-logo",
+    title: "Jewelry boxes with logo",
+    description: "Inserts, box structure and logo finishes for jewelry packaging.",
+  },
+  {
+    slug: "paper-inserts-vs-plastic-trays",
+    title: "Paper inserts vs plastic trays",
+    description: "Compare insert options for gift boxes, cosmetics and product kits.",
+  },
+  {
+    slug: "custom-box-dieline-guide",
+    title: "Custom box dieline guide",
+    description: "What buyers should check before sending packaging artwork.",
+  },
+  {
+    slug: "shipping-carton-size-freight-cost",
+    title: "How box size affects freight cost",
+    description: "Why dimensions, carton packing and volume change landed cost.",
+  },
+  {
+    slug: "low-moq-custom-packaging-small-brands",
+    title: "Low MOQ custom packaging",
+    description: "How small brands can plan a first custom box order.",
+  },
 ];
 
 export const processSteps = [

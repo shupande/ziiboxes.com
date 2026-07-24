@@ -14,6 +14,11 @@ export async function getStaticPaths() {
 
 const { guide } = Astro.props;
 const { Content } = await render(guide);
+const allGuides = await getCollection("guides");
+const relatedGuides = allGuides
+  .filter((item) => item.id !== guide.id)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 4);
 const schema = {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -55,6 +60,28 @@ const schema = {
       <article class="wrap prose">
         <Content />
       </article>
+    </section>
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Related reading</p>
+            <h2>More custom packaging guides.</h2>
+          </div>
+          <p>Keep comparing box structure, material, printing, cost and artwork before you request a quote.</p>
+        </div>
+        <div class="guide-grid">
+          {relatedGuides.map((item) => (
+            <a class="guide-card" href={`/guides/${item.id}/`}>
+              <div>
+                <h3>{item.data.title}</h3>
+                <p>{item.data.description}</p>
+              </div>
+              <span>{item.data.category}</span>
+            </a>
+          ))}
+        </div>
+      </div>
     </section>
     <QuoteSection />
   </main>

@@ -11,6 +11,34 @@ export function getStaticPaths() {
 }
 
 const { product } = Astro.props;
+const productGuideLinks: Record<string, [string, string][]> = {
+  "custom-mailer-boxes": [
+    ["Mailer boxes vs shipping boxes", "/guides/mailer-boxes-vs-shipping-boxes/"],
+    ["Low MOQ custom packaging", "/guides/low-moq-custom-packaging-small-brands/"],
+    ["How box size affects freight cost", "/guides/shipping-carton-size-freight-cost/"],
+  ],
+  "custom-folding-cartons": [
+    ["Rigid boxes vs folding cartons", "/guides/rigid-boxes-vs-folding-cartons/"],
+    ["Custom box dieline guide", "/guides/custom-box-dieline-guide/"],
+    ["How to choose cosmetic packaging boxes", "/guides/cosmetic-packaging-structure-guide/"],
+  ],
+  "custom-rigid-boxes": [
+    ["Rigid boxes vs folding cartons", "/guides/rigid-boxes-vs-folding-cartons/"],
+    ["Jewelry boxes with logo", "/guides/jewelry-box-inserts-logo/"],
+    ["Paper inserts vs plastic trays", "/guides/paper-inserts-vs-plastic-trays/"],
+  ],
+  "custom-gift-boxes": [
+    ["Custom candle boxes and inserts", "/guides/candle-box-inserts-protection/"],
+    ["Paper inserts vs plastic trays", "/guides/paper-inserts-vs-plastic-trays/"],
+    ["Printing finishes explained", "/guides/printing-finishes/"],
+  ],
+  "custom-shipping-boxes": [
+    ["Mailer boxes vs shipping boxes", "/guides/mailer-boxes-vs-shipping-boxes/"],
+    ["How box size affects freight cost", "/guides/shipping-carton-size-freight-cost/"],
+    ["Responsible packaging options", "/responsible-packaging/"],
+  ],
+};
+const relatedGuides = productGuideLinks[product.slug] ?? [];
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -111,6 +139,14 @@ const schema = {
                 <p>{item.a}</p>
               </div>
             ))}
+          </div>
+          <div class="note-panel">
+            <h3>Helpful guides</h3>
+            <ul class="link-list">
+              {relatedGuides.map(([title, href]) => (
+                <li><a href={href}>{title}</a></li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
