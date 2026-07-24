@@ -105,7 +105,9 @@ async function sendQuoteEmail(env, message) {
       await session.command("EHLO ziiboxes.com", 250);
     }
 
-    await session.command(`AUTH PLAIN ${base64(`\0${username}\0${password}`)}`, 235, "AUTH");
+    await session.command("AUTH LOGIN", 334);
+    await session.command(base64(username), 334, "AUTH username");
+    await session.command(base64(password), 235, "AUTH password");
     await session.command(`MAIL FROM:<${message.from}>`, 250);
     await session.command(`RCPT TO:<${message.to}>`, 250);
     await session.command("DATA", 354);
