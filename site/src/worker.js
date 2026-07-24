@@ -84,7 +84,7 @@ async function sendQuoteEmail(env, message) {
   }
 
   const host = env.SMTP_HOST || "smtp.ym.163.com";
-  const port = Number(env.SMTP_PORT || 994);
+  const port = Number(env.SMTP_PORT || 465);
   const username = (env.SMTP_USERNAME || message.from).trim();
   const { connect } = await import("cloudflare:sockets");
   const secureTransport = port === 587 ? "starttls" : "on";
@@ -105,9 +105,7 @@ async function sendQuoteEmail(env, message) {
       await session.command("EHLO ziiboxes.com", 250);
     }
 
-    await session.command("AUTH LOGIN", 334);
-    await session.command(base64(username), 334, "AUTH username");
-    await session.command(base64(password), 235, "AUTH password");
+    await session.command(`AUTH PLAIN ${base64(`\0${username}\0${password}`)}`, 235, "AUTH");
     await session.command(`MAIL FROM:<${message.from}>`, 250);
     await session.command(`RCPT TO:<${message.to}>`, 250);
     await session.command("DATA", 354);
