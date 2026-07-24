@@ -17,7 +17,7 @@ const response = await worker.fetch(
     body: form,
   }),
   {
-    async SMTP_SEND(message) {
+    async RESEND_SEND(message) {
       sent = message;
     },
   },

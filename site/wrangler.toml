@@ -1,6 +1,7 @@
 name = "ziiboxes"
 compatibility_date = "2026-07-24"
 main = "./src/worker.js"
+keep_vars = true
 
 [assets]
 directory = "./dist"
@@ -8,8 +9,4 @@ binding = "ASSETS"
 run_worker_first = ["/api/*"]
 
 [vars]
-SMTP_HOST = "smtp.ym.163.com"
-SMTP_PORT = "465"
-SMTP_USERNAME = "sales@ziiboxes.com"
-SMTP_FROM = "sales@ziiboxes.com"
 QUOTE_RECIPIENT = "sales@ziiboxes.com"
