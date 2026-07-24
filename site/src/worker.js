@@ -1,4 +1,5 @@
 const RECIPIENT = "sales@ziiboxes.com";
+const SENDER = "quotes@faithtechate.com";
 const FIELD_LABELS = {
   box_style: "Box style",
   quantity: "Quantity",
@@ -43,7 +44,7 @@ export default {
 
     const message = {
       to: env.QUOTE_RECIPIENT || RECIPIENT,
-      from: env.SMTP_FROM || env.SMTP_USERNAME || RECIPIENT,
+      from: env.RESEND_FROM || SENDER,
       fromName: "ZiiBoxes Quote Form",
       subject: "New quote request from ziiboxes.com",
       text: lines.join("\n"),

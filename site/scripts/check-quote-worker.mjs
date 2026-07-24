@@ -25,6 +25,6 @@ const response = await worker.fetch(
 
 assert.equal(response.status, 200);
 assert.equal(sent.to, "sales@ziiboxes.com");
-assert.equal(sent.from, "sales@ziiboxes.com");
+assert.equal(sent.from, "quotes@faithtechate.com");
 assert.equal(sent.replyTo, "buyer@example.com");
 assert.match(sent.text, /Quantity: 1000/);
