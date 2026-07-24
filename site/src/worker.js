@@ -63,7 +63,6 @@ export default {
           ok: false,
           error: "Email not sent",
           code: error.code || "EMAIL_SEND_FAILED",
-          detail: String(error.message || "").slice(0, 300),
         },
         502,
       );
