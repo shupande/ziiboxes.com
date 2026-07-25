@@ -5,49 +5,69 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 const guides = await getCollection("guides");
 guides.sort((a, b) => a.data.order - b.data.order);
 
-const boxImage = {
-  src: "/images/guides/cardboard-box-lids.jpg",
-  alt: "Close-up of kraft paper box lids and cardboard texture",
-};
-const stackImage = {
-  src: "/images/guides/stacked-cardboard-boxes.jpg",
-  alt: "Stacked cardboard boxes for custom packaging planning",
-};
-const orangeImage = {
-  src: "/images/guides/orange-cardboard-boxes.jpg",
-  alt: "Minimal kraft paper box on an orange studio surface",
-};
-const sustainableImage = {
-  src: "/images/guides/brown-cardboard-box.jpg",
-  alt: "Flat kraft paper boxes with simple black printing",
-};
-const conveyorImage = {
-  src: "/images/guides/corrugated-conveyor.jpg",
-  alt: "Corrugated cardboard sheets on a packaging production line",
-};
-const warehouseImage = {
-  src: "/images/guides/warehouse-cardboard-boxes.jpg",
-  alt: "Stacked cardboard cartons in a warehouse",
+const guideImages = {
+  "custom-box-moq": {
+    src: "/images/guides/supplier-colored-mailer-boxes.jpg",
+    alt: "Colorful custom mailer box samples",
+  },
+  "custom-box-cost": {
+    src: "/images/guides/pexels-pergamon-gift-boxes.jpg",
+    alt: "Premium white gift boxes stacked on a table",
+  },
+  "printing-finishes": {
+    src: "/images/guides/pexels-ribbon-gift-boxes.jpg",
+    alt: "White gift boxes with black ribbon details",
+  },
+  "artwork-file-checklist": {
+    src: "/images/guides/supplier-ecommerce-mailer-boxes.jpg",
+    alt: "Printed mailer box mockup with floral artwork",
+  },
+  "mailer-boxes-vs-shipping-boxes": {
+    src: "/images/guides/supplier-delivery-packaging-boxes.jpg",
+    alt: "Open printed delivery mailer box",
+  },
+  "rigid-boxes-vs-folding-cartons": {
+    src: "/images/guides/pexels-tea-gift-box.jpg",
+    alt: "Rigid tea gift box with fitted insert tray",
+  },
+  "cosmetic-packaging-structure-guide": {
+    src: "/images/guides/pexels-cosmetic-boxes.jpg",
+    alt: "Cosmetic carton boxes packed inside a shipping box",
+  },
+  "candle-box-inserts-protection": {
+    src: "/images/guides/pexels-candle-gift-box.jpg",
+    alt: "Gift box with candles and protective insert space",
+  },
+  "kraft-soap-boxes-with-window": {
+    src: "/images/guides/supplier-cardboard-soap-packaging.jpg",
+    alt: "Kraft soap packaging boxes with window cutouts",
+  },
+  "jewelry-box-inserts-logo": {
+    src: "/images/guides/pexels-jewelry-box-hand.jpg",
+    alt: "Red velvet jewelry box with ring insert",
+  },
+  "paper-inserts-vs-plastic-trays": {
+    src: "/images/guides/pexels-soap-gift-box.jpg",
+    alt: "Open gift box with soap products and insert tray",
+  },
+  "custom-box-dieline-guide": {
+    src: "/images/guides/supplier-white-shipping-packaging.jpg",
+    alt: "Open mailer box showing flap and fold structure",
+  },
+  "shipping-carton-size-freight-cost": {
+    src: "/images/guides/supplier-mailer-gift-boxes.jpg",
+    alt: "Open branded mailer box with apparel inside",
+  },
+  "low-moq-custom-packaging-small-brands": {
+    src: "/images/guides/supplier-belly-band-packaging.jpg",
+    alt: "Kraft product box with printed belly band",
+  },
 };
 
-const categoryImages = {
-  "MOQ guide": stackImage,
-  "Cost guide": conveyorImage,
-  "Finish guide": orangeImage,
-  "Artwork checklist": conveyorImage,
-  "Artwork guide": conveyorImage,
-  "Box style guide": boxImage,
-  "Industry guide": orangeImage,
-  "Material guide": sustainableImage,
-  "Shipping guide": warehouseImage,
-};
-
-const imageOverrides = {
-  "mailer-boxes-vs-shipping-boxes": warehouseImage,
-  "kraft-soap-boxes-with-window": sustainableImage,
-  "low-moq-custom-packaging-small-brands": sustainableImage,
-  "shipping-carton-size-freight-cost": warehouseImage,
-};
+const missingGuideImages = guides.filter((guide) => !guideImages[guide.id]).map((guide) => guide.id);
+if (missingGuideImages.length > 0) {
+  throw new Error(`Missing guide images: ${missingGuideImages.join(", ")}`);
+}
 ---
 
 <BaseLayout
@@ -67,7 +87,7 @@ const imageOverrides = {
     <section class="section alt">
       <div class="wrap guide-list">
         {guides.map((guide) => {
-          const image = imageOverrides[guide.id] ?? categoryImages[guide.data.category] ?? boxImage;
+          const image = guideImages[guide.id];
 
           return (
             <a class="guide-row" href={`/guides/${guide.id}/`}>
