@@ -17,6 +17,10 @@ const faqs = [
     a: "After your box and packing method are confirmed, carton size, packed quantity and weight details can be prepared for your freight planning.",
   },
   {
+    q: "Can you send the packaging to my product factory in China?",
+    a: "Yes. Finished boxes can be delivered to your supplier, factory, packer, warehouse or consolidation point in China. This is useful when your own product factory will pack the goods.",
+  },
+  {
     q: "Can you coordinate product inspection or testing in China?",
     a: "You can request basic product and packing checks before production or packing. If your product needs lab testing or a formal report, send the standard or third-party testing requirement before quoting.",
   },
@@ -41,7 +45,7 @@ const schema = {
       "@type": "WebPage",
       name: "Custom Ecommerce Packaging",
       description:
-        "Custom ecommerce packaging from China for Amazon sellers, Shopify stores, Etsy shops and subscription box brands sourcing products from China, including packing, paperwork, inspection coordination and freight handoff support near Shenzhen.",
+        "Custom ecommerce packaging from China for Amazon sellers, Shopify stores, Etsy shops and subscription box brands sourcing products from China, including packing, China supplier delivery, paperwork, inspection coordination and freight handoff support near Shenzhen.",
       url: `${site.url}/ecommerce-packaging/`,
     },
     {
@@ -61,7 +65,7 @@ const schema = {
 
 <BaseLayout
   title="China-Side Ecommerce Packaging and Packing Support"
-  description="Custom ecommerce packaging from China with packing, paperwork, freight forwarder coordination and FBA route handoff support for Amazon and Shopify sellers."
+  description="Custom ecommerce packaging from China with packing, delivery to your China supplier, paperwork, freight forwarder coordination and FBA route handoff support for Amazon and Shopify sellers."
   path="/ecommerce-packaging/"
   solidHeader
   schema={schema}
@@ -72,7 +76,7 @@ const schema = {
         <p class="eyebrow">Ecommerce packaging</p>
         <h1>Your China-side packaging coordinator for ecommerce products.</h1>
         <p>
-          If you source products from China, you can use one local contact to print boxes, pack suitable products, collect packing details, help find the right logistics contact and prepare the handoff before shipment.
+          If you source products from China, you can use one local contact to print boxes, deliver packaging to your product factory, pack suitable products, collect packing details and prepare the handoff before shipment.
         </p>
       </div>
     </section>
@@ -87,7 +91,7 @@ const schema = {
           <h2>Let one China-side contact coordinate packaging, packing and shipment prep.</h2>
           <p class="lede-copy">
             If you buy from Chinese factories but sell on Amazon, Shopify or retail channels, the packaging work does not need to wait until the goods arrive.
-            ZiiBoxes can coordinate the custom box, packing method, checks, labels, carton details and logistics handoff in China, so fewer small tasks fall back on your team later.
+            ZiiBoxes can coordinate the custom box, delivery to your China supplier, packing method, checks, labels, carton details and logistics handoff, so fewer small tasks fall back on your team later.
           </p>
           <div class="detail-grid">
             <div class="detail-card" id="amazon-seller-packaging">
@@ -135,15 +139,16 @@ const schema = {
       <div class="wrap split">
         <div>
           <p class="section-kicker">China packing support</p>
-          <h2>Pack products into the custom box before export.</h2>
+          <h2>Pack products here, or send boxes to your China supplier.</h2>
           <p class="lede-copy">
             When products are already being made or consolidated in China, packing support can be discussed together with the box quote.
-            This can include putting products into printed boxes, adding paper inserts, grouping small sets, preparing labels and packing finished units into export cartons.
+            This can include putting products into printed boxes, sending empty boxes to your product factory, adding paper inserts, grouping small sets, preparing labels and packing finished units into export cartons.
           </p>
           <div class="note-panel" id="china-packing-support">
             <h3>What to confirm first</h3>
             <ul class="check-list">
               <li>Product size, weight, photos and supplier location in China</li>
+              <li>Delivery address if boxes should go to your factory, packer or warehouse</li>
               <li>Exact packing steps, including inserts, cards, labels or sleeves</li>
               <li>Whether the product is fragile, liquid, food-related or regulated</li>
               <li>Finished carton quantity, destination, paperwork needs and shipping deadline</li>
@@ -165,7 +170,7 @@ const schema = {
           </div>
           <p>
             Shenzhen has a mature network of ecommerce suppliers, packing teams, freight forwarders, warehouses and Amazon-focused service providers.
-            That gives you a practical way to find the right logistics contact and coordinate packaging, checks, paperwork and shipment preparation before export.
+            That gives you a practical way to deliver packaging to a China supplier, find the right logistics contact and coordinate checks, paperwork and shipment preparation before export.
           </p>
         </div>
         <div class="detail-grid">
@@ -194,6 +199,15 @@ const schema = {
               <li>Pack finished units into master cartons based on your instructions</li>
               <li>Prepare packing lists and carton details for your confirmed route</li>
               <li>Useful when products, packaging and freight are all handled from China</li>
+            </ul>
+          </div>
+          <div class="detail-card" id="china-domestic-delivery">
+            <h3>China domestic delivery</h3>
+            <ul>
+              <li>Send finished boxes to your product factory or packing partner in China</li>
+              <li>Deliver to a consolidation warehouse when products come from several suppliers</li>
+              <li>Useful when you only need packaging production, not final packing</li>
+              <li>Share the Chinese address and receiver details before dispatch</li>
             </ul>
           </div>
           <div class="detail-card" id="warehouse-forwarder-delivery">
@@ -230,6 +244,10 @@ const schema = {
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <td>Product factory packs the goods</td>
+              <td>Deliver finished paper boxes to your factory, supplier or packing partner in China.</td>
+            </tr>
             <tr>
               <td>Amazon private label product</td>
               <td><a href="/products/custom-folding-cartons/">Folding cartons</a>, paper inserts, product checks, labels and export cartons.</td>

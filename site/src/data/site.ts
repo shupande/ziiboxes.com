@@ -5,7 +5,7 @@ export const site = {
   location: "Shenzhen, China",
   whatsapp: "https://wa.me/message/2MOG66WRZDZWH1",
   description:
-    "Custom printed paper boxes and China-side packing coordination for ecommerce and retail brands.",
+    "Custom printed paper boxes, China-side packing coordination and delivery to your supplier or freight route.",
 };
 
 export const products = [
@@ -722,6 +722,6 @@ export const processSteps = [
   },
   {
     title: "Prepare handoff details",
-    text: "Carton size, weight, labels and packing details can be prepared for your freight forwarder, warehouse or FBA route.",
+    text: "Carton size, weight, labels and packing details can be prepared for your China supplier, warehouse, freight forwarder or FBA route.",
   },
 ];
