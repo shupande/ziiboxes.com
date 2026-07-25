@@ -38,7 +38,12 @@ const productGuideLinks: Record<string, [string, string][]> = {
     ["Responsible packaging options", "/responsible-packaging/"],
   ],
 };
-const relatedGuides = productGuideLinks[product.slug] ?? [];
+const defaultProductGuideLinks: [string, string][] = [
+  ["What is the MOQ for custom printed boxes?", "/guides/custom-box-moq/"],
+  ["How much do custom printed boxes cost?", "/guides/custom-box-cost/"],
+  ["Custom box dieline guide", "/guides/custom-box-dieline-guide/"],
+];
+const relatedGuides = productGuideLinks[product.slug] ?? defaultProductGuideLinks;
 const schema = {
   "@context": "https://schema.org",
   "@graph": [

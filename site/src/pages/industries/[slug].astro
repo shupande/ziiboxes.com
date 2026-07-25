@@ -38,7 +38,12 @@ const industryGuideLinks: Record<string, [string, string][]> = {
     ["Responsible packaging options", "/responsible-packaging/"],
   ],
 };
-const relatedGuides = industryGuideLinks[industry.slug] ?? [];
+const defaultIndustryGuideLinks: [string, string][] = [
+  ["Low MOQ custom packaging", "/guides/low-moq-custom-packaging-small-brands/"],
+  ["Paper inserts vs plastic trays", "/guides/paper-inserts-vs-plastic-trays/"],
+  ["Responsible packaging options", "/responsible-packaging/"],
+];
+const relatedGuides = industryGuideLinks[industry.slug] ?? defaultIndustryGuideLinks;
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
