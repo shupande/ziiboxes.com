@@ -1,6 +1,6 @@
 ---
 title: "Custom box dieline guide for printed packaging"
-description: "What a custom box dieline is, why it matters, and what buyers should check before sending artwork for printed boxes."
+description: "What a custom box dieline is, why it matters, and what your team should check before sending artwork for printed boxes."
 category: "Artwork guide"
 order: 12
 pubDate: "2026-07-24"
@@ -22,7 +22,7 @@ Before final artwork, confirm the box size, structure and product fit. The dieli
 | Glue flap | Shows where artwork should not interfere |
 | Inside and outside panels | Prevents artwork from landing on the wrong side |
 
-## What buyers should check
+## What your team should check
 
 Check the dieline before design work starts. Make sure the product dimensions are correct, opening direction is clear and all panels are labeled. For mailer boxes, confirm whether the inside will be printed. For folding cartons, confirm tuck direction and barcode position.
 

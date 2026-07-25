@@ -24,7 +24,7 @@ Box size affects paper usage and shipping volume. Quantity affects setup cost pe
 
 ## Freight matters
 
-Packaging is bulky. For overseas buyers, shipping can be a major part of the landed cost. Always include destination country when asking for a quote.
+Packaging is bulky. If you import boxes from China, shipping can be a major part of the landed cost. Always include the destination country when asking for a quote.
 
 Rigid boxes and assembled gift boxes take more space than flat folding cartons. Mailer boxes and shipping boxes may ship flat, but the carton size still matters. When comparing suppliers, ask whether the quote includes only product cost or also freight.
 

@@ -28,7 +28,7 @@ A window can help when the soap has visible texture, layers, botanicals or color
 Use a window when:
 
 - The product appearance helps sell it
-- Retail buyers need quick product identification
+- Retail customers need quick product identification
 - The window shape supports the brand design
 - The extra cost is acceptable
 

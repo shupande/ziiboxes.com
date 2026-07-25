@@ -1,6 +1,6 @@
 ---
 title: "Rigid boxes vs folding cartons: cost, structure and brand feel"
-description: "A buyer guide comparing rigid boxes and folding cartons for retail packaging, gift sets, cosmetics and premium products."
+description: "A practical guide comparing rigid boxes and folding cartons for retail packaging, gift sets, cosmetics and premium products."
 category: "Box style guide"
 order: 6
 pubDate: "2026-07-24"

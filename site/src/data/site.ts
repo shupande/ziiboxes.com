@@ -235,7 +235,7 @@ export const products = [
     image: "/images/products/custom-window-boxes.jpg",
     alt: "Kraft paper box with a clear window cutout",
     summary:
-      "Window boxes help buyers see color, texture or product shape before opening the package. They work best when the visible product area improves retail confidence.",
+      "Window boxes help customers see color, texture or product shape before opening the package. They work best when the visible product area improves retail confidence.",
     uses: ["Soap bars", "Bakery products", "Candle boxes", "Small retail gifts"],
     materials: ["Kraft paperboard", "White card paper", "SBS paperboard", "PET window film"],
     finishes: ["Window patching", "Matte lamination", "Foil stamping", "Embossing"],
@@ -488,7 +488,7 @@ export const industries = [
     applications: ["Cookie boxes", "Snack gift sets", "Bakery retail boxes", "Food sleeves"],
     costTips: [
       "Confirm whether the food touches the box or uses an inner bag.",
-      "Use windows when product appearance helps buyers decide.",
+      "Use windows when product appearance helps customers decide.",
       "Keep export packing separate from the retail display box when needed.",
     ],
     faqs: [
@@ -693,7 +693,7 @@ export const guideLinks = [
   {
     slug: "custom-box-dieline-guide",
     title: "Custom box dieline guide",
-    description: "What buyers should check before sending packaging artwork.",
+    description: "What your team should check before sending packaging artwork.",
   },
   {
     slug: "shipping-carton-size-freight-cost",

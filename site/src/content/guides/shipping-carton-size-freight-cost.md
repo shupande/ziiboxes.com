@@ -1,13 +1,13 @@
 ---
 title: "How box size affects freight cost for custom packaging"
-description: "Why custom box dimensions, carton packing and rigid box volume can change overseas freight cost."
+description: "Why custom box dimensions, carton packing and rigid box volume can change freight cost."
 category: "Shipping guide"
 order: 13
 pubDate: "2026-07-24"
 updatedDate: "2026-07-24"
 ---
 
-Packaging cost is not only the unit price of the box. For overseas buyers, box size and packed carton volume can change the landed cost. A box that looks cheap per unit may become expensive after freight is included.
+Packaging cost is not only the unit price of the box. If you import boxes from China, box size and packed carton volume can change the landed cost. A box that looks cheap per unit may become expensive after freight is included.
 
 Ask for packed carton dimensions and gross weight when comparing quotes, especially for rigid boxes, gift boxes and assembled packaging.
 
