@@ -13,6 +13,9 @@ interface Props {
 const { title, description, path = "/", solidHeader = false, schema } = Astro.props;
 const canonical = new URL(path, site.url).toString();
 const pageTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+const la51Id = import.meta.env.PUBLIC_51LA_ID;
+const la51Ck = import.meta.env.PUBLIC_51LA_CK ?? la51Id;
+const has51La = Boolean(la51Id && la51Ck);
 ---
 
 <!doctype html>
@@ -99,6 +102,12 @@ const pageTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
         </div>
       </div>
     </footer>
+    {has51La && (
+      <>
+        <script is:inline charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js"></script>
+        <script is:inline set:html={`window.LA && window.LA.init && window.LA.init({id:${JSON.stringify(la51Id)},ck:${JSON.stringify(la51Ck)}});`} />
+      </>
+    )}
     <script>
       const navToggle = document.querySelector("[data-nav-toggle]");
       const navMenu = document.querySelector("#primary-menu");
