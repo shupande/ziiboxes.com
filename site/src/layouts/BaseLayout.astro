@@ -115,6 +115,7 @@ const has51La = Boolean(la51Id && la51Ck);
         </div>
       </div>
     </footer>
+    <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top hidden></button>
     {has51La && (
       <>
         <script is:inline charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js"></script>
@@ -138,6 +139,21 @@ const has51La = Boolean(la51Id && la51Ck);
             navMenu.classList.remove("is-open");
           });
         });
+      }
+
+      const backToTop = document.querySelector("[data-back-to-top]");
+
+      if (backToTop) {
+        const toggleBackToTop = () => {
+          backToTop.toggleAttribute("hidden", window.scrollY < 600);
+        };
+
+        backToTop.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        window.addEventListener("scroll", toggleBackToTop, { passive: true });
+        toggleBackToTop();
       }
     </script>
   </body>

@@ -1022,6 +1022,45 @@ h2 {
   font-size: 14px;
 }
 
+.back-to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 40;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(242, 213, 165, 0.7);
+  border-radius: 50%;
+  background: var(--green-dark);
+  color: var(--white);
+  box-shadow: 0 12px 28px rgba(8, 20, 18, 0.24);
+  cursor: pointer;
+}
+
+.back-to-top[hidden] {
+  display: none;
+}
+
+.back-to-top::before {
+  content: "";
+  width: 13px;
+  height: 13px;
+  border-top: 3px solid currentColor;
+  border-left: 3px solid currentColor;
+  transform: translateY(4px) rotate(45deg);
+}
+
+.back-to-top:hover {
+  background: var(--green);
+}
+
+.back-to-top:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: 1.2fr repeat(4, 1fr);
@@ -1218,6 +1257,13 @@ h2 {
 
   .case-preview-photo {
     min-height: 260px;
+  }
+
+  .back-to-top {
+    right: 14px;
+    bottom: 14px;
+    width: 44px;
+    height: 44px;
   }
 
   .step {
