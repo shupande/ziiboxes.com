@@ -22,7 +22,15 @@ const faqs = [
   },
   {
     q: "Can packed goods be delivered to my Amazon FBA route or freight warehouse?",
-    a: "Your packed goods can be prepared for handoff to your freight forwarder, warehouse or Amazon FBA shipping route after labels, carton requirements and the shipment plan are confirmed.",
+    a: "Your packed goods can be prepared for handoff to your confirmed freight forwarder, warehouse or Amazon FBA route after labels, carton requirements and the shipment plan are confirmed.",
+  },
+  {
+    q: "Can you help me find a freight forwarder or FBA prep route in China?",
+    a: "Yes. If you do not already have a route, suitable freight forwarder, warehouse or FBA prep contacts can be discussed. ZiiBoxes helps coordinate the packaging-side details; the final shipping service is confirmed with the logistics provider.",
+  },
+  {
+    q: "What paperwork can you help prepare?",
+    a: "Packing lists, carton quantity, carton size, gross weight, SKU label notes and other handoff details can be prepared after packing. If customs or regulated product documents are required, send the requirement before quoting.",
   },
 ];
 
@@ -33,7 +41,7 @@ const schema = {
       "@type": "WebPage",
       name: "Custom Ecommerce Packaging",
       description:
-        "Custom ecommerce packaging from China for Amazon sellers, Shopify stores, Etsy shops and subscription box brands sourcing products from China, including packing, inspection coordination and warehouse handoff support near Shenzhen.",
+        "Custom ecommerce packaging from China for Amazon sellers, Shopify stores, Etsy shops and subscription box brands sourcing products from China, including packing, paperwork, inspection coordination and freight handoff support near Shenzhen.",
       url: `${site.url}/ecommerce-packaging/`,
     },
     {
@@ -52,8 +60,8 @@ const schema = {
 ---
 
 <BaseLayout
-  title="Custom Ecommerce Packaging from China"
-  description="Custom ecommerce packaging from China for Amazon sellers, Shopify stores and ecommerce brands sourcing products from China, with packing, inspection coordination and warehouse handoff support near Shenzhen."
+  title="China-Side Ecommerce Packaging and Packing Support"
+  description="Custom ecommerce packaging from China with packing, paperwork, freight forwarder coordination and FBA route handoff support for Amazon and Shopify sellers."
   path="/ecommerce-packaging/"
   solidHeader
   schema={schema}
@@ -62,9 +70,9 @@ const schema = {
     <section class="page-hero">
       <div class="wrap">
         <p class="eyebrow">Ecommerce packaging</p>
-        <h1>Custom ecommerce packaging for Amazon, Shopify and Etsy sellers.</h1>
+        <h1>Your China-side packaging coordinator for ecommerce products.</h1>
         <p>
-          If you source products from China, you can print boxes, pack products, coordinate checks and prepare goods for export, freight forwarders or Amazon FBA routes before the shipment leaves China.
+          If you source products from China, you can use one local contact to print boxes, pack suitable products, collect packing details, help find the right logistics contact and prepare the handoff before shipment.
         </p>
       </div>
     </section>
@@ -76,10 +84,10 @@ const schema = {
         </div>
         <div>
           <p class="section-kicker">Why this matters</p>
-          <h2>If your products are made in China, packaging can be planned closer to the source.</h2>
+          <h2>Let one China-side contact coordinate packaging, packing and shipment prep.</h2>
           <p class="lede-copy">
-            If you buy from Chinese factories but sell in another market, the packaging work does not need to wait until the goods arrive.
-            You can plan the custom box, packing method, checks, labels and warehouse handoff in China to reduce repeat handling, avoid shipping empty packaging separately and make export carton details clearer before shipment.
+            If you buy from Chinese factories but sell on Amazon, Shopify or retail channels, the packaging work does not need to wait until the goods arrive.
+            ZiiBoxes can coordinate the custom box, packing method, checks, labels, carton details and logistics handoff in China, so fewer small tasks fall back on your team later.
           </p>
           <div class="detail-grid">
             <div class="detail-card" id="amazon-seller-packaging">
@@ -88,7 +96,7 @@ const schema = {
                 <li>Mailer boxes, folding cartons and inserts for private label products</li>
                 <li>Barcode and label space planned before artwork approval</li>
                 <li>Master carton quantity, size and weight checked after packing</li>
-                <li>Useful when you already source products in China</li>
+                <li>Freight forwarder or FBA route details discussed before shipment</li>
               </ul>
             </div>
             <div class="detail-card" id="shopify-packaging">
@@ -130,7 +138,7 @@ const schema = {
           <h2>Pack products into the custom box before export.</h2>
           <p class="lede-copy">
             When products are already being made or consolidated in China, packing support can be discussed together with the box quote.
-            This can include putting products into printed boxes, adding paper inserts, grouping small sets and packing finished units into export cartons.
+            This can include putting products into printed boxes, adding paper inserts, grouping small sets, preparing labels and packing finished units into export cartons.
           </p>
           <div class="note-panel" id="china-packing-support">
             <h3>What to confirm first</h3>
@@ -138,7 +146,7 @@ const schema = {
               <li>Product size, weight, photos and supplier location in China</li>
               <li>Exact packing steps, including inserts, cards, labels or sleeves</li>
               <li>Whether the product is fragile, liquid, food-related or regulated</li>
-              <li>Finished carton quantity, destination and shipping deadline</li>
+              <li>Finished carton quantity, destination, paperwork needs and shipping deadline</li>
             </ul>
           </div>
         </div>
@@ -152,12 +160,12 @@ const schema = {
       <div class="wrap">
         <div class="section-head">
           <div>
-            <p class="section-kicker">Inspection and warehouse handoff</p>
-            <h2>Use Shenzhen's cross-border ecommerce workflow before goods leave China.</h2>
+            <p class="section-kicker">Freight and warehouse handoff</p>
+            <h2>Use Shenzhen's cross-border ecommerce network before goods leave China.</h2>
           </div>
           <p>
-            Shenzhen has a mature network of ecommerce suppliers, packing teams, freight forwarders and Amazon-focused service providers.
-            That gives you a practical way to coordinate packaging, checks and shipment preparation before export.
+            Shenzhen has a mature network of ecommerce suppliers, packing teams, freight forwarders, warehouses and Amazon-focused service providers.
+            That gives you a practical way to find the right logistics contact and coordinate packaging, checks, paperwork and shipment preparation before export.
           </p>
         </div>
         <div class="detail-grid">
@@ -180,20 +188,20 @@ const schema = {
             </ul>
           </div>
           <div class="detail-card" id="amazon-fba-prep">
-            <h3>Amazon FBA prep coordination</h3>
+            <h3>Amazon FBA route coordination</h3>
             <ul>
               <li>Plan barcode, label and carton information before export</li>
               <li>Pack finished units into master cartons based on your instructions</li>
-              <li>Support handoff after you confirm shipment labels and carton rules</li>
+              <li>Prepare packing lists and carton details for your confirmed route</li>
               <li>Useful when products, packaging and freight are all handled from China</li>
             </ul>
           </div>
           <div class="detail-card" id="warehouse-forwarder-delivery">
-            <h3>Forwarder or warehouse delivery</h3>
+            <h3>Freight forwarder or warehouse handoff</h3>
             <ul>
-              <li>Prepare packed goods for your freight forwarder or 3PL route</li>
+              <li>Help discuss suitable freight forwarder, 3PL or warehouse contacts</li>
               <li>Provide carton size, carton weight and quantity details after packing</li>
-              <li>Discuss sea freight, air freight or warehouse receiving needs</li>
+              <li>Prepare packaging-side paperwork for sea freight, air freight or warehouse receiving</li>
               <li>Reduce the need for repacking after goods arrive in your market</li>
             </ul>
           </div>
@@ -206,11 +214,11 @@ const schema = {
         <h2 id="shenzhen-sea-freight">Shenzhen export and sea freight planning</h2>
         <p>
           Shenzhen is one of China's most active export areas, with access to nearby ports, air freight routes and a dense supplier network.
-          If you sell in another market while sourcing from China, the practical advantage is coordination: box production, product checks, product packing, master carton planning and export details can be discussed before the shipment leaves China.
+          If you sell on Amazon, Shopify or retail channels while sourcing from China, the practical advantage is coordination: box production, product checks, product packing, master carton planning, paperwork and freight handoff details can be discussed before the shipment leaves China.
         </p>
         <p>
           The useful details are not only the printed box price. You also need packed carton size, gross weight, quantity per carton and whether the box is mainly for retail display, ecommerce delivery or bulk export.
-          These details affect sea freight, air freight, warehouse receiving and final landed cost.
+          These details affect freight quotes, sea freight, air freight, warehouse receiving and final landed cost.
         </p>
 
         <h2>Box styles for ecommerce sellers</h2>
@@ -240,7 +248,7 @@ const schema = {
             </tr>
             <tr>
               <td>FBA or freight warehouse handoff</td>
-              <td>Carton details, label coordination and delivery to your confirmed route.</td>
+              <td>Carton details, label coordination, paperwork notes and delivery to your confirmed route.</td>
             </tr>
           </tbody>
         </table>
