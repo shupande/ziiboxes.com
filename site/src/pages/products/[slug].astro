@@ -48,18 +48,16 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Product",
+      "@type": "Service",
       name: product.title,
       description: product.description,
       image: `${site.url}${product.image}`,
-      brand: {
-        "@type": "Brand",
-        name: site.name,
-      },
-      manufacturer: {
+      serviceType: "Custom printed paper packaging",
+      provider: {
         "@type": "Organization",
         name: site.name,
         url: site.url,
+        logo: `${site.url}/images/logo.png`,
       },
     },
     {
