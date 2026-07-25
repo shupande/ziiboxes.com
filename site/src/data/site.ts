@@ -5,7 +5,7 @@ export const site = {
   location: "Shenzhen, China",
   whatsapp: "https://wa.me/message/2MOG66WRZDZWH1",
   description:
-    "Custom printed paper boxes from China for growing e-commerce and retail brands.",
+    "Custom printed paper boxes and ecommerce packing support from China for online and retail brands.",
 };
 
 export const products = [

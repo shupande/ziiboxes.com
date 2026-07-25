@@ -1,0 +1,196 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import { site } from "../data/site";
+
+const faqs = [
+  {
+    q: "Can you pack products into custom boxes in China?",
+    a: "For suitable products, packing support can be discussed before quoting. Send the product size, packing steps, quantity, photos and supplier location so the work can be checked case by case.",
+  },
+  {
+    q: "Is this useful for Amazon sellers?",
+    a: "Yes. Sellers who source products in China can plan custom boxes, inserts, barcode space, master cartons and export packing before the goods leave China.",
+  },
+  {
+    q: "Can you help with sea freight packing details?",
+    a: "We can provide carton size, packed quantity and weight details after the box and packing method are confirmed. These details help buyers compare sea freight, air freight and warehouse handling.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "Custom Ecommerce Packaging",
+      description:
+        "Custom ecommerce packaging from China for Amazon sellers, Shopify stores, Etsy shops and subscription box brands, including optional product packing support near Shenzhen.",
+      url: `${site.url}/ecommerce-packaging/`,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Custom Ecommerce Packaging from China"
+  description="Custom ecommerce packaging from China for Amazon sellers, Shopify stores, Etsy shops and subscription box brands, with optional product packing support near Shenzhen."
+  path="/ecommerce-packaging/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Ecommerce packaging</p>
+        <h1>Custom ecommerce packaging for Amazon, Shopify and Etsy sellers.</h1>
+        <p>
+          Print boxes, plan inserts and discuss product packing in China before goods move to export cartons, sea freight or air freight.
+        </p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/products/custom-mailer-boxes.jpg" alt="Custom ecommerce mailer boxes for online sellers" />
+        </div>
+        <div>
+          <p class="section-kicker">Why this matters</p>
+          <h2>If your products are made in China, packaging can be planned closer to the source.</h2>
+          <p class="lede-copy">
+            Many ecommerce sellers buy products from Chinese factories, then arrange packaging, labeling or kitting later.
+            Planning the custom box and packing method in China can reduce repeat handling, avoid shipping empty packaging separately and make export carton details clearer before shipment.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card" id="amazon-seller-packaging">
+              <h3>Amazon seller packaging</h3>
+              <ul>
+                <li>Mailer boxes, folding cartons and inserts for private label products</li>
+                <li>Barcode and label space planned before artwork approval</li>
+                <li>Master carton quantity, size and weight checked after packing</li>
+                <li>Better fit for sellers already sourcing products in China</li>
+              </ul>
+            </div>
+            <div class="detail-card" id="shopify-packaging">
+              <h3>Shopify and online store packaging</h3>
+              <ul>
+                <li>Branded unboxing boxes for online stores and product drops</li>
+                <li>Inside print, thank-you cards, sleeves and paper inserts</li>
+                <li>Small batch launch planning before larger repeat orders</li>
+                <li>Packaging that supports direct-to-consumer presentation</li>
+              </ul>
+            </div>
+            <div class="detail-card" id="etsy-packaging">
+              <h3>Etsy and handmade brands</h3>
+              <ul>
+                <li>Kraft boxes, window boxes, sleeves and simple gift packaging</li>
+                <li>Natural paper looks for soap, candles, jewelry and small gifts</li>
+                <li>Box structures that can start with lower-risk quantities</li>
+                <li>Custom branding without overbuilding the first order</li>
+              </ul>
+            </div>
+            <div class="detail-card" id="subscription-box-packaging">
+              <h3>Subscription box packaging</h3>
+              <ul>
+                <li>Printed mailer boxes for monthly kits and sample campaigns</li>
+                <li>Paper inserts and dividers for mixed product sets</li>
+                <li>Inside print for retention-focused unboxing</li>
+                <li>Carton size planning for repeated shipping programs</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">China packing support</p>
+          <h2>Pack products into the custom box before export.</h2>
+          <p class="lede-copy">
+            When products are already being made or consolidated in China, packing support can be discussed together with the box quote.
+            This can include putting products into printed boxes, adding paper inserts, grouping small sets and packing finished units into export cartons.
+          </p>
+          <div class="note-panel" id="china-packing-support">
+            <h3>What to confirm first</h3>
+            <ul class="check-list">
+              <li>Product size, weight, photos and supplier location in China</li>
+              <li>Exact packing steps, including inserts, cards, labels or sleeves</li>
+              <li>Whether the product is fragile, liquid, food-related or regulated</li>
+              <li>Finished carton quantity, destination and shipping deadline</li>
+            </ul>
+          </div>
+        </div>
+        <div class="feature-image">
+          <img src="/images/factory-line.jpg" alt="Paper packaging workshop for packing and export preparation" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap prose">
+        <h2 id="shenzhen-sea-freight">Shenzhen export and sea freight planning</h2>
+        <p>
+          Shenzhen is one of China's most active export areas, with access to nearby ports, air freight routes and a dense supplier network.
+          For ecommerce sellers, the practical advantage is coordination: box production, product packing, master carton planning and export details can be discussed before the shipment leaves China.
+        </p>
+        <p>
+          The useful details are not only the printed box price. Buyers also need packed carton size, gross weight, quantity per carton and whether the box is mainly for retail display, ecommerce delivery or bulk export.
+          These details affect sea freight, air freight, warehouse receiving and final landed cost.
+        </p>
+
+        <h2>Box styles for ecommerce sellers</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Seller need</th>
+              <th>Useful packaging option</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Amazon private label product</td>
+              <td><a href="/products/custom-folding-cartons/">Folding cartons</a>, paper inserts and export cartons.</td>
+            </tr>
+            <tr>
+              <td>Shopify or online store unboxing</td>
+              <td><a href="/products/custom-mailer-boxes/">Mailer boxes</a> with inside print, cards or inserts.</td>
+            </tr>
+            <tr>
+              <td>Gift set or launch kit</td>
+              <td><a href="/products/custom-rigid-boxes/">Rigid boxes</a>, paper inserts and sleeves.</td>
+            </tr>
+            <tr>
+              <td>Subscription program</td>
+              <td>Mailer boxes, dividers and consistent carton size planning.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="faq">
+          {faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>
