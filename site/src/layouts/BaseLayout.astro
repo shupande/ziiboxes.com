@@ -15,7 +15,8 @@ const canonical = new URL(path, site.url).toString();
 const pageTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
 const gtmId = import.meta.env.PUBLIC_GTM_ID;
 const hasGtm = Boolean(gtmId);
-const la51Id = import.meta.env.PUBLIC_51LA_ID;
+const default51LaId = "3QfvQ1OTkQxxXCtj";
+const la51Id = import.meta.env.PUBLIC_51LA_ID ?? default51LaId;
 const la51Ck = import.meta.env.PUBLIC_51LA_CK ?? la51Id;
 const has51La = Boolean(la51Id && la51Ck);
 ---
