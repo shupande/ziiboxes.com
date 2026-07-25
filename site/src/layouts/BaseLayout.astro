@@ -13,6 +13,8 @@ interface Props {
 const { title, description, path = "/", solidHeader = false, schema } = Astro.props;
 const canonical = new URL(path, site.url).toString();
 const pageTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+const gtmId = import.meta.env.PUBLIC_GTM_ID;
+const hasGtm = Boolean(gtmId);
 const la51Id = import.meta.env.PUBLIC_51LA_ID;
 const la51Ck = import.meta.env.PUBLIC_51LA_CK ?? la51Id;
 const has51La = Boolean(la51Id && la51Ck);
@@ -23,6 +25,9 @@ const has51La = Boolean(la51Id && la51Ck);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    {hasGtm && (
+      <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',${JSON.stringify(gtmId)});`} />
+    )}
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -41,6 +46,11 @@ const has51La = Boolean(la51Id && la51Ck);
     {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
   </head>
   <body>
+    {hasGtm && (
+      <noscript>
+        <iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe>
+      </noscript>
+    )}
     <header class:list={["site-header", { solid: solidHeader }]}>
       <nav class="nav wrap" aria-label="Primary navigation">
         <a class="brand" href="/">
