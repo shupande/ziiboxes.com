@@ -1,0 +1,203 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import { site } from "../data/site";
+
+const faqs = [
+  {
+    q: "Can you help with Amazon FBA packaging prep in China?",
+    a: "ZiiBoxes can help with packaging-side prep such as custom boxes, inserts, label space, carton details, packing lists and handoff to your confirmed freight or FBA route.",
+  },
+  {
+    q: "Do you manage my Amazon shipment plan?",
+    a: "No. Your Amazon account, shipment plan and final FBA requirements stay with your team or logistics provider. ZiiBoxes prepares packaging and carton details based on the information you provide.",
+  },
+  {
+    q: "Can you add barcodes or carton labels?",
+    a: "Barcode space and label placement can be planned early. Final label files, SKU rules and shipment labels should come from your team, warehouse or logistics provider.",
+  },
+  {
+    q: "Can you deliver packed goods to a freight forwarder?",
+    a: "Yes. Packed goods can be handed to your confirmed forwarder, China warehouse, prep route or consolidation point after delivery details are confirmed.",
+  },
+  {
+    q: "What information do you need before quoting?",
+    a: "Send product size, quantity, box style, FNSKU or barcode needs, carton requirements, supplier location, destination country and the handoff route you plan to use.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "Amazon FBA Packaging Prep in China",
+      description:
+        "China-side packaging prep for Amazon sellers: custom boxes, inserts, barcode space, carton details, packing lists and freight or FBA route handoff support.",
+      url: `${site.url}/amazon-fba-packaging-prep-china/`,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Amazon FBA Packaging Prep in China"
+  description="China-side packaging prep for Amazon sellers: custom boxes, inserts, barcode space, carton details, packing lists and freight or FBA route handoff support."
+  path="/amazon-fba-packaging-prep-china/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Amazon seller packaging</p>
+        <h1>Prepare product packaging in China before your FBA route.</h1>
+        <p>
+          If you source products from China for Amazon, ZiiBoxes can help prepare custom boxes, inserts, barcode space, carton details, packing lists and handoff notes before your goods go to a forwarder, warehouse or FBA route.
+        </p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/guides/supplier-delivery-packaging-boxes.jpg" alt="Custom ecommerce packaging prepared for Amazon seller shipments" />
+        </div>
+        <div>
+          <p class="section-kicker">Where ZiiBoxes fits</p>
+          <h2>Handle the packaging-side work before freight handoff.</h2>
+          <p class="lede-copy">
+            Amazon sellers often manage product suppliers, packaging, labels, cartons, inspection and freight as separate tasks.
+            This service connects the box order with the practical packing details your freight route needs.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Custom product boxes</h3>
+              <ul>
+                <li>Folding cartons, mailer boxes, rigid boxes and paper inserts</li>
+                <li>Barcode space planned before artwork approval</li>
+                <li>Sample checked before bulk production when needed</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Label and barcode planning</h3>
+              <ul>
+                <li>Reserve space for FNSKU, barcode or carton labels</li>
+                <li>Apply labels when files and instructions are provided</li>
+                <li>Keep SKU notes visible for warehouse receiving</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Master carton details</h3>
+              <ul>
+                <li>Confirm units per carton, carton count and gross weight</li>
+                <li>Share carton size before freight handoff</li>
+                <li>Prepare packing list notes after packing</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Handoff coordination</h3>
+              <ul>
+                <li>Deliver to your confirmed forwarder, warehouse or prep route</li>
+                <li>Help discuss a logistics contact if you do not have one</li>
+                <li>Keep final shipping service with the logistics provider</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">Clear boundaries</p>
+          <h2>Packaging prep is not the same as managing your Amazon account.</h2>
+          <p class="lede-copy">
+            ZiiBoxes helps with the China-side packaging workflow. Your Amazon shipment plan, label rules, final warehouse address and account-level requirements should come from your Amazon account, warehouse or logistics partner.
+          </p>
+          <div class="note-panel">
+            <h3>Send these before production</h3>
+            <ul class="check-list">
+              <li>Product SKU, product size, product weight and quantity</li>
+              <li>Required box style, insert layout and barcode position</li>
+              <li>Label files or barcode instructions from your team</li>
+              <li>Carton requirements from your freight or warehouse route</li>
+              <li>China supplier location and target handoff date</li>
+            </ul>
+          </div>
+        </div>
+        <div class="feature-image">
+          <img src="/images/shipping-boxes.jpg" alt="Master cartons prepared for freight handoff after Amazon packaging prep" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap prose">
+        <h2>What we handle and what your route handles</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>ZiiBoxes can help with</th>
+              <th>Your team or logistics route confirms</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Retail packaging</td>
+              <td>Custom printed boxes, inserts, samples and production.</td>
+              <td>Brand artwork, SKU data and final approval.</td>
+            </tr>
+            <tr>
+              <td>Product packing</td>
+              <td>Pack suitable products into boxes and master cartons.</td>
+              <td>Exact packing instructions and product compliance limits.</td>
+            </tr>
+            <tr>
+              <td>Labels</td>
+              <td>Reserve label space or apply provided labels by instruction.</td>
+              <td>Correct barcode, FNSKU or shipment label files.</td>
+            </tr>
+            <tr>
+              <td>Freight handoff</td>
+              <td>Carton count, size, weight, packing list notes and delivery to the confirmed China route.</td>
+              <td>Final freight quote, booking, customs and warehouse appointment.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Related pages</h2>
+        <ul class="link-list">
+          <li><a href="/product-packing-service-china/">Product packing service in China</a></li>
+          <li><a href="/send-packaging-to-china-supplier/">Send custom packaging to your China supplier</a></li>
+          <li><a href="/ecommerce-packaging/">China-side ecommerce packaging support</a></li>
+          <li><a href="/guides/freight-forwarder-carton-details/">Carton details your freight forwarder needs</a></li>
+        </ul>
+
+        <div class="faq">
+          {faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>

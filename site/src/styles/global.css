@@ -907,6 +907,16 @@ h2 {
   font-size: 18px;
 }
 
+.detail-card h3 a,
+.note-panel h3 a {
+  color: var(--green);
+}
+
+.detail-card h3 a:hover,
+.note-panel h3 a:hover {
+  text-decoration: underline;
+}
+
 .detail-card ul,
 .check-list,
 .link-list {

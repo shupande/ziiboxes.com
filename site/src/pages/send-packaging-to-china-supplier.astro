@@ -1,0 +1,215 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import { site } from "../data/site";
+
+const faqs = [
+  {
+    q: "Can you send custom boxes to my product supplier in China?",
+    a: "Yes. Finished boxes can be delivered to your factory, product supplier, packer, warehouse or consolidation point in China.",
+  },
+  {
+    q: "Is this different from product packing service?",
+    a: "Yes. In this option, your China supplier usually packs the goods. ZiiBoxes produces the packaging and sends it to the correct China address with the agreed delivery notes.",
+  },
+  {
+    q: "What address details do you need?",
+    a: "Send the Chinese delivery address, receiver name, mobile number, company name, delivery deadline and any carton marks or warehouse receiving instructions.",
+  },
+  {
+    q: "Can the boxes be shipped flat?",
+    a: "Many folding cartons, mailer boxes and sleeves can be shipped flat. Rigid boxes and assembled gift boxes usually take more space and should be planned with freight in mind.",
+  },
+  {
+    q: "Can you coordinate with my China supplier directly?",
+    a: "Yes, if you authorize the contact. Clear packing instructions, artwork approval and delivery timing should still be confirmed by your team.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "Send Custom Packaging to Your China Supplier",
+      description:
+        "Deliver finished custom boxes to your product supplier, factory, packer, warehouse or consolidation point in China before final product packing.",
+      url: `${site.url}/send-packaging-to-china-supplier/`,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Send Custom Packaging to Your China Supplier"
+  description="Custom boxes delivered to your China supplier, factory, packer or warehouse before final product packing."
+  path="/send-packaging-to-china-supplier/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">China supplier delivery</p>
+        <h1>Send custom packaging to your China supplier or factory.</h1>
+        <p>
+          If your product supplier will pack the goods, ZiiBoxes can produce the custom boxes and deliver them to the right address in China, so packaging arrives before final assembly or shipment.
+        </p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">Why buyers choose this</p>
+          <h2>Keep the packing work close to where the product is made.</h2>
+          <p class="lede-copy">
+            Shipping empty boxes to your own country first and packing later can waste freight, storage and labor.
+            If your supplier in China already handles product assembly or final packing, sending finished packaging to them is often the cleaner workflow.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Product factory delivery</h3>
+              <ul>
+                <li>Send finished boxes to the factory producing your product</li>
+                <li>Useful when the factory already packs each unit</li>
+                <li>Delivery timing planned before bulk packaging is finished</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Packer or warehouse delivery</h3>
+              <ul>
+                <li>Deliver to a China packer, 3PL or consolidation point</li>
+                <li>Keep packaging with the product before export</li>
+                <li>Share receiver details and warehouse rules before dispatch</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Flat or assembled boxes</h3>
+              <ul>
+                <li>Folding cartons, sleeves and mailer boxes often ship flat</li>
+                <li>Rigid gift boxes need more carton space</li>
+                <li>Carton details can be shared before domestic delivery</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Supplier coordination</h3>
+              <ul>
+                <li>Discuss delivery date and receiving contact</li>
+                <li>Pass packing notes to the supplier when authorized</li>
+                <li>Keep artwork, sample and delivery details aligned</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="feature-image">
+          <img src="/images/products/custom-folding-cartons.jpg" alt="Flat custom folding cartons ready for delivery to a China product supplier" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap process">
+        <div class="process-image">
+          <img src="/images/printing-machine.jpg" alt="Custom box printing before delivery to a China supplier" />
+        </div>
+        <div>
+          <p class="section-kicker">Delivery workflow</p>
+          <h2>Make sure the boxes arrive with enough instruction to be useful.</h2>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div>
+                <h3>Confirm the box order</h3>
+                <p>Approve the size, material, artwork, sample and packed carton format before bulk production.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div>
+                <h3>Collect the China delivery details</h3>
+                <p>Send the Chinese address, receiver, mobile number, deadline and any warehouse receiving rules.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div>
+                <h3>Share packing notes</h3>
+                <p>Tell the supplier how products should sit in the box, where labels go and how units should be packed into cartons.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div>
+                <h3>Deliver and confirm handoff</h3>
+                <p>Finished packaging is sent to the agreed China location, with carton count and delivery notes kept for your team.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap prose">
+        <h2>When this is the right option</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Situation</th>
+              <th>Why it works</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Your supplier already packs the product</td>
+              <td>They can receive the boxes and put products into the final retail packaging before export.</td>
+            </tr>
+            <tr>
+              <td>You want to reduce empty-box freight</td>
+              <td>Packaging stays in China instead of being imported empty and used later.</td>
+            </tr>
+            <tr>
+              <td>You use a China warehouse or packer</td>
+              <td>Boxes can go to the same place where your products are grouped, checked or prepared for shipment.</td>
+            </tr>
+            <tr>
+              <td>You have several product suppliers</td>
+              <td>Packaging delivery and supplier handoff can be discussed before goods are consolidated.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Related pages</h2>
+        <ul class="link-list">
+          <li><a href="/product-packing-service-china/">Product packing service in China</a></li>
+          <li><a href="/china-packaging-agent/">China packaging agent for ecommerce sellers</a></li>
+          <li><a href="/guides/send-custom-packaging-to-china-supplier/">How to send custom packaging to your China supplier</a></li>
+          <li><a href="/products/custom-folding-cartons/">Custom folding cartons</a></li>
+        </ul>
+
+        <div class="faq">
+          {faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>

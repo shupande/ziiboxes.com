@@ -1,0 +1,241 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import { site } from "../data/site";
+
+const faqs = [
+  {
+    q: "Can you pack products into custom boxes in China?",
+    a: "Yes, when the product and packing steps are suitable. Send product photos, size, weight, quantity, supplier location and the exact packing steps before quoting.",
+  },
+  {
+    q: "What products are suitable for China-side packing?",
+    a: "Lightweight retail goods, gift sets, cosmetics, accessories, candles, jewelry, apparel and similar products are easier to discuss. Fragile, liquid, food-related or regulated products need extra checks before acceptance.",
+  },
+  {
+    q: "Can you add inserts, cards or barcode labels?",
+    a: "Yes. Paper inserts, dividers, sleeves, thank-you cards, barcode labels and carton labels can be planned as part of the packing workflow.",
+  },
+  {
+    q: "Can you pack goods from more than one China supplier?",
+    a: "Supplier collection can be discussed case by case. Share supplier cities, product quantity, carton count, deadlines and whether inspection or testing is needed before packing.",
+  },
+  {
+    q: "Do you handle final freight or customs?",
+    a: "ZiiBoxes helps with packaging-side packing, carton details and handoff notes. Final freight, customs or regulated-product service is confirmed with your logistics provider or broker.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "Product Packing Service in China",
+      description:
+        "Product packing service in China for ecommerce sellers who need custom boxes, inserts, labels, supplier collection, export cartons and freight handoff details before shipment.",
+      url: `${site.url}/product-packing-service-china/`,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Product Packing Service in China"
+  description="Product packing service in China for ecommerce sellers: custom boxes, inserts, labels, supplier collection, export cartons and freight handoff details."
+  path="/product-packing-service-china/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Product packing in China</p>
+        <h1>Pack products into custom boxes before they leave China.</h1>
+        <p>
+          If your products are made in China, ZiiBoxes can print the boxes, pack suitable products, add inserts or labels, prepare master cartons and hand over clear carton details to your freight route.
+        </p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/factory-line.jpg" alt="China-side product packing support for custom paper boxes" />
+        </div>
+        <div>
+          <p class="section-kicker">What buyers use it for</p>
+          <h2>Reduce repacking work after goods arrive in your market.</h2>
+          <p class="lede-copy">
+            Many sellers buy products from China, ship them abroad, then pay again to add retail packaging, labels or bundle items later.
+            When the product is suitable, doing the packing in China can make the shipment cleaner before it reaches your warehouse, FBA route or 3PL.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Pack into printed boxes</h3>
+              <ul>
+                <li>Folding cartons, mailer boxes, rigid boxes or gift boxes</li>
+                <li>Single-product packing or simple grouped sets</li>
+                <li>Sample packing checked before bulk work starts</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Add inserts and cards</h3>
+              <ul>
+                <li>Paper inserts, dividers, sleeves and belly bands</li>
+                <li>Instruction cards, thank-you cards or printed inserts</li>
+                <li>Barcode and label position discussed before packing</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Prepare export cartons</h3>
+              <ul>
+                <li>Pack finished units into master cartons</li>
+                <li>Confirm carton size, gross weight and units per carton</li>
+                <li>Prepare packing details for your freight forwarder</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Coordinate supplier goods</h3>
+              <ul>
+                <li>Discuss collection from your product supplier in China</li>
+                <li>Check product condition by agreed steps before packing</li>
+                <li>Keep product, packaging and shipment timing together</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">Before we quote</p>
+          <h2>Some products need a careful yes or no.</h2>
+          <p class="lede-copy">
+            Packing is not just labor. The product size, material, fragility, labels, destination rules and shipping method decide whether the workflow is practical.
+            Send the details early so the packing method does not create problems later.
+          </p>
+          <div class="note-panel">
+            <h3>Send these details first</h3>
+            <ul class="check-list">
+              <li>Product photos, size, weight and quantity</li>
+              <li>Your China supplier location and pickup or delivery plan</li>
+              <li>Exact packing steps, labels, inserts, cards and carton marks</li>
+              <li>Whether the product is fragile, liquid, battery-related, food-related or regulated</li>
+              <li>Destination country, freight route, deadline and paperwork needs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="feature-image">
+          <img src="/images/products/custom-paper-inserts.jpg" alt="Paper inserts for product packing into custom boxes" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap process">
+        <div>
+          <p class="section-kicker">Workflow</p>
+          <h2>A packing plan your remote team can follow.</h2>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div>
+                <h3>Confirm the product and box fit</h3>
+                <p>Check product dimensions, box structure, insert need, label position and whether a sample pack is needed.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div>
+                <h3>Arrange supplier delivery or collection</h3>
+                <p>Products can be sent by your supplier, or collection can be discussed when the project needs it.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div>
+                <h3>Pack, label and carton the goods</h3>
+                <p>Pack units by the approved method, add agreed labels or inserts and place finished units into master cartons.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div>
+                <h3>Prepare handoff details</h3>
+                <p>Share carton count, carton size, gross weight, units per carton and packing list notes for your freight route.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="process-image">
+          <img src="/images/shipping-boxes.jpg" alt="Export cartons prepared after product packing in China" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap prose">
+        <h2>Product packing here vs packing at your product supplier</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Best when</th>
+              <th>Watch point</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pack with ZiiBoxes</td>
+              <td>Your packaging, inserts, labels and carton details need one coordinated workflow.</td>
+              <td>Product suitability and supplier delivery must be confirmed before quoting.</td>
+            </tr>
+            <tr>
+              <td>Send boxes to your China supplier</td>
+              <td>Your product factory already has the team and space to pack the goods.</td>
+              <td>The factory still needs clear packing instructions and carton details.</td>
+            </tr>
+            <tr>
+              <td>Pack after import</td>
+              <td>The product needs local inspection, special handling or market-specific relabeling.</td>
+              <td>You may pay extra freight, storage and repacking cost later.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Related pages</h2>
+        <ul class="link-list">
+          <li><a href="/send-packaging-to-china-supplier/">Send custom packaging to your China supplier</a></li>
+          <li><a href="/amazon-fba-packaging-prep-china/">Amazon FBA packaging prep in China</a></li>
+          <li><a href="/china-packaging-agent/">China packaging agent for ecommerce sellers</a></li>
+          <li><a href="/guides/freight-forwarder-carton-details/">Carton details your freight forwarder needs</a></li>
+        </ul>
+
+        <div class="faq">
+          {faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>

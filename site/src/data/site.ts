@@ -5,7 +5,7 @@ export const site = {
   location: "Shenzhen, China",
   whatsapp: "https://wa.me/message/2MOG66WRZDZWH1",
   description:
-    "Custom printed paper boxes, China-side packing coordination and delivery to your supplier or freight route.",
+    "For sellers sourcing in China: print the boxes, deliver them to your factory or pack products here, then prepare carton details for your freight route.",
 };
 
 export const products = [
@@ -704,6 +704,16 @@ export const guideLinks = [
     slug: "low-moq-custom-packaging-small-brands",
     title: "Low MOQ custom packaging",
     description: "How small brands can plan a first custom box order.",
+  },
+  {
+    slug: "send-custom-packaging-to-china-supplier",
+    title: "Send packaging to your China supplier",
+    description: "How to deliver finished custom boxes to your factory, packer or warehouse in China.",
+  },
+  {
+    slug: "freight-forwarder-carton-details",
+    title: "Carton details your freight forwarder needs",
+    description: "What to prepare before a freight forwarder quotes or receives packed goods.",
   },
 ];
 
