@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import { site } from "../data/site";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Packaging Case Studies",
+  description:
+    "Real custom paper packaging project examples from ZiiBoxes, including gift box production, China-side supplier collection, logistics coordination and export paperwork support.",
+  url: `${site.url}/case-studies/`,
+};
+---
+
+<BaseLayout
+  title="Packaging Case Studies"
+  description="Real custom paper packaging project examples from ZiiBoxes, including gift box production, China-side supplier collection, logistics coordination and export paperwork support."
+  path="/case-studies/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Case studies</p>
+        <h1>Real packaging projects with China-side support.</h1>
+        <p>
+          These examples show how custom boxes, supplier collection, packing details and freight handoff can work in real projects. Client names can stay private when needed.
+        </p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/gift-boxes.jpg" alt="Rigid lid-and-base gift boxes for an export packaging project" />
+        </div>
+        <article class="prose">
+          <p class="section-kicker">UK gift box project</p>
+          <h2>20,000 rigid lid-and-base gift boxes, plus China-side export coordination.</h2>
+          <p>
+            A UK customer needed about 20,000 gift boxes in a rigid lid-and-base structure. The project also needed China-side coordination because goods from other Chinese suppliers had to be collected before export.
+          </p>
+
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Customer need</h3>
+              <ul>
+                <li>UK gift box project</li>
+                <li>About 20,000 rigid lid-and-base boxes</li>
+                <li>Export planning after packaging production</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Packaging work</h3>
+              <ul>
+                <li>Custom rigid gift box production</li>
+                <li>Export carton details discussed before shipment</li>
+                <li>Packaging prepared for container loading</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>China-side support</h3>
+              <ul>
+                <li>Collected goods from other Chinese suppliers</li>
+                <li>Helped find a suitable logistics provider</li>
+                <li>Coordinated container loading</li>
+                <li>Prepared customs paperwork support</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Project outcome</h3>
+              <ul>
+                <li>Packaging and supplier goods were organized for one export route</li>
+                <li>Fewer separate handoffs for the customer to manage remotely</li>
+                <li>Clearer paperwork and loading details before shipment</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="note-panel">
+            <h3>Customer feedback</h3>
+            <p>
+              The customer said the box quality was very good and thanked us for helping with dangerous-goods paperwork and customs clearance coordination for granular cargo.
+            </p>
+          </div>
+
+          <h2>What this project shows</h2>
+          <ul class="check-list">
+            <li>ZiiBoxes can support more than box production when a project needs China-side coordination.</li>
+            <li>Finished packaging and goods from other suppliers can be organized before export.</li>
+            <li>Logistics provider search, container loading and paperwork can be discussed case by case.</li>
+            <li>Regulated shipments must follow the carrier, freight forwarder and customs requirements for that product and route.</li>
+          </ul>
+
+          <table>
+            <tbody>
+              <tr>
+                <td>Customer market</td>
+                <td>United Kingdom</td>
+              </tr>
+              <tr>
+                <td>Box style</td>
+                <td>Rigid lid-and-base gift box</td>
+              </tr>
+              <tr>
+                <td>Quantity</td>
+                <td>About 20,000 pieces</td>
+              </tr>
+              <tr>
+                <td>Extra support</td>
+                <td>Supplier collection, logistics provider search, container loading and customs paperwork support.</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>
