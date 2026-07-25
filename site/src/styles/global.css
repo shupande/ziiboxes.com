@@ -754,7 +754,8 @@ h2 {
 }
 
 .text-link {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   margin-top: 10px;
   color: var(--green);
   font-weight: 800;
@@ -915,6 +916,11 @@ h2 {
 
   .product-copy {
     min-height: auto;
+  }
+
+  .guide-card {
+    min-height: auto;
+    gap: 18px;
   }
 
   .process-image img,
