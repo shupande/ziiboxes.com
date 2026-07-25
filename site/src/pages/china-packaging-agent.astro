@@ -1,0 +1,296 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import { site } from "../data/site";
+
+const faqs = [
+  {
+    q: "What is a China packaging agent for ecommerce sellers?",
+    a: "A China packaging agent helps coordinate custom packaging, delivery to your China supplier, product packing steps, carton details, supplier collection and freight handoff before your goods leave China.",
+  },
+  {
+    q: "Can you deliver custom packaging to my product supplier in China?",
+    a: "Yes. Finished boxes can be sent to your factory, supplier, packer, warehouse or consolidation point in China when your own product supplier will pack the goods.",
+  },
+  {
+    q: "Can you collect goods from more than one Chinese supplier?",
+    a: "Supplier collection can be discussed case by case. Send supplier locations, product details, quantity and shipping timing so the handoff work can be checked before quoting.",
+  },
+  {
+    q: "Can you pack products into custom boxes in China?",
+    a: "If the product and packing steps are suitable, packing can be discussed together with the box quote. Send product photos, size, weight, packing steps and any labels or inserts required.",
+  },
+  {
+    q: "Can you help with Amazon FBA prep or freight warehouse handoff?",
+    a: "ZiiBoxes can help prepare packaging-side details such as carton size, carton weight, quantity per carton, barcode notes and packing list details for your confirmed freight forwarder, warehouse or FBA route.",
+  },
+  {
+    q: "Do you act as the freight forwarder or customs broker?",
+    a: "No. ZiiBoxes coordinates packaging-side work and can help discuss suitable logistics contacts. The final freight, customs or regulated-product service is confirmed with the logistics provider or broker.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "China Packaging Agent for Ecommerce Sellers",
+      description:
+        "China-side packaging agent support for ecommerce sellers sourcing products from China, including custom boxes, supplier delivery, product packing, supplier collection, carton details, paperwork and freight handoff.",
+      url: `${site.url}/china-packaging-agent/`,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="China Packaging Agent for Ecommerce Sellers"
+  description="China-side packaging agent for ecommerce sellers sourcing from China: custom boxes, supplier delivery, product packing, supplier collection, carton details and freight handoff support."
+  path="/china-packaging-agent/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">China packaging agent</p>
+        <h1>China packaging agent for ecommerce sellers sourcing products from China.</h1>
+        <p>
+          If your products are already made in China, ZiiBoxes can help coordinate custom packaging, delivery to your supplier, packing steps, supplier collection, carton details, paperwork and freight handoff before export.
+        </p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/factory-line.jpg" alt="Paper packaging workshop for China-side packing coordination" />
+        </div>
+        <div>
+          <p class="section-kicker">What this service solves</p>
+          <h2>Use one China-side contact for packaging and shipment preparation.</h2>
+          <p class="lede-copy">
+            A buyer often has several moving parts in China: product factories, packaging, inspection, warehouse receiving, labels, carton details and freight timing.
+            This page is for sellers who need more than printed boxes. It is for sellers who want the packaging work connected to the product and shipment plan.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Custom boxes</h3>
+              <ul>
+                <li>Mailer boxes, folding cartons, rigid boxes and inserts</li>
+                <li>Logo printing, artwork checking and sample discussion</li>
+                <li>Material and finish choices for ecommerce products</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Supplier delivery</h3>
+              <ul>
+                <li>Send finished boxes to your China product factory</li>
+                <li>Deliver packaging to a packer, warehouse or consolidation point</li>
+                <li>Useful when your supplier handles final packing</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Product packing</h3>
+              <ul>
+                <li>Put suitable products into printed boxes</li>
+                <li>Add sleeves, inserts, cards, labels or dividers</li>
+                <li>Pack finished units into export cartons</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Supplier collection</h3>
+              <ul>
+                <li>Collect goods from other China suppliers when needed</li>
+                <li>Organize packaging and goods before export handoff</li>
+                <li>Reduce separate handoffs for your team to manage remotely</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Carton details</h3>
+              <ul>
+                <li>Confirm carton size, carton weight and quantity per carton</li>
+                <li>Prepare packing list details for your freight plan</li>
+                <li>Plan barcode or warehouse label space early</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Freight handoff</h3>
+              <ul>
+                <li>Help discuss a suitable logistics provider or warehouse route</li>
+                <li>Coordinate packaging-side paperwork and loading notes</li>
+                <li>Keep freight service confirmed with the logistics provider</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Best-fit buyers</p>
+            <h2>Useful when your products, packaging and shipping plan all touch China.</h2>
+          </div>
+          <p>
+            This service is most useful when you already source products from China and want packaging decisions made before goods leave the country.
+          </p>
+        </div>
+        <div class="detail-grid">
+          <div class="detail-card">
+            <h3>Amazon private label sellers</h3>
+            <ul>
+              <li>Plan boxes, inserts, barcodes and master cartons before FBA handoff</li>
+              <li>Prepare carton data for your freight forwarder or FBA route</li>
+            </ul>
+          </div>
+          <div class="detail-card">
+            <h3>Shopify and DTC brands</h3>
+            <ul>
+              <li>Build branded unboxing into the China-side packing flow</li>
+              <li>Reduce repacking work after goods arrive in your market</li>
+            </ul>
+          </div>
+          <div class="detail-card">
+            <h3>Brands using several Chinese suppliers</h3>
+            <ul>
+              <li>Discuss supplier collection before one export handoff</li>
+              <li>Keep packaging, carton data and loading details together</li>
+            </ul>
+          </div>
+          <div class="detail-card">
+            <h3>Gift sets and launch kits</h3>
+            <ul>
+              <li>Coordinate rigid boxes, paper inserts and product grouping</li>
+              <li>Confirm sample quality before bulk packing starts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap process">
+        <div>
+          <p class="section-kicker">How it works</p>
+          <h2>A practical workflow before your goods leave China.</h2>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div>
+                <h3>Send the project details</h3>
+                <p>Share product photos, supplier location, box style, quantity, packing steps, destination and timing.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div>
+                <h3>Confirm the packaging plan</h3>
+                <p>Decide box structure, material, print, inserts, labels, sample needs and whether boxes go to your supplier or packing happens here.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div>
+                <h3>Coordinate China-side handoffs</h3>
+                <p>Discuss supplier delivery, supplier collection, product packing, carton packing and any inspection or testing request.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div>
+                <h3>Prepare export handoff details</h3>
+                <p>Collect carton quantity, carton size, gross weight, packing list details and logistics handoff notes for your confirmed route.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="process-image">
+          <img src="/images/printing-machine.jpg" alt="Packaging printing machine for custom box production in China" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap prose">
+        <h2>Packaging supplier vs China packaging agent</h2>
+        <p>
+          If you only need empty boxes, a packaging supplier can quote box style, size, material, printing and quantity. If your product is already in China and you also need packing, supplier delivery, supplier collection, carton details and freight handoff support, a China-side packaging agent is more useful.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Need</th>
+              <th>Packaging supplier</th>
+              <th>China packaging agent support</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Custom printed boxes</td>
+              <td>Quote and produce the boxes.</td>
+              <td>Quote boxes and plan how they fit the product and shipment.</td>
+            </tr>
+            <tr>
+              <td>Boxes sent to a China supplier</td>
+              <td>Possible if delivery address is provided.</td>
+              <td>Planned as part of the packing or supplier handoff workflow.</td>
+            </tr>
+            <tr>
+              <td>Products from several suppliers</td>
+              <td>Usually outside a simple box order.</td>
+              <td>Supplier collection can be discussed before export handoff.</td>
+            </tr>
+            <tr>
+              <td>FBA or freight warehouse handoff</td>
+              <td>May only provide box carton details.</td>
+              <td>Carton data, labels and packing list details can be prepared for your confirmed route.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-panel">
+          <h3>Real project example</h3>
+          <p>
+            A UK customer ordered about 20,000 rigid lid-and-base gift boxes and also needed China-side supplier collection, logistics provider search, container loading and customs paperwork support.
+            {" "}
+            <a href="/case-studies/">Read the case study</a>.
+          </p>
+        </div>
+
+        <h2>Related packaging pages</h2>
+        <ul class="link-list">
+          <li><a href="/ecommerce-packaging/">China-side ecommerce packaging and packing support</a></li>
+          <li><a href="/products/custom-rigid-boxes/">Custom rigid boxes from China</a></li>
+          <li><a href="/products/custom-mailer-boxes/">Custom mailer boxes for ecommerce sellers</a></li>
+          <li><a href="/guides/shipping-carton-size-freight-cost/">How carton size affects freight cost</a></li>
+        </ul>
+
+        <div class="faq">
+          {faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>
