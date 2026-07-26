@@ -1,5 +1,6 @@
 const RECIPIENT = "sales@ziiboxes.com";
 const SENDER = "quotes@faithtechate.com";
+const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const FIELD_LABELS = {
   box_style: "Box style",
   quantity: "Quantity",
@@ -15,6 +16,13 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname !== "/api/quote") {
+      if (url.pathname === "/api/turnstile-config") {
+        return json({
+          ok: true,
+          siteKey: (env.TURNSTILE_SITE_KEY || "").trim(),
+        });
+      }
+
       return env.ASSETS.fetch(request);
     }
 
@@ -35,6 +43,11 @@ export default {
     const contact = field(form, "contact", 300);
     if (!contact) {
       return json({ ok: false, error: "Contact is required" }, 400);
+    }
+
+    const turnstile = await verifyTurnstile(form, request, env);
+    if (!turnstile.ok) {
+      return json({ ok: false, error: turnstile.error }, turnstile.status);
     }
 
     const lines = Object.entries(FIELD_LABELS).map(([name, label]) => {
@@ -71,6 +84,70 @@ export default {
     return json({ ok: true });
   },
 };
+
+async function verifyTurnstile(form, request, env) {
+  const secret = (env.TURNSTILE_SECRET_KEY || "").trim();
+  if (!secret) {
+    return {
+      ok: false,
+      status: 503,
+      error: "Anti-spam check is not configured.",
+    };
+  }
+
+  const token = field(form, "cf-turnstile-response", 4096);
+  if (!token) {
+    return {
+      ok: false,
+      status: 400,
+      error: "Please complete the anti-spam check.",
+    };
+  }
+
+  const body = new FormData();
+  body.append("secret", secret);
+  body.append("response", token);
+
+  const remoteIp = request.headers.get("CF-Connecting-IP");
+  if (remoteIp) body.append("remoteip", remoteIp);
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+
+  try {
+    const response = await fetch(TURNSTILE_VERIFY_URL, {
+      method: "POST",
+      body,
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      return {
+        ok: false,
+        status: 502,
+        error: "Anti-spam check failed. Please try again.",
+      };
+    }
+
+    const result = await response.json();
+    if (result && result.success === true) return { ok: true };
+  } catch (error) {
+    console.error("Turnstile verification failed", error);
+    return {
+      ok: false,
+      status: 502,
+      error: "Anti-spam check failed. Please try again.",
+    };
+  } finally {
+    clearTimeout(timeout);
+  }
+
+  return {
+    ok: false,
+    status: 403,
+    error: "Please complete the anti-spam check.",
+  };
+}
 
 async function sendQuoteEmail(env, message) {
   if (env.RESEND_SEND) {

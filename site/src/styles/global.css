@@ -613,6 +613,17 @@ h2 {
   resize: vertical;
 }
 
+.turnstile-field {
+  grid-column: 1 / -1;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.turnstile-field[hidden] {
+  display: none;
+}
+
 .quote-form input::placeholder,
 .quote-form textarea::placeholder {
   color: rgba(255, 255, 255, 0.7);

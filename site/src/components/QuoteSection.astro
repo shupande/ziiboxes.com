@@ -25,14 +25,20 @@ import { site } from "../data/site";
       <input name="material_finish" placeholder="Material or finish" autocomplete="off" />
       <input type="hidden" name="company_website" tabindex="-1" autocomplete="off" />
       <textarea name="notes" placeholder="Project notes or artwork link"></textarea>
+      <div class="turnstile-field" data-turnstile-widget hidden></div>
       <button class="button gold quote-submit" type="submit">Send quote request</button>
       <p class="quote-status" data-quote-status aria-live="polite"></p>
     </form>
   </div>
 </section>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+
 <script>
   const quoteForms = document.querySelectorAll("[data-quote-form]");
+  const turnstileWidgets = new WeakMap();
+
+  initTurnstile();
 
   quoteForms.forEach((form) => {
     form.addEventListener("submit", async (event) => {
@@ -55,21 +61,92 @@ import { site } from "../data/site";
           body: new FormData(quoteForm),
         });
 
-        if (!response.ok) throw new Error("Quote request failed");
+        if (!response.ok) {
+          const body = await response.json().catch(() => null);
+          throw new Error(body?.error || "Quote request failed");
+        }
 
         quoteForm.reset();
+        resetTurnstile(quoteForm);
         status.textContent = "Request sent. We will reply soon.";
         status.dataset.state = "success";
         trackQuoteConversion();
-      } catch {
+      } catch (error) {
+        resetTurnstile(quoteForm);
         const email = quoteForm.dataset.email || "Sales@ZiiBoxes.com";
-        status.innerHTML = `The request form is being connected. Please email <a href="mailto:${email}">${email}</a> for now.`;
+        const message = error instanceof Error ? error.message : "";
+        if (message.includes("anti-spam") || message.includes("Anti-spam")) {
+          status.textContent = message;
+        } else {
+          status.innerHTML = `The request form is being connected. Please email <a href="mailto:${email}">${email}</a> for now.`;
+        }
         status.dataset.state = "error";
       } finally {
         button.disabled = false;
       }
     });
   });
+
+  async function initTurnstile() {
+    let siteKey = "";
+
+    try {
+      const response = await fetch("/api/turnstile-config", { cache: "no-store" });
+      if (response.ok) {
+        const config = await response.json();
+        siteKey = typeof config.siteKey === "string" ? config.siteKey : "";
+      }
+    } catch {
+      siteKey = "";
+    }
+
+    if (!siteKey) return;
+
+    const turnstile = await waitForTurnstile();
+    if (!turnstile) return;
+
+    quoteForms.forEach((form) => {
+      if (!(form instanceof HTMLFormElement)) return;
+
+      const widget = form.querySelector("[data-turnstile-widget]");
+      if (!(widget instanceof HTMLElement)) return;
+
+      widget.hidden = false;
+      const widgetId = turnstile.render(widget, {
+        sitekey: siteKey,
+        theme: "light",
+      });
+      turnstileWidgets.set(form, widgetId);
+    });
+  }
+
+  function waitForTurnstile() {
+    return new Promise((resolve) => {
+      let tries = 0;
+      const timer = window.setInterval(() => {
+        const turnstile = window["turnstile"];
+        if (turnstile && typeof turnstile.render === "function") {
+          window.clearInterval(timer);
+          resolve(turnstile);
+          return;
+        }
+
+        tries += 1;
+        if (tries > 80) {
+          window.clearInterval(timer);
+          resolve(null);
+        }
+      }, 100);
+    });
+  }
+
+  function resetTurnstile(form) {
+    const turnstile = window["turnstile"];
+    const widgetId = turnstileWidgets.get(form);
+    if (turnstile && widgetId !== undefined && typeof turnstile.reset === "function") {
+      turnstile.reset(widgetId);
+    }
+  }
 
   function trackQuoteConversion() {
     const conversionData = {
