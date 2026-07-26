@@ -176,7 +176,6 @@ h3 {
   display: grid;
   grid-template-columns: 1.25fr 0.9fr 0.9fr;
   grid-template-rows: 1fr 1fr;
-  gap: 2px;
 }
 
 .hero-media img {
