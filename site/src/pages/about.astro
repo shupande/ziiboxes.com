@@ -1,42 +1,222 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import QuoteSection from "../components/QuoteSection.astro";
+
+const videoUrl = "https://www.youtube.com/embed/WHZU4LbNPYo";
+const videoTitle = "Ziiboxes production branch campus in Dongguan, Guangdong";
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      name: "About ZiiBoxes",
+      url: "https://www.ziiboxes.com/about/",
+      description:
+        "About ZiiBoxes, a South China custom printed paper packaging company serving ecommerce sellers and retail brands sourcing from China.",
+      mainEntity: {
+        "@type": "Organization",
+        name: "ZiiBoxes",
+        url: "https://www.ziiboxes.com/",
+        foundingDate: "2002",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Shenzhen",
+          addressCountry: "CN",
+        },
+      },
+    },
+    {
+      "@type": "VideoObject",
+      name: videoTitle,
+      description: "A short video of the ZiiBoxes production branch campus in Dongguan, Guangdong.",
+      thumbnailUrl: "https://i.ytimg.com/vi/WHZU4LbNPYo/hqdefault.jpg",
+      embedUrl: videoUrl,
+    },
+  ],
+};
 ---
 
 <BaseLayout
   title="About ZiiBoxes"
-  description="ZiiBoxes is a Shenzhen-based custom printed paper packaging supplier for e-commerce and retail brands sourcing packaging from China."
+  description="About ZiiBoxes, a South China custom printed paper packaging company for ecommerce sellers and retail brands sourcing boxes, packing support and export-ready handoff from China."
   path="/about/"
   solidHeader
+  schema={schema}
 >
   <main>
-    <section class="page-hero">
-      <div class="wrap">
-        <p class="eyebrow">About</p>
-        <h1>A practical paper packaging supplier in Shenzhen, China.</h1>
-        <p>ZiiBoxes focuses on custom printed paper boxes when you need clear quoting, sampling and export-ready production from China.</p>
+    <section class="about-hero">
+      <div class="wrap about-hero-grid">
+        <div class="about-hero-copy">
+          <p class="eyebrow">About ZiiBoxes</p>
+          <h1>Custom paper packaging from South China, with packing and export handoff support.</h1>
+          <p>
+            ZiiBoxes helps ecommerce sellers and retail brands turn packaging into a working part of their China supply chain:
+            printed boxes, samples, production, product packing options, carton details and handoff to the right supplier or freight route.
+          </p>
+          <div class="actions">
+            <a class="button gold" href="/request-a-quote/">Start a box quote</a>
+            <a class="button light" href="/china-packaging-agent/">China packaging agent</a>
+          </div>
+        </div>
+        <figure class="about-video">
+          <iframe
+            src={videoUrl}
+            title={videoTitle}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+          <figcaption>Production branch campus in Dongguan, Guangdong.</figcaption>
+        </figure>
       </div>
     </section>
+
     <section class="section alt">
-      <div class="wrap split">
-        <div class="feature-image">
-          <img src="/images/factory-line.jpg" alt="Packaging workshop and assembly line" />
+      <div class="wrap about-stats" aria-label="ZiiBoxes company facts">
+        <div>
+          <strong>2002</strong>
+          <span>formally established</span>
+        </div>
+        <div>
+          <strong>20+ years</strong>
+          <span>paper printing and packaging experience</span>
+        </div>
+        <div>
+          <strong>200 people</strong>
+          <span>production team behind printing, assembly and QC</span>
+        </div>
+        <div>
+          <strong>85,000 sq ft</strong>
+          <span>factory floor area for printing and box production</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap about-story-grid">
+        <div class="about-image-stack">
+          <img src="/images/factory-line.jpg" alt="Packaging workshop and assembly line for custom paper boxes" />
+          <img src="/images/printing-machine.jpg" alt="Printing equipment for paper packaging production" />
         </div>
         <div class="prose">
-          <h2>What we keep simple</h2>
+          <p class="section-kicker">Our start-up journey</p>
+          <h2>Built around Shenzhen's printing and export network.</h2>
           <p>
-            You do not need a complicated packaging presentation. You need to know whether the supplier can make the box, quote it clearly, sample it properly and ship it on schedule.
+            ZiiBoxes is a family-owned company that grew from South China's printing and packaging industry.
+            The original company story goes back to the 1990s, when Shenzhen was becoming one of China's most active manufacturing and export cities.
+            ZiiBoxes was formally established in 2002 and developed around printed paper packaging, books and high-end paper box production.
           </p>
           <p>
-            The site is built around that path: choose a box style, prepare size and quantity, confirm material and finish, then request a quote.
+            That location still matters for brands sourcing products from China. Your product factory, packing point, freight forwarder, warehouse or Amazon route may already be in South China.
+            ZiiBoxes can make the packaging and help prepare the packaging-side details before the goods leave China.
           </p>
           <h2>What we make</h2>
           <p>
-            ZiiBoxes works on mailer boxes, folding cartons, rigid boxes, gift boxes, shipping boxes and industry packaging for cosmetics, candles, jewelry, soap and food brands.
+            ZiiBoxes works on custom mailer boxes, folding cartons, rigid boxes, gift boxes, paper inserts, shipping cartons and retail paper packaging for ecommerce, cosmetics, candles, jewelry, food, fragrance, apparel, wine and premium gift products.
           </p>
         </div>
       </div>
     </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">What buyers use us for</p>
+            <h2>More than a box supplier when your products are already in China.</h2>
+          </div>
+          <p>
+            Some buyers need only printed boxes. Others need the packaging to meet a product supplier, packing team, warehouse or freight route.
+            The value is in keeping those small steps organized before shipment.
+          </p>
+        </div>
+        <div class="about-card-grid">
+          <article class="about-card">
+            <h3>Custom printed boxes</h3>
+            <p>Structure, material, dieline, printing, finish and sample confirmation for paper packaging projects.</p>
+          </article>
+          <article class="about-card">
+            <h3>Product packing options</h3>
+            <p>For suitable products, packing steps, inserts, labels and master carton details can be discussed together with the box quote.</p>
+          </article>
+          <article class="about-card">
+            <h3>China supplier delivery</h3>
+            <p>Finished packaging can be delivered to your product factory, packer, warehouse or consolidation point in China.</p>
+          </article>
+          <article class="about-card">
+            <h3>Freight handoff details</h3>
+            <p>Carton size, carton weight, quantity per carton, SKU notes and packing list details can be prepared for your confirmed route.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <div class="wrap about-proof-grid">
+        <div>
+          <p class="section-kicker">Production and care</p>
+          <h2>Capacity matters, but repeat buyers remember how problems are handled.</h2>
+          <p>
+            Our factory setup supports weekly box capacity around 1,000,000 pieces, quick sample production,
+            in-house corrugated board support and presses including Heidelberg Speedmaster and ManRoland series.
+          </p>
+        </div>
+        <div class="about-values">
+          <div>
+            <strong>Quality control</strong>
+            <span>Sample approval, material checks, print review and packing checks before cartons move out.</span>
+          </div>
+          <div>
+            <strong>Environmental notes</strong>
+            <span>Recycled paper, FSC paper, plastic-free packaging, RoHS-related material requests and green printing can be discussed early.</span>
+          </div>
+          <div>
+            <strong>Labor and audit requests</strong>
+            <span>For larger buyers, factory audit, worker care and document requirements should be raised before sampling so the right route is confirmed.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap about-timeline-grid">
+        <div>
+          <p class="section-kicker">How we work</p>
+          <h2>One practical workflow from first quote to export handoff.</h2>
+        </div>
+        <div class="about-timeline">
+          <div class="about-step">
+            <span>01</span>
+            <div>
+              <h3>Send the product and box details</h3>
+              <p>Box style, product size, quantity, destination, artwork, packing steps and any platform requirements.</p>
+            </div>
+          </div>
+          <div class="about-step">
+            <span>02</span>
+            <div>
+              <h3>Confirm structure, material and sample</h3>
+              <p>Choose the box structure, paper, inserts, finish and sample route before bulk production starts.</p>
+            </div>
+          </div>
+          <div class="about-step">
+            <span>03</span>
+            <div>
+              <h3>Produce and check the packaging</h3>
+              <p>Print, finish, die-cut, assemble, pack and check cartons against the agreed production details.</p>
+            </div>
+          </div>
+          <div class="about-step">
+            <span>04</span>
+            <div>
+              <h3>Prepare the China-side handoff</h3>
+              <p>Deliver boxes to your supplier, pack suitable products, or prepare carton details for your warehouse, freight forwarder or FBA route.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <QuoteSection />
   </main>
 </BaseLayout>

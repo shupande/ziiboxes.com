@@ -15,6 +15,10 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    if (url.pathname === "/about-us" || url.pathname === "/about-us/") {
+      return Response.redirect(new URL("/about/", url), 301);
+    }
+
     if (url.pathname !== "/api/quote") {
       if (url.pathname === "/api/turnstile-config") {
         return json({
