@@ -785,6 +785,31 @@ export const guideLinks = [
     title: "Subscription box packaging planning",
     description: "Printed mailer boxes, inserts, monthly artwork changes and carton planning.",
   },
+  {
+    slug: "custom-candle-box-packaging-checklist",
+    title: "Custom candle box packaging checklist",
+    description: "What to prepare before quoting candle boxes, inserts and cartons.",
+  },
+  {
+    slug: "glass-jar-candle-packaging-protection",
+    title: "Glass jar candle packaging protection",
+    description: "Candle boxes, inserts, dividers and shipping cartons for glass jars.",
+  },
+  {
+    slug: "candle-gift-set-packaging-inserts",
+    title: "Candle gift set packaging and inserts",
+    description: "Gift boxes, paper inserts, dividers, cards and carton details.",
+  },
+  {
+    slug: "scented-candle-packaging-shipping-notes",
+    title: "Scented candle packaging shipping notes",
+    description: "What scented candle brands should flag before freight handoff.",
+  },
+  {
+    slug: "holiday-candle-packaging-seasonal-launch",
+    title: "Holiday candle packaging for seasonal launches",
+    description: "Seasonal boxes, gift sets, artwork deadlines and export cartons.",
+  },
 ];
 
 export const processSteps = [

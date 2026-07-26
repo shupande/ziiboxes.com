@@ -35,4 +35,4 @@ For glass, electronics, heavy jars or fragile premium products, protection may m
 
 The insert affects internal dimensions. If you approve the outside box artwork first and change the insert later, the box size may need to change.
 
-Related pages: [cosmetic gift set packaging from China](/cosmetic-gift-set-packaging-china/), [responsible packaging](/responsible-packaging/), [custom gift boxes](/products/custom-gift-boxes/), [candle box inserts guide](/guides/candle-box-inserts-protection/).
+Related pages: [cosmetic gift set packaging from China](/cosmetic-gift-set-packaging-china/), [candle gift set packaging and inserts](/guides/candle-gift-set-packaging-inserts/), [responsible packaging](/responsible-packaging/), [custom gift boxes](/products/custom-gift-boxes/), [candle box inserts guide](/guides/candle-box-inserts-protection/).

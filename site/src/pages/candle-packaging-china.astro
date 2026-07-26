@@ -1,0 +1,203 @@
+---
+import QuoteSection from "../components/QuoteSection.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const faqs = [
+  {
+    q: "Can ZiiBoxes make candle packaging in China?",
+    a: "Yes. ZiiBoxes can make custom candle boxes, paper inserts, gift boxes, mailer boxes and export cartons for candle brands sourcing packaging or products from China.",
+  },
+  {
+    q: "What packaging works best for glass jar candles?",
+    a: "Glass jar candles usually need a snug inner box, paper insert, divider or stronger outer carton. The right structure depends on jar size, jar weight, sales channel and shipping route.",
+  },
+  {
+    q: "Can candle gift sets be packed in China?",
+    a: "If the candles and packing steps are suitable, candle gift set packing can be discussed together with the box quote. Send jar size, weight, quantity, layout and supplier location first.",
+  },
+  {
+    q: "Do scented candles need special shipping notes?",
+    a: "Some routes may ask for extra product or paperwork details. Your freight forwarder, warehouse or customs broker should confirm final requirements, while ZiiBoxes can prepare packaging-side carton and packing notes.",
+  },
+  {
+    q: "What details are needed for a candle packaging quote?",
+    a: "Send candle photos, jar size, jar weight, quantity, box style, insert needs, artwork stage, destination, supplier location and whether products should be packed in China.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Candle packaging from China",
+      description:
+        "Custom candle packaging from China, including glass jar candle boxes, inserts, gift sets, seasonal packaging, product packing and export carton details.",
+      provider: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.url,
+        logo: `${site.url}/images/logo.png`,
+      },
+      areaServed: "Worldwide",
+      serviceType: "Custom candle packaging",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Candle Packaging from China"
+  description="Custom candle packaging from China for glass jars, scented candles and gift sets: printed boxes, inserts, product packing, carton details and freight handoff."
+  path="/candle-packaging-china/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Candle packaging China</p>
+        <h1>Candle packaging from China for glass jars, gift sets and scented candle brands.</h1>
+        <p>Plan custom candle boxes, inserts, gift packaging, product packing, carton details and freight handoff before your candle order leaves China.</p>
+        <div class="actions">
+          <a class="button gold" href="/request-a-quote/">Start a packaging quote</a>
+          <a class="button light" href="/industries/custom-candle-boxes/">Candle box options</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/industries/custom-candle-boxes.jpg" alt="Custom candle packaging boxes for scented candle brands" />
+        </div>
+        <div>
+          <p class="section-kicker">Glass jar and gift packaging</p>
+          <h2>Protect the candle first, then build the branded opening moment.</h2>
+          <p class="lede-copy">
+            Candle packaging has to protect a heavy or fragile product while still feeling gift-ready. The box, insert, divider, label area and export carton should be planned together before bulk production.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Glass jar candles</h3>
+              <p>Folding cartons, sleeves, paper inserts and shipping cartons planned around jar size and weight.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Scented candle boxes</h3>
+              <p>Retail-ready printed boxes with clean label space, finish options and route notes when scented products need extra checks.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Candle gift sets</h3>
+              <p>Rigid boxes, drawer boxes, dividers and paper inserts for multiple candles, matches, cards or accessories.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Seasonal launches</h3>
+              <p>Holiday artwork, limited sets and carton planning prepared before production dates get tight.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap prose">
+        <p class="section-kicker">Structure choices</p>
+        <h2>Match the candle packaging to the channel.</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Candle project</th>
+              <th>Packaging option</th>
+              <th>Watch point</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Single glass jar candle</td>
+              <td>Folding carton, sleeve or snug paper insert</td>
+              <td>Jar weight and movement inside the box</td>
+            </tr>
+            <tr>
+              <td>Premium candle gift</td>
+              <td>Rigid box, drawer box or lid-and-base gift box</td>
+              <td>Freight volume and insert fit</td>
+            </tr>
+            <tr>
+              <td>Ecommerce candle order</td>
+              <td>Mailer box with inner protection or retail box plus outer carton</td>
+              <td>Drop and handling risk during parcel shipping</td>
+            </tr>
+            <tr>
+              <td>Holiday candle collection</td>
+              <td>Seasonal printed boxes, gift sleeves or set packaging</td>
+              <td>Artwork deadlines and repeat carton size</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">China-side workflow</p>
+          <h2>Make boxes, pack suitable sets, or deliver packaging to your candle supplier.</h2>
+          <p>
+            If your candles are made or consolidated in China, finished packaging can be sent to your supplier, packer, warehouse or freight route. Suitable candle sets can also be discussed for local packing when the product, route and instructions are clear.
+          </p>
+          <div class="note-panel">
+            <h3>Useful details to send</h3>
+            <ul class="check-list">
+              <li>Candle photos, jar size, jar weight and quantity</li>
+              <li>Box style, insert needs, gift set layout and artwork stage</li>
+              <li>Whether products are glass, scented, liquid-related or fragile</li>
+              <li>China supplier address or packing handoff route</li>
+              <li>Carton size, label or paperwork notes from your freight route</li>
+            </ul>
+          </div>
+        </div>
+        <div class="feature-image">
+          <img src="/images/guides/supplier-four-scent-candle-gift-box.jpg" alt="Four scented candle jars packed in a custom gift box" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">Related guides</p>
+          <h2>Plan candle packaging before sampling.</h2>
+          <ul class="link-list">
+            <li><a href="/guides/custom-candle-box-packaging-checklist/">Custom candle box packaging checklist</a></li>
+            <li><a href="/guides/glass-jar-candle-packaging-protection/">Glass jar candle packaging protection</a></li>
+            <li><a href="/guides/candle-gift-set-packaging-inserts/">Candle gift set packaging and inserts</a></li>
+            <li><a href="/guides/scented-candle-packaging-shipping-notes/">Scented candle packaging shipping notes</a></li>
+            <li><a href="/guides/holiday-candle-packaging-seasonal-launch/">Holiday candle packaging for seasonal launches</a></li>
+          </ul>
+        </div>
+        <div class="faq">
+          {faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>

@@ -35,4 +35,4 @@ A retail candle box does not always need to survive parcel delivery alone. If th
 
 Holiday candle packaging should be planned early. Seasonal artwork, gift sets, inserts and export shipping dates can add pressure if the design starts too late.
 
-Related pages: [custom candle boxes](/industries/custom-candle-boxes/), [custom gift boxes](/products/custom-gift-boxes/), [custom shipping boxes](/products/custom-shipping-boxes/).
+Related pages: [candle packaging from China](/candle-packaging-china/), [custom candle boxes](/industries/custom-candle-boxes/), [glass jar candle packaging protection](/guides/glass-jar-candle-packaging-protection/), [custom gift boxes](/products/custom-gift-boxes/), [custom shipping boxes](/products/custom-shipping-boxes/).
