@@ -23,7 +23,7 @@ If you sell online, start by asking one question: will this box be the customer-
 
 ## When to choose mailer boxes
 
-Choose [custom mailer boxes](/products/custom-mailer-boxes/) when the box is part of the retail experience. They work well for apparel, skincare samples, subscription boxes, small electronics, accessories and influencer kits.
+Choose [custom mailer boxes](/products/custom-mailer-boxes/) when the box is part of the retail experience. They work well for apparel, skincare samples, subscription boxes, small electronics, accessories and influencer kits. See also: [Shopify packaging from China](/shopify-packaging-china/) and [custom mailer box design for Shopify](/guides/custom-mailer-box-design-for-shopify/).
 
 Mailer boxes are useful when you want:
 

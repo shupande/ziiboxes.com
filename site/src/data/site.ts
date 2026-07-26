@@ -760,6 +760,31 @@ export const guideLinks = [
     title: "Dangerous goods packaging paperwork notes",
     description: "When liquids, batteries, powders or fragrances need early route checks.",
   },
+  {
+    slug: "shopify-packaging-checklist",
+    title: "Shopify packaging checklist",
+    description: "Custom mailer boxes, product boxes, inserts, cards and China-side packing.",
+  },
+  {
+    slug: "dtc-unboxing-packaging-guide",
+    title: "DTC unboxing packaging guide",
+    description: "How ecommerce brands can plan branded packaging without overbuilding.",
+  },
+  {
+    slug: "custom-mailer-box-design-for-shopify",
+    title: "Custom mailer box design for Shopify",
+    description: "Plan mailer box size, print, inserts, labels and carton details.",
+  },
+  {
+    slug: "packaging-inserts-thank-you-cards",
+    title: "Packaging inserts and thank-you cards",
+    description: "How to use paper inserts, dividers, cards and small printed pieces.",
+  },
+  {
+    slug: "subscription-box-packaging-planning",
+    title: "Subscription box packaging planning",
+    description: "Printed mailer boxes, inserts, monthly artwork changes and carton planning.",
+  },
 ];
 
 export const processSteps = [

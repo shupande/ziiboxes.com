@@ -21,7 +21,7 @@ Low MOQ custom boxes can be practical when:
 - You have limited storage space
 - You need seasonal or event packaging
 
-For small brands, [custom mailer boxes](/products/custom-mailer-boxes/) and [custom folding cartons](/products/custom-folding-cartons/) are often easier starting points than complex rigid boxes.
+For small brands, [custom mailer boxes](/products/custom-mailer-boxes/) and [custom folding cartons](/products/custom-folding-cartons/) are often easier starting points than complex rigid boxes. If you sell through a DTC store, start with the [Shopify packaging checklist](/guides/shopify-packaging-checklist/).
 
 ## Ask for two quantities
 

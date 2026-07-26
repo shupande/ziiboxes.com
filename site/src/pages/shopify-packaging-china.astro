@@ -1,0 +1,203 @@
+---
+import QuoteSection from "../components/QuoteSection.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const faqs = [
+  {
+    q: "Can ZiiBoxes make packaging for Shopify brands sourcing from China?",
+    a: "Yes. ZiiBoxes can make custom mailer boxes, folding cartons, sleeves, paper inserts and gift packaging for Shopify and DTC brands sourcing products from China.",
+  },
+  {
+    q: "What packaging works best for Shopify orders?",
+    a: "Printed mailer boxes work well for many direct-to-consumer orders. Folding cartons, sleeves, paper inserts and thank-you cards can be added when the product needs a retail-ready inner package.",
+  },
+  {
+    q: "Can products be packed into branded boxes in China?",
+    a: "If the product and packing steps are suitable, product packing can be discussed with the box quote. Send product photos, sizes, weights, supplier location, quantity and packing instructions first.",
+  },
+  {
+    q: "Can packaging be sent to my China supplier?",
+    a: "Yes. Finished packaging can be delivered to your product factory, packer, warehouse, freight forwarder or consolidation point in China.",
+  },
+  {
+    q: "What should I send for a Shopify packaging quote?",
+    a: "Send product size, product weight, order quantity, box style, artwork stage, insert or card needs, China supplier address and the shipping route you plan to use.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Shopify packaging from China",
+      description:
+        "Custom Shopify and DTC ecommerce packaging from China, including mailer boxes, paper inserts, product packing, carton details and freight handoff support.",
+      provider: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.url,
+        logo: `${site.url}/images/logo.png`,
+      },
+      areaServed: "Worldwide",
+      serviceType: "Shopify and DTC packaging",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Shopify Packaging from China"
+  description="Custom Shopify and DTC packaging from China for brands sourcing products here: mailer boxes, inserts, cards, product packing, carton details and freight handoff."
+  path="/shopify-packaging-china/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Shopify packaging China</p>
+        <h1>Shopify packaging from China for DTC brands sourcing products here.</h1>
+        <p>Plan custom mailer boxes, product boxes, paper inserts, cards, China-side packing and freight handoff before your ecommerce orders leave the supplier network.</p>
+        <div class="actions">
+          <a class="button gold" href="/request-a-quote/">Start a packaging quote</a>
+          <a class="button light" href="/ecommerce-packaging/">Ecommerce packaging support</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/products/custom-mailer-boxes.jpg" alt="Custom Shopify mailer boxes for DTC ecommerce orders" />
+        </div>
+        <div>
+          <p class="section-kicker">DTC packaging workflow</p>
+          <h2>Make the package fit the product, the customer and the shipping route.</h2>
+          <p class="lede-copy">
+            For an online brand, the shipping box may be the first physical brand touchpoint after checkout. If your products are made in China, the box, insert, card, label and carton plan can be prepared before the goods move overseas.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Mailer boxes</h3>
+              <p>Printed mailer boxes with inside print, product dividers or simple paper inserts for online orders.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Retail product boxes</h3>
+              <p>Folding cartons, sleeves or small gift boxes when the product needs a retail-ready inner box.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Insert and card planning</h3>
+              <p>Paper inserts, dividers, belly bands and card space planned before final box size approval.</p>
+            </div>
+            <div class="detail-card">
+              <h3>China-side handoff</h3>
+              <p>Finished packaging can be packed with suitable products, or delivered to your supplier or warehouse in China.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap prose">
+        <p class="section-kicker">Packaging choices</p>
+        <h2>Choose the structure around the order experience.</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>DTC need</th>
+              <th>Packaging option</th>
+              <th>Watch point</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>First purchase unboxing</td>
+              <td>Printed mailer box with inside print or card</td>
+              <td>Keep the box strong enough for the shipping route</td>
+            </tr>
+            <tr>
+              <td>Small product with retail feel</td>
+              <td>Folding carton, sleeve or belly band</td>
+              <td>Reserve barcode and label space before artwork approval</td>
+            </tr>
+            <tr>
+              <td>Gift set or product bundle</td>
+              <td>Rigid box, mailer kit or paper insert layout</td>
+              <td>Confirm product arrangement before sampling</td>
+            </tr>
+            <tr>
+              <td>Subscription or repeat orders</td>
+              <td>Mailer box with stable carton size</td>
+              <td>Monthly changes should not break packing efficiency</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">China supplier coordination</p>
+          <h2>Pack locally, or send packaging to the factory that makes your product.</h2>
+          <p>
+            Some brands only need finished packaging delivered to a China factory. Others want suitable products packed into branded boxes before freight handoff. Either way, the quote should include the product size, packing steps, carton plan and receiving route.
+          </p>
+          <div class="note-panel">
+            <h3>Useful details to send</h3>
+            <ul class="check-list">
+              <li>Product photos, size, weight and quantity</li>
+              <li>Box style, insert needs, card needs and artwork files if available</li>
+              <li>China supplier address, packer address or warehouse contact</li>
+              <li>Whether products should be packed into the boxes in China</li>
+              <li>Carton, label and freight handoff notes from your route</li>
+            </ul>
+          </div>
+        </div>
+        <div class="feature-image">
+          <img src="/images/guides/supplier-mailer-gift-boxes.jpg" alt="Printed ecommerce mailer boxes prepared for Shopify order unboxing" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">Related guides</p>
+          <h2>Plan the details before your first order.</h2>
+          <ul class="link-list">
+            <li><a href="/guides/shopify-packaging-checklist/">Shopify packaging checklist</a></li>
+            <li><a href="/guides/dtc-unboxing-packaging-guide/">DTC unboxing packaging guide</a></li>
+            <li><a href="/guides/custom-mailer-box-design-for-shopify/">Custom mailer box design for Shopify</a></li>
+            <li><a href="/guides/packaging-inserts-thank-you-cards/">Packaging inserts and thank-you cards</a></li>
+            <li><a href="/guides/subscription-box-packaging-planning/">Subscription box packaging planning</a></li>
+          </ul>
+        </div>
+        <div class="faq">
+          {faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>
