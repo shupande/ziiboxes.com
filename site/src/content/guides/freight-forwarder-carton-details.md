@@ -65,4 +65,4 @@ For many packaging projects, the useful paperwork is simple: carton details, pac
 
 If your product is regulated, dangerous, food-related or battery-related, confirm the extra documents with your freight forwarder or customs broker before packing. Packaging teams can help organize information, but regulated shipping decisions should come from the logistics provider or broker.
 
-Related pages: [Amazon FBA packaging prep in China](/amazon-fba-packaging-prep-china/), [product packing service in China](/product-packing-service-china/), [how box size affects freight cost](/guides/shipping-carton-size-freight-cost/).
+Related pages: [Amazon FBA packaging prep in China](/amazon-fba-packaging-prep-china/), [master carton details for Amazon FBA](/guides/master-carton-details-amazon-fba/), [product packing service in China](/product-packing-service-china/), [how box size affects freight cost](/guides/shipping-carton-size-freight-cost/).

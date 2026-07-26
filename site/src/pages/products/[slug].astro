@@ -13,11 +13,13 @@ export function getStaticPaths() {
 const { product } = Astro.props;
 const productGuideLinks: Record<string, [string, string][]> = {
   "custom-mailer-boxes": [
+    ["Amazon FBA packaging prep checklist", "/guides/amazon-fba-packaging-prep-checklist/"],
     ["Mailer boxes vs shipping boxes", "/guides/mailer-boxes-vs-shipping-boxes/"],
     ["Low MOQ custom packaging", "/guides/low-moq-custom-packaging-small-brands/"],
     ["How box size affects freight cost", "/guides/shipping-carton-size-freight-cost/"],
   ],
   "custom-folding-cartons": [
+    ["Amazon private label packaging", "/amazon-private-label-packaging-china/"],
     ["Cosmetic gift set packaging", "/cosmetic-gift-set-packaging-china/"],
     ["Rigid boxes vs folding cartons", "/guides/rigid-boxes-vs-folding-cartons/"],
     ["Custom box dieline guide", "/guides/custom-box-dieline-guide/"],
@@ -45,6 +47,7 @@ const productGuideLinks: Record<string, [string, string][]> = {
     ["Paper inserts vs plastic trays", "/guides/paper-inserts-vs-plastic-trays/"],
   ],
   "custom-shipping-boxes": [
+    ["Master carton details for Amazon FBA", "/guides/master-carton-details-amazon-fba/"],
     ["Mailer boxes vs shipping boxes", "/guides/mailer-boxes-vs-shipping-boxes/"],
     ["How box size affects freight cost", "/guides/shipping-carton-size-freight-cost/"],
     ["Responsible packaging options", "/responsible-packaging/"],

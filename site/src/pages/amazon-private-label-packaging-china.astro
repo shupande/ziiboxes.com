@@ -1,0 +1,202 @@
+---
+import QuoteSection from "../components/QuoteSection.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const faqs = [
+  {
+    q: "Can ZiiBoxes make Amazon private label packaging in China?",
+    a: "Yes. ZiiBoxes can make custom printed product boxes, paper inserts, barcode space, carton details and packing notes for Amazon private label sellers sourcing products from China.",
+  },
+  {
+    q: "Can you apply FNSKU or barcode labels?",
+    a: "Label space can be planned before artwork approval, and labels can be applied when your team provides the final files and instructions. Your Amazon account or logistics provider should confirm the final label rules.",
+  },
+  {
+    q: "Can the packaging be sent to my China product factory?",
+    a: "Yes. Finished packaging can be sent to your factory, supplier, packer, warehouse or consolidation point in China.",
+  },
+  {
+    q: "Can you pack the products into the boxes in China?",
+    a: "If the product and packing steps are suitable, product packing can be discussed together with the box quote. Send photos, sizes, weights, quantity and packing instructions first.",
+  },
+  {
+    q: "What should I send before asking for a quote?",
+    a: "Send product photos, product size, product weight, box style, quantity, artwork stage, barcode or FNSKU needs, carton rules, supplier location and your planned FBA or freight route.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Amazon private label packaging from China",
+      description:
+        "Custom printed product boxes, inserts, label space, product packing notes and carton details for Amazon private label sellers sourcing products from China.",
+      provider: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.url,
+        logo: `${site.url}/images/logo.png`,
+      },
+      areaServed: "Worldwide",
+      serviceType: "Amazon private label packaging",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Amazon Private Label Packaging from China"
+  description="Amazon private label packaging from China for sellers sourcing products here: printed boxes, inserts, FNSKU space, packing notes, carton details and freight handoff."
+  path="/amazon-private-label-packaging-china/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Amazon private label packaging China</p>
+        <h1>Amazon private label packaging from China for sellers sourcing products here.</h1>
+        <p>Plan the product box, paper insert, barcode area, packing steps, export carton details and freight/FBA handoff before your private label products leave China.</p>
+        <div class="actions">
+          <a class="button gold" href="/request-a-quote/">Start a packaging quote</a>
+          <a class="button light" href="/amazon-fba-packaging-prep-china/">FBA packaging prep</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/products/custom-folding-cartons.jpg" alt="Custom folding cartons for Amazon private label product packaging" />
+        </div>
+        <div>
+          <p class="section-kicker">Before FBA or freight</p>
+          <h2>Build the packaging around the route your product will take.</h2>
+          <p class="lede-copy">
+            Private label packaging is not only artwork on a box. The box style, insert, barcode area, label instructions, units per carton and handoff route should be clear before bulk production.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Product box</h3>
+              <p>Folding cartons, mailer boxes, rigid gift boxes or sleeves matched to product size, price point and channel.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Label space</h3>
+              <p>Flat space for UPC, FNSKU, warning label, SKU sticker or carton label planned before final artwork.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Product packing</h3>
+              <p>Suitable products can be packed into finished boxes in China, or empty boxes can be sent to your supplier.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Carton details</h3>
+              <p>Carton size, weight, unit count and label notes prepared for the freight, warehouse or FBA route you confirm.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap prose">
+        <p class="section-kicker">Quote planning</p>
+        <h2>What Amazon sellers should decide before sampling.</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Decision</th>
+              <th>Packaging work</th>
+              <th>Your route confirms</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Retail product box</td>
+              <td>Material, structure, insert, finish and sample.</td>
+              <td>Final artwork, SKU data and product compliance needs.</td>
+            </tr>
+            <tr>
+              <td>FNSKU or barcode</td>
+              <td>Reserve label space or apply provided labels.</td>
+              <td>Final label files and marketplace rules.</td>
+            </tr>
+            <tr>
+              <td>Product packing</td>
+              <td>Pack suitable products into boxes and export cartons.</td>
+              <td>Exact packing steps and product arrival plan.</td>
+            </tr>
+            <tr>
+              <td>Freight handoff</td>
+              <td>Prepare carton count, size, weight and packing list notes.</td>
+              <td>Freight booking, warehouse appointment and final shipping documents.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">China-side workflow</p>
+          <h2>Use one local packaging contact before the shipment moves.</h2>
+          <p>
+            If your product factory, packaging supplier and freight route are all in China, you can reduce repeated handoffs by planning packaging, product packing and carton details together.
+          </p>
+          <div class="note-panel">
+            <h3>Useful details to send</h3>
+            <ul class="check-list">
+              <li>Product photos, size, weight and quantity</li>
+              <li>Box style, insert needs and artwork files if available</li>
+              <li>Barcode, FNSKU, label or warning text requirements</li>
+              <li>China supplier address and target handoff date</li>
+              <li>Carton limits or notes from your freight/FBA route</li>
+            </ul>
+          </div>
+        </div>
+        <div class="feature-image">
+          <img src="/images/shipping-boxes.jpg" alt="Export cartons prepared for Amazon private label packaging handoff" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">Related guides</p>
+          <h2>Build a cleaner private label packaging brief.</h2>
+          <ul class="link-list">
+            <li><a href="/guides/amazon-private-label-packaging-checklist/">Amazon private label packaging checklist</a></li>
+            <li><a href="/guides/amazon-fba-packaging-prep-checklist/">Amazon FBA packaging prep checklist</a></li>
+            <li><a href="/guides/fnsku-barcode-label-packaging-china/">FNSKU and barcode label planning</a></li>
+            <li><a href="/guides/master-carton-details-amazon-fba/">Master carton details for Amazon FBA</a></li>
+          </ul>
+        </div>
+        <div class="faq">
+          {faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>

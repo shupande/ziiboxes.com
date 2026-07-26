@@ -735,6 +735,31 @@ export const guideLinks = [
     title: "Cosmetic gift set packaging quote checklist",
     description: "What to send before quoting beauty gift set boxes, inserts and packing.",
   },
+  {
+    slug: "amazon-private-label-packaging-checklist",
+    title: "Amazon private label packaging checklist",
+    description: "What to confirm before making product boxes, inserts and export cartons.",
+  },
+  {
+    slug: "amazon-fba-packaging-prep-checklist",
+    title: "Amazon FBA packaging prep checklist",
+    description: "Product boxes, inserts, labels, master cartons and freight handoff notes.",
+  },
+  {
+    slug: "fnsku-barcode-label-packaging-china",
+    title: "FNSKU and barcode label planning",
+    description: "How to plan label space before printing boxes or packing products in China.",
+  },
+  {
+    slug: "master-carton-details-amazon-fba",
+    title: "Master carton details for Amazon FBA",
+    description: "Carton size, weight, SKU, label and packing details for freight handoff.",
+  },
+  {
+    slug: "amazon-dangerous-goods-packaging-paperwork",
+    title: "Dangerous goods packaging paperwork notes",
+    description: "When liquids, batteries, powders or fragrances need early route checks.",
+  },
 ];
 
 export const processSteps = [
