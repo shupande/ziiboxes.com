@@ -37,4 +37,4 @@ See: [custom rigid boxes](/products/custom-rigid-boxes/).
 
 Beauty packaging often uses matte lamination, soft-touch finish, foil stamping, embossing or spot UV. Keep the finish focused on the logo or key visual area if budget matters. Too many effects can make sampling slower and quotes harder to compare.
 
-Related pages: [printing finishes guide](/guides/printing-finishes/), [artwork checklist](/guides/artwork-file-checklist/), [responsible packaging](/responsible-packaging/).
+Related pages: [cosmetic gift set packaging from China](/cosmetic-gift-set-packaging-china/), [printing finishes guide](/guides/printing-finishes/), [artwork checklist](/guides/artwork-file-checklist/), [responsible packaging](/responsible-packaging/).

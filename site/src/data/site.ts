@@ -725,6 +725,16 @@ export const guideLinks = [
     title: "Lid-and-base rigid boxes",
     description: "When two-piece rigid boxes work for gift sets and premium product launches.",
   },
+  {
+    slug: "skincare-gift-set-packaging",
+    title: "Skincare gift set packaging guide",
+    description: "How to plan boxes, inserts, labels and carton details for skincare gift sets.",
+  },
+  {
+    slug: "cosmetic-gift-set-packaging-quote",
+    title: "Cosmetic gift set packaging quote checklist",
+    description: "What to send before quoting beauty gift set boxes, inserts and packing.",
+  },
 ];
 
 export const processSteps = [

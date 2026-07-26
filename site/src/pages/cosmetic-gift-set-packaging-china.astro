@@ -1,0 +1,219 @@
+---
+import QuoteSection from "../components/QuoteSection.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const faqs = [
+  {
+    q: "What packaging works best for cosmetic gift sets?",
+    a: "Rigid gift boxes, folding cartons with sleeves, mailer kits and paper inserts can all work. The right choice depends on product count, product weight, retail price, sales channel and how the set should open.",
+  },
+  {
+    q: "Can cosmetic gift set packaging use paper inserts?",
+    a: "Yes. Paperboard inserts, wrapped paper inserts and dividers are useful for bottles, jars, droppers, sample vials and small accessories when the product weight allows it.",
+  },
+  {
+    q: "Can ZiiBoxes help pack skincare gift sets in China?",
+    a: "If the products and packing steps are suitable, ZiiBoxes can discuss product packing, label placement, carton packing and freight or FBA handoff notes together with the packaging quote.",
+  },
+  {
+    q: "What details are needed for a cosmetic gift set quote?",
+    a: "Send product photos, sizes, weights, item count per set, box style, insert layout, artwork, quantity, destination and whether China-side packing is needed.",
+  },
+  {
+    q: "Are rigid boxes always best for beauty gift sets?",
+    a: "No. Rigid boxes are best for premium sets. Folding cartons, sleeves or mailer kits can be better when unit cost, flat shipping or launch testing matters more.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Cosmetic gift set packaging from China",
+      description:
+        "Custom cosmetic and skincare gift set packaging, including printed boxes, paper inserts, product packing, carton details and freight handoff notes.",
+      provider: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.url,
+        logo: `${site.url}/images/logo.png`,
+      },
+      areaServed: "Worldwide",
+      serviceType: "Custom cosmetic gift set packaging",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Cosmetic Gift Set Packaging from China"
+  description="Custom cosmetic gift set packaging from China for skincare and beauty launches: boxes, paper inserts, product packing, carton details and freight or FBA handoff notes."
+  path="/cosmetic-gift-set-packaging-china/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Cosmetic gift set packaging China</p>
+        <h1>Cosmetic gift set packaging from China for beauty and skincare launches.</h1>
+        <p>Plan custom boxes, inserts, labels, product packing, carton details and freight or FBA handoff notes before your beauty products leave China.</p>
+        <div class="actions">
+          <a class="button gold" href="/request-a-quote/">Start a packaging quote</a>
+          <a class="button light" href="/product-packing-service-china/">China packing service</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/industries/custom-skincare-boxes.jpg" alt="Skincare gift set packaging boxes with printed paper packaging" />
+        </div>
+        <div>
+          <p class="section-kicker">Beauty gift sets</p>
+          <h2>Built for sets that need more than a printed outer box.</h2>
+          <p class="lede-copy">
+            Beauty and skincare gift sets often need the box, insert, label, packing method and export carton details planned together. That is where a China-side packaging workflow helps most.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Skincare sets</h3>
+              <p>Boxes and paper inserts for jars, bottles, droppers, tubes, sample vials and small accessories.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Beauty launch kits</h3>
+              <p>Gift-ready packaging for influencer kits, limited sets, retail bundles and ecommerce launch boxes.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Paper inserts</h3>
+              <p>Paperboard, wrapped paper and divider-style inserts that hold multiple products in one set.</p>
+            </div>
+            <div class="detail-card">
+              <h3>China-side packing</h3>
+              <p>When suitable, products can be packed into the finished boxes before the cartons move to your next route.</p>
+            </div>
+          </div>
+          <div class="note-panel">
+            <h3>Useful quote details</h3>
+            <ul class="check-list">
+              <li>Product photos, size and weight for every item in the set</li>
+              <li>Box style, quantity, artwork stage and preferred finish</li>
+              <li>Insert layout, label needs and how many products go in each set</li>
+              <li>Destination, freight route and whether FBA/carton labels are needed</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap prose">
+        <p class="section-kicker">Structure choices</p>
+        <h2>Choose the box around the launch, not just the product size.</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Gift set need</th>
+              <th>Packaging option</th>
+              <th>Watch point</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Premium skincare or fragrance set</td>
+              <td>Lid-and-base rigid box, drawer box or magnetic rigid box</td>
+              <td>Insert size and freight volume should be checked early</td>
+            </tr>
+            <tr>
+              <td>Retail beauty bundle</td>
+              <td>Folding carton, sleeve box or window carton</td>
+              <td>Works best when product weight is moderate</td>
+            </tr>
+            <tr>
+              <td>Ecommerce launch kit</td>
+              <td>Printed mailer box with product insert</td>
+              <td>Needs drop protection and outer shipping carton planning</td>
+            </tr>
+            <tr>
+              <td>Plastic reduction target</td>
+              <td>Paper insert or paper divider</td>
+              <td>Test the product fit before confirming artwork</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">China workflow</p>
+          <h2>Packaging, packing and handoff can be planned as one job.</h2>
+          <p>
+            Many beauty products are already made in China. ZiiBoxes can make the printed packaging, discuss product packing steps, prepare carton details and coordinate the handoff to your supplier, warehouse, freight forwarder or Amazon route.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>1. Confirm set layout</h3>
+              <p>Start with product count, size, order quantity, channel and launch timing.</p>
+            </div>
+            <div class="detail-card">
+              <h3>2. Sample box and insert</h3>
+              <p>Check opening feel, product fit, finish effect and carton volume before bulk production.</p>
+            </div>
+            <div class="detail-card">
+              <h3>3. Pack or hand off</h3>
+              <p>Finished boxes can be sent to your China supplier, or suitable products can be packed locally.</p>
+            </div>
+            <div class="detail-card">
+              <h3>4. Prepare carton notes</h3>
+              <p>Carton size, weight, labels and freight handoff details can be prepared before shipment.</p>
+            </div>
+          </div>
+        </div>
+        <div class="feature-image">
+          <img src="/images/products/custom-paper-inserts.jpg" alt="Custom paper inserts for cosmetic and skincare gift set boxes" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">Related guides</p>
+          <h2>Keep planning before you ask for a price.</h2>
+          <ul class="link-list">
+            <li><a href="/guides/skincare-gift-set-packaging/">Skincare gift set packaging guide</a></li>
+            <li><a href="/guides/cosmetic-gift-set-packaging-quote/">Cosmetic gift set packaging quote checklist</a></li>
+            <li><a href="/guides/paper-inserts-vs-plastic-trays/">Paper inserts vs plastic trays</a></li>
+            <li><a href="/guides/custom-rigid-gift-box-cost/">Custom rigid gift box cost</a></li>
+          </ul>
+        </div>
+        <div class="faq">
+          {faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>

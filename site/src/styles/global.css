@@ -985,6 +985,14 @@ h2 {
   color: var(--muted);
 }
 
+.prose img {
+  width: 100%;
+  margin: 24px 0;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
 .prose table {
   width: 100%;
   margin: 18px 0;
