@@ -678,6 +678,14 @@ h2 {
   font-size: 19px;
 }
 
+.quote-page-hero {
+  padding-bottom: 34px;
+}
+
+.quote-page .section.dark {
+  padding-top: 34px;
+}
+
 .case-hero {
   padding: 82px 0 66px;
   background: var(--green-dark);
@@ -1270,6 +1278,10 @@ h2 {
     font-size: 34px;
   }
 
+  .quote-page-hero {
+    padding: 42px 0 22px;
+  }
+
   .hero-lede,
   .page-hero p,
   .case-hero p {
@@ -1290,6 +1302,10 @@ h2 {
 
   .section {
     padding: 56px 0;
+  }
+
+  .quote-page .section.dark {
+    padding-top: 22px;
   }
 
   .product-copy {
