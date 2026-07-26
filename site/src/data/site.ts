@@ -412,8 +412,8 @@ export const products = [
     keyword: "custom magnetic closure boxes",
     description:
       "Magnetic closure rigid boxes for gift sets, PR kits, beauty launches and premium ecommerce packaging.",
-    image: "/images/products/custom-rigid-boxes.jpg",
-    alt: "Custom rigid boxes suitable for magnetic closure packaging",
+    image: "/images/guides/pexels-ribbon-gift-boxes.jpg",
+    alt: "Premium gift boxes suitable for magnetic closure packaging",
     summary:
       "Magnetic closure boxes are chosen when the box should feel reusable and gift-ready. They work well for premium sets, but the magnet position, board thickness and insert layout should be confirmed before artwork.",
     uses: ["Beauty gift sets", "PR kits", "Jewelry sets", "Premium ecommerce launches"],
@@ -520,8 +520,8 @@ export const products = [
     keyword: "custom collapsible rigid boxes",
     description:
       "Foldable rigid boxes for premium packaging projects that need a stronger look with lower storage volume.",
-    image: "/images/products/custom-rigid-boxes.jpg",
-    alt: "Premium rigid boxes used for collapsible gift packaging planning",
+    image: "/images/guides/pexels-pergamon-gift-boxes.jpg",
+    alt: "Premium gift boxes used for collapsible rigid packaging planning",
     summary:
       "Collapsible rigid boxes try to balance premium presentation with lower storage and freight volume. They are useful when a rigid look is needed but empty box volume is a concern.",
     uses: ["Gift sets", "Apparel gifts", "Subscription kits", "Premium ecommerce boxes"],
@@ -556,8 +556,8 @@ export const products = [
     keyword: "custom paper tube packaging",
     description:
       "Round paper tube packaging for tea, cosmetics, candles, snacks, posters and lightweight gift products.",
-    image: "/images/guides/pexels-tea-gift-box.jpg",
-    alt: "Premium tea gift packaging used for paper tube packaging planning",
+    image: "/images/guides/supplier-closed-scented-candle-box.jpg",
+    alt: "Closed cylindrical-style gift box suitable for paper tube packaging planning",
     summary:
       "Paper tubes are useful when a round package supports the product shape or shelf presence. They need careful checking for inner diameter, cap fit, label area and whether the product needs an inner bag.",
     uses: ["Tea packaging", "Cosmetic sticks", "Candle gifts", "Poster tubes"],
@@ -1024,8 +1024,8 @@ export const products = [
     keyword: "Amazon FBA product boxes from China",
     description:
       "Amazon FBA product boxes with barcode space, inserts, master carton details and freight handoff planning.",
-    image: "/images/products/custom-folding-cartons.jpg",
-    alt: "Custom folding cartons for Amazon private label product packaging",
+    image: "/images/guides/supplier-white-shipping-packaging.jpg",
+    alt: "White ecommerce packaging box prepared for Amazon product packaging",
     summary:
       "Amazon product boxes should be planned with barcode space, product protection, carton labels and freight handoff details. If goods are made in China, the box and packing route can be discussed before export.",
     uses: ["Amazon private label", "FBA prep", "Retail cartons", "Product bundle boxes"],
@@ -1060,8 +1060,8 @@ export const products = [
     keyword: "custom Shopify mailer boxes",
     description:
       "Custom Shopify mailer boxes with inside print, inserts, cards and China-side packing options.",
-    image: "/images/products/custom-mailer-boxes.jpg",
-    alt: "Custom Shopify mailer boxes for DTC ecommerce orders",
+    image: "/images/mailer-boxes.jpg",
+    alt: "Custom branded mailer boxes for Shopify ecommerce orders",
     summary:
       "Shopify mailer boxes are usually the first physical brand touchpoint after checkout. They should fit the product, protect it during shipping and support the unboxing experience without adding unnecessary pieces.",
     uses: ["Shopify orders", "DTC apparel", "Beauty ecommerce", "Subscription launches"],
@@ -1158,6 +1158,366 @@ export const products = [
       {
         q: "Are kraft boxes eco-friendly?",
         a: "They can support a natural paper positioning, but the final claim depends on the exact material, coating and destination rules.",
+      },
+    ],
+  },
+  {
+    slug: "custom-wine-boxes",
+    title: "Custom Wine Boxes",
+    eyebrow: "Luxury bottle packaging",
+    keyword: "custom wine boxes wholesale",
+    description:
+      "Luxury custom wine boxes for single bottles, gift sets, club shipments and premium retail presentation.",
+    image: "/images/products/luxury-wine-boxes.jpg",
+    alt: "Luxury rigid wine bottle gift box with fitted insert",
+    summary:
+      "Wine packaging is a high-value paper box category where structure, insert fit and surface finish all matter. A rigid wine box can turn a bottle into a gift product while keeping the bottle centered and protected during handling.",
+    uses: ["Wine gift boxes", "Club member gifts", "Single bottle presentation", "Premium retail sets"],
+    materials: ["Rigid greyboard", "Wrapped art paper", "Specialty paper", "Paper or pulp insert"],
+    finishes: ["Foil stamping", "Embossing", "Textured paper", "Magnetic closure"],
+    specs: [
+      "Bottle diameter, height and weight decide the insert structure",
+      "Rigid boxes work well for premium wine gifts",
+      "Paper inserts can hold the bottle neck and base in place",
+      "Carton packing should be checked because bottle boxes are heavy",
+    ],
+    quoteTips: [
+      "Send bottle size, bottle weight and whether one or two bottles go in each box.",
+      "Confirm if the box is for retail display, gifting or ecommerce shipping.",
+      "Ask for carton dimensions before comparing freight routes.",
+    ],
+    faqs: [
+      {
+        q: "Can wine boxes use paper inserts?",
+        a: "Yes. Paper, pulp-style or wrapped board inserts can be designed to hold the bottle neck and base.",
+      },
+      {
+        q: "Are custom wine boxes good for luxury gifts?",
+        a: "Yes. Rigid wine boxes with textured paper, foil and inserts are common for premium gifting and club programs.",
+      },
+    ],
+  },
+  {
+    slug: "custom-liquor-bottle-boxes",
+    title: "Custom Liquor Bottle Boxes",
+    eyebrow: "Spirits packaging",
+    keyword: "custom liquor bottle boxes",
+    description:
+      "Premium paper packaging for whiskey, spirits, liqueur, craft liquor and bottle gift sets.",
+    image: "/images/products/liquor-bottle-gift-boxes.jpg",
+    alt: "Luxury liquor bottle rigid box with fitted insert",
+    summary:
+      "Liquor bottle boxes need a stronger presentation and a more careful insert plan than many small retail cartons. Bottle weight, shoulder shape and closure style should be checked before samples.",
+    uses: ["Whiskey gift boxes", "Craft spirits packaging", "Bottle launch sets", "Premium retail display"],
+    materials: ["Rigid board", "Wrapped paper", "Paper insert", "Molded pulp insert"],
+    finishes: ["Foil logo", "Debossing", "Magnetic flap", "Textured paper"],
+    specs: [
+      "Tall bottles need neck and base support",
+      "Heavy bottles require stronger board and carton planning",
+      "Premium finishes work well when kept focused on the logo area",
+      "Bottle route and paperwork should be checked early when needed",
+    ],
+    quoteTips: [
+      "Send bottle height, width, weight and cap shape.",
+      "Confirm whether the bottle lies flat or stands upright in the box.",
+      "Plan insert and master carton details together.",
+    ],
+    faqs: [
+      {
+        q: "Can liquor bottle boxes be made with magnetic closures?",
+        a: "Yes. Magnetic closure and book-style rigid boxes are common for premium spirits packaging.",
+      },
+      {
+        q: "Do liquor bottle boxes need inserts?",
+        a: "Usually yes. Inserts help reduce bottle movement and make the presentation cleaner.",
+      },
+    ],
+  },
+  {
+    slug: "custom-tea-boxes",
+    title: "Custom Tea Boxes",
+    eyebrow: "Tea and specialty food gifts",
+    keyword: "custom tea packaging boxes",
+    description:
+      "Custom paper tea boxes for loose leaf tea, tea bags, sampler sets, tins and premium tea gifts.",
+    image: "/images/guides/pexels-tea-gift-box.jpg",
+    alt: "Premium tea gift box with fitted packaging layout",
+    summary:
+      "Tea packaging can be simple for retail cartons or more premium for gift sets. The right structure depends on whether the tea is in bags, tins, sachets or several small boxes inside one set.",
+    uses: ["Loose leaf tea", "Tea bag cartons", "Sampler gift sets", "Tea tin outer boxes"],
+    materials: ["White card paper", "Kraft paper", "Rigid board", "Paper inserts"],
+    finishes: ["Matte lamination", "Foil logo", "Embossing", "Sleeve wrap"],
+    specs: [
+      "Tea bags and tins need different carton structures",
+      "Sampler sets often need dividers or inserts",
+      "Food contact depends on the inner bag or liner",
+      "Gift sets should be planned with carton weight in mind",
+    ],
+    quoteTips: [
+      "Send the inner tea bag, tin or pouch size.",
+      "Confirm whether tea touches the box or stays inside a sealed inner pack.",
+      "Use one box size for several flavors when possible.",
+    ],
+    faqs: [
+      {
+        q: "Can tea boxes be made as gift sets?",
+        a: "Yes. Tea gift boxes can use rigid boxes, inserts, sleeves and smaller inner cartons.",
+      },
+      {
+        q: "Can tea boxes use kraft paper?",
+        a: "Yes. Kraft paper works well for natural tea brands when the color style fits the artwork.",
+      },
+    ],
+  },
+  {
+    slug: "custom-chocolate-boxes",
+    title: "Custom Chocolate Boxes",
+    eyebrow: "Confectionery packaging",
+    keyword: "custom chocolate boxes with logo",
+    description:
+      "Custom chocolate boxes for bars, truffles, assorted gift sets, holiday launches and retail confectionery.",
+    image: "/images/guides/pexels-candle-gift-box.jpg",
+    alt: "Premium gift box suitable for chocolate and confectionery packaging",
+    summary:
+      "Chocolate packaging should protect presentation, support gifting and leave room for flavor or ingredient information. Direct food contact, inner trays and temperature-sensitive routing should be checked early.",
+    uses: ["Chocolate bar boxes", "Truffle gift boxes", "Holiday chocolate sets", "Retail confectionery"],
+    materials: ["Food-grade paperboard", "Rigid board", "Paper inserts", "Paper sleeves"],
+    finishes: ["Foil stamping", "Matte lamination", "Window options", "Embossing"],
+    specs: [
+      "Inner trays or liners are often needed",
+      "Holiday artwork should be planned before peak season",
+      "Window boxes work when product visibility helps sell",
+      "Food-contact details depend on the inner wrapping",
+    ],
+    quoteTips: [
+      "Send product count, piece size and whether chocolates are wrapped.",
+      "Confirm if the box needs an inner tray or divider.",
+      "Plan seasonal artwork and delivery timing early.",
+    ],
+    faqs: [
+      {
+        q: "Can chocolate boxes use paper inserts?",
+        a: "Yes. Paper dividers and trays can help separate pieces or arrange gift sets.",
+      },
+      {
+        q: "Can chocolate boxes have a window?",
+        a: "Yes, when the chocolate is protected by an inner wrap or tray and visibility helps retail sales.",
+      },
+    ],
+  },
+  {
+    slug: "custom-coffee-boxes",
+    title: "Custom Coffee Boxes",
+    eyebrow: "Coffee retail packaging",
+    keyword: "custom coffee packaging boxes",
+    description:
+      "Custom coffee boxes and sleeves for coffee bags, pods, sample packs, gift sets and subscription coffee kits.",
+    image: "/images/guides/supplier-belly-band-packaging.jpg",
+    alt: "Kraft paper packaging sleeve suitable for coffee retail packaging",
+    summary:
+      "Coffee boxes can be used as outer cartons, sleeves or gift kits around coffee bags, pods and sample packs. They work best when the box is planned around the filled bag size, not the empty pouch size.",
+    uses: ["Coffee bag outer boxes", "Pod cartons", "Sampler boxes", "Subscription coffee kits"],
+    materials: ["Kraft paperboard", "White card paper", "Corrugated board", "Paper sleeves"],
+    finishes: ["CMYK printing", "Matte coating", "Foil logo", "Label space"],
+    specs: [
+      "Filled pouch thickness affects the carton size",
+      "Sleeves work well for changing blends or seasonal labels",
+      "Sampler kits may need inserts or dividers",
+      "Food-contact depends on the sealed coffee bag or pod pack",
+    ],
+    quoteTips: [
+      "Send the filled coffee bag size and weight.",
+      "Confirm if several bags or pods go in one set.",
+      "Use labels or sleeves when flavors change often.",
+    ],
+    faqs: [
+      {
+        q: "Can coffee boxes be made from kraft paper?",
+        a: "Yes. Kraft boxes and sleeves are common for coffee brands with a natural paper look.",
+      },
+      {
+        q: "Can coffee sampler boxes include dividers?",
+        a: "Yes. Paper dividers can separate sample bags, pods or smaller cartons.",
+      },
+    ],
+  },
+  {
+    slug: "custom-electronics-packaging-boxes",
+    title: "Custom Electronics Packaging Boxes",
+    eyebrow: "Device and accessory packaging",
+    keyword: "custom electronics packaging boxes",
+    description:
+      "Custom paper boxes for small electronics, cables, chargers, smart devices, accessories and launch kits.",
+    image: "/images/guides/supplier-delivery-packaging-boxes.jpg",
+    alt: "Open printed packaging box suitable for small electronics and accessories",
+    summary:
+      "Electronics packaging needs a clean product fit, organized inserts and clear accessory placement. Paper inserts can work for many light accessories when the protection needs are clear.",
+    uses: ["Cable packaging", "Charger boxes", "Smart device kits", "Accessory gift boxes"],
+    materials: ["Rigid board", "Folding paperboard", "Corrugated board", "Paper inserts"],
+    finishes: ["Matte lamination", "Spot UV", "Foil logo", "Inside print"],
+    specs: [
+      "Accessory count and cable layout should be fixed early",
+      "Paper inserts can reduce loose movement inside the box",
+      "Heavier devices may need stronger structures",
+      "Barcode and compliance copy space should be reserved",
+    ],
+    quoteTips: [
+      "Send product size, weight and all accessory sizes.",
+      "Confirm if the product needs a display-quality insert.",
+      "Reserve space for labels, barcodes and warning copy.",
+    ],
+    faqs: [
+      {
+        q: "Can electronics boxes use paper inserts?",
+        a: "Yes, especially for light accessories, cables and kits where the insert layout is clear.",
+      },
+      {
+        q: "Are rigid boxes good for electronics?",
+        a: "They can be, when the product value and protection needs justify the stronger presentation.",
+      },
+    ],
+  },
+  {
+    slug: "custom-supplement-boxes",
+    title: "Custom Supplement Boxes",
+    eyebrow: "Health product cartons",
+    keyword: "custom supplement packaging boxes",
+    description:
+      "Custom supplement boxes for bottles, sachets, powders, sample packs and wellness product sets.",
+    image: "/images/guides/pexels-cosmetic-boxes.jpg",
+    alt: "Retail cartons suitable for supplement and wellness packaging",
+    summary:
+      "Supplement packaging often needs clean retail copy, barcode space and careful carton sizing around bottles, jars or sachets. Claims and compliance copy should be finalized before artwork approval.",
+    uses: ["Vitamin bottle boxes", "Powder sachet boxes", "Wellness kits", "Sample packs"],
+    materials: ["White card paper", "SBS paperboard", "Kraft paper", "Paper inserts"],
+    finishes: ["Matte lamination", "Gloss lamination", "Foil logo", "Spot UV"],
+    specs: [
+      "Label and compliance copy space should be planned before print",
+      "Bottle height and cap shape affect carton size",
+      "Sample kits may need dividers or inserts",
+      "Regulated copy should be checked by the brand team",
+    ],
+    quoteTips: [
+      "Send bottle, jar or sachet dimensions.",
+      "Confirm barcode, batch code and label placement needs.",
+      "Finalize claims and ingredients before artwork approval.",
+    ],
+    faqs: [
+      {
+        q: "Can supplement boxes include barcode space?",
+        a: "Yes. Barcode and label space should be reserved before the dieline and artwork are approved.",
+      },
+      {
+        q: "Can supplement boxes be made with kraft paper?",
+        a: "Yes, when the brand wants a natural paper look and the artwork works on kraft material.",
+      },
+    ],
+  },
+  {
+    slug: "custom-pet-product-boxes",
+    title: "Custom Pet Product Boxes",
+    eyebrow: "Pet retail packaging",
+    keyword: "custom pet product packaging boxes",
+    description:
+      "Custom paper boxes for pet treats, toys, grooming kits, collars, accessories and subscription pet boxes.",
+    image: "/images/guides/supplier-ecommerce-mailer-boxes.jpg",
+    alt: "Printed ecommerce box suitable for pet product packaging",
+    summary:
+      "Pet product packaging can cover treats, toys, accessories and kits. The structure depends on whether the box is for retail shelf display, ecommerce delivery or a bundled subscription set.",
+    uses: ["Pet treat boxes", "Toy packaging", "Grooming kits", "Pet subscription boxes"],
+    materials: ["Kraft paperboard", "White card paper", "Corrugated board", "Paper inserts"],
+    finishes: ["CMYK printing", "Matte coating", "Window cutout", "Inside print"],
+    specs: [
+      "Treat packaging may need inner bags or liners",
+      "Toy and accessory boxes need product-specific fit",
+      "Subscription boxes should watch repeat freight size",
+      "Window cutouts help when the product shape sells",
+    ],
+    quoteTips: [
+      "Confirm whether the product is food-related or non-food.",
+      "Send packed product size and weight.",
+      "Use one structure for several SKUs when possible.",
+    ],
+    faqs: [
+      {
+        q: "Can pet treat boxes use paper packaging?",
+        a: "Yes, often as an outer box around a sealed inner bag or liner.",
+      },
+      {
+        q: "Can pet subscription boxes be printed inside?",
+        a: "Yes. Inside print is common for subscription and DTC pet boxes.",
+      },
+    ],
+  },
+  {
+    slug: "custom-stationery-boxes",
+    title: "Custom Stationery Boxes",
+    eyebrow: "Office and creative products",
+    keyword: "custom stationery packaging boxes",
+    description:
+      "Custom stationery boxes for notebooks, pens, cards, planners, art supplies and office gift sets.",
+    image: "/images/folding-cartons.jpg",
+    alt: "Folding carton packaging suitable for stationery and office product boxes",
+    summary:
+      "Stationery packaging often needs clean structure, neat inserts and enough surface area for design-led artwork. Gift sets may use rigid boxes, while single products often fit folding cartons or sleeves.",
+    uses: ["Notebook boxes", "Pen set boxes", "Planner packaging", "Art supply kits"],
+    materials: ["White card paper", "Rigid board", "Kraft paper", "Paper inserts"],
+    finishes: ["Foil logo", "Embossing", "Matte lamination", "Sleeve wrap"],
+    specs: [
+      "Long products need insert and carton checks",
+      "Gift sets can use rigid boxes or drawer structures",
+      "Sleeves work well for notebooks and planners",
+      "Paper inserts can organize pens and small pieces",
+    ],
+    quoteTips: [
+      "Send the full set layout before choosing the insert.",
+      "Confirm if the box is for retail shelf or gifting.",
+      "Use a sleeve if the product cover already carries the main design.",
+    ],
+    faqs: [
+      {
+        q: "Can stationery boxes include inserts?",
+        a: "Yes. Paper inserts and dividers can organize pens, cards and small accessories.",
+      },
+      {
+        q: "What box works for notebook packaging?",
+        a: "Sleeves, folding cartons and rigid gift boxes can all work depending on the price point.",
+      },
+    ],
+  },
+  {
+    slug: "custom-toy-boxes",
+    title: "Custom Toy Boxes",
+    eyebrow: "Toy and game packaging",
+    keyword: "custom toy packaging boxes",
+    description:
+      "Custom toy boxes for small toys, puzzles, games, collectible sets, kids gifts and retail display packs.",
+    image: "/images/shipping-boxes.jpg",
+    alt: "Paper packaging cartons suitable for toy and game packaging planning",
+    summary:
+      "Toy packaging can range from simple folding cartons to stronger gift boxes and display packs. The safest structure depends on product size, pieces, age labeling and retail display needs.",
+    uses: ["Puzzle boxes", "Small toy cartons", "Collectible sets", "Game packaging"],
+    materials: ["White card paper", "Corrugated board", "Rigid board", "Paper inserts"],
+    finishes: ["CMYK printing", "Gloss coating", "Window cutout", "Display header"],
+    specs: [
+      "Small pieces may need trays or inner bags",
+      "Retail copy and warning space should be reserved",
+      "Window panels help when the toy shape should be visible",
+      "Display boxes work for small repeated items",
+    ],
+    quoteTips: [
+      "Send product count and all piece dimensions.",
+      "Confirm warning text and barcode needs before artwork.",
+      "Choose display packaging only when retail placement requires it.",
+    ],
+    faqs: [
+      {
+        q: "Can toy boxes have windows?",
+        a: "Yes. Window cutouts are useful when seeing the toy helps retail sales.",
+      },
+      {
+        q: "Can toy packaging include paper trays?",
+        a: "Yes. Paper trays or inserts can help organize small pieces inside the box.",
       },
     ],
   },

@@ -4,6 +4,7 @@ import QuoteSection from "../components/QuoteSection.astro";
 import { guideLinks, industries, processSteps, products, site } from "../data/site";
 
 const featuredProducts = products.slice(0, 10);
+const productCount = products.length;
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -215,7 +216,7 @@ const schema = {
           ))}
         </div>
         <div class="actions product-section-actions">
-          <a class="button" href="/products/">Browse all 30+ product styles</a>
+          <a class="button" href="/products/">Browse all {productCount}+ product styles</a>
         </div>
       </div>
     </section>

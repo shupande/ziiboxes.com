@@ -2,11 +2,13 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import QuoteSection from "../../components/QuoteSection.astro";
 import { products } from "../../data/site";
+
+const productCount = products.length;
 ---
 
 <BaseLayout
-  title="30+ Custom Paper Box Products"
-  description="Explore 30+ custom paper box styles for ecommerce, retail, gift, beauty, candle, jewelry, soap, bakery, apparel and Amazon packaging projects."
+  title={`${productCount}+ Custom Paper Box Products`}
+  description={`Explore ${productCount}+ custom paper box styles for ecommerce, retail, gift, wine, spirits, tea, chocolate, electronics, supplement, pet, stationery, toy and Amazon packaging projects.`}
   path="/products/"
   solidHeader
 >
@@ -14,7 +16,7 @@ import { products } from "../../data/site";
     <section class="page-hero">
       <div class="wrap">
         <p class="eyebrow">Products</p>
-        <h1>30+ custom paper box styles for online, retail and gift packaging.</h1>
+        <h1>{productCount}+ custom paper box styles for online, retail and gift packaging.</h1>
         <p>Start with the product use case, then compare box structure, material, size, printing, finish, sample and shipping.</p>
       </div>
     </section>
