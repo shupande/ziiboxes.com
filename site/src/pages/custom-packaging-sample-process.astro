@@ -1,0 +1,218 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import { site } from "../data/site";
+
+const faqs = [
+  {
+    q: "Do I need a sample before bulk production?",
+    a: "For most custom printed boxes, paper bags, rigid boxes and gift sets, a sample is recommended before bulk production because size, structure, color and finish need to be checked in the real material.",
+  },
+  {
+    q: "Can I start if I do not have final artwork?",
+    a: "Yes. You can start with product size, reference photos and a rough packaging goal. Final artwork can be prepared after the structure and dieline are clear.",
+  },
+  {
+    q: "What should I check on a packaging sample?",
+    a: "Check product fit, opening feel, paper thickness, print color, finish, insert support, handle strength and export carton details when relevant.",
+  },
+];
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Custom Packaging Sample Process",
+      description:
+        "Custom packaging sample process for ecommerce sellers sourcing paper boxes, paper bags, rigid gift boxes and China-side packing support.",
+      provider: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.url,
+        logo: `${site.url}/images/logo.png`,
+      },
+      serviceType: "Packaging sampling",
+      areaServed: "Worldwide",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Custom Packaging Sample Process"
+  description="How to sample custom paper boxes, paper bags, rigid gift boxes and inserts before bulk production, with checks for size, print, finish, packing and China-side handoff."
+  path="/custom-packaging-sample-process/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Sample process</p>
+        <h1>Sample custom packaging before it becomes a bulk order risk.</h1>
+        <p>
+          Use sampling to confirm the structure, material, print color, finish, product fit, handle strength and carton details before mass production starts.
+        </p>
+        <div class="actions">
+          <a class="button gold" href="/request-a-quote/">Request a sample quote</a>
+          <a class="button light" href="/packaging-quote-checklist/">Quote checklist</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/printing-machine.jpg" alt="Printing machine used for custom paper packaging production" />
+        </div>
+        <div>
+          <p class="section-kicker">Why sample first</p>
+          <h2>A good sample answers the questions a photo cannot answer.</h2>
+          <p class="lede-copy">
+            Product fit, opening feel, paper stiffness, handle strength and finish quality are hard to judge from a mockup.
+            A sample helps you approve the packaging before the project becomes expensive to change.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Structure sample</h3>
+              <p>Useful when you need to confirm size, fold, insert fit, bottle support or bag depth before artwork is final.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Printed sample</h3>
+              <p>Useful when logo color, full artwork, foil, lamination or surface finish must be checked on real material.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Pre-production sample</h3>
+              <p>Useful before a larger bulk order, especially for rigid boxes, gift sets, wine boxes and retail paper bags.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Packing sample</h3>
+              <p>Useful when products, inserts, bags, labels or cartons need to work together before China-side handoff.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap prose">
+        <p class="section-kicker">Sample checklist</p>
+        <h2>What to check before approving bulk production</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Check point</th>
+              <th>What to look for</th>
+              <th>Useful for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Product fit</td>
+              <td>The product should fit without forcing the box, insert or bag.</td>
+              <td>All custom packaging</td>
+            </tr>
+            <tr>
+              <td>Paper thickness</td>
+              <td>The packaging should feel strong enough for the product weight and handoff route.</td>
+              <td>Paper bags, mailers, cartons</td>
+            </tr>
+            <tr>
+              <td>Print color</td>
+              <td>Check logo color, artwork contrast and whether kraft paper changes the result.</td>
+              <td>Printed boxes and bags</td>
+            </tr>
+            <tr>
+              <td>Finish</td>
+              <td>Review foil, embossing, debossing, matte finish, spot UV or ribbon details.</td>
+              <td>Gift boxes, luxury bags</td>
+            </tr>
+            <tr>
+              <td>Carton details</td>
+              <td>Confirm packed carton size, weight and quantity per carton before freight handoff.</td>
+              <td>Export orders</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">How the sample route works</p>
+          <h2>Keep sample approval practical.</h2>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div>
+                <h3>Send product and packaging details</h3>
+                <p>Product size, weight, quantity, target packaging style, artwork status and destination.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div>
+                <h3>Confirm the sample type</h3>
+                <p>Choose structure sample, printed sample, pre-production sample or packing sample.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div>
+                <h3>Review and adjust</h3>
+                <p>Check fit, material, finish, handle, insert and carton details before approving production.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div>
+                <h3>Move to bulk production</h3>
+                <p>Use the approved sample and packing notes as the reference for production and China-side handoff.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="note-panel">
+          <h3>Related pages</h3>
+          <ul class="link-list">
+            <li><a href="/packaging-quote-checklist/">Packaging quote checklist</a></li>
+            <li><a href="/products/custom-rigid-boxes/">Custom rigid boxes</a></li>
+            <li><a href="/products/custom-paper-bags/">Custom paper bags</a></li>
+            <li><a href="/case-studies/luxury-bottle-box-sampling/">Bottle box sampling example</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">FAQ</p>
+          <h2>Common sample questions.</h2>
+        </div>
+        <div class="faq">
+          {faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>

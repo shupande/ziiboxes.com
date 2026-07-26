@@ -1478,6 +1478,10 @@ h2 {
     font-size: 34px;
   }
 
+  .case-hero h1 {
+    font-size: 34px;
+  }
+
   .quote-page-hero {
     padding: 42px 0 22px;
   }
@@ -1528,7 +1532,7 @@ h2 {
   }
 
   .case-hero {
-    padding: 58px 0 46px;
+    padding: 36px 0 38px;
   }
 
   .case-facts div,

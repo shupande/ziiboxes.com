@@ -2,7 +2,7 @@ const RECIPIENT = "sales@ziiboxes.com";
 const SENDER = "quotes@faithtechate.com";
 const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const FIELD_LABELS = {
-  box_style: "Box style",
+  box_style: "Box or bag style",
   quantity: "Quantity",
   size: "Size",
   destination: "Destination country",

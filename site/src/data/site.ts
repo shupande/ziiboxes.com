@@ -2146,12 +2146,12 @@ export const guideLinks = [
 
 export const processSteps = [
   {
-    title: "Send box details",
-    text: "Share box style, size, quantity, destination country and artwork if available.",
+    title: "Send packaging details",
+    text: "Share box or bag style, size, quantity, destination country and artwork if available.",
   },
   {
     title: "Confirm material and finish",
-    text: "Choose board, structure, printing, lamination, foil, UV, embossing or inserts.",
+    text: "Choose paper, board, structure, printing, lamination, foil, handles, embossing or inserts.",
   },
   {
     title: "Sample before production",

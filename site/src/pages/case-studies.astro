@@ -1,21 +1,22 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import QuoteSection from "../components/QuoteSection.astro";
+import { caseStudies } from "../data/caseStudies";
 import { site } from "../data/site";
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
+  "@type": "CollectionPage",
   name: "Packaging Case Studies",
   description:
-    "Real custom paper packaging project examples from ZiiBoxes, including gift box production, China-side supplier collection, logistics coordination and export paperwork support.",
+    "Custom paper packaging case studies and project route examples from ZiiBoxes, including gift boxes, paper bags, sampling and China-side supplier handoff.",
   url: `${site.url}/case-studies/`,
 };
 ---
 
 <BaseLayout
   title="Packaging Case Studies"
-  description="Real custom paper packaging project examples from ZiiBoxes, including gift box production, China-side supplier collection, logistics coordination and export paperwork support."
+  description="Custom paper packaging case studies and project route examples from ZiiBoxes, including gift boxes, paper bags, sampling and China-side supplier handoff."
   path="/case-studies/"
   solidHeader
   schema={schema}
@@ -25,115 +26,73 @@ const schema = {
       <div class="wrap case-hero-grid">
         <div>
           <p class="eyebrow">Case studies</p>
-          <h1>Real packaging projects with China-side support.</h1>
+          <h1>Custom packaging case studies from China.</h1>
           <p>
-            These examples show how custom boxes, supplier collection, packing details and freight handoff can work in real projects. Client names can stay private when needed.
+            Use these examples to see how custom boxes, paper bags, sampling, supplier delivery, packing notes and freight handoff can fit together before goods leave China.
           </p>
         </div>
         <div class="case-facts" aria-label="Project facts">
           <div>
-            <span>Market</span>
-            <strong>United Kingdom</strong>
+            <span>Real case</span>
+            <strong>UK rigid gift boxes</strong>
           </div>
           <div>
-            <span>Quantity</span>
-            <strong>About 20,000 pcs</strong>
+            <span>Workflow examples</span>
+            <strong>Paper bags and bottle boxes</strong>
           </div>
           <div>
-            <span>Box style</span>
-            <strong>Lid-and-base rigid box</strong>
-          </div>
-          <div>
-            <span>Extra work</span>
-            <strong>China-side export support</strong>
-          </div>
-          <div>
-            <span>Delivery</span>
-            <strong>100% on time</strong>
+            <span>Buyer focus</span>
+            <strong>Less remote coordination</strong>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section alt">
-      <div class="wrap case-story">
-        <figure class="case-photo">
-          <img src="/images/rigid-boxes.jpg" alt="Open rigid lid-and-base gift boxes for an export packaging project" />
-          <figcaption>Rigid lid-and-base structure used for premium gift packaging projects.</figcaption>
-        </figure>
-        <article>
-          <p class="section-kicker">UK gift box project</p>
-          <h2>20,000 rigid lid-and-base gift boxes, plus China-side export coordination.</h2>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Project examples</p>
+            <h2>Proof and planning routes before you ask for a quote.</h2>
+          </div>
           <p>
-            A UK customer needed about 20,000 gift boxes in a rigid lid-and-base structure. The project also needed China-side coordination because goods from other Chinese suppliers had to be collected before export.
+            Client names and exact product details can stay private. The useful part is the route: what problem needed solving and how the packaging work was organized.
           </p>
-
-          <div class="case-timeline">
-            <div class="case-step">
-              <span>01</span>
-              <div>
-                <h3>Make the gift boxes</h3>
-                <p>Produced about 20,000 rigid lid-and-base boxes and discussed export carton details before shipment.</p>
+        </div>
+        <div class="product-grid">
+          {caseStudies.map((caseStudy) => (
+            <a class="product-card" href={`/case-studies/${caseStudy.slug}/`}>
+              <img src={caseStudy.image} alt={caseStudy.alt} />
+              <div class="product-copy">
+                <small>{caseStudy.eyebrow}</small>
+                <h3>{caseStudy.title}</h3>
+                <p>{caseStudy.description}</p>
               </div>
-            </div>
-            <div class="case-step">
-              <span>02</span>
-              <div>
-                <h3>Collect supplier goods in China</h3>
-                <p>Gathered goods from other Chinese suppliers so the customer did not need to manage every handoff remotely.</p>
-              </div>
-            </div>
-            <div class="case-step">
-              <span>03</span>
-              <div>
-                <h3>Find the freight route</h3>
-                <p>Helped find a suitable logistics provider, then coordinated container loading details.</p>
-              </div>
-            </div>
-            <div class="case-step">
-              <span>04</span>
-              <div>
-                <h3>Prepare paperwork support</h3>
-                <p>Supported customs paperwork and clearance coordination, including dangerous-goods paperwork for granular cargo.</p>
-              </div>
-            </div>
-          </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
 
-          <div class="case-feedback">
-            <h3>Customer feedback</h3>
-            <p>
-              The customer said the box quality was very good and thanked us for helping with dangerous-goods paperwork and customs clearance coordination for granular cargo.
-            </p>
-          </div>
-
-          <div class="case-results">
-            <div>
-              <strong>Quality confirmed</strong>
-              <p>The customer was happy with the finished box quality.</p>
-            </div>
-            <div>
-              <strong>Fewer handoffs</strong>
-              <p>Packaging and supplier goods were organized for one export route.</p>
-            </div>
-            <div>
-              <strong>100% on-time delivery</strong>
-              <p>The shipment reached the agreed delivery timing.</p>
-            </div>
-            <div>
-              <strong>Clearer shipment prep</strong>
-              <p>Loading and paperwork details were handled before shipment.</p>
-            </div>
-          </div>
-
-          <div class="note-panel">
-            <h3>Related rigid gift box pages</h3>
-            <ul class="link-list">
-              <li><a href="/custom-rigid-gift-boxes-china/">Custom rigid gift boxes from China</a></li>
-              <li><a href="/guides/lid-and-base-rigid-boxes/">Lid-and-base rigid boxes guide</a></li>
-              <li><a href="/guides/custom-rigid-gift-box-cost/">Custom rigid gift box cost guide</a></li>
-            </ul>
-          </div>
-        </article>
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">What buyers usually want to know</p>
+          <h2>Good packaging work is usually about the handoff, not only the print.</h2>
+          <p>
+            A box or bag can look finished, but the buyer may still need sampling decisions, product packing, supplier delivery, carton information or paperwork support.
+            These pages show how those details are handled earlier.
+          </p>
+        </div>
+        <div class="note-panel">
+          <h3>Useful next pages</h3>
+          <ul class="link-list">
+            <li><a href="/custom-packaging-sample-process/">Custom packaging sample process</a></li>
+            <li><a href="/packaging-quote-checklist/">Packaging quote checklist</a></li>
+            <li><a href="/china-packaging-agent/">China packaging agent</a></li>
+            <li><a href="/product-packing-service-china/">Product packing service in China</a></li>
+          </ul>
+        </div>
       </div>
     </section>
 

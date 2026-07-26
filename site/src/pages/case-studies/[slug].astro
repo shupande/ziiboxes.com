@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import QuoteSection from "../../components/QuoteSection.astro";
+import { caseStudies } from "../../data/caseStudies";
+import { site } from "../../data/site";
+
+export function getStaticPaths() {
+  return caseStudies.map((caseStudy) => ({
+    params: { slug: caseStudy.slug },
+    props: { caseStudy },
+  }));
+}
+
+const { caseStudy } = Astro.props;
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: caseStudy.title,
+  description: caseStudy.description,
+  url: `${site.url}/case-studies/${caseStudy.slug}/`,
+};
+---
+
+<BaseLayout
+  title={caseStudy.title}
+  description={caseStudy.description}
+  path={`/case-studies/${caseStudy.slug}/`}
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="case-hero">
+      <div class="wrap case-hero-grid">
+        <div>
+          <p class="eyebrow">{caseStudy.eyebrow}</p>
+          <h1>{caseStudy.title}</h1>
+          <p>{caseStudy.description}</p>
+          <div class="actions">
+            <a class="button gold" href="/request-a-quote/">Start a similar quote</a>
+            <a class="button light" href="/case-studies/">All cases</a>
+          </div>
+        </div>
+        <div class="case-facts" aria-label="Project facts">
+          {caseStudy.facts.map(([label, value]) => (
+            <div>
+              <span>{label}</span>
+              <strong>{value}</strong>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap case-story">
+        <figure class="case-photo">
+          <img src={caseStudy.image} alt={caseStudy.alt} />
+          <figcaption>{caseStudy.alt}</figcaption>
+        </figure>
+        <article>
+          <p class="section-kicker">{caseStudy.kicker}</p>
+          <h2>{caseStudy.headline}</h2>
+          <p>{caseStudy.intro}</p>
+
+          <div class="case-timeline">
+            {caseStudy.steps.map(([title, text], index) => (
+              <div class="case-step">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="case-feedback">
+            <h3>Why this matters</h3>
+            <p>{caseStudy.feedback}</p>
+          </div>
+
+          <div class="case-results">
+            {caseStudy.results.map(([title, text]) => (
+              <div>
+                <strong>{title}</strong>
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="note-panel">
+            <h3>Related pages</h3>
+            <ul class="link-list">
+              {caseStudy.related.map(([title, href]) => (
+                <li><a href={href}>{title}</a></li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>

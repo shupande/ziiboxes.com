@@ -1,0 +1,199 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import { site } from "../data/site";
+
+const faqs = [
+  {
+    q: "Can I request a quote without final artwork?",
+    a: "Yes. You can send product size, quantity, packaging style and reference photos first. Final artwork can be prepared after the dieline is confirmed.",
+  },
+  {
+    q: "What is the fastest way to get a useful packaging quote?",
+    a: "Send product size, packaging style, quantity, destination, artwork status, material or finish preference and whether any China-side packing or supplier delivery is needed.",
+  },
+  {
+    q: "Should I mention Amazon, Shopify or supplier delivery needs?",
+    a: "Yes. Platform labels, carton details, product packing and delivery to a China supplier can affect the quote and workflow.",
+  },
+];
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "Packaging Quote Checklist",
+      description:
+        "A custom packaging quote checklist for ecommerce sellers sourcing printed boxes, paper bags, inserts, samples and China-side packing support.",
+      url: `${site.url}/packaging-quote-checklist/`,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Packaging Quote Checklist"
+  description="A custom packaging quote checklist for ecommerce sellers sourcing printed boxes, paper bags, inserts, samples and China-side packing support."
+  path="/packaging-quote-checklist/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Quote checklist</p>
+        <h1>Send better packaging details and get a more useful quote back.</h1>
+        <p>
+          Use this checklist before asking for custom boxes, paper bags, inserts, samples, product packing or delivery to a China supplier.
+        </p>
+        <div class="actions">
+          <a class="button gold" href="/request-a-quote/">Start a quote</a>
+          <a class="button light" href="/custom-packaging-sample-process/">Sample process</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/products/custom-retail-paper-bags.jpg" alt="Custom paper bags and packaging prepared for quote planning" />
+        </div>
+        <div>
+          <p class="section-kicker">What to send first</p>
+          <h2>A rough but complete brief is better than a perfect sentence.</h2>
+          <p class="lede-copy">
+            You do not need every answer before contacting ZiiBoxes. The best first message explains the product, the packaging goal, the quantity, the destination and any China-side work you want handled.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Product details</h3>
+              <p>Product photo, size, weight, material, fragility and whether it is liquid, scented, powder or battery-related.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Packaging goal</h3>
+              <p>Mailer box, folding carton, rigid gift box, paper bag, insert, sleeve or a reference photo.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Order plan</h3>
+              <p>Target quantity, pilot quantity, repeat order expectation, deadline and destination country.</p>
+            </div>
+            <div class="detail-card">
+              <h3>China-side route</h3>
+              <p>Whether packaging should be packed with products, delivered to your supplier or handed to a freight route.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap prose">
+        <p class="section-kicker">Checklist table</p>
+        <h2>Copy this structure into your first quote message</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Detail</th>
+              <th>What to send</th>
+              <th>If you do not know yet</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Packaging style</td>
+              <td>Box or bag type, reference photo, or product page link.</td>
+              <td>Send the product photo and say how it should be sold or shipped.</td>
+            </tr>
+            <tr>
+              <td>Size</td>
+              <td>Product size, box size or bag size in mm or inches.</td>
+              <td>Send product dimensions and ask for a structure suggestion.</td>
+            </tr>
+            <tr>
+              <td>Quantity</td>
+              <td>Target bulk order and any pilot quantity.</td>
+              <td>Ask for two quantities so unit cost is easier to compare.</td>
+            </tr>
+            <tr>
+              <td>Artwork</td>
+              <td>AI, PDF, logo file, dieline or reference design.</td>
+              <td>Say that artwork is not final and ask for dieline first.</td>
+            </tr>
+            <tr>
+              <td>Finish</td>
+              <td>Matte, gloss, foil, embossing, window, ribbon, handle or insert.</td>
+              <td>Share the brand look you want and keep the first sample simple.</td>
+            </tr>
+            <tr>
+              <td>Route</td>
+              <td>Destination country, China supplier address, warehouse or freight handoff point.</td>
+              <td>Say whether your products are already made in China.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-panel">
+          <h3>First-message example</h3>
+          <p>
+            "We need a custom rigid box or mailer for this product. Product size is 120 x 80 x 45 mm, weight is 300 g, first order may be 1,000 to 2,000 pcs, destination is the United States. Artwork is not final. Products are made in China and may need packaging delivered to our supplier."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">What you should get back</p>
+          <h2>A useful quote should help you decide the next step.</h2>
+          <ul class="check-list">
+            <li>Packaging structure or material suggestion</li>
+            <li>Practical quantity and MOQ discussion</li>
+            <li>Sample option before bulk production</li>
+            <li>Finish and artwork notes if something may be costly or risky</li>
+            <li>Carton or China-side handoff notes when needed</li>
+          </ul>
+        </div>
+        <div class="note-panel">
+          <h3>Related pages</h3>
+          <ul class="link-list">
+            <li><a href="/custom-packaging-sample-process/">Custom packaging sample process</a></li>
+            <li><a href="/china-packaging-agent/">China packaging agent</a></li>
+            <li><a href="/custom-paper-bags-china/">Custom paper bags from China</a></li>
+            <li><a href="/case-studies/">Packaging case studies</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">FAQ</p>
+          <h2>Common quote questions.</h2>
+        </div>
+        <div class="faq">
+          {faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>

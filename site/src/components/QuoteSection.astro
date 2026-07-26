@@ -6,9 +6,9 @@ import { site } from "../data/site";
   <div class="wrap quote-band">
     <div>
       <p class="section-kicker">Request a quote</p>
-      <h2>Send the basic box details. Get a practical answer back.</h2>
+      <h2>Send the basic packaging details. Get a practical answer back.</h2>
       <p>
-        Share the box style, size, quantity and destination. Artwork is helpful, but not required for the first estimate.
+        Share the box or bag style, size, quantity and destination. Artwork is helpful, but not required for the first estimate.
         If your project has recycled paper, FSC paper, plastic-free packaging or supplier code requirements, send them before sampling.
       </p>
       <div class="actions">
@@ -17,7 +17,7 @@ import { site } from "../data/site";
       </div>
     </div>
     <form class="quote-form" action="/api/quote" method="post" data-email={site.email} data-quote-form>
-      <input name="box_style" placeholder="Box style" autocomplete="off" />
+      <input name="box_style" placeholder="Box or bag style" autocomplete="off" />
       <input name="quantity" placeholder="Quantity" autocomplete="off" />
       <input name="size" placeholder="Size" autocomplete="off" />
       <input name="destination" placeholder="Destination country" autocomplete="country-name" />

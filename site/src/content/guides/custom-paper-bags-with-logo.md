@@ -40,7 +40,7 @@ Handle options usually include twisted paper handles, rope handles, cotton handl
 
 If your products are made in China, it may be practical to send finished bags to your product supplier. The supplier can pack the product box, tissue, card or gift set into the paper bag before export.
 
-This route is useful when you want less repacking work after the goods arrive overseas. See [send packaging to your China supplier](/send-packaging-to-china-supplier/) if the bags need to move to another factory or warehouse.
+This route is useful when you want less repacking work after the goods reach your market. See [send packaging to your China supplier](/send-packaging-to-china-supplier/) if the bags need to move to another factory or warehouse.
 
 ## Before asking for a quote
 
