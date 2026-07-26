@@ -1,0 +1,198 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import { site } from "../data/site";
+
+const faqs = [
+  {
+    q: "What is a rigid gift box?",
+    a: "A rigid gift box is a premium paper box made from thick greyboard wrapped with printed or specialty paper. It is stronger and more gift-ready than a folding carton.",
+  },
+  {
+    q: "What is a lid-and-base rigid box?",
+    a: "A lid-and-base rigid box is a two-piece rigid structure with a separate top lid and bottom base. It is often used for gift sets, beauty products, jewelry, candles and premium launch kits.",
+  },
+  {
+    q: "Are rigid gift boxes good for ecommerce brands?",
+    a: "Yes, when the product price, gift value or unboxing experience justifies the higher unit cost and larger freight volume.",
+  },
+  {
+    q: "Can rigid gift boxes include inserts?",
+    a: "Yes. Paper inserts, wrapped paperboard inserts, molded pulp, EVA or foam inserts can be discussed depending on product weight, protection needs and sustainability target.",
+  },
+  {
+    q: "Can you help pack products into rigid gift boxes in China?",
+    a: "Yes, if the product and packing steps are suitable. Product packing, supplier collection, carton details and freight handoff can be discussed together with the box quote.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "Custom Rigid Gift Boxes from China",
+      description:
+        "Custom rigid gift boxes from China for ecommerce brands, gift sets and premium product launches, including lid-and-base boxes, inserts, finishes, product packing and freight handoff support.",
+      url: `${site.url}/custom-rigid-gift-boxes-china/`,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Custom Rigid Gift Boxes from China"
+  description="Custom rigid gift boxes from China for ecommerce brands, gift sets and premium product launches, with lid-and-base boxes, inserts, finishes, packing and freight handoff support."
+  path="/custom-rigid-gift-boxes-china/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Custom rigid gift boxes China</p>
+        <h1>Custom rigid gift boxes from China for premium product launches.</h1>
+        <p>
+          Plan lid-and-base rigid boxes, inserts, finishes, carton details and China-side packing support before your gift sets or premium products leave China.
+        </p>
+        <div class="actions">
+          <a class="button gold" href="/request-a-quote/">Request a quote</a>
+          <a class="button light" href="/case-studies/">Read the UK case</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/products/custom-rigid-boxes.jpg" alt="Custom rigid gift boxes with premium paper finish" />
+        </div>
+        <div>
+          <p class="section-kicker">Best-fit projects</p>
+          <h2>Use rigid gift boxes when the package must carry value before the product is opened.</h2>
+          <p class="lede-copy">
+            Rigid boxes are heavier and more expensive than folding cartons, but they help products feel premium, gift-ready and better organized.
+            They are a good fit when the box is part of the selling experience, not just an outer cover.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Gift sets</h3>
+              <ul>
+                <li>Beauty sets, candle sets, fragrance kits and launch boxes</li>
+                <li>Paper inserts or dividers for several products</li>
+                <li>Good when the buyer expects a ready-to-gift presentation</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Premium ecommerce</h3>
+              <ul>
+                <li>Higher-value online products that need stronger unboxing</li>
+                <li>Inside print, foil, embossing or specialty paper</li>
+                <li>Carton size checked early because rigid boxes take space</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>Retail presentation</h3>
+              <ul>
+                <li>Perfume, jewelry, skincare, accessories and gift products</li>
+                <li>Lift-off lid, drawer, magnetic or book-style structures</li>
+                <li>Sample approval before bulk production</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h3>China-side packing</h3>
+              <ul>
+                <li>Pack suitable products into the boxes before export</li>
+                <li>Collect products from China suppliers when needed</li>
+                <li>Prepare carton details for freight handoff</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap prose">
+        <h2>Common rigid gift box structures</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Structure</th>
+              <th>Best for</th>
+              <th>Planning note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lid-and-base rigid box</td>
+              <td>Gift sets, candles, beauty kits, jewelry and premium retail sets.</td>
+              <td>The lid fit, base depth and insert height should be checked with product samples.</td>
+            </tr>
+            <tr>
+              <td>Magnetic closure box</td>
+              <td>Launch kits, PR boxes, electronics accessories and premium ecommerce.</td>
+              <td>More parts and assembly usually mean higher cost and larger carton volume.</td>
+            </tr>
+            <tr>
+              <td>Drawer rigid box</td>
+              <td>Jewelry, fragrance samples, small gift products and accessories.</td>
+              <td>The drawer pull, sleeve fit and insert tolerance need careful sampling.</td>
+            </tr>
+            <tr>
+              <td>Book-style rigid box</td>
+              <td>Presentation kits, collector sets and high-value promotional boxes.</td>
+              <td>Useful when the opening action is part of the brand experience.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>What affects rigid gift box cost</h2>
+        <p>
+          Rigid box cost depends on size, greyboard thickness, wrapping paper, print coverage, finish effects, insert material, assembly work and packed carton volume.
+          Because rigid boxes usually do not ship flat, carton dimensions and gross weight should be checked before comparing landed cost.
+        </p>
+
+        <div class="note-panel">
+          <h3>Real project proof</h3>
+          <p>
+            A UK customer ordered about 20,000 rigid lid-and-base gift boxes and needed supplier collection, freight route search, container loading and paperwork support in China.
+            The project reached the agreed timing with 100% on-time delivery.
+            <a href="/case-studies/">Read the case study</a>.
+          </p>
+        </div>
+
+        <h2>Related pages</h2>
+        <ul class="link-list">
+          <li><a href="/products/custom-rigid-boxes/">Custom rigid boxes product details</a></li>
+          <li><a href="/products/custom-gift-boxes/">Custom gift boxes with logo</a></li>
+          <li><a href="/guides/lid-and-base-rigid-boxes/">Lid-and-base rigid box guide</a></li>
+          <li><a href="/guides/custom-rigid-gift-box-cost/">Custom rigid gift box cost guide</a></li>
+          <li><a href="/product-packing-service-china/">Product packing service in China</a></li>
+        </ul>
+
+        <div class="faq">
+          {faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>

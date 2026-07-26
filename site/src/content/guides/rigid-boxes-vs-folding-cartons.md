@@ -48,4 +48,4 @@ Rigid boxes are a good fit when:
 
 Rigid boxes often take more space because they do not fold flat. That can change shipping cost and warehouse planning. If you are comparing quotes, ask for packed carton dimensions and total gross weight, not only unit price.
 
-Related pages: [custom rigid boxes](/products/custom-rigid-boxes/), [custom folding cartons](/products/custom-folding-cartons/), [printing finishes guide](/guides/printing-finishes/).
+Related pages: [custom rigid gift boxes from China](/custom-rigid-gift-boxes-china/), [custom rigid boxes](/products/custom-rigid-boxes/), [custom folding cartons](/products/custom-folding-cartons/), [printing finishes guide](/guides/printing-finishes/).

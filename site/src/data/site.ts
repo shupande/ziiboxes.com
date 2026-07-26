@@ -715,6 +715,16 @@ export const guideLinks = [
     title: "Carton details your freight forwarder needs",
     description: "What to prepare before a freight forwarder quotes or receives packed goods.",
   },
+  {
+    slug: "custom-rigid-gift-box-cost",
+    title: "Custom rigid gift box cost",
+    description: "Structure, board, inserts, finish effects and freight volume for rigid gift boxes.",
+  },
+  {
+    slug: "lid-and-base-rigid-boxes",
+    title: "Lid-and-base rigid boxes",
+    description: "When two-piece rigid boxes work for gift sets and premium product launches.",
+  },
 ];
 
 export const processSteps = [
