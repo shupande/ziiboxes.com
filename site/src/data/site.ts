@@ -5,7 +5,7 @@ export const site = {
   location: "Shenzhen, China",
   whatsapp: "https://wa.me/message/2MOG66WRZDZWH1",
   description:
-    "For sellers sourcing in China: print the boxes, deliver them to your factory or pack products here, then prepare carton details for your freight route.",
+    "For sellers sourcing in China: custom boxes, product packing, supplier collection, carton details and freight handoff prepared before shipment.",
 };
 
 export const products = [
