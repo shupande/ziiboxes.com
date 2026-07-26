@@ -1,0 +1,215 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import { products, site } from "../data/site";
+
+const bagSlugs = [
+  "custom-paper-bags",
+  "custom-kraft-paper-bags",
+  "custom-shopping-bags",
+  "luxury-paper-gift-bags",
+  "custom-printed-kraft-paper-bags",
+];
+const bagProducts = products.filter((product) => bagSlugs.includes(product.slug));
+const faqs = [
+  {
+    q: "Can ZiiBoxes make custom paper bags with logo?",
+    a: "Yes. ZiiBoxes can make custom paper bags with logo printing, kraft paper, white paper, rope handles, ribbon handles, foil details and simple color artwork.",
+  },
+  {
+    q: "Can paper bags be delivered to my China supplier?",
+    a: "Yes. Finished paper bags can be delivered to your product factory, packer, warehouse or consolidation point in China.",
+  },
+  {
+    q: "Do paper bags ship flat?",
+    a: "Most paper shopping bags ship flat-packed, which makes them easier to deliver with boxes or send to a supplier before final product packing.",
+  },
+  {
+    q: "What details are needed for a paper bag quote?",
+    a: "Send bag size, product or box size, packed weight, handle type, paper preference, artwork and the China delivery or export route.",
+  },
+];
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Custom Paper Bags from China",
+      description:
+        "Custom paper bags from China for retail, ecommerce, gift sets and supplier handoff, including kraft bags, shopping bags, luxury gift bags and printed paper carrier bags.",
+      provider: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.url,
+        logo: `${site.url}/images/logo.png`,
+      },
+      areaServed: "Worldwide",
+      serviceType: "Custom printed paper bags",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Custom Paper Bags from China"
+  description="Custom paper bags from China for retail, ecommerce and gift handoff: kraft bags, shopping bags, luxury gift bags, printed handles and delivery to your China supplier or warehouse."
+  path="/custom-paper-bags-china/"
+  solidHeader
+  schema={schema}
+>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Custom paper bags China</p>
+        <h1>Custom paper bags for retail, ecommerce and gift handoff from China.</h1>
+        <p>
+          Plan printed paper bags, kraft carrier bags, boutique shopping bags and luxury gift bags together with your product boxes, supplier delivery or China-side packing route.
+        </p>
+        <div class="actions">
+          <a class="button gold" href="/request-a-quote/">Start a paper bag quote</a>
+          <a class="button light" href="/send-packaging-to-china-supplier/">Supplier delivery options</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src="/images/products/custom-retail-paper-bags.jpg" alt="Custom printed paper carrier bags for retail and ecommerce brands" />
+        </div>
+        <div>
+          <p class="section-kicker">What buyers use paper bags for</p>
+          <h2>Use paper bags when the packaging needs to leave the factory looking ready for handoff.</h2>
+          <p class="lede-copy">
+            A paper bag is often the final customer-facing layer after the box. It can be a checkout bag, a gift set handoff, an event bag or a practical way to group products before export.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Retail shopping bags</h3>
+              <p>White paper, clean logo print, rope handles and color choices for boutiques, beauty stores and gift shops.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Kraft paper bags</h3>
+              <p>Natural brown kraft bags with twisted handles for soap, candles, food gifts, apparel and market-style retail.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Luxury gift bags</h3>
+              <p>Thicker paper, ribbon handles, foil details and reinforced folds for premium boxes, wine gifts and VIP sets.</p>
+            </div>
+            <div class="detail-card">
+              <h3>China supplier delivery</h3>
+              <p>Send finished bags with boxes to your product factory, packer, warehouse or consolidation point in China.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Paper bag product pages</p>
+            <h2>Choose the bag style before sampling.</h2>
+          </div>
+          <p>Each page covers practical quote details: paper type, handle, finish, size, packed weight and China delivery route.</p>
+        </div>
+        <div class="product-grid five">
+          {bagProducts.map((product) => (
+            <a class="product-card" href={`/products/${product.slug}/`}>
+              <img src={product.image} alt={product.alt} />
+              <div class="product-copy">
+                <small>{product.keyword}</small>
+                <h3>{product.title}</h3>
+                <p>{product.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">Quote planning</p>
+          <h2>Bag strength, handle style and packed weight should be checked before production.</h2>
+          <p>
+            Paper bags look simple, but small choices affect the result: paper thickness, bottom gusset, handle material, hole reinforcement, lamination and how the bags will be packed or delivered.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Project need</th>
+                <th>Bag option</th>
+                <th>Watch point</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Natural retail look</td>
+                <td>Kraft paper bag with twisted handle</td>
+                <td>Color printing looks different on brown paper.</td>
+              </tr>
+              <tr>
+                <td>Clean boutique checkout</td>
+                <td>White paper bag with rope handle</td>
+                <td>Confirm bag depth against the product box thickness.</td>
+              </tr>
+              <tr>
+                <td>Premium gift handoff</td>
+                <td>Luxury paper bag with ribbon handle</td>
+                <td>Heavy gifts may need reinforced handle holes.</td>
+              </tr>
+              <tr>
+                <td>China-side packing route</td>
+                <td>Flat-packed bags delivered with boxes</td>
+                <td>Confirm who receives the bags and who packs the product.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="feature-image">
+          <img src="/images/products/custom-printed-kraft-paper-bags.jpg" alt="Printed kraft paper bags with handles and simple artwork" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">Useful internal links</p>
+          <h2>Connect bags with the rest of the packaging workflow.</h2>
+          <ul class="link-list">
+            <li><a href="/products/custom-gift-boxes/">Custom gift boxes with logo</a></li>
+            <li><a href="/custom-rigid-gift-boxes-china/">Custom rigid gift boxes from China</a></li>
+            <li><a href="/shopify-packaging-china/">Shopify packaging from China</a></li>
+            <li><a href="/send-packaging-to-china-supplier/">Send packaging to your China supplier</a></li>
+            <li><a href="/product-packing-service-china/">Product packing service in China</a></li>
+          </ul>
+        </div>
+        <div class="faq">
+          {faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>

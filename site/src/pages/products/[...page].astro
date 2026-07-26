@@ -12,13 +12,13 @@ const productList = page.data;
 const productCount = products.length;
 const pagePath = page.currentPage === 1 ? "/products/" : `/products/${page.currentPage}/`;
 const pageTitle =
-  page.currentPage === 1 ? `${productCount}+ Custom Paper Box Products` : `${productCount}+ Custom Paper Box Products - Page ${page.currentPage}`;
+  page.currentPage === 1 ? `${productCount}+ Custom Paper Packaging Products` : `${productCount}+ Custom Paper Packaging Products - Page ${page.currentPage}`;
 const pageNumbers = Array.from({ length: page.lastPage }, (_, index) => index + 1);
 ---
 
 <BaseLayout
   title={pageTitle}
-  description={`Explore ${productCount}+ custom paper box styles for ecommerce, retail, gift, wine, spirits, tea, chocolate, electronics, supplement, pet, stationery, toy and Amazon packaging projects.`}
+  description={`Explore ${productCount}+ custom paper packaging styles for ecommerce, retail, gift, wine, spirits, tea, chocolate, electronics, supplement, pet, stationery, toy, paper bag and Amazon packaging projects.`}
   path={pagePath}
   solidHeader
 >
@@ -26,8 +26,8 @@ const pageNumbers = Array.from({ length: page.lastPage }, (_, index) => index + 
     <section class="page-hero">
       <div class="wrap">
         <p class="eyebrow">Products</p>
-        <h1>{productCount}+ custom paper box styles for online, retail and gift packaging.</h1>
-        <p>Start with the product use case, then compare box structure, material, size, printing, finish, sample and shipping.</p>
+        <h1>{productCount}+ custom paper packaging styles for online, retail and gift projects.</h1>
+        <p>Start with the product use case, then compare structure, material, size, printing, finish, handle, sample and shipping.</p>
       </div>
     </section>
     <section class="section alt">

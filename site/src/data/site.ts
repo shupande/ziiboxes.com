@@ -154,6 +154,186 @@ export const products = [
     ],
   },
   {
+    slug: "custom-paper-bags",
+    title: "Custom Paper Bags",
+    eyebrow: "Retail carrier bags",
+    keyword: "custom paper bags with logo",
+    description:
+      "Custom printed paper bags with handles for retail stores, ecommerce packing, gift sets and trade show handoff.",
+    image: "/images/products/custom-retail-paper-bags.jpg",
+    alt: "Colorful custom printed paper carrier bags with cotton handles",
+    summary:
+      "Paper bags are useful when your packaging needs to move from product box to retail handoff, event giveaway or gift presentation. The right bag depends on product weight, handle type, paper thickness, print coverage and whether the bag ships flat to your China supplier.",
+    uses: ["Retail shopping bags", "Gift set handoff", "Trade show bags", "Ecommerce apparel packing"],
+    materials: ["White card paper", "Kraft paper", "Art paper", "Specialty paper"],
+    finishes: ["CMYK printing", "Foil logo", "Matte lamination", "Cotton or rope handles"],
+    specs: [
+      "Bag size should match the product box and tissue paper if used",
+      "Handle strength must match the packed product weight",
+      "Flat-packed bags can be sent to your China factory or warehouse",
+      "Luxury bags may need thicker paper and reinforced handle holes",
+    ],
+    quoteTips: [
+      "Send the product box size, packed weight and expected bag direction.",
+      "Confirm handle type, paper thickness and whether tissue paper is needed.",
+      "Tell us if bags should be delivered to your supplier in China.",
+    ],
+    faqs: [
+      {
+        q: "Can paper bags be printed with my logo?",
+        a: "Yes. Paper bags can use simple logo printing, full-color artwork, foil stamping or a more premium handle and paper combination.",
+      },
+      {
+        q: "Can paper bags be sent to my China supplier?",
+        a: "Yes. Finished paper bags can be delivered to your product factory, packer, warehouse or consolidation point in China.",
+      },
+    ],
+  },
+  {
+    slug: "custom-kraft-paper-bags",
+    title: "Custom Kraft Paper Bags",
+    eyebrow: "Natural paper carrier bags",
+    keyword: "custom kraft paper bags wholesale",
+    description:
+      "Custom kraft paper bags for natural retail brands, soap, food gifts, apparel, candles and simple store packaging.",
+    image: "/images/products/custom-kraft-paper-bags.jpg",
+    alt: "Kraft paper shopping bags with printed logo placeholder and twisted handles",
+    summary:
+      "Kraft paper bags work well when the brand wants a natural paper look. They can be simple and cost-focused, but print color should be checked because brown kraft paper changes how artwork appears.",
+    uses: ["Natural retail bags", "Soap and candle shops", "Food gift handoff", "Apparel pickup bags"],
+    materials: ["Brown kraft paper", "Recycled kraft paper", "White kraft paper", "Twisted paper handles"],
+    finishes: ["Black ink logo", "Single-color print", "Simple color blocks", "Matte paper texture"],
+    specs: [
+      "Kraft paper gives a less glossy, natural appearance",
+      "Full-color artwork looks different on brown paper",
+      "Twisted paper handles are common for practical retail use",
+      "Bag strength should be checked against packed weight",
+    ],
+    quoteTips: [
+      "Send the item or box size that will go inside the bag.",
+      "Use simple artwork if you want a clean kraft result.",
+      "Ask for a sample if your logo color must be close.",
+    ],
+    faqs: [
+      {
+        q: "Are kraft paper bags recyclable?",
+        a: "They can support a recyclable paper direction, but the final claim depends on paper, coating, ink and destination rules.",
+      },
+      {
+        q: "Can kraft paper bags use color printing?",
+        a: "Yes, but colors are affected by the brown paper base, so simple artwork is often cleaner.",
+      },
+    ],
+  },
+  {
+    slug: "custom-shopping-bags",
+    title: "Custom Shopping Bags",
+    eyebrow: "Store and boutique bags",
+    keyword: "custom shopping bags with logo",
+    description:
+      "Custom paper shopping bags for boutiques, beauty stores, gift shops, events and premium retail checkout.",
+    image: "/images/products/custom-white-paper-shopping-bags.jpg",
+    alt: "White custom paper shopping bags with rope handles and gold logo detail",
+    summary:
+      "Shopping bags carry the brand after checkout. White paper bags are a flexible choice when you need clean color printing, logo space, rope handles and a more polished retail handoff.",
+    uses: ["Boutique checkout bags", "Beauty retail bags", "Gift shop bags", "Event merchandise bags"],
+    materials: ["White card paper", "Coated art paper", "Matte laminated paper", "Cotton rope handles"],
+    finishes: ["Gold foil", "Embossing", "Spot UV", "Matte or soft-touch lamination"],
+    specs: [
+      "White paper supports cleaner color printing than brown kraft",
+      "Rope or cotton handles can make bags feel more premium",
+      "Reinforced top folds help with heavier products",
+      "Bag depth should match the product box thickness",
+    ],
+    quoteTips: [
+      "Send your logo, bag size and expected product weight.",
+      "Confirm if the bag is for retail checkout, gift handoff or event use.",
+      "Choose handle color together with the artwork.",
+    ],
+    faqs: [
+      {
+        q: "What paper is best for custom shopping bags?",
+        a: "White card paper or coated art paper is common when clean color printing and a premium retail look matter.",
+      },
+      {
+        q: "Can shopping bags use foil logos?",
+        a: "Yes. Foil logos are common on white, black and specialty paper shopping bags.",
+      },
+    ],
+  },
+  {
+    slug: "luxury-paper-gift-bags",
+    title: "Luxury Paper Gift Bags",
+    eyebrow: "Premium gift handoff",
+    keyword: "luxury paper gift bags wholesale",
+    description:
+      "Luxury paper gift bags with ribbon handles, foil details and thicker paper for premium retail, wine, beauty and gift sets.",
+    image: "/images/products/luxury-paper-gift-bags.jpg",
+    alt: "Black luxury paper gift bags with ribbon handles and gold foil detail",
+    summary:
+      "Luxury paper gift bags should match the value of the box inside. They often use thicker paper, reinforced folds, ribbon or cotton handles and focused logo finishes instead of busy full-coverage artwork.",
+    uses: ["Wine gift bags", "Beauty gift sets", "Luxury retail bags", "VIP event gifts"],
+    materials: ["Thick art paper", "Specialty paper", "Black card paper", "Ribbon handles"],
+    finishes: ["Gold foil", "Debossing", "Soft-touch lamination", "Ribbon handle matching"],
+    specs: [
+      "Thicker paper helps the bag stand cleanly",
+      "Ribbon handles work well for premium gift handoff",
+      "Foil should be focused on logo or border details",
+      "Heavy gift sets need reinforced handle holes",
+    ],
+    quoteTips: [
+      "Send the gift box size and packed weight.",
+      "Confirm whether the bag should match a rigid box or product launch set.",
+      "Keep premium finishes focused so the bag still looks clean.",
+    ],
+    faqs: [
+      {
+        q: "Can luxury gift bags match rigid gift boxes?",
+        a: "Yes. Paper, handle color and foil details can be planned to match a rigid box or gift set presentation.",
+      },
+      {
+        q: "Are ribbon handles stronger than paper handles?",
+        a: "Strength depends on handle material, hole reinforcement and product weight, so the packed weight should be checked before sampling.",
+      },
+    ],
+  },
+  {
+    slug: "custom-printed-kraft-paper-bags",
+    title: "Custom Printed Kraft Paper Bags",
+    eyebrow: "Kraft bags with artwork",
+    keyword: "printed kraft paper bags with handles",
+    description:
+      "Printed kraft paper bags with handles, color blocks and simple logo artwork for retail, apparel, gifts and natural product brands.",
+    image: "/images/products/custom-printed-kraft-paper-bags.jpg",
+    alt: "Custom printed kraft paper bags with handles and simple color artwork",
+    summary:
+      "Printed kraft bags give a natural base with more brand expression than plain brown bags. They are useful when you want kraft texture but still need color blocks, simple marks or campaign artwork.",
+    uses: ["Retail brand bags", "Apparel store bags", "Natural gift bags", "Market and event bags"],
+    materials: ["Brown kraft paper", "White kraft paper", "Recycled kraft paper", "Paper rope handles"],
+    finishes: ["Single-color print", "Two-color artwork", "Color block printing", "Matte paper finish"],
+    specs: [
+      "Simple color blocks usually work better than detailed photos",
+      "Kraft paper texture remains visible through the print",
+      "Bag depth should fit the box or folded product inside",
+      "Flat packing is practical for delivery to China suppliers",
+    ],
+    quoteTips: [
+      "Send artwork, bag size and handle preference.",
+      "Confirm whether the printed bag should match a box or sleeve.",
+      "Tell us if bags should go to your supplier, packer or warehouse in China.",
+    ],
+    faqs: [
+      {
+        q: "Can kraft paper bags use custom artwork?",
+        a: "Yes. Simple logo artwork, line art and color blocks can work well on kraft paper.",
+      },
+      {
+        q: "Can printed paper bags be packed with boxes?",
+        a: "Yes. Paper bags can be delivered with boxes or sent separately to your China supplier depending on the packing route.",
+      },
+    ],
+  },
+  {
     slug: "custom-shipping-boxes",
     title: "Custom Shipping Boxes",
     eyebrow: "Corrugated export packaging",
