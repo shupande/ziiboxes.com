@@ -25,7 +25,7 @@ import { site } from "../data/site";
       <input name="material_finish" placeholder="Material or finish" autocomplete="off" />
       <input type="hidden" name="company_website" tabindex="-1" autocomplete="off" />
       <textarea name="notes" placeholder="Project notes or artwork link"></textarea>
-      <div class="turnstile-field" data-turnstile-widget hidden></div>
+      <div class="turnstile-field cf-turnstile" data-turnstile-widget data-action="turnstile-spin-v2" hidden></div>
       <button class="button gold quote-submit" type="submit">Send quote request</button>
       <p class="quote-status" data-quote-status aria-live="polite"></p>
     </form>
@@ -114,6 +114,7 @@ import { site } from "../data/site";
       widget.hidden = false;
       const widgetId = turnstile.render(widget, {
         sitekey: siteKey,
+        action: "turnstile-spin-v2",
         theme: "light",
       });
       turnstileWidgets.set(form, widgetId);

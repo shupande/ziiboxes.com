@@ -86,7 +86,7 @@ export default {
 };
 
 async function verifyTurnstile(form, request, env) {
-  const secret = (env.TURNSTILE_SECRET_KEY || "").trim();
+  const secret = (env.TURNSTILE_SECRET || env.TURNSTILE_SECRET_KEY || "").trim();
   if (!secret) {
     return {
       ok: false,
@@ -104,12 +104,13 @@ async function verifyTurnstile(form, request, env) {
     };
   }
 
-  const body = new FormData();
-  body.append("secret", secret);
-  body.append("response", token);
+  const body = new URLSearchParams({
+    secret,
+    response: token,
+  });
 
   const remoteIp = request.headers.get("CF-Connecting-IP");
-  if (remoteIp) body.append("remoteip", remoteIp);
+  if (remoteIp) body.set("remoteip", remoteIp);
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 5000);
@@ -117,6 +118,9 @@ async function verifyTurnstile(form, request, env) {
   try {
     const response = await fetch(TURNSTILE_VERIFY_URL, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
       body,
       signal: controller.signal,
     });
@@ -131,6 +135,14 @@ async function verifyTurnstile(form, request, env) {
 
     const result = await response.json();
     if (result && result.success === true) return { ok: true };
+
+    if (Array.isArray(result?.["error-codes"]) && result["error-codes"].includes("invalid-input-secret")) {
+      return {
+        ok: false,
+        status: 503,
+        error: "Anti-spam check is not configured.",
+      };
+    }
   } catch (error) {
     console.error("Turnstile verification failed", error);
     return {
