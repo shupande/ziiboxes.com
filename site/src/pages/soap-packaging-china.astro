@@ -1,0 +1,54 @@
+---
+import TopicLanding from "../components/TopicLanding.astro";
+
+const guides: [string, string][] = [
+  ["Handmade soap packaging checklist", "/guides/handmade-soap-packaging-checklist/"],
+  ["Kraft soap box packaging guide", "/guides/kraft-soap-box-packaging-guide/"],
+  ["Soap box window packaging", "/guides/soap-box-window-packaging/"],
+  ["Soap sleeve and belly band packaging", "/guides/soap-sleeve-belly-band-packaging/"],
+  ["Soap packaging for gift sets", "/guides/soap-packaging-for-gift-sets/"],
+];
+
+const faqs = [
+  { q: "Can ZiiBoxes make soap packaging in China?", a: "Yes. ZiiBoxes can make kraft soap boxes, window boxes, sleeves, belly bands, gift boxes and export cartons for soap brands." },
+  { q: "What packaging works for handmade soap?", a: "Kraft boxes, sleeves, window boxes and belly bands are common. The right choice depends on bar size, scent, retail display and brand position." },
+  { q: "Can soap packaging use recycled or kraft paper?", a: "Yes. Kraft and recycled-style paper options can be discussed when the structure and printing requirements are clear." },
+  { q: "Can soap boxes be sent to a China supplier?", a: "Yes. Finished soap boxes can be delivered to your supplier, packer, warehouse or consolidation point in China." },
+  { q: "What should I send before quoting?", a: "Send soap bar size, weight, quantity, box style, artwork stage, window or sleeve needs and the destination route." },
+];
+---
+
+<TopicLanding
+  title="Soap Packaging from China"
+  description="Custom soap packaging from China for handmade soap, kraft boxes, window boxes, sleeves, belly bands, gift sets and export cartons."
+  path="/soap-packaging-china/"
+  eyebrow="Soap packaging China"
+  h1="Soap packaging from China for handmade bars, kraft boxes and gift sets."
+  intro="Plan custom soap boxes, windows, sleeves, belly bands, paper material, China delivery and carton details before your soap packaging order moves."
+  image="/images/industries/custom-soap-boxes.jpg"
+  imageAlt="Custom soap packaging boxes for handmade bars"
+  secondaryImage="/images/guides/supplier-cardboard-soap-packaging.jpg"
+  secondaryAlt="Kraft soap boxes with window cutouts"
+  sectionKicker="Soap box planning"
+  sectionTitle="Keep the packaging simple, clean and easy to pack."
+  sectionLead="Soap packaging often works best when the material, window, sleeve and label area are chosen around the bar size and retail display."
+  cards={[
+    { title: "Kraft soap boxes", text: "Natural paper look for handmade, organic-style and low-gloss soap packaging." },
+    { title: "Window boxes", text: "Show the soap color or texture while keeping a printed box structure." },
+    { title: "Sleeves and bands", text: "Lower-material options for bars that already hold their shape well." },
+    { title: "Gift sets", text: "Paper inserts, dividers and small gift boxes for multi-bar soap sets." },
+  ]}
+  tableTitle="Choose soap packaging around the bar and shelf display."
+  tableRows={[
+    ["Handmade bar soap", "Kraft box, sleeve or belly band", "Bar size and surface oil"],
+    ["Retail shelf display", "Window box or printed folding carton", "Window position and label space"],
+    ["Soap gift set", "Gift box with divider or paper insert", "Scent separation and set layout"],
+    ["Online soap order", "Inner box plus mailer or shipping carton", "Crush protection during shipping"],
+  ]}
+  workflowTitle="Deliver soap packaging to your supplier or packer in China."
+  workflowText="Finished soap boxes can be sent to a product factory, packer, warehouse or freight route. If products are suitable for local packing, the steps can be quoted together with the packaging."
+  quoteTips={["Soap bar size, weight and product photos", "Kraft, window, sleeve or gift box preference", "Artwork files and label requirements", "Quantity, destination and delivery route", "China supplier or packer address if available"]}
+  guides={guides}
+  faqs={faqs}
+  serviceType="Custom soap packaging"
+/>

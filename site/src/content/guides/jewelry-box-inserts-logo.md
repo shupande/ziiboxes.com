@@ -31,4 +31,4 @@ Keep the logo effect simple if this is the first order. A small, well-placed log
 
 The insert controls how the product sits when the box opens. A poor insert can make a premium box feel unfinished. If you sell several jewelry sizes, ask whether one box structure can use different inserts across SKUs.
 
-Related pages: [custom jewelry boxes](/industries/custom-jewelry-boxes/), [custom rigid boxes](/products/custom-rigid-boxes/), [printing finishes guide](/guides/printing-finishes/).
+Related pages: [jewelry packaging from China](/jewelry-packaging-china/), [custom jewelry boxes](/industries/custom-jewelry-boxes/), [jewelry box insert options](/guides/jewelry-box-insert-options/), [printing finishes guide](/guides/printing-finishes/).

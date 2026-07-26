@@ -1,0 +1,54 @@
+---
+import TopicLanding from "../components/TopicLanding.astro";
+
+const guides: [string, string][] = [
+  ["Jewelry packaging checklist", "/guides/jewelry-packaging-checklist/"],
+  ["Jewelry box insert options", "/guides/jewelry-box-insert-options/"],
+  ["Custom ring box packaging", "/guides/custom-ring-box-packaging/"],
+  ["Necklace and bracelet packaging", "/guides/necklace-bracelet-packaging-guide/"],
+  ["Jewelry packaging logo finishes", "/guides/jewelry-packaging-logo-finishes/"],
+];
+
+const faqs = [
+  { q: "Can ZiiBoxes make jewelry packaging in China?", a: "Yes. ZiiBoxes can make custom jewelry boxes, rigid boxes, drawers, inserts, logo finishes and export cartons for jewelry brands sourcing packaging from China." },
+  { q: "What details are needed for a jewelry packaging quote?", a: "Send product type, jewelry size, box style, insert need, logo finish, quantity, artwork stage and destination route." },
+  { q: "Can jewelry packaging use paper inserts?", a: "Yes. Paper inserts, wrapped inserts and dividers can work for many jewelry products when the product weight and presentation are suitable." },
+  { q: "Can boxes be delivered to my China supplier?", a: "Yes. Finished jewelry boxes can be sent to your supplier, packer, warehouse or freight route in China." },
+  { q: "What finish works for jewelry boxes?", a: "Foil stamping, embossing, debossing, spot UV and soft-touch finishes are common, but the finish should match the logo size and material." },
+];
+---
+
+<TopicLanding
+  title="Jewelry Packaging from China"
+  description="Custom jewelry packaging from China for rings, necklaces, bracelets and gift sets: rigid boxes, inserts, logo finishes, packing notes and carton details."
+  path="/jewelry-packaging-china/"
+  eyebrow="Jewelry packaging China"
+  h1="Jewelry packaging from China for rings, necklaces, bracelets and gift sets."
+  intro="Plan custom jewelry boxes, inserts, logo finishes, product packing and carton details before your packaging moves to your supplier, warehouse or freight route."
+  image="/images/industries/custom-jewelry-boxes.jpg"
+  imageAlt="Custom jewelry packaging boxes with logo printing"
+  secondaryImage="/images/guides/pexels-jewelry-box-hand.jpg"
+  secondaryAlt="Jewelry box with ring insert for premium packaging"
+  sectionKicker="Jewelry box planning"
+  sectionTitle="Make the box fit the item, not only the logo."
+  sectionLead="Jewelry packaging needs a clear insert, a clean logo area and a structure that matches the retail price point."
+  cards={[
+    { title: "Ring boxes", text: "Compact rigid boxes, velvet-style inserts, paper inserts and foil logo options." },
+    { title: "Necklace boxes", text: "Longer box shapes with insert tabs, ribbon slots or card-style holders." },
+    { title: "Gift sets", text: "Drawer boxes, lid-and-base boxes and dividers for multiple small items." },
+    { title: "Logo finishes", text: "Foil, embossing, debossing or printed logos planned before material approval." },
+  ]}
+  tableTitle="Choose jewelry packaging around product value and presentation."
+  tableRows={[
+    ["Ring or small earrings", "Small rigid box or folding carton with insert", "Insert fit and logo scale"],
+    ["Necklace or bracelet", "Long rigid box, drawer box or card insert", "Chain movement and anti-tangle layout"],
+    ["Premium gift set", "Lid-and-base rigid box or drawer box", "Freight volume and insert layout"],
+    ["Online jewelry order", "Inner jewelry box plus mailer or shipping carton", "Protection during parcel handling"],
+  ]}
+  workflowTitle="Send packaging to your supplier, or prepare gift sets before handoff."
+  workflowText="If your jewelry products or accessories are in China, packaging can be produced and delivered to your supplier, packer or warehouse. Suitable packing steps can be discussed when the product and route are clear."
+  quoteTips={["Jewelry type, size and product photos", "Box style, insert material and logo finish", "Artwork file, quantity and color requirement", "China supplier or warehouse delivery address", "Carton label, SKU or freight handoff notes"]}
+  guides={guides}
+  faqs={faqs}
+  serviceType="Custom jewelry packaging"
+/>

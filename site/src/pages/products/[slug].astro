@@ -13,6 +13,8 @@ export function getStaticPaths() {
 const { product } = Astro.props;
 const productGuideLinks: Record<string, [string, string][]> = {
   "custom-mailer-boxes": [
+    ["Apparel packaging from China", "/apparel-packaging-china/"],
+    ["Custom clothing mailer boxes", "/guides/custom-clothing-mailer-boxes/"],
     ["Shopify packaging from China", "/shopify-packaging-china/"],
     ["Custom mailer box design for Shopify", "/guides/custom-mailer-box-design-for-shopify/"],
     ["Amazon FBA packaging prep checklist", "/guides/amazon-fba-packaging-prep-checklist/"],
@@ -21,6 +23,8 @@ const productGuideLinks: Record<string, [string, string][]> = {
     ["How box size affects freight cost", "/guides/shipping-carton-size-freight-cost/"],
   ],
   "custom-folding-cartons": [
+    ["Perfume packaging from China", "/perfume-packaging-china/"],
+    ["Soap packaging from China", "/soap-packaging-china/"],
     ["Amazon private label packaging", "/amazon-private-label-packaging-china/"],
     ["Cosmetic gift set packaging", "/cosmetic-gift-set-packaging-china/"],
     ["Rigid boxes vs folding cartons", "/guides/rigid-boxes-vs-folding-cartons/"],
@@ -28,6 +32,8 @@ const productGuideLinks: Record<string, [string, string][]> = {
     ["How to choose cosmetic packaging boxes", "/guides/cosmetic-packaging-structure-guide/"],
   ],
   "custom-rigid-boxes": [
+    ["Jewelry packaging from China", "/jewelry-packaging-china/"],
+    ["Luxury perfume rigid boxes", "/guides/luxury-perfume-rigid-boxes/"],
     ["Candle packaging from China", "/candle-packaging-china/"],
     ["Cosmetic gift set packaging", "/cosmetic-gift-set-packaging-china/"],
     ["Rigid gift boxes from China", "/custom-rigid-gift-boxes-china/"],
@@ -36,6 +42,8 @@ const productGuideLinks: Record<string, [string, string][]> = {
     ["UK rigid gift box case", "/case-studies/"],
   ],
   "custom-gift-boxes": [
+    ["Fragrance gift set packaging", "/guides/fragrance-gift-set-packaging/"],
+    ["Soap packaging for gift sets", "/guides/soap-packaging-for-gift-sets/"],
     ["Candle gift set packaging", "/guides/candle-gift-set-packaging-inserts/"],
     ["Cosmetic gift set packaging", "/cosmetic-gift-set-packaging-china/"],
     ["Skincare gift set packaging", "/guides/skincare-gift-set-packaging/"],
@@ -44,6 +52,8 @@ const productGuideLinks: Record<string, [string, string][]> = {
     ["Printing finishes explained", "/guides/printing-finishes/"],
   ],
   "custom-paper-inserts": [
+    ["Jewelry box insert options", "/guides/jewelry-box-insert-options/"],
+    ["Perfume bottle box insert protection", "/guides/perfume-bottle-box-insert-protection/"],
     ["Candle gift set packaging and inserts", "/guides/candle-gift-set-packaging-inserts/"],
     ["Packaging inserts and thank-you cards", "/guides/packaging-inserts-thank-you-cards/"],
     ["Cosmetic gift set packaging", "/cosmetic-gift-set-packaging-china/"],
@@ -53,11 +63,27 @@ const productGuideLinks: Record<string, [string, string][]> = {
     ["Paper inserts vs plastic trays", "/guides/paper-inserts-vs-plastic-trays/"],
   ],
   "custom-shipping-boxes": [
+    ["Perfume packaging shipping notes", "/guides/perfume-packaging-shipping-notes/"],
     ["Scented candle packaging shipping notes", "/guides/scented-candle-packaging-shipping-notes/"],
     ["Master carton details for Amazon FBA", "/guides/master-carton-details-amazon-fba/"],
     ["Mailer boxes vs shipping boxes", "/guides/mailer-boxes-vs-shipping-boxes/"],
     ["How box size affects freight cost", "/guides/shipping-carton-size-freight-cost/"],
     ["Responsible packaging options", "/responsible-packaging/"],
+  ],
+  "custom-window-boxes": [
+    ["Food packaging window boxes", "/guides/food-packaging-window-boxes/"],
+    ["Soap box window packaging", "/guides/soap-box-window-packaging/"],
+    ["Bakery and food packaging", "/bakery-food-packaging-china/"],
+  ],
+  "custom-sleeve-boxes": [
+    ["Soap sleeve and belly band packaging", "/guides/soap-sleeve-belly-band-packaging/"],
+    ["Apparel packaging from China", "/apparel-packaging-china/"],
+    ["Shopify packaging checklist", "/guides/shopify-packaging-checklist/"],
+  ],
+  "custom-gable-boxes": [
+    ["Bakery and food packaging", "/bakery-food-packaging-china/"],
+    ["Food-safe paper packaging notes", "/guides/food-safe-paper-packaging-notes/"],
+    ["Bakery box packaging checklist", "/guides/bakery-box-packaging-checklist/"],
   ],
 };
 const defaultProductGuideLinks: [string, string][] = [

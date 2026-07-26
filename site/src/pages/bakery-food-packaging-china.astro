@@ -1,0 +1,54 @@
+---
+import TopicLanding from "../components/TopicLanding.astro";
+
+const guides: [string, string][] = [
+  ["Bakery box packaging checklist", "/guides/bakery-box-packaging-checklist/"],
+  ["Cookie box packaging guide", "/guides/cookie-box-packaging-guide/"],
+  ["Food packaging window boxes", "/guides/food-packaging-window-boxes/"],
+  ["Cake pop and macaron packaging", "/guides/cake-pop-macaron-packaging/"],
+  ["Food-safe paper packaging notes", "/guides/food-safe-paper-packaging-notes/"],
+];
+
+const faqs = [
+  { q: "Can ZiiBoxes make bakery and food packaging in China?", a: "Yes. ZiiBoxes can make paper bakery boxes, cookie boxes, window boxes, gable boxes and gift food packaging." },
+  { q: "Can paper food boxes touch food directly?", a: "It depends on the material and food type. If direct food contact is required, send the requirement before quoting so suitable paper or liners can be discussed." },
+  { q: "What packaging works for cookies and macarons?", a: "Window boxes, trays, dividers and gift boxes are common. The right choice depends on product size, fragility and shelf display." },
+  { q: "Can food packaging be delivered to my China supplier?", a: "Yes. Finished boxes can be sent to your bakery supplier, packer, warehouse or freight route in China." },
+  { q: "What details are needed before quoting?", a: "Send food type, product size, quantity, box style, window or insert needs, direct contact requirements and destination route." },
+];
+---
+
+<TopicLanding
+  title="Bakery and Food Packaging from China"
+  description="Custom bakery and food packaging from China for cookies, macarons, window boxes, gable boxes, paper inserts, direct-contact notes and cartons."
+  path="/bakery-food-packaging-china/"
+  eyebrow="Bakery food packaging China"
+  h1="Bakery and food packaging from China for cookies, macarons and gift food boxes."
+  intro="Plan bakery boxes, cookie boxes, window packaging, gable boxes, inserts, food contact notes and carton details before your packaging order moves."
+  image="/images/industries/custom-bakery-boxes.jpg"
+  imageAlt="Custom bakery packaging boxes for cookies and pastries"
+  secondaryImage="/images/cookie-boxes.jpg"
+  secondaryAlt="Cookie box packaging for bakery and gift food products"
+  sectionKicker="Food box planning"
+  sectionTitle="Show the product clearly while keeping material requirements clear."
+  sectionLead="Bakery and food packaging should be planned around product size, shelf display, grease or liner needs, and whether the paper touches the food directly."
+  cards={[
+    { title: "Cookie boxes", text: "Window boxes, trays and inserts for cookies, biscuits and gift food sets." },
+    { title: "Bakery boxes", text: "Paper boxes, gable boxes and folding cartons for pastries and small bakery items." },
+    { title: "Window packaging", text: "Clear windows when product appearance helps sell the item." },
+    { title: "Material notes", text: "Food-contact or liner requirements discussed before quoting and sampling." },
+  ]}
+  tableTitle="Choose bakery packaging around display and product contact."
+  tableRows={[
+    ["Cookies or biscuits", "Window box, tray box or gift box", "Breakage and insert fit"],
+    ["Macarons or delicate items", "Divider, tray or rigid-style gift box", "Product spacing"],
+    ["Retail food gift", "Printed folding carton or gable box", "Handle strength and label space"],
+    ["Direct food contact", "Suitable paper, liner or inner wrap discussion", "Food-contact requirements"],
+  ]}
+  workflowTitle="Send bakery packaging to your supplier or packing route in China."
+  workflowText="Finished food packaging can be sent to your supplier, packer, warehouse or freight route. Direct food contact, liner and material requirements should be raised before sampling."
+  quoteTips={["Food type, size, weight and product photos", "Box style, window need and insert layout", "Direct food contact or liner requirements", "Quantity, artwork stage and destination", "China supplier or packer address if available"]}
+  guides={guides}
+  faqs={faqs}
+  serviceType="Custom bakery and food packaging"
+/>

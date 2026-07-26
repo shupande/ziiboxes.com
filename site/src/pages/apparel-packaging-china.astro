@@ -1,0 +1,54 @@
+---
+import TopicLanding from "../components/TopicLanding.astro";
+
+const guides: [string, string][] = [
+  ["Apparel packaging checklist", "/guides/apparel-packaging-checklist/"],
+  ["Custom clothing mailer boxes", "/guides/custom-clothing-mailer-boxes/"],
+  ["Paper mailers vs poly mailers", "/guides/apparel-poly-mailer-vs-paper-mailer/"],
+  ["Apparel packaging inserts and cards", "/guides/apparel-packaging-inserts-cards/"],
+  ["Socks and underwear packaging boxes", "/guides/socks-underwear-packaging-boxes/"],
+];
+
+const faqs = [
+  { q: "Can ZiiBoxes make apparel packaging in China?", a: "Yes. ZiiBoxes can make mailer boxes, folding cartons, sleeves, paper bands, inserts and carton details for apparel brands sourcing from China." },
+  { q: "What packaging works for clothing orders?", a: "Mailer boxes, paper sleeves, belly bands and folding cartons can work depending on garment size, price point and shipping route." },
+  { q: "Can packaging be sent to my garment factory?", a: "Yes. Finished packaging can be delivered to your garment factory, warehouse, packer or freight route in China." },
+  { q: "Can clothing be packed into branded boxes in China?", a: "If the packing steps and product condition are suitable, product packing can be discussed with the packaging quote." },
+  { q: "What quote details are needed?", a: "Send garment type, folded size, quantity, box or sleeve style, insert needs, supplier address and destination route." },
+];
+---
+
+<TopicLanding
+  title="Apparel Packaging from China"
+  description="Custom apparel packaging from China for clothing brands: mailer boxes, sleeves, paper bands, inserts, cards, supplier delivery and export cartons."
+  path="/apparel-packaging-china/"
+  eyebrow="Apparel packaging China"
+  h1="Apparel packaging from China for clothing brands, DTC orders and retail packs."
+  intro="Plan custom clothing mailer boxes, sleeves, paper bands, insert cards, China factory delivery and carton details before apparel orders move."
+  image="/images/industries/custom-apparel-packaging-boxes.jpg"
+  imageAlt="Custom apparel packaging boxes for clothing brands"
+  secondaryImage="/images/guides/supplier-mailer-gift-boxes.jpg"
+  secondaryAlt="Printed apparel mailer boxes prepared for ecommerce orders"
+  sectionKicker="Clothing packaging"
+  sectionTitle="Match the package to the folded product and sales channel."
+  sectionLead="Apparel packaging can be light and simple, but the folded size, card placement and shipping route still need to be clear before production."
+  cards={[
+    { title: "Mailer boxes", text: "Branded ecommerce boxes for apparel drops, gift orders and DTC unboxing." },
+    { title: "Sleeves and bands", text: "Paper sleeves, belly bands and simple wrap options for folded garments." },
+    { title: "Insert cards", text: "Care cards, thank-you cards and size cards planned around packing steps." },
+    { title: "Factory delivery", text: "Send finished packaging to your China garment factory or packing partner." },
+  ]}
+  tableTitle="Choose apparel packaging around folded size and route."
+  tableRows={[
+    ["T-shirts or lightweight apparel", "Mailer box, sleeve or paper band", "Folded size and packing speed"],
+    ["Socks or underwear", "Folding carton, sleeve or hanging box", "Size variation and barcode space"],
+    ["DTC apparel drop", "Printed mailer with card or insert", "Outer shipping protection"],
+    ["Factory-packed order", "Deliver empty packaging to garment supplier", "Receiver address and packing steps"],
+  ]}
+  workflowTitle="Send packaging to your garment supplier or prepare packed orders in China."
+  workflowText="When apparel is made in China, packaging can be produced and delivered to the factory, packer, warehouse or freight route. Packing support can be discussed when the steps are clear."
+  quoteTips={["Garment type, folded size and weight", "Box, sleeve, band or mailer preference", "Artwork, card and label requirements", "China factory or warehouse address", "Carton quantity and freight handoff notes"]}
+  guides={guides}
+  faqs={faqs}
+  serviceType="Custom apparel packaging"
+/>

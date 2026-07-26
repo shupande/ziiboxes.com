@@ -1,0 +1,166 @@
+---
+import QuoteSection from "./QuoteSection.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  eyebrow: string;
+  h1: string;
+  intro: string;
+  image: string;
+  imageAlt: string;
+  secondaryImage: string;
+  secondaryAlt: string;
+  sectionKicker: string;
+  sectionTitle: string;
+  sectionLead: string;
+  cards: { title: string; text: string }[];
+  tableTitle: string;
+  tableRows: [string, string, string][];
+  workflowTitle: string;
+  workflowText: string;
+  quoteTips: string[];
+  guides: [string, string][];
+  faqs: { q: string; a: string }[];
+  serviceType: string;
+}
+
+const props = Astro.props;
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: props.title,
+      description: props.description,
+      provider: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.url,
+        logo: `${site.url}/images/logo.png`,
+      },
+      areaServed: "Worldwide",
+      serviceType: props.serviceType,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: props.faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout title={props.title} description={props.description} path={props.path} solidHeader schema={schema}>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">{props.eyebrow}</p>
+        <h1>{props.h1}</h1>
+        <p>{props.intro}</p>
+        <div class="actions">
+          <a class="button gold" href="/request-a-quote/">Start a packaging quote</a>
+          <a class="button light" href="/ecommerce-packaging/">China-side support</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div class="feature-image">
+          <img src={props.image} alt={props.imageAlt} />
+        </div>
+        <div>
+          <p class="section-kicker">{props.sectionKicker}</p>
+          <h2>{props.sectionTitle}</h2>
+          <p class="lede-copy">{props.sectionLead}</p>
+          <div class="detail-grid">
+            {props.cards.map((card) => (
+              <div class="detail-card">
+                <h3>{card.title}</h3>
+                <p>{card.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap prose">
+        <p class="section-kicker">Planning table</p>
+        <h2>{props.tableTitle}</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Project need</th>
+              <th>Packaging option</th>
+              <th>Watch point</th>
+            </tr>
+          </thead>
+          <tbody>
+            {props.tableRows.map(([need, option, watch]) => (
+              <tr>
+                <td>{need}</td>
+                <td>{option}</td>
+                <td>{watch}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">China workflow</p>
+          <h2>{props.workflowTitle}</h2>
+          <p>{props.workflowText}</p>
+          <div class="note-panel">
+            <h3>Useful details to send</h3>
+            <ul class="check-list">
+              {props.quoteTips.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </div>
+        <div class="feature-image">
+          <img src={props.secondaryImage} alt={props.secondaryAlt} />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">Related guides</p>
+          <h2>Plan the details before sampling.</h2>
+          <ul class="link-list">
+            {props.guides.map(([title, href]) => (
+              <li><a href={href}>{title}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div class="faq">
+          {props.faqs.map((item) => (
+            <div class="faq-item">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <QuoteSection />
+  </main>
+</BaseLayout>

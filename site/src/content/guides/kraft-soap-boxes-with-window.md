@@ -36,4 +36,4 @@ Use a window when:
 
 Skip the window when the soap needs more protection, when the budget is tight or when you want to avoid mixed materials. A clean kraft carton or paper sleeve can still look strong with good typography and a clear label.
 
-Related pages: [custom soap boxes](/industries/custom-soap-boxes/), [responsible packaging](/responsible-packaging/), [artwork checklist](/guides/artwork-file-checklist/).
+Related pages: [soap packaging from China](/soap-packaging-china/), [custom soap boxes](/industries/custom-soap-boxes/), [soap box window packaging](/guides/soap-box-window-packaging/), [responsible packaging](/responsible-packaging/), [artwork checklist](/guides/artwork-file-checklist/).

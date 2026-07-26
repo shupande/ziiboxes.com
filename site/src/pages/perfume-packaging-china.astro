@@ -1,0 +1,54 @@
+---
+import TopicLanding from "../components/TopicLanding.astro";
+
+const guides: [string, string][] = [
+  ["Perfume packaging checklist", "/guides/perfume-packaging-checklist/"],
+  ["Perfume bottle box insert protection", "/guides/perfume-bottle-box-insert-protection/"],
+  ["Fragrance gift set packaging", "/guides/fragrance-gift-set-packaging/"],
+  ["Perfume packaging shipping notes", "/guides/perfume-packaging-shipping-notes/"],
+  ["Luxury perfume rigid boxes", "/guides/luxury-perfume-rigid-boxes/"],
+];
+
+const faqs = [
+  { q: "Can ZiiBoxes make perfume packaging in China?", a: "Yes. ZiiBoxes can make folding cartons, rigid boxes, drawer boxes, inserts and gift sets for perfume and fragrance brands." },
+  { q: "What packaging works for glass perfume bottles?", a: "Perfume bottles often need folding cartons with inserts, rigid boxes or drawer boxes depending on bottle weight, launch channel and protection needs." },
+  { q: "Can fragrance gift sets be packed in China?", a: "Suitable gift set packing can be discussed when product details, packing steps and freight route requirements are clear." },
+  { q: "Do perfumes need special shipping notes?", a: "The final route should be confirmed by your freight forwarder or customs broker. ZiiBoxes can prepare packaging-side carton and handoff details." },
+  { q: "What should I send before quoting?", a: "Send bottle photos, bottle size, weight, quantity, box style, insert layout, artwork stage and destination route." },
+];
+---
+
+<TopicLanding
+  title="Perfume Packaging from China"
+  description="Custom perfume packaging from China for glass bottles, fragrance sets and luxury launches: boxes, inserts, rigid boxes, carton notes and freight handoff."
+  path="/perfume-packaging-china/"
+  eyebrow="Perfume packaging China"
+  h1="Perfume packaging from China for glass bottles, fragrance sets and premium launches."
+  intro="Plan perfume boxes, bottle inserts, rigid gift sets, label space, product packing notes and freight handoff before fragrance packaging moves."
+  image="/images/industries/custom-perfume-boxes.jpg"
+  imageAlt="Custom perfume packaging boxes for glass fragrance bottles"
+  secondaryImage="/images/drawer-boxes.jpg"
+  secondaryAlt="Drawer box packaging for premium perfume gift sets"
+  sectionKicker="Perfume box planning"
+  sectionTitle="Protect the bottle while keeping the launch gift-ready."
+  sectionLead="Perfume packaging often combines fragile glass, premium presentation and freight route checks. The insert and carton plan should come before final artwork."
+  cards={[
+    { title: "Folding cartons", text: "Retail perfume cartons with bottle insert, label space and finish options." },
+    { title: "Rigid boxes", text: "Premium structures for fragrance launches, influencer kits and gift sets." },
+    { title: "Bottle inserts", text: "Paper inserts, dividers or stronger support planned around bottle shape." },
+    { title: "Shipping notes", text: "Carton and handoff details prepared for your confirmed logistics route." },
+  ]}
+  tableTitle="Choose perfume packaging around bottle protection and price point."
+  tableRows={[
+    ["Single perfume bottle", "Folding carton with insert", "Bottle fit and movement"],
+    ["Luxury launch", "Rigid box, drawer box or lid-and-base box", "Freight volume and finish timing"],
+    ["Fragrance gift set", "Gift box with paper insert or divider", "Mixed item layout"],
+    ["Export handoff", "Retail box plus master carton notes", "Route paperwork and carton details"],
+  ]}
+  workflowTitle="Coordinate perfume packaging before export handoff."
+  workflowText="If bottles, samples or accessories are sourced from China, packaging can be planned with product packing, carton count and delivery to your warehouse or freight route."
+  quoteTips={["Bottle photos, size, weight and shape", "Box style, insert idea and finish requirement", "Artwork, logo and label notes", "Gift set item list if relevant", "Destination and freight route details"]}
+  guides={guides}
+  faqs={faqs}
+  serviceType="Custom perfume packaging"
+/>
