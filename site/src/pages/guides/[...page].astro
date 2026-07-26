@@ -2,8 +2,12 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const guides = await getCollection("guides");
-guides.sort((a, b) => a.data.order - b.data.order);
+export async function getStaticPaths({ paginate }) {
+  const guides = await getCollection("guides");
+  guides.sort((a, b) => a.data.order - b.data.order);
+
+  return paginate(guides, { pageSize: 10 });
+}
 
 const guideImages = {
   "custom-box-moq": {
@@ -248,16 +252,22 @@ const guideImages = {
   },
 };
 
-const missingGuideImages = guides.filter((guide) => !guideImages[guide.id]).map((guide) => guide.id);
+const { page } = Astro.props;
+const guides = page.data;
+const pagePath = page.currentPage === 1 ? "/guides/" : `/guides/${page.currentPage}/`;
+const pageTitle = page.currentPage === 1 ? "Custom Packaging Blog and Guides" : `Custom Packaging Blog and Guides - Page ${page.currentPage}`;
+const pageNumbers = Array.from({ length: page.lastPage }, (_, index) => index + 1);
+const allGuides = await getCollection("guides");
+const missingGuideImages = allGuides.filter((guide) => !guideImages[guide.id]).map((guide) => guide.id);
 if (missingGuideImages.length > 0) {
   throw new Error(`Missing guide images: ${missingGuideImages.join(", ")}`);
 }
 ---
 
 <BaseLayout
-  title="Custom Packaging Blog and Guides"
+  title={pageTitle}
   description="Packaging guides about custom printed boxes, box styles, materials, inserts, MOQ, cost, artwork and shipping."
-  path="/guides/"
+  path={pagePath}
   solidHeader
 >
   <main>
@@ -284,6 +294,31 @@ if (missingGuideImages.length > 0) {
             </a>
           );
         })}
+        {page.lastPage > 1 && (
+          <nav class="pagination" aria-label="Blog pagination">
+            {page.currentPage > 1 ? (
+              <a class="pagination-link pagination-wide" href={page.currentPage === 2 ? "/guides/" : `/guides/${page.currentPage - 1}/`}>Previous</a>
+            ) : (
+              <span class="pagination-link pagination-wide is-disabled">Previous</span>
+            )}
+            <div class="pagination-pages">
+              {pageNumbers.map((pageNumber) => (
+                <a
+                  class="pagination-link"
+                  href={pageNumber === 1 ? "/guides/" : `/guides/${pageNumber}/`}
+                  aria-current={pageNumber === page.currentPage ? "page" : undefined}
+                >
+                  {pageNumber}
+                </a>
+              ))}
+            </div>
+            {page.currentPage < page.lastPage ? (
+              <a class="pagination-link pagination-wide" href={`/guides/${page.currentPage + 1}/`}>Next</a>
+            ) : (
+              <span class="pagination-link pagination-wide is-disabled">Next</span>
+            )}
+          </nav>
+        )}
       </div>
     </section>
   </main>
