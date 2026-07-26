@@ -369,6 +369,798 @@ export const products = [
       },
     ],
   },
+  {
+    slug: "custom-drawer-boxes",
+    title: "Custom Drawer Boxes",
+    eyebrow: "Sliding rigid packaging",
+    keyword: "custom drawer boxes with logo",
+    description:
+      "Sliding drawer boxes for jewelry, cosmetics, fragrance samples, gift sets and premium retail products.",
+    image: "/images/drawer-boxes.jpg",
+    alt: "Premium drawer box packaging with ribbon pull",
+    summary:
+      "Drawer boxes are used when a product needs a slow reveal and a premium unboxing feel. They can be made as rigid drawer boxes or lighter paperboard sleeves depending on the product value and budget.",
+    uses: ["Jewelry packaging", "Cosmetic sets", "Fragrance samples", "Gift kits"],
+    materials: ["Greyboard", "Art paper wrap", "Specialty paper", "Paperboard sleeve"],
+    finishes: ["Foil stamping", "Embossing", "Ribbon pull", "Soft touch lamination"],
+    specs: [
+      "Good for compact premium products and sample sets",
+      "Can use paper inserts to hold several items",
+      "Needs accurate product height so the drawer slides smoothly",
+      "Freight volume is higher than flat folding cartons",
+    ],
+    quoteTips: [
+      "Send the product layout before choosing the drawer depth.",
+      "Confirm whether the drawer needs a ribbon, thumb notch or pull tab.",
+      "Keep the insert simple if the order is a first launch.",
+    ],
+    faqs: [
+      {
+        q: "Are drawer boxes more expensive than folding cartons?",
+        a: "Usually yes. A rigid drawer box needs more board, wrapping and assembly time, but it gives a stronger premium presentation.",
+      },
+      {
+        q: "Can drawer boxes include logo printing?",
+        a: "Yes. Logo printing, foil stamping and textured paper are common choices for drawer box packaging.",
+      },
+    ],
+  },
+  {
+    slug: "custom-magnetic-closure-boxes",
+    title: "Custom Magnetic Closure Boxes",
+    eyebrow: "Premium gift packaging",
+    keyword: "custom magnetic closure boxes",
+    description:
+      "Magnetic closure rigid boxes for gift sets, PR kits, beauty launches and premium ecommerce packaging.",
+    image: "/images/products/custom-rigid-boxes.jpg",
+    alt: "Custom rigid boxes suitable for magnetic closure packaging",
+    summary:
+      "Magnetic closure boxes are chosen when the box should feel reusable and gift-ready. They work well for premium sets, but the magnet position, board thickness and insert layout should be confirmed before artwork.",
+    uses: ["Beauty gift sets", "PR kits", "Jewelry sets", "Premium ecommerce launches"],
+    materials: ["Rigid greyboard", "Art paper wrap", "Specialty paper", "Paper inserts"],
+    finishes: ["Magnetic closure", "Foil logo", "Embossing", "Matte lamination"],
+    specs: [
+      "Best for higher-value products and launch kits",
+      "Can be paired with paper inserts or dividers",
+      "Needs enough board thickness around the magnet area",
+      "Packed carton volume should be checked before freight quotes",
+    ],
+    quoteTips: [
+      "Send product weight so the closure strength can be checked.",
+      "Confirm if the box must be reusable after opening.",
+      "Plan sample review before bulk production.",
+    ],
+    faqs: [
+      {
+        q: "Are magnetic closure boxes good for ecommerce?",
+        a: "Yes, when the product value supports the cost and freight volume. They are common for premium ecommerce kits.",
+      },
+      {
+        q: "Can magnetic boxes be packed in China?",
+        a: "Suitable products can be packed into magnetic boxes in China when the product, insert and route are clear.",
+      },
+    ],
+  },
+  {
+    slug: "custom-lid-and-base-boxes",
+    title: "Custom Lid and Base Boxes",
+    eyebrow: "Two-piece rigid boxes",
+    keyword: "custom lid and base boxes",
+    description:
+      "Two-piece lid-and-base rigid boxes for gifts, candles, jewelry, fragrance and premium product sets.",
+    image: "/images/rigid-boxes.jpg",
+    alt: "Open lid and base rigid boxes for gift packaging",
+    summary:
+      "Lid-and-base boxes are a familiar two-piece structure for premium packaging. They are easier for buyers to understand and often work well when a clean gift presentation matters more than complex opening mechanics.",
+    uses: ["Gift boxes", "Jewelry sets", "Candle packaging", "Fragrance packaging"],
+    materials: ["Greyboard", "Wrapped paper", "Kraft paper wrap", "Paper inserts"],
+    finishes: ["Foil stamping", "Debossing", "Textured paper", "Matte lamination"],
+    specs: [
+      "Simple two-piece opening structure",
+      "Can use shallow or deep lids depending on the product",
+      "Works with paper, card or wrapped inserts",
+      "Needs carton planning because rigid boxes do not ship flat",
+    ],
+    quoteTips: [
+      "Confirm product height and how deep the lid should cover the base.",
+      "Use a tighter lid only after sample testing.",
+      "Share whether the box is for retail shelf, gifting or ecommerce shipping.",
+    ],
+    faqs: [
+      {
+        q: "What is a lid-and-base box?",
+        a: "It is a two-piece rigid box with a separate top lid and bottom base, often used for gift and premium retail packaging.",
+      },
+      {
+        q: "Can lid-and-base boxes include inserts?",
+        a: "Yes. Paper inserts, dividers or wrapped board inserts can be designed around the product layout.",
+      },
+    ],
+  },
+  {
+    slug: "custom-book-style-boxes",
+    title: "Custom Book Style Boxes",
+    eyebrow: "Hinged gift packaging",
+    keyword: "custom book style boxes",
+    description:
+      "Book-style rigid boxes with hinged opening for sample kits, jewelry, cosmetics and brand presentation sets.",
+    image: "/images/gift-boxes.jpg",
+    alt: "Printed gift boxes suitable for book style rigid packaging",
+    summary:
+      "Book-style boxes open like a cover, which makes them useful for presentation kits and sets that need a clear first view. They often use magnets, ribbons or paper inserts to hold the layout neatly.",
+    uses: ["Sample kits", "Cosmetic sets", "Jewelry presentation", "Brand launch boxes"],
+    materials: ["Rigid greyboard", "Wrapped art paper", "Specialty paper", "Paper inserts"],
+    finishes: ["Magnetic flap", "Foil logo", "Embossing", "Inside print"],
+    specs: [
+      "Good for sets that should be viewed when opened flat",
+      "Can include a hinged cover and magnetic closure",
+      "Needs careful spine sizing for smooth opening",
+      "Works best after product layout is fixed",
+    ],
+    quoteTips: [
+      "Send a top-view layout of the products inside the box.",
+      "Confirm whether the box will be displayed open or closed.",
+      "Avoid too many special finishes before the first sample.",
+    ],
+    faqs: [
+      {
+        q: "When should I use a book-style box?",
+        a: "Use it when the full set should be revealed neatly after opening, such as sample kits, beauty sets or presentation boxes.",
+      },
+      {
+        q: "Can book-style boxes use magnets?",
+        a: "Yes. Magnetic flaps are common when the box needs a clean reusable closing feel.",
+      },
+    ],
+  },
+  {
+    slug: "custom-collapsible-rigid-boxes",
+    title: "Custom Collapsible Rigid Boxes",
+    eyebrow: "Foldable premium boxes",
+    keyword: "custom collapsible rigid boxes",
+    description:
+      "Foldable rigid boxes for premium packaging projects that need a stronger look with lower storage volume.",
+    image: "/images/products/custom-rigid-boxes.jpg",
+    alt: "Premium rigid boxes used for collapsible gift packaging planning",
+    summary:
+      "Collapsible rigid boxes try to balance premium presentation with lower storage and freight volume. They are useful when a rigid look is needed but empty box volume is a concern.",
+    uses: ["Gift sets", "Apparel gifts", "Subscription kits", "Premium ecommerce boxes"],
+    materials: ["Greyboard panels", "Wrapped paper", "Magnetic strips", "Paperboard base"],
+    finishes: ["Foil stamping", "Matte lamination", "Magnetic assembly", "Ribbon options"],
+    specs: [
+      "Ships flatter than standard rigid boxes",
+      "Assembly steps should be clear for packers",
+      "Works best for lightweight to medium-weight products",
+      "Sample testing is important before bulk orders",
+    ],
+    quoteTips: [
+      "Confirm who will assemble the boxes before filling.",
+      "Ask for packed carton dimensions for flat and assembled forms.",
+      "Use this style when freight volume matters but a premium look is still needed.",
+    ],
+    faqs: [
+      {
+        q: "Are collapsible rigid boxes fully flat?",
+        a: "They ship flatter than standard rigid boxes, but the exact packed volume depends on the structure and materials.",
+      },
+      {
+        q: "Do collapsible boxes need assembly?",
+        a: "Yes. They usually need a simple assembly step before products are packed inside.",
+      },
+    ],
+  },
+  {
+    slug: "custom-paper-tube-boxes",
+    title: "Custom Paper Tube Boxes",
+    eyebrow: "Round paper packaging",
+    keyword: "custom paper tube packaging",
+    description:
+      "Round paper tube packaging for tea, cosmetics, candles, snacks, posters and lightweight gift products.",
+    image: "/images/guides/pexels-tea-gift-box.jpg",
+    alt: "Premium tea gift packaging used for paper tube packaging planning",
+    summary:
+      "Paper tubes are useful when a round package supports the product shape or shelf presence. They need careful checking for inner diameter, cap fit, label area and whether the product needs an inner bag.",
+    uses: ["Tea packaging", "Cosmetic sticks", "Candle gifts", "Poster tubes"],
+    materials: ["Kraft paper tube", "White paper wrap", "Inner paper liner", "Paper caps"],
+    finishes: ["CMYK printing", "Foil logo", "Label wrap", "Matte coating"],
+    specs: [
+      "Good for round, rolled or lightweight gift products",
+      "Inner diameter should match the product or inner container",
+      "Can use printed wrap, labels or direct decoration",
+      "Food or cosmetic contact needs separate checking",
+    ],
+    quoteTips: [
+      "Send product diameter and height before choosing tube size.",
+      "Confirm whether the product touches the paper tube directly.",
+      "Use labels if several flavors or variants share one tube size.",
+    ],
+    faqs: [
+      {
+        q: "Can paper tubes be printed with custom artwork?",
+        a: "Yes. Paper tubes can use printed wrap, logo labels or foil-style details depending on quantity and artwork.",
+      },
+      {
+        q: "Are paper tubes good for food products?",
+        a: "They can be used for some food gifts when the food has a suitable inner bag or liner and the destination requirements are checked.",
+      },
+    ],
+  },
+  {
+    slug: "custom-candle-boxes",
+    title: "Custom Candle Boxes",
+    eyebrow: "Candle retail packaging",
+    keyword: "custom candle boxes wholesale",
+    description:
+      "Custom candle boxes for glass jars, tins, votives, scented candles, gift sets and seasonal launches.",
+    image: "/images/industries/custom-candle-boxes.jpg",
+    alt: "Custom candle packaging boxes for scented candle brands",
+    summary:
+      "Candle boxes should balance brand presentation with protection. Glass jars, scented products and seasonal launch timing usually need earlier checks than simple retail cartons.",
+    uses: ["Glass jar candles", "Tin candles", "Candle gift sets", "Holiday collections"],
+    materials: ["Folding paperboard", "Corrugated board", "Rigid board", "Paper inserts"],
+    finishes: ["Matte lamination", "Foil logo", "Embossing", "Window cutout"],
+    specs: [
+      "Jar size and weight affect the box structure",
+      "Glass candles often need inserts or snug cartons",
+      "Scented products may need route checks before shipping",
+      "Seasonal deadlines should be planned early",
+    ],
+    quoteTips: [
+      "Send jar size, jar weight and candle photos.",
+      "Confirm if the candle is glass, scented or liquid-related.",
+      "Ask whether the product can be packed into boxes in China.",
+    ],
+    faqs: [
+      {
+        q: "Do candle boxes need inserts?",
+        a: "Glass candle jars often need inserts or snug structures to reduce movement during shipping.",
+      },
+      {
+        q: "Can candle boxes be made for holiday launches?",
+        a: "Yes. Seasonal artwork and gift-set structures can be planned around your launch date and delivery route.",
+      },
+    ],
+  },
+  {
+    slug: "custom-candle-jar-boxes",
+    title: "Custom Candle Jar Boxes",
+    eyebrow: "Glass jar protection",
+    keyword: "custom candle jar boxes",
+    description:
+      "Printed candle jar boxes with inserts, dividers and export carton planning for glass candle products.",
+    image: "/images/guides/supplier-black-candle-box-insert.jpg",
+    alt: "Black candle box with fitted insert for glass jar protection",
+    summary:
+      "Candle jar boxes need more than a nice outside print. The jar weight, glass risk, insert fit and shipping carton plan should be checked together before bulk production.",
+    uses: ["Glass jar candles", "Luxury candle boxes", "Candle sets", "Ecommerce candle shipping"],
+    materials: ["White card paper", "Corrugated board", "Rigid board", "Paper inserts"],
+    finishes: ["Foil stamping", "Soft touch lamination", "Spot UV", "Embossing"],
+    specs: [
+      "Insert fit should reduce jar movement",
+      "Board strength depends on jar weight",
+      "Outer cartons should be planned for export handling",
+      "Works with single jars or multi-jar gift sets",
+    ],
+    quoteTips: [
+      "Send jar diameter, height, weight and cap shape.",
+      "Confirm if the candle will ship individually or in master cartons.",
+      "Ask for insert and carton details together.",
+    ],
+    faqs: [
+      {
+        q: "Can candle jar boxes protect glass jars?",
+        a: "They can help, especially with suitable inserts and cartons, but the structure should be matched to jar weight and route.",
+      },
+      {
+        q: "Can scented candle boxes be exported from China?",
+        a: "Many can, but scented products should be checked early with the freight route and paperwork needs.",
+      },
+    ],
+  },
+  {
+    slug: "custom-cosmetic-boxes",
+    title: "Custom Cosmetic Boxes",
+    eyebrow: "Beauty product cartons",
+    keyword: "custom cosmetic boxes manufacturer",
+    description:
+      "Custom cosmetic boxes for lipstick, lip gloss, serum, cream jars, beauty tools and gift sets.",
+    image: "/images/industries/custom-cosmetic-boxes.jpg",
+    alt: "Custom cosmetic packaging boxes for beauty products",
+    summary:
+      "Cosmetic packaging usually needs clean shelf presentation, enough label space and consistent print color. The structure should match the bottle, jar, tube or set before artwork is finalized.",
+    uses: ["Lipstick boxes", "Serum cartons", "Cream jar boxes", "Beauty gift sets"],
+    materials: ["SBS paperboard", "White card paper", "Rigid board", "Paper inserts"],
+    finishes: ["Pantone color", "Foil stamping", "Embossing", "Matte lamination"],
+    specs: [
+      "Works for single items and multi-product sets",
+      "Label and ingredient copy space should be planned early",
+      "Color consistency matters for beauty brands",
+      "Can pair with inserts, sleeves or retail display boxes",
+    ],
+    quoteTips: [
+      "Send product size and bottle or tube photos.",
+      "Confirm if ingredient text or barcode space must be included.",
+      "Use Pantone only when brand color consistency is critical.",
+    ],
+    faqs: [
+      {
+        q: "What box style is common for cosmetics?",
+        a: "Folding cartons are common for single products. Rigid boxes and drawer boxes are used for gift sets and premium launches.",
+      },
+      {
+        q: "Can cosmetic boxes use foil stamping?",
+        a: "Yes. Foil stamping is common for logos and small premium details on cosmetic packaging.",
+      },
+    ],
+  },
+  {
+    slug: "custom-skincare-boxes",
+    title: "Custom Skincare Boxes",
+    eyebrow: "Serum and cream packaging",
+    keyword: "custom skincare packaging boxes",
+    description:
+      "Custom skincare boxes for serum bottles, cream jars, facial oil, masks, sample kits and skincare sets.",
+    image: "/images/industries/custom-skincare-boxes.jpg",
+    alt: "Custom skincare packaging boxes for beauty gift sets",
+    summary:
+      "Skincare boxes need to fit small containers cleanly while leaving enough room for product copy, labels and brand details. Sets may also need paper inserts or dividers.",
+    uses: ["Serum boxes", "Cream jar cartons", "Facial oil boxes", "Skincare sample kits"],
+    materials: ["White card paper", "SBS paperboard", "Rigid board", "Paper inserts"],
+    finishes: ["Soft touch lamination", "Foil logo", "Embossing", "Spot UV"],
+    specs: [
+      "Folding cartons work for single jars and bottles",
+      "Gift sets often need rigid boxes or inserts",
+      "Droppers and caps should be measured carefully",
+      "Label space and barcode area should be confirmed before printing",
+    ],
+    quoteTips: [
+      "Send product dimensions including cap or pump height.",
+      "Confirm whether bottles need to stay upright in the box.",
+      "Share all label copy requirements before artwork approval.",
+    ],
+    faqs: [
+      {
+        q: "Can skincare boxes include paper inserts?",
+        a: "Yes. Paper inserts can help hold bottles, jars and droppers in place for sets.",
+      },
+      {
+        q: "Are folding cartons enough for skincare packaging?",
+        a: "Often yes for single bottles or jars. Rigid boxes are better for premium sets and launch kits.",
+      },
+    ],
+  },
+  {
+    slug: "custom-perfume-boxes",
+    title: "Custom Perfume Boxes",
+    eyebrow: "Fragrance packaging",
+    keyword: "custom perfume boxes manufacturer",
+    description:
+      "Custom perfume boxes for glass fragrance bottles, sample vials, discovery sets and luxury gift packaging.",
+    image: "/images/industries/custom-perfume-boxes.jpg",
+    alt: "Custom perfume packaging boxes for glass fragrance bottles",
+    summary:
+      "Perfume packaging must support both a premium look and bottle protection. Bottle height, cap shape, insert fit and shipping route should be confirmed before production.",
+    uses: ["Perfume bottle boxes", "Fragrance samples", "Discovery sets", "Luxury gift sets"],
+    materials: ["Rigid board", "SBS paperboard", "Paper inserts", "Specialty paper"],
+    finishes: ["Foil stamping", "Embossing", "Soft touch lamination", "Textured paper"],
+    specs: [
+      "Glass bottles often need inserts or snug inner structures",
+      "Premium paper and restrained finishes work well for fragrance",
+      "Sample sets need accurate slot size and spacing",
+      "Shipping notes may be needed for fragrance-related routes",
+    ],
+    quoteTips: [
+      "Send bottle size, cap height and bottle weight.",
+      "Confirm if the product contains liquid or fragrance samples.",
+      "Plan carton details together with the box quote.",
+    ],
+    faqs: [
+      {
+        q: "Do perfume boxes need inserts?",
+        a: "Many perfume boxes need inserts because glass bottles should not move inside the package.",
+      },
+      {
+        q: "Can perfume boxes be made as rigid boxes?",
+        a: "Yes. Rigid boxes are common for luxury perfume sets and premium fragrance launches.",
+      },
+    ],
+  },
+  {
+    slug: "custom-jewelry-boxes",
+    title: "Custom Jewelry Boxes",
+    eyebrow: "Small premium packaging",
+    keyword: "custom jewelry boxes with logo",
+    description:
+      "Custom jewelry boxes with logo printing, paper inserts, drawer structures and premium finishes.",
+    image: "/images/industries/custom-jewelry-boxes.jpg",
+    alt: "Custom jewelry packaging boxes with logo printing",
+    summary:
+      "Jewelry boxes are small, but the structure and insert matter a lot. Rings, earrings, necklaces and bracelets each need a different way to sit cleanly inside the box.",
+    uses: ["Ring boxes", "Earring boxes", "Necklace packaging", "Bracelet gift boxes"],
+    materials: ["Rigid board", "Specialty paper", "Paper inserts", "Velvet-style insert options"],
+    finishes: ["Foil logo", "Embossing", "Soft touch lamination", "Drawer pull"],
+    specs: [
+      "Compact boxes need accurate insert planning",
+      "One outer box can sometimes serve several jewelry SKUs",
+      "Foil logos work well on small premium surfaces",
+      "Drawer and rigid boxes support gift-ready presentation",
+    ],
+    quoteTips: [
+      "Send product photos and the way each item should sit inside.",
+      "Confirm whether one box size can serve several jewelry types.",
+      "Choose the logo finish after paper color is selected.",
+    ],
+    faqs: [
+      {
+        q: "Can jewelry boxes include logo printing?",
+        a: "Yes. Foil stamping, debossing and simple print are common logo choices for jewelry boxes.",
+      },
+      {
+        q: "What insert works for jewelry boxes?",
+        a: "It depends on the item. Rings, earrings, necklaces and bracelets usually need different insert layouts.",
+      },
+    ],
+  },
+  {
+    slug: "custom-soap-boxes",
+    title: "Custom Soap Boxes",
+    eyebrow: "Handmade soap packaging",
+    keyword: "custom soap boxes packaging",
+    description:
+      "Custom soap boxes, kraft cartons, sleeves and window boxes for handmade soap and retail soap brands.",
+    image: "/images/industries/custom-soap-boxes.jpg",
+    alt: "Custom soap packaging boxes for handmade bars",
+    summary:
+      "Soap packaging usually needs a simple structure, clean brand copy and material choices that fit the product story. Kraft, sleeves and windows are common options for handmade brands.",
+    uses: ["Handmade soap bars", "Kraft soap boxes", "Soap sleeves", "Gift soap sets"],
+    materials: ["Kraft paper", "White card paper", "Recycled paperboard", "Window film"],
+    finishes: ["CMYK printing", "Window cutout", "Matte coating", "Foil logo"],
+    specs: [
+      "Bar size and scent range affect the best structure",
+      "Sleeves work when the product shape can show",
+      "Window boxes help show color or texture",
+      "Retail copy and ingredient space should be planned early",
+    ],
+    quoteTips: [
+      "Send soap bar size and whether it is wrapped.",
+      "Confirm if the soap touches the paper directly.",
+      "Use sleeves when you need several artwork variants with lower paper use.",
+    ],
+    faqs: [
+      {
+        q: "Are kraft boxes good for soap?",
+        a: "Yes. Kraft boxes are common for handmade and natural soap brands.",
+      },
+      {
+        q: "Can soap boxes have windows?",
+        a: "Yes. A window can show color and texture, but it adds cutting and film patching steps.",
+      },
+    ],
+  },
+  {
+    slug: "custom-bakery-boxes",
+    title: "Custom Bakery Boxes",
+    eyebrow: "Bakery retail packaging",
+    keyword: "custom bakery boxes wholesale",
+    description:
+      "Custom bakery boxes for cookies, pastries, donuts, cakes, takeout gifts and retail bakery products.",
+    image: "/images/industries/custom-bakery-boxes.jpg",
+    alt: "Custom bakery packaging boxes for cookies and pastries",
+    summary:
+      "Bakery boxes need the right balance of display, protection and food contact planning. Windows, gable handles and sleeves are common depending on the product and shelf use.",
+    uses: ["Cookie boxes", "Pastry boxes", "Donut boxes", "Bakery gift sets"],
+    materials: ["Food-grade paperboard", "Kraft paper", "White card paper", "Window film"],
+    finishes: ["Logo printing", "Window cutout", "Matte coating", "Labels"],
+    specs: [
+      "Food contact and inner liners should be confirmed",
+      "Windows help when product appearance sells the item",
+      "Box height should protect toppings and decoration",
+      "Flavor changes may be easier with labels or sleeves",
+    ],
+    quoteTips: [
+      "Confirm whether food touches the paper or uses a liner.",
+      "Send product height so decoration is not crushed.",
+      "Use labels if flavors or seasonal variants change often.",
+    ],
+    faqs: [
+      {
+        q: "Can bakery boxes use window cutouts?",
+        a: "Yes. Windows are common when seeing cookies, pastries or cakes helps customers decide.",
+      },
+      {
+        q: "Do bakery boxes need food-safe material?",
+        a: "It depends on whether the food touches the paper and what liner or inner bag is used.",
+      },
+    ],
+  },
+  {
+    slug: "custom-cookie-boxes",
+    title: "Custom Cookie Boxes",
+    eyebrow: "Cookie gift packaging",
+    keyword: "custom cookie boxes with logo",
+    description:
+      "Custom cookie boxes with windows, inserts, sleeves and gift-ready paper packaging for bakery brands.",
+    image: "/images/cookie-boxes.jpg",
+    alt: "Cookie box packaging for bakery and gift food products",
+    summary:
+      "Cookie boxes should protect the product shape while showing enough of the cookie to support buying decisions. Inserts, dividers and window placement can help with gift sets.",
+    uses: ["Cookie gift boxes", "Bakery retail boxes", "Macaron sets", "Snack gift packs"],
+    materials: ["Food-grade paperboard", "Kraft paper", "White card paper", "Paper dividers"],
+    finishes: ["Window patching", "CMYK printing", "Foil logo", "Sleeve wrap"],
+    specs: [
+      "Dividers can separate mixed flavors",
+      "Windows should not weaken the box too much",
+      "Grease or moisture needs an inner liner plan",
+      "Gift sets may need a stronger outer carton",
+    ],
+    quoteTips: [
+      "Send cookie size, count per box and product height.",
+      "Confirm if the cookies are individually wrapped.",
+      "Plan dividers when flavors should stay separated.",
+    ],
+    faqs: [
+      {
+        q: "Can cookie boxes include dividers?",
+        a: "Yes. Paper dividers can separate cookies, macarons or mixed snack sets.",
+      },
+      {
+        q: "Can cookie boxes be made with a window?",
+        a: "Yes. A window is useful when product appearance helps the retail or gift presentation.",
+      },
+    ],
+  },
+  {
+    slug: "custom-apparel-boxes",
+    title: "Custom Apparel Boxes",
+    eyebrow: "Clothing packaging",
+    keyword: "custom apparel packaging boxes",
+    description:
+      "Custom apparel boxes for shirts, hoodies, socks, underwear, accessories and DTC clothing orders.",
+    image: "/images/industries/custom-apparel-packaging-boxes.jpg",
+    alt: "Custom apparel packaging boxes for clothing brands",
+    summary:
+      "Apparel packaging should start from folded product size and the shipping route. Mailer boxes, sleeves and gift boxes can all work depending on product weight and unboxing needs.",
+    uses: ["T-shirt packaging", "Hoodie boxes", "Socks and underwear boxes", "Accessory gift boxes"],
+    materials: ["Corrugated board", "Kraft paperboard", "White card paper", "Rigid board"],
+    finishes: ["Inside print", "CMYK printing", "Matte lamination", "Foil logo"],
+    specs: [
+      "Folded product size decides the box footprint",
+      "Mailer boxes can support direct shipping",
+      "Sleeves help with seasonal or collection changes",
+      "Return-friendly structures can be discussed when needed",
+    ],
+    quoteTips: [
+      "Send the folded product size, not only garment size.",
+      "Confirm if the box must ship directly to customers.",
+      "Use one box size when several SKUs can share it.",
+    ],
+    faqs: [
+      {
+        q: "What box is common for apparel brands?",
+        a: "Mailer boxes are common for DTC apparel orders. Gift boxes and sleeves work for retail or premium bundles.",
+      },
+      {
+        q: "Can apparel packaging be shipped to my supplier in China?",
+        a: "Yes. Finished boxes can be sent to a China supplier, packer, warehouse or freight route.",
+      },
+    ],
+  },
+  {
+    slug: "custom-subscription-boxes",
+    title: "Custom Subscription Boxes",
+    eyebrow: "Recurring ecommerce kits",
+    keyword: "custom subscription boxes packaging",
+    description:
+      "Custom subscription boxes with printed mailers, inserts, cards and carton planning for recurring DTC programs.",
+    image: "/images/industries/custom-subscription-boxes.jpg",
+    alt: "Custom subscription mailer boxes prepared for repeated ecommerce shipments",
+    summary:
+      "Subscription boxes need repeatable structure, predictable carton dimensions and enough flexibility for changing monthly product mixes. Inside print and inserts can support retention without changing the box every time.",
+    uses: ["Beauty subscriptions", "Snack subscriptions", "Lifestyle kits", "Sample boxes"],
+    materials: ["E-flute corrugated board", "Kraft board", "White liner", "Paper inserts"],
+    finishes: ["Inside print", "CMYK printing", "Matte coating", "Printed cards"],
+    specs: [
+      "One mailer size can reduce repeat order friction",
+      "Inside print supports unboxing without extra pieces",
+      "Insert choices depend on monthly product mix",
+      "Carton dimensions matter because shipments repeat",
+    ],
+    quoteTips: [
+      "Share the expected product mix and the heaviest month.",
+      "Confirm whether artwork changes monthly or seasonally.",
+      "Ask for carton dimensions before comparing freight routes.",
+    ],
+    faqs: [
+      {
+        q: "Can subscription boxes change artwork each month?",
+        a: "Yes, but keeping the same dieline and changing artwork is usually easier than changing structure.",
+      },
+      {
+        q: "Can subscription boxes include inserts?",
+        a: "Yes. Paper inserts, dividers and printed cards can be planned around the product mix.",
+      },
+    ],
+  },
+  {
+    slug: "custom-pr-boxes",
+    title: "Custom PR Boxes",
+    eyebrow: "Influencer launch kits",
+    keyword: "custom PR boxes for influencers",
+    description:
+      "Custom PR boxes for influencer kits, launch campaigns, sample sets and brand presentation packages.",
+    image: "/images/guides/supplier-mailer-gift-boxes.jpg",
+    alt: "Printed ecommerce mailer boxes prepared for PR and launch kits",
+    summary:
+      "PR boxes are built around the opening moment. They need the right structure, insert layout, printed message and packing sequence so the recipient sees the products in the intended order.",
+    uses: ["Influencer kits", "Product launch boxes", "Sample sets", "Brand press packs"],
+    materials: ["Mailer board", "Rigid board", "Paper inserts", "Printed cards"],
+    finishes: ["Inside print", "Foil logo", "Soft touch lamination", "Spot UV"],
+    specs: [
+      "Works with mailer boxes or rigid boxes",
+      "Insert layout should match the unboxing order",
+      "Cards and labels can be packed with the products",
+      "China-side packing can be discussed when products are sourced here",
+    ],
+    quoteTips: [
+      "Send the product list and desired opening order.",
+      "Confirm if products should be packed into the boxes in China.",
+      "Keep the first launch structure simple enough to pack consistently.",
+    ],
+    faqs: [
+      {
+        q: "Can PR boxes include several products?",
+        a: "Yes. Inserts and dividers can be planned around multiple samples or launch products.",
+      },
+      {
+        q: "Can you pack PR boxes in China?",
+        a: "Suitable products can be packed into PR boxes in China when the product, insert and route are clear.",
+      },
+    ],
+  },
+  {
+    slug: "amazon-fba-product-boxes",
+    title: "Amazon FBA Product Boxes",
+    eyebrow: "Marketplace packaging",
+    keyword: "Amazon FBA product boxes from China",
+    description:
+      "Amazon FBA product boxes with barcode space, inserts, master carton details and freight handoff planning.",
+    image: "/images/products/custom-folding-cartons.jpg",
+    alt: "Custom folding cartons for Amazon private label product packaging",
+    summary:
+      "Amazon product boxes should be planned with barcode space, product protection, carton labels and freight handoff details. If goods are made in China, the box and packing route can be discussed before export.",
+    uses: ["Amazon private label", "FBA prep", "Retail cartons", "Product bundle boxes"],
+    materials: ["White card paper", "Corrugated board", "Kraft paper", "Paper inserts"],
+    finishes: ["CMYK printing", "Matte lamination", "Barcode space", "Simple logo print"],
+    specs: [
+      "Barcode and label space should be reserved in artwork",
+      "Master carton size and weight matter for handoff",
+      "Product packing steps can be planned in China",
+      "Regulated products may need route checks early",
+    ],
+    quoteTips: [
+      "Send product size, FNSKU needs and carton requirements.",
+      "Confirm if products should be packed into boxes before FBA handoff.",
+      "Ask for carton dimensions and packing list details.",
+    ],
+    faqs: [
+      {
+        q: "Can Amazon product boxes include FNSKU space?",
+        a: "Yes. Barcode and label space can be reserved before artwork approval.",
+      },
+      {
+        q: "Can products be packed for Amazon in China?",
+        a: "Suitable products can be packed into boxes and master cartons before handoff to a forwarder or warehouse.",
+      },
+    ],
+  },
+  {
+    slug: "shopify-mailer-boxes",
+    title: "Shopify Mailer Boxes",
+    eyebrow: "DTC ecommerce packaging",
+    keyword: "custom Shopify mailer boxes",
+    description:
+      "Custom Shopify mailer boxes with inside print, inserts, cards and China-side packing options.",
+    image: "/images/products/custom-mailer-boxes.jpg",
+    alt: "Custom Shopify mailer boxes for DTC ecommerce orders",
+    summary:
+      "Shopify mailer boxes are usually the first physical brand touchpoint after checkout. They should fit the product, protect it during shipping and support the unboxing experience without adding unnecessary pieces.",
+    uses: ["Shopify orders", "DTC apparel", "Beauty ecommerce", "Subscription launches"],
+    materials: ["E-flute corrugated board", "Kraft corrugated board", "White liner", "Paper inserts"],
+    finishes: ["Inside print", "Outside logo print", "Matte coating", "Printed cards"],
+    specs: [
+      "Box size should fit product and filler plan",
+      "Inside print can improve unboxing without extra inserts",
+      "Works with cards, labels and paper dividers",
+      "Finished boxes can be sent to a China supplier or packer",
+    ],
+    quoteTips: [
+      "Send product size and how many units go in each order.",
+      "Confirm if the box ships directly to customers.",
+      "Use inside print only when it supports the brand moment.",
+    ],
+    faqs: [
+      {
+        q: "What box is best for Shopify packaging?",
+        a: "Mailer boxes are common because they combine protection and branded unboxing for direct orders.",
+      },
+      {
+        q: "Can Shopify boxes include thank-you cards?",
+        a: "Yes. Printed cards, inserts and labels can be packed with the box or products.",
+      },
+    ],
+  },
+  {
+    slug: "dtc-unboxing-boxes",
+    title: "DTC Unboxing Boxes",
+    eyebrow: "Branded delivery",
+    keyword: "DTC unboxing packaging boxes",
+    description:
+      "DTC unboxing boxes for ecommerce brands that need branded delivery, inserts, cards and launch packaging.",
+    image: "/images/guides/supplier-colored-mailer-boxes.jpg",
+    alt: "Colorful custom mailer box samples for DTC unboxing packaging",
+    summary:
+      "DTC unboxing boxes should feel intentional without becoming overbuilt. The box, insert, card and packing order should support the customer moment while staying practical for repeat shipping.",
+    uses: ["Ecommerce launches", "DTC beauty", "Apparel shipping", "Subscription programs"],
+    materials: ["Corrugated board", "White liner", "Kraft liner", "Paper inserts"],
+    finishes: ["Inside print", "CMYK printing", "Matte coating", "Spot UV"],
+    specs: [
+      "Unboxing structure should still protect the product",
+      "Inside print can reduce the need for extra printed pieces",
+      "Insert cards should not slow packing too much",
+      "Carton size affects repeat shipping cost",
+    ],
+    quoteTips: [
+      "Send product photos and the desired opening sequence.",
+      "Confirm whether each order contains one product or a set.",
+      "Keep first-run packaging simple enough to repeat.",
+    ],
+    faqs: [
+      {
+        q: "Do DTC boxes need inside printing?",
+        a: "Not always. Inside print helps when it adds to the brand moment, but simple packaging can still work well.",
+      },
+      {
+        q: "Can DTC boxes be packed in China?",
+        a: "Suitable products can be packed into branded boxes in China when the product and route are clear.",
+      },
+    ],
+  },
+  {
+    slug: "custom-kraft-boxes",
+    title: "Custom Kraft Boxes",
+    eyebrow: "Natural paper packaging",
+    keyword: "custom kraft boxes with logo",
+    description:
+      "Custom kraft boxes for soap, candles, bakery, apparel, gifts and natural retail packaging projects.",
+    image: "/images/guides/supplier-cardboard-soap-packaging.jpg",
+    alt: "Kraft soap and retail packaging boxes with window cutouts",
+    summary:
+      "Kraft boxes work well when the brand wants a natural paper look. They are common for soap, food gifts, candles and simple retail products, but color expectations should be realistic.",
+    uses: ["Soap boxes", "Bakery packaging", "Candle boxes", "Natural gift packaging"],
+    materials: ["Kraft paperboard", "Kraft corrugated board", "Recycled paperboard", "Window film"],
+    finishes: ["Black ink printing", "White ink options", "Window cutout", "Simple logo print"],
+    specs: [
+      "Kraft paper gives a natural brown paper look",
+      "Full-color print appears different on brown paper",
+      "Works with sleeves, windows and simple cartons",
+      "Good for brands that want a less glossy shelf feel",
+    ],
+    quoteTips: [
+      "Confirm whether natural kraft color fits your brand palette.",
+      "Use simple ink coverage for a cleaner kraft result.",
+      "Ask for a sample if color accuracy matters.",
+    ],
+    faqs: [
+      {
+        q: "Can kraft boxes be printed in full color?",
+        a: "Yes, but colors look different on brown kraft paper than on white paperboard.",
+      },
+      {
+        q: "Are kraft boxes eco-friendly?",
+        a: "They can support a natural paper positioning, but the final claim depends on the exact material, coating and destination rules.",
+      },
+    ],
+  },
 ];
 
 export const industries = [

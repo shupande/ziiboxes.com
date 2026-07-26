@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import QuoteSection from "../components/QuoteSection.astro";
 import { guideLinks, industries, processSteps, products, site } from "../data/site";
 
+const featuredProducts = products.slice(0, 10);
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -202,7 +203,7 @@ const schema = {
           <p>Each page answers practical questions first: use case, material, MOQ, finishes, sample timing and shipping notes.</p>
         </div>
         <div class="product-grid five">
-          {products.map((product) => (
+          {featuredProducts.map((product) => (
             <a class="product-card" href={`/products/${product.slug}/`}>
               <img src={product.image} alt={product.alt} />
               <div class="product-copy">
@@ -212,6 +213,9 @@ const schema = {
               </div>
             </a>
           ))}
+        </div>
+        <div class="actions product-section-actions">
+          <a class="button" href="/products/">Browse all 30+ product styles</a>
         </div>
       </div>
     </section>
