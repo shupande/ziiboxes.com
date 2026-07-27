@@ -59,6 +59,18 @@ export function materialVisual(label: string) {
     ?? "/images/materials/paperboard.webp";
 }
 
+const exactContentVisuals: Record<string, string> = {
+  "apparel packaging from china": "/images/guides/apparel-packaging-mailer.webp",
+  "apparel packaging checklist": "/images/guides/apparel-packaging-checklist.webp",
+  "custom clothing mailer boxes": "/images/guides/custom-clothing-mailer-boxes.webp",
+  "shopify packaging from china": "/images/products/custom-mailer-boxes.jpg",
+  "custom paper bags with logo guide": "/images/products/custom-retail-paper-bags.jpg",
+  "paper bag size guide": "/images/products/custom-kraft-paper-bags.jpg",
+  "paper bag handles and weight guide": "/images/products/luxury-paper-gift-bags.jpg",
+  "candle boxes": "/images/industries/custom-candle-boxes.jpg",
+  "toy boxes": "/images/gift-boxes.jpg",
+};
+
 const contentVisuals: [RegExp, string][] = [
   [/luxury paper gift bag/i, "/images/products/luxury-paper-gift-bags.jpg"],
   [/white paper bag|shopping bag/i, "/images/products/custom-white-paper-shopping-bags.jpg"],
@@ -97,5 +109,7 @@ const contentVisuals: [RegExp, string][] = [
 ];
 
 export function contentVisual(label: string, fallback: string) {
+  const exactVisual = exactContentVisuals[label.trim().toLowerCase()];
+  if (exactVisual) return exactVisual;
   return contentVisuals.find(([pattern]) => pattern.test(label))?.[1] ?? fallback;
 }

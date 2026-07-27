@@ -128,13 +128,13 @@ export const products = [
     alt: "Floral printed gift boxes with ribbon closures",
     summary:
       "Gift boxes are useful for seasonal collections, retail bundles and promotional kits. The right structure depends on product count, display goal, launch timing and whether the box needs an insert.",
-    uses: ["Holiday collections", "Gift sets", "Promotional kits", "Retail display"],
-    materials: ["Paperboard", "Rigid board", "Kraft paper", "Specialty paper"],
-    finishes: ["Foil stamping", "Ribbon options", "Embossing", "Matte lamination"],
+    uses: ["Candle boxes", "Gift sets", "Toy boxes", "Retail display"],
+    materials: ["Paperboard", "Rigid board", "White card paper", "Specialty paper"],
+    finishes: ["Foil stamping", "Ribbon options", "CMYK printing", "Matte lamination"],
     specs: [
-      "Can combine outer box, sleeve, insert and printed tissue",
+      "Candle boxes can combine an outer carton, sleeve, insert and printed tissue",
       "Suitable for holiday launches and limited-edition packaging",
-      "Works with foil, ribbon, embossing or textured paper",
+      "Toy boxes can use full-color artwork, paper inserts and display windows",
       "Should be planned early when seasonal delivery dates are fixed",
     ],
     quoteTips: [
