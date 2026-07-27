@@ -2,7 +2,7 @@ export const site = {
   name: "ZiiBoxes",
   url: "https://www.ziiboxes.com",
   email: "Sales@ZiiBoxes.com",
-  location: "Shenzhen, China",
+  location: "Block D3, Shanglilang industrial estate, Pingji Blvd, Long gang district, Shenzhen, China, 518112",
   whatsapp: "https://wa.me/message/2MOG66WRZDZWH1",
   description:
     "For sellers sourcing in China: custom boxes, product packing, supplier collection, carton details and freight handoff prepared before shipment.",

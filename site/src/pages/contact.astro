@@ -10,31 +10,39 @@ import { site } from "../data/site";
   path="/contact/"
   solidHeader
 >
-  <main>
-    <section class="page-hero">
+  <main class="quote-page contact-page">
+    <section class="page-hero quote-page-hero">
       <div class="wrap">
         <p class="eyebrow">Contact</p>
-        <h1>Send your custom paper box request.</h1>
-        <p>Email or WhatsApp works best for the first quote. Include size, quantity, destination and artwork if available.</p>
+        <h1>Contact ZiiBoxes for a custom packaging quote.</h1>
+        <p>Email, WhatsApp or the form below all work. Send the basic project details first, and we can reply with practical options.</p>
       </div>
     </section>
     <section class="section alt">
       <div class="wrap split">
-        <div class="content-card product-copy">
-          <h2>Contact details</h2>
-          <p><strong>Email:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></p>
-          <p><strong>WhatsApp:</strong> <a href={site.whatsapp}>Open WhatsApp</a></p>
-          <p><strong>Location:</strong> {site.location}</p>
+        <div>
+          <p class="section-kicker">Before you send</p>
+          <h2>A few practical details are enough to start.</h2>
+          <p>
+            Share the box or bag style, size, quantity, destination country, artwork stage and any China-side packing or supplier delivery request.
+          </p>
         </div>
-        <div class="prose">
-          <h2>Helpful details for a faster quote</h2>
-          <ul>
-            <li>Box style or reference photo</li>
-            <li>Product size and box size</li>
-            <li>Quantity and destination country</li>
-            <li>Material, printing and finish requirements</li>
-            <li>Artwork file or brand color reference if ready</li>
-          </ul>
+        <div class="note-panel contact-panel">
+          <h3>Contact details</h3>
+          <dl>
+            <div>
+              <dt>Email</dt>
+              <dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
+            </div>
+            <div>
+              <dt>WhatsApp</dt>
+              <dd><a href={site.whatsapp}>Open WhatsApp</a></dd>
+            </div>
+            <div>
+              <dt>Address</dt>
+              <dd>{site.location}</dd>
+            </div>
+          </dl>
         </div>
       </div>
     </section>
