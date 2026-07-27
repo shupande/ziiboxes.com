@@ -28,7 +28,7 @@ const materialVisuals: [RegExp, string][] = [
   [/spot uv/i, "/images/materials/spot-uv.webp"],
   [/gloss/i, "/images/materials/gloss-lamination.webp"],
   [/matte|soft.touch|coating|laminated paper|paper texture|paper finish/i, "/images/materials/matte-lamination.webp"],
-  [/pantone|color match/i, "/images/materials/pantone-color.webp"],
+  [/pantone|cmyk|color match/i, "/images/materials/pantone-color-fans.jpg"],
   [/cmyk|full.color/i, "/images/mailer-boxes.jpg"],
   [/single.color|simple logo print|logo printing|outside logo print/i, "/images/materials/single-color-printing.webp"],
   [/two.color|color block/i, "/images/materials/two-color-printing.webp"],
