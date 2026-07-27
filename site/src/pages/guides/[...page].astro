@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import LineIcon from "../../components/LineIcon.astro";
+import QuoteSection from "../../components/QuoteSection.astro";
 
 export async function getStaticPaths({ paginate }) {
   const guides = await getCollection("guides");
@@ -282,6 +284,23 @@ const missingGuideImages = allGuides.filter((guide) => !guideImages[guide.id]).m
 if (missingGuideImages.length > 0) {
   throw new Error(`Missing guide images: ${missingGuideImages.join(", ")}`);
 }
+const sortedGuides = [...allGuides].sort((a, b) => a.data.order - b.data.order);
+const featuredGuide = sortedGuides[0];
+const featuredImage = guideImages[featuredGuide.id];
+const topicLinks = [
+  ["Start here", "/guides/custom-box-moq/"],
+  ["Box styles", "/guides/rigid-boxes-vs-folding-cartons/"],
+  ["Printing & artwork", "/guides/printing-finishes/"],
+  ["Ecommerce packing", "/guides/shopify-packaging-checklist/"],
+  ["Paper bags", "/guides/custom-paper-bags-with-logo/"],
+  ["Freight & handoff", "/guides/freight-forwarder-carton-details/"],
+];
+const startHereLinks = [
+  ["Packaging quote checklist", "/packaging-quote-checklist/"],
+  ["What affects custom box cost?", "/guides/custom-box-cost/"],
+  ["Artwork file checklist", "/guides/artwork-file-checklist/"],
+];
+const popularGuides = sortedGuides.slice(0, 5);
 ---
 
 <BaseLayout
@@ -290,56 +309,111 @@ if (missingGuideImages.length > 0) {
   path={pagePath}
   solidHeader
 >
-  <main>
-    <section class="page-hero">
-      <div class="wrap">
-        <p class="eyebrow">Guides</p>
-        <h1>Custom packaging blog for brands planning paper boxes and bags.</h1>
-        <p>Practical pages about box styles, paper bags, materials, inserts, MOQ, cost, artwork, shipping and responsible packaging decisions.</p>
+  <main class="guides-page">
+    <section class="editorial-hero guides-hero">
+      <div class="wrap editorial-hero-grid">
+        <div class="editorial-hero-copy">
+          <p class="eyebrow">Packaging guides</p>
+          <h1>Plan custom packaging with clearer costs and fewer surprises.</h1>
+          <p>Practical answers about box styles, paper bags, materials, inserts, MOQ, artwork, packing and freight handoff.</p>
+          <a class="button gold" href="#all-guides">Browse all guides</a>
+        </div>
+        <a class="guides-featured" href={`/guides/${featuredGuide.id}/`}>
+          <img src={featuredImage.src} alt={featuredImage.alt} />
+          <div>
+            <span>Start here</span>
+            <h2>{featuredGuide.data.title}</h2>
+            <p>{featuredGuide.data.description}</p>
+          </div>
+        </a>
       </div>
     </section>
-    <section class="section alt">
-      <div class="wrap guide-list">
-        {guides.map((guide) => {
-          const image = guideImages[guide.id];
 
-          return (
-            <a class="guide-row" href={`/guides/${guide.id}/`}>
-              <img src={image.src} alt={image.alt} decoding="async" />
-              <div class="guide-row-copy">
-                <span>{guide.data.category}</span>
-                <h2>{guide.data.title}</h2>
-                <p>{guide.data.description}</p>
-              </div>
-            </a>
-          );
-        })}
-        {page.lastPage > 1 && (
-          <nav class="pagination" aria-label="Blog pagination">
-            {page.currentPage > 1 ? (
-              <a class="pagination-link pagination-wide" href={page.currentPage === 2 ? "/guides/" : `/guides/${page.currentPage - 1}/`}>Previous</a>
-            ) : (
-              <span class="pagination-link pagination-wide is-disabled">Previous</span>
-            )}
-            <div class="pagination-pages">
-              {pageNumbers.map((pageNumber) => (
-                <a
-                  class="pagination-link"
-                  href={pageNumber === 1 ? "/guides/" : `/guides/${pageNumber}/`}
-                  aria-current={pageNumber === page.currentPage ? "page" : undefined}
-                >
-                  {pageNumber}
-                </a>
-              ))}
+    <nav class="guide-topics" aria-label="Packaging guide topics">
+      <div class="wrap guide-topic-list">
+        {topicLinks.map(([title, href]) => <a href={href}>{title}</a>)}
+      </div>
+    </nav>
+
+    <section class="section alt" id="all-guides">
+      <div class="wrap guides-layout">
+        <div>
+          <div class="guide-list-heading">
+            <div>
+              <p class="section-kicker">Latest guides</p>
+              <h2>{page.currentPage === 1 ? "Packaging decisions explained clearly." : `More packaging guides - page ${page.currentPage}.`}</h2>
             </div>
-            {page.currentPage < page.lastPage ? (
-              <a class="pagination-link pagination-wide" href={`/guides/${page.currentPage + 1}/`}>Next</a>
-            ) : (
-              <span class="pagination-link pagination-wide is-disabled">Next</span>
-            )}
-          </nav>
-        )}
+            <span>{page.total} guides</span>
+          </div>
+          <div class="guide-list">
+            {guides.map((guide) => {
+              const image = guideImages[guide.id];
+
+              return (
+                <a class="guide-row" href={`/guides/${guide.id}/`}>
+                  <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+                  <div class="guide-row-copy">
+                    <span>{guide.data.category}</span>
+                    <h2>{guide.data.title}</h2>
+                    <p>{guide.data.description}</p>
+                    <strong>Read guide</strong>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+          {page.lastPage > 1 && (
+            <nav class="pagination" aria-label="Blog pagination">
+              {page.currentPage > 1 ? (
+                <a class="pagination-link pagination-wide" href={page.currentPage === 2 ? "/guides/" : `/guides/${page.currentPage - 1}/`}>Previous</a>
+              ) : (
+                <span class="pagination-link pagination-wide is-disabled">Previous</span>
+              )}
+              <div class="pagination-pages">
+                {pageNumbers.map((pageNumber) => (
+                  <a
+                    class="pagination-link"
+                    href={pageNumber === 1 ? "/guides/" : `/guides/${pageNumber}/`}
+                    aria-current={pageNumber === page.currentPage ? "page" : undefined}
+                  >
+                    {pageNumber}
+                  </a>
+                ))}
+              </div>
+              {page.currentPage < page.lastPage ? (
+                <a class="pagination-link pagination-wide" href={`/guides/${page.currentPage + 1}/`}>Next</a>
+              ) : (
+                <span class="pagination-link pagination-wide is-disabled">Next</span>
+              )}
+            </nav>
+          )}
+        </div>
+
+        <aside class="guides-sidebar">
+          <div class="guides-sidebar-block">
+            <LineIcon name="check" />
+            <p class="section-kicker">Start here</p>
+            <h2>Preparing a packaging quote?</h2>
+            <p>Begin with the details that affect structure, price and delivery.</p>
+            {startHereLinks.map(([title, href]) => <a href={href}>{title}</a>)}
+          </div>
+          <div class="guides-sidebar-block popular">
+            <p class="section-kicker">Popular guides</p>
+            {popularGuides.map((guide, index) => (
+              <a href={`/guides/${guide.id}/`}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{guide.data.title}</strong>
+              </a>
+            ))}
+          </div>
+          <div class="guides-sidebar-photo">
+            <img src="/images/products/custom-paper-inserts.jpg" alt="Paper packaging insert and box structure" loading="lazy" />
+            <p>Need help choosing a structure?</p>
+            <a href="/request-a-quote/">Send your product details</a>
+          </div>
+        </aside>
       </div>
     </section>
+    <QuoteSection />
   </main>
 </BaseLayout>

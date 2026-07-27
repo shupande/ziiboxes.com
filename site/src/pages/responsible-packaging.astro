@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import LineIcon from "../components/LineIcon.astro";
 import QuoteSection from "../components/QuoteSection.astro";
 import { site } from "../data/site";
 
@@ -41,6 +42,29 @@ const schema = {
     },
   ],
 };
+
+const responsibilityPriorities = [
+  {
+    icon: "leaf",
+    title: "Material requirements",
+    text: "Discuss recycled content, FSC paper requests and paper grades before quoting.",
+  },
+  {
+    icon: "recycle",
+    title: "Lower-waste structure",
+    text: "Right-size the box and remove mixed materials that do not add protection.",
+  },
+  {
+    icon: "shield",
+    title: "Product protection",
+    text: "A damaged product creates more waste than a well-planned protective structure.",
+  },
+  {
+    icon: "people",
+    title: "Supplier requirements",
+    text: "Share your code of conduct, questionnaire and document list before sampling.",
+  },
+];
 ---
 
 <BaseLayout
@@ -50,40 +74,60 @@ const schema = {
   solidHeader
   schema={schema}
 >
-  <main>
-    <section class="page-hero">
-      <div class="wrap">
-        <p class="eyebrow">Responsible packaging</p>
-        <h1>Paper packaging choices that support brand and supplier requirements.</h1>
-        <p>
-          If your company has packaging, material or supplier requirements, review them before sampling instead of after the artwork is finished.
-        </p>
+  <main class="responsibility-page">
+    <section class="editorial-hero responsibility-hero">
+      <div class="wrap editorial-hero-grid">
+        <div class="editorial-hero-copy">
+          <p class="eyebrow">Responsible packaging</p>
+          <h1>Set material and supplier requirements before the sample.</h1>
+          <p>
+            Compare paper, structure, protection and documentation early, while the box can still be changed without restarting the project.
+          </p>
+          <div class="actions">
+            <a class="button gold" href="/request-a-quote/">Discuss your requirements</a>
+            <a class="button light" href="#responsibility-checklist">View the checklist</a>
+          </div>
+        </div>
+        <div class="responsibility-hero-media">
+          <img src="/images/products/custom-kraft-paper-bags.jpg" alt="Kraft paper packaging and carrier bags" />
+          <img src="/images/folding-cartons.jpg" alt="Printed paper cartons prepared for production" />
+        </div>
       </div>
     </section>
 
-    <section class="section alt">
-      <div class="wrap split">
-        <div class="feature-image">
-          <img src="/images/factory-line.jpg" alt="Paper packaging production line and workshop" />
-        </div>
-        <div>
+    <section class="responsibility-priority-band" aria-label="Responsible packaging priorities">
+      <div class="wrap responsibility-priority-grid">
+        {responsibilityPriorities.map((item) => (
+          <div>
+            <LineIcon name={item.icon} />
+            <h2>{item.title}</h2>
+            <p>{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section alt" id="responsibility-checklist">
+      <div class="wrap responsibility-checklist">
+        <div class="responsibility-checklist-copy">
           <p class="section-kicker">Project checklist</p>
-          <h2>Confirm responsibility requirements before the sample.</h2>
+          <h2>Confirm responsibility requirements before artwork is locked.</h2>
           <p class="lede-copy">
-            The safest time to discuss environmental and labor requirements is before the dieline, material and finish are locked.
-            That keeps the quote realistic and avoids changing the box after artwork approval.
+            The useful time to discuss environmental and supplier requirements is before the dieline, material and finish are fixed.
           </p>
-          <div class="detail-grid">
-            <div class="detail-card">
+          <div class="responsibility-checks">
+            <div>
+              <LineIcon name="layers" />
               <h3>Material choices</h3>
               <ul>
-                <li>Kraft paper, white paperboard and corrugated board options</li>
+                <li>Kraft, white paperboard and corrugated board options</li>
                 <li>Recycled paper discussions when the structure allows it</li>
                 <li>FSC-certified paper requests checked before quoting</li>
                 <li>Paper inserts when a plastic tray is not needed</li>
               </ul>
             </div>
-            <div class="detail-card">
+            <div>
+              <LineIcon name="recycle" />
               <h3>Lower-waste design</h3>
               <ul>
                 <li>Right-size the box around product dimensions and weight</li>
@@ -92,17 +136,19 @@ const schema = {
                 <li>Sample first to reduce rework before bulk production</li>
               </ul>
             </div>
-            <div class="detail-card">
+            <div>
+              <LineIcon name="sparkle" />
               <h3>Finish decisions</h3>
               <ul>
                 <li>Keep foil, spot UV and lamination focused where they add value</li>
                 <li>Ask about simpler print when the box is mainly for shipping</li>
-                <li>Separate premium display goals from sustainability goals</li>
+                <li>Separate premium display goals from material goals</li>
                 <li>Confirm food-contact needs before choosing paper or coating</li>
               </ul>
             </div>
-            <div class="detail-card">
-              <h3>Supplier care documents</h3>
+            <div>
+              <LineIcon name="file" />
+              <h3>Supplier documents</h3>
               <ul>
                 <li>Supplier code of conduct or audit questionnaire</li>
                 <li>Restricted material list and packaging policy</li>
@@ -112,29 +158,79 @@ const schema = {
             </div>
           </div>
         </div>
+        <figure class="responsibility-checklist-photo">
+          <img src="/images/factory-line.jpg" alt="Paper packaging production line and workshop" />
+          <figcaption>Send project-specific document requests before sampling so they can be checked with the quote.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap prose">
-        <h2>How we discuss environmental packaging</h2>
-        <p>
-          Responsible packaging starts with the structure. A box that is too large, too heavy or over-finished can create waste even if the paper looks natural. For early quotes, send the product size, product weight, selling channel and destination. That makes it easier to compare paperboard, corrugated board, inserts and finish options.
-        </p>
-        <p>
-          If your company requires recycled content, FSC-certified paper, plastic reduction or a specific packaging policy, send that requirement before sampling. We can then check whether the material, print method and finish plan fit the requirement instead of treating sustainability as an afterthought.
-        </p>
+    <section class="section responsibility-principles">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Practical decisions</p>
+            <h2>Start with structure, then choose paper and finishes.</h2>
+          </div>
+          <p>A natural-looking paper does not automatically make an oversized or poorly protected box a better choice.</p>
+        </div>
+        <div class="responsibility-principle-grid">
+          <article>
+            <span>01</span>
+            <h3>Right-size the structure</h3>
+            <p>Use product dimensions, weight, selling channel and destination to compare board and insert options.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Protect the product</h3>
+            <p>Choose enough strength and retention for the real route instead of relying on appearance alone.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Reduce mixed materials</h3>
+            <p>Review whether plastic windows, trays, coatings or decorative parts are truly needed.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Document the requirement</h3>
+            <p>Name the certificate, audit, report or policy your company needs before the sample is made.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <h2>How we discuss labor and supplier care</h2>
-        <p>
-          Larger companies often have supplier expectations around safe working conditions, reasonable working hours, no forced labor, no child labor and transparent production records. The useful first step is to share your supplier code or questionnaire early, so it can be reviewed alongside the quote.
-        </p>
-        <p>
-          This page is not a certificate. If your project needs a specific audit, report or document, name it in the project brief. Clear requirements at the beginning are better than discovering them after the box is sampled.
-        </p>
+    <section class="section dark responsibility-supplier">
+      <div class="wrap responsibility-supplier-grid">
+        <div>
+          <p class="section-kicker">Supplier care</p>
+          <h2>Bring your supplier requirements into the project brief.</h2>
+          <p>
+            Larger companies may have expectations around safe working conditions, working hours, forced labor, child labor and production records. Share your code or questionnaire early so the requested information can be reviewed alongside the quote.
+          </p>
+          <p>
+            This page is not a certificate. If your project needs a specific audit, report or document, name it clearly before sampling.
+          </p>
+        </div>
+        <div class="responsibility-supplier-note">
+          <LineIcon name="people" />
+          <strong>Useful documents to send</strong>
+          <span>Supplier code of conduct</span>
+          <span>Audit questionnaire</span>
+          <span>Restricted material list</span>
+          <span>Packaging policy or reporting template</span>
+        </div>
+      </div>
+    </section>
 
-        <h2>What to send with your quote request</h2>
-        <table>
+    <section class="section alt">
+      <div class="wrap responsibility-requirements">
+        <div>
+          <p class="section-kicker">Quote requirements</p>
+          <h2>What to send with your request.</h2>
+          <p>Clear details make it easier to compare realistic materials and confirm which documents can be provided.</p>
+        </div>
+        <div class="responsibility-table-wrap">
+          <table>
           <thead>
             <tr>
               <th>Requirement</th>
@@ -159,8 +255,12 @@ const schema = {
               <td>Whether the product touches the box directly and which market it ships to.</td>
             </tr>
           </tbody>
-        </table>
-
+          </table>
+        </div>
+      </div>
+      <div class="wrap responsibility-faq">
+        <p class="section-kicker">Common questions</p>
+        <h2>Responsible packaging questions to settle early.</h2>
         <div class="faq">
           {faqs.map((item) => (
             <div class="faq-item">

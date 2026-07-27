@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import LineIcon from "../../components/LineIcon.astro";
 import QuoteSection from "../../components/QuoteSection.astro";
 import { products, site } from "../../data/site";
 
@@ -163,6 +164,87 @@ const defaultProductGuideLinks: [string, string][] = [
   ["Custom box dieline guide", "/guides/custom-box-dieline-guide/"],
 ];
 const relatedGuides = productGuideLinks[product.slug] ?? defaultProductGuideLinks;
+
+const defaultVisuals = {
+  gallery: [
+    "/images/folding-cartons.jpg",
+    "/images/rigid-boxes.jpg",
+    "/images/gift-boxes.jpg",
+  ],
+  feature: "/images/printing-machine.jpg",
+  quote: "/images/factory-line.jpg",
+  guides: [
+    "/images/guides/pexels-pergamon-gift-boxes.jpg",
+    "/images/guides/pexels-tea-gift-box.jpg",
+    "/images/guides/supplier-white-shipping-packaging.jpg",
+  ],
+};
+const mailerVisuals = {
+  gallery: [
+    "/images/guides/supplier-colored-mailer-boxes.jpg",
+    "/images/guides/supplier-mailer-gift-boxes.jpg",
+    "/images/guides/supplier-delivery-packaging-boxes.jpg",
+  ],
+  feature: "/images/guides/supplier-white-shipping-packaging.jpg",
+  quote: "/images/printing-machine.jpg",
+  guides: [
+    "/images/guides/supplier-ecommerce-mailer-boxes.jpg",
+    "/images/products/custom-paper-inserts.jpg",
+    "/images/shipping-boxes.jpg",
+  ],
+};
+const bagVisuals = {
+  gallery: [
+    "/images/products/custom-kraft-paper-bags.jpg",
+    "/images/products/custom-white-paper-shopping-bags.jpg",
+    "/images/products/luxury-paper-gift-bags.jpg",
+  ],
+  feature: "/images/products/custom-printed-kraft-paper-bags.jpg",
+  quote: "/images/factory-line.jpg",
+  guides: [
+    "/images/products/custom-retail-paper-bags.jpg",
+    "/images/guides/supplier-belly-band-packaging.jpg",
+    "/images/shipping-boxes.jpg",
+  ],
+};
+const bottleVisuals = {
+  gallery: [
+    "/images/products/luxury-wine-boxes.jpg",
+    "/images/products/liquor-bottle-gift-boxes.jpg",
+    "/images/drawer-boxes.jpg",
+  ],
+  feature: "/images/products/custom-paper-inserts.jpg",
+  quote: "/images/printing-machine.jpg",
+  guides: [
+    "/images/products/custom-rigid-boxes.jpg",
+    "/images/rigid-boxes.jpg",
+    "/images/shipping-boxes.jpg",
+  ],
+};
+const pageVisuals = product.slug === "custom-mailer-boxes"
+  ? mailerVisuals
+  : product.slug.includes("bag")
+    ? bagVisuals
+    : product.slug.includes("wine") || product.slug.includes("liquor") || product.slug.includes("bottle")
+      ? bottleVisuals
+      : defaultVisuals;
+const relatedGuideCards = relatedGuides.slice(0, 3).map(([title, href], index) => ({
+  title,
+  href,
+  image: pageVisuals.guides[index],
+}));
+const quickFacts = [
+  { icon: "box", title: product.uses[0], text: "Common use" },
+  { icon: "layers", title: product.materials[0], text: "Material option" },
+  { icon: "palette", title: product.finishes[0], text: "Print or finish" },
+  { icon: "sample", title: "Sample first", text: "Before bulk" },
+];
+const processItems = [
+  { icon: "ruler", title: "Structure", text: "Confirm size and fit." },
+  { icon: "palette", title: "Artwork & finish", text: "Review print details." },
+  { icon: "sample", title: "Sample", text: "Check before bulk." },
+  { icon: "truck", title: "Packing & handoff", text: "Prepare the route." },
+];
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -201,58 +283,168 @@ const schema = {
   solidHeader
   schema={schema}
 >
-  <main>
-    <section class="page-hero">
+  <main class="catalog-detail-page product-detail-page">
+    <section class="catalog-hero">
+      <div class="wrap catalog-hero-grid">
+        <div class="catalog-hero-copy">
+          <p class="eyebrow">{product.keyword}</p>
+          <h1>{product.title}</h1>
+          <p>{product.description}</p>
+          <div class="actions">
+            <a class="button gold" href="/request-a-quote/">Request a quote</a>
+            <a class="button light" href="#product-options">See packaging options</a>
+          </div>
+          <div class="catalog-hero-facts">
+            {quickFacts.map((item) => (
+              <div>
+                <LineIcon name={item.icon} />
+                <strong>{item.title}</strong>
+                <span>{item.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <figure class="catalog-hero-image">
+          <img src={product.image} alt={product.alt} />
+        </figure>
+      </div>
+    </section>
+
+    <section class="catalog-spec-band" aria-label={`${product.title} quick specifications`}>
+      <div class="wrap catalog-spec-grid">
+        <div><span>Best for</span><strong>{product.uses.slice(0, 2).join(" and ")}</strong></div>
+        <div><span>Materials</span><strong>{product.materials.slice(0, 2).join(" or ")}</strong></div>
+        <div><span>Printing</span><strong>{product.finishes.slice(0, 2).join(" / ")}</strong></div>
+        <div><span>Planning</span><strong>Custom size and structure</strong></div>
+      </div>
+    </section>
+
+    <section class="section alt catalog-options" id="product-options">
       <div class="wrap">
-        <p class="eyebrow">{product.keyword}</p>
-        <h1>{product.title}</h1>
-        <p>{product.description}</p>
-        <div class="actions">
-          <a class="button gold" href="/request-a-quote/">Request a quote</a>
-          <a class="button light" href="/products/">All products</a>
+        <div class="section-head compact">
+          <div>
+            <p class="section-kicker">Packaging options</p>
+            <h2>Choose the setup that fits the product and sales channel.</h2>
+          </div>
+          <p>{product.summary}</p>
+        </div>
+        <div class="catalog-option-grid">
+          {product.uses.slice(0, 3).map((use, index) => (
+            <article class="catalog-option">
+              <img src={pageVisuals.gallery[index]} alt={`${use} using ${product.title.toLowerCase()}`} loading="lazy" />
+              <div>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{use}</h3>
+                <p>{product.specs[index] ?? product.summary}</p>
+                <dl>
+                  <dt>Material</dt>
+                  <dd>{product.materials[index % product.materials.length]}</dd>
+                  <dt>Finish</dt>
+                  <dd>{product.finishes[index % product.finishes.length]}</dd>
+                </dl>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
-    <section class="section alt">
-      <div class="wrap split">
-        <div class="feature-image">
-          <img src={product.image} alt={product.alt} />
-        </div>
+
+    <section class="section dark catalog-feature">
+      <div class="wrap catalog-feature-grid">
+        <figure>
+          <img src={pageVisuals.feature} alt={`Structure and production details for ${product.title.toLowerCase()}`} loading="lazy" />
+        </figure>
         <div>
-          <p class="section-kicker">Quote details</p>
-          <h2>Useful details to prepare before asking for a quote.</h2>
-          <p class="lede-copy">{product.summary}</p>
-          <div class="detail-grid">
-            <div class="detail-card">
-              <h3>Common use cases</h3>
-              <ul>
-                {product.uses.map((item) => <li>{item}</li>)}
-              </ul>
-            </div>
-            <div class="detail-card">
-              <h3>Material options</h3>
-              <ul>
-                {product.materials.map((item) => <li>{item}</li>)}
-              </ul>
-            </div>
-            <div class="detail-card">
-              <h3>Printing and finishes</h3>
-              <ul>
-                {product.finishes.map((item) => <li>{item}</li>)}
-              </ul>
-            </div>
-            <div class="detail-card">
-              <h3>Practical checks</h3>
-              <ul>
-                {product.specs.map((item) => <li>{item}</li>)}
-              </ul>
-            </div>
+          <p class="section-kicker">Structure before decoration</p>
+          <h2>Build the packaging around the product and route.</h2>
+          <p>{product.summary}</p>
+          <div class="catalog-feature-list">
+            {product.specs.map((item, index) => (
+              <div>
+                <LineIcon name={["ruler", "box", "insert", "truck"][index] ?? "check"} />
+                <span>{item}</span>
+              </div>
+            ))}
           </div>
-          <div class="note-panel">
-            <h3>Before asking for a quote</h3>
-            <ul class="check-list">
-              {product.quoteTips.map((item) => <li>{item}</li>)}
-            </ul>
+          <a class="button gold" href="/custom-packaging-sample-process/">Review the sample process</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt catalog-materials">
+      <div class="wrap">
+        <p class="section-kicker">Materials and finishes</p>
+        <h2>Compare the details customers see and touch.</h2>
+        <div class="catalog-material-grid">
+          {[...product.materials, ...product.finishes].slice(0, 6).map((item, index) => (
+            <div>
+              <span class:list={["material-swatch", `swatch-${(index % 6) + 1}`]}></span>
+              <strong>{item}</strong>
+              <small>{index < product.materials.length ? "Material option" : "Print or finish option"}</small>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section catalog-quote-prep">
+      <div class="wrap catalog-quote-grid">
+        <div>
+          <p class="section-kicker">Accurate quote</p>
+          <h2>Send the details that change structure and cost.</h2>
+          <ul class="catalog-check-list">
+            {product.quoteTips.map((item) => <li>{item}</li>)}
+            <li>Include quantity, destination country and preferred delivery route.</li>
+            <li>Share artwork files or brand color references when available.</li>
+          </ul>
+          <a class="button gold" href="/request-a-quote/">Request a quote</a>
+        </div>
+        <figure>
+          <img src={pageVisuals.quote} alt={`Quote and production planning for ${product.title.toLowerCase()}`} loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="catalog-process-band">
+      <div class="wrap">
+        <p class="section-kicker">From sample to handoff</p>
+        <div class="catalog-process-grid">
+          {processItems.map((item, index) => (
+            <div>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <LineIcon name={item.icon} />
+              <strong>{item.title}</strong>
+              <small>{item.text}</small>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt catalog-guides">
+      <div class="wrap">
+        <div class="section-head compact">
+          <div>
+            <p class="section-kicker">Related guides</p>
+            <h2>Plan the details before placing an order.</h2>
+          </div>
+          <a class="text-link inline" href="/guides/">View all guides</a>
+        </div>
+        <div class="catalog-guide-grid">
+          {relatedGuideCards.map((guide) => (
+            <a href={guide.href}>
+              <img src={guide.image} alt="" loading="lazy" />
+              <div>
+                <h3>{guide.title}</h3>
+                <span>Read guide</span>
+              </div>
+            </a>
+          ))}
+        </div>
+        <div class="catalog-faq">
+          <div>
+            <p class="section-kicker">Common questions</p>
+            <h2>Before you request a sample.</h2>
           </div>
           <div class="faq">
             {product.faqs.map((item) => (
@@ -261,14 +453,6 @@ const schema = {
                 <p>{item.a}</p>
               </div>
             ))}
-          </div>
-          <div class="note-panel">
-            <h3>Helpful guides</h3>
-            <ul class="link-list">
-              {relatedGuides.map(([title, href]) => (
-                <li><a href={href}>{title}</a></li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>

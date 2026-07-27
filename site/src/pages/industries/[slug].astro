@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import LineIcon from "../../components/LineIcon.astro";
 import QuoteSection from "../../components/QuoteSection.astro";
 import { industries, site } from "../../data/site";
 
@@ -68,6 +69,73 @@ const defaultIndustryGuideLinks: [string, string][] = [
   ["Responsible packaging options", "/responsible-packaging/"],
 ];
 const relatedGuides = industryGuideLinks[industry.slug] ?? defaultIndustryGuideLinks;
+const defaultVisuals = {
+  formats: [
+    "/images/products/custom-folding-cartons.jpg",
+    "/images/products/custom-rigid-boxes.jpg",
+    "/images/drawer-boxes.jpg",
+    "/images/gift-boxes.jpg",
+  ],
+  feature: "/images/products/custom-paper-inserts.jpg",
+  quote: "/images/printing-machine.jpg",
+  guides: [
+    "/images/guides/pexels-pergamon-gift-boxes.jpg",
+    "/images/guides/pexels-tea-gift-box.jpg",
+    "/images/guides/supplier-white-shipping-packaging.jpg",
+  ],
+};
+const cosmeticVisuals = {
+  formats: [
+    "/images/products/custom-folding-cartons.jpg",
+    "/images/products/custom-rigid-boxes.jpg",
+    "/images/drawer-boxes.jpg",
+    "/images/industries/custom-skincare-boxes.jpg",
+  ],
+  feature: "/images/products/custom-paper-inserts.jpg",
+  quote: "/images/guides/pexels-cosmetic-boxes.jpg",
+  guides: [
+    "/images/industries/custom-perfume-boxes.jpg",
+    "/images/gift-boxes.jpg",
+    "/images/guides/pexels-ribbon-gift-boxes.jpg",
+  ],
+};
+const candleVisuals = {
+  formats: [
+    "/images/industries/custom-candle-boxes.jpg",
+    "/images/guides/supplier-black-candle-box-insert.jpg",
+    "/images/guides/supplier-four-scent-candle-gift-box.jpg",
+    "/images/guides/supplier-closed-scented-candle-box.jpg",
+  ],
+  feature: "/images/guides/supplier-black-scented-candle-set-box.jpg",
+  quote: "/images/printing-machine.jpg",
+  guides: [
+    "/images/guides/pexels-candle-gift-box.jpg",
+    "/images/products/custom-paper-inserts.jpg",
+    "/images/shipping-boxes.jpg",
+  ],
+};
+const pageVisuals = industry.slug === "custom-cosmetic-boxes"
+  ? cosmeticVisuals
+  : industry.slug === "custom-candle-boxes"
+    ? candleVisuals
+    : defaultVisuals;
+const relatedGuideCards = relatedGuides.slice(0, 3).map(([title, href], index) => ({
+  title,
+  href,
+  image: pageVisuals.guides[index],
+}));
+const buyerNeeds = [
+  { icon: "shield", title: industry.notes[0], text: "Plan this before the structure is approved." },
+  { icon: "insert", title: industry.notes[1], text: "Match protection and presentation to the product." },
+  { icon: "palette", title: industry.notes[2], text: "Keep artwork and finish decisions consistent." },
+  { icon: "sparkle", title: industry.notes[3], text: "Build the opening experience around the sales channel." },
+];
+const launchSteps = [
+  { icon: "ruler", title: "Structure", text: "Confirm product fit." },
+  { icon: "palette", title: "Artwork & color", text: "Review print details." },
+  { icon: "sample", title: "Sample fitting", text: "Check the real product." },
+  { icon: "factory", title: "Production & QC", text: "Approve before handoff." },
+];
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -99,52 +167,201 @@ const schema = {
   solidHeader
   schema={schema}
 >
-  <main>
-    <section class="page-hero">
+  <main class="catalog-detail-page industry-detail-page">
+    <section class="catalog-hero industry-catalog-hero">
+      <div class="wrap catalog-hero-grid">
+        <div class="catalog-hero-copy">
+          <p class="eyebrow">{industry.keyword}</p>
+          <h1>{industry.title}</h1>
+          <p>{industry.description}</p>
+          <div class="actions">
+            <a class="button gold" href="/request-a-quote/">Request a quote</a>
+            <a class="button light" href="#industry-formats">Explore packaging formats</a>
+          </div>
+          <div class="catalog-hero-facts">
+            {buyerNeeds.map((item) => (
+              <div>
+                <LineIcon name={item.icon} />
+                <strong>{item.title}</strong>
+                <span>Buyer requirement</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <figure class="catalog-hero-image">
+          <img src={industry.image} alt={industry.title} />
+        </figure>
+      </div>
+    </section>
+
+    <section class="industry-needs-band">
       <div class="wrap">
-        <p class="eyebrow">{industry.keyword}</p>
-        <h1>{industry.title}</h1>
-        <p>{industry.description}</p>
-        <div class="actions">
-          <a class="button gold" href="/request-a-quote/">Request a quote</a>
-          <a class="button light" href="/industries/">All industries</a>
+        <p class="section-kicker">Packaging priorities</p>
+        <h2>What buyers need this packaging to do.</h2>
+        <div class="industry-needs-grid">
+          {buyerNeeds.map((item) => (
+            <div>
+              <LineIcon name={item.icon} />
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
-    <section class="section alt">
-      <div class="wrap split">
-        <div class="feature-image">
-          <img src={industry.image} alt={industry.title} />
+
+    <section class="section alt industry-formats" id="industry-formats">
+      <div class="wrap">
+        <div class="section-head compact">
+          <div>
+            <p class="section-kicker">Packaging formats</p>
+            <h2>Match the format to the product, price point and channel.</h2>
+          </div>
+          <p>{industry.description}</p>
         </div>
+        <div class="industry-format-grid">
+          {industry.products.map((item, index) => (
+            <article>
+              <img src={pageVisuals.formats[index]} alt={`${item} for ${industry.title.toLowerCase()}`} loading="lazy" />
+              <div>
+                <span>{industry.applications[index] ?? industry.applications[0]}</span>
+                <h3>{item}</h3>
+                <p>{industry.costTips[index % industry.costTips.length]}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark industry-protection">
+      <div class="wrap industry-protection-grid">
         <div>
-          <p class="section-kicker">Packaging plan</p>
-          <h2>Box styles and details your team may compare.</h2>
-          <p class="lede-copy">{industry.description}</p>
-          <div class="detail-grid">
-            <div class="detail-card">
-              <h3>Box styles</h3>
-              <ul>
-                {industry.products.map((item) => <li>{item}</li>)}
-              </ul>
+          <p class="section-kicker">Product fit</p>
+          <h2>Protection starts with the product, not the outside artwork.</h2>
+          <p>Measure the real product and check how it needs to sit, open and travel before the outside design is finalized.</p>
+          <a class="button gold" href="/custom-packaging-sample-process/">Request a sample before bulk</a>
+        </div>
+        <figure>
+          <img src={pageVisuals.feature} alt={`Product-fit packaging for ${industry.title.toLowerCase()}`} loading="lazy" />
+        </figure>
+        <div class="industry-protection-list">
+          {industry.notes.map((item, index) => (
+            <div>
+              <LineIcon name={["ruler", "insert", "shield", "truck"][index] ?? "check"} />
+              <span>
+                <strong>{item}</strong>
+                <small>{industry.applications[index] ?? "Confirm during the sample stage."}</small>
+              </span>
             </div>
-            <div class="detail-card">
-              <h3>Common applications</h3>
-              <ul>
-                {industry.applications.map((item) => <li>{item}</li>)}
-              </ul>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt industry-finishes">
+      <div class="wrap">
+        <p class="section-kicker">Brand details</p>
+        <h2>Use print and finish where they add visible value.</h2>
+        <div class="catalog-material-grid">
+          {industry.notes.map((item, index) => (
+            <div>
+              <span class:list={["material-swatch", `swatch-${(index % 6) + 1}`]}></span>
+              <strong>{item}</strong>
+              <small>Project option</small>
             </div>
-            <div class="detail-card">
-              <h3>Project checks</h3>
-              <ul>
-                {industry.notes.map((item) => <li>{item}</li>)}
-              </ul>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section industry-system">
+      <div class="wrap">
+        <div class="section-head compact">
+          <div>
+            <p class="section-kicker">Cost and presentation</p>
+            <h2>Build the right packaging level for the product.</h2>
+          </div>
+          <p>Compare cost, protection and presentation together instead of choosing the most decorative structure first.</p>
+        </div>
+        <div class="industry-system-grid">
+          {industry.products.slice(0, 3).map((item, index) => (
+            <article>
+              <img src={pageVisuals.formats[index]} alt={`${item} packaging example`} loading="lazy" />
+              <div>
+                <h3>{item}</h3>
+                <p>{industry.costTips[index]}</p>
+                <dl>
+                  <dt>Application</dt>
+                  <dd>{industry.applications[index]}</dd>
+                  <dt>Priority</dt>
+                  <dd>{industry.notes[index]}</dd>
+                </dl>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt industry-quote-prep">
+      <div class="wrap catalog-quote-grid">
+        <div>
+          <p class="section-kicker">Accurate quote</p>
+          <h2>Send product details before asking for a structure.</h2>
+          <ul class="catalog-check-list">
+            {industry.applications.map((item) => <li>Confirm the product details for {item.toLowerCase()}.</li>)}
+            <li>Include quantity, destination, sales channel and target price.</li>
+            <li>Share artwork, color references and insert requirements.</li>
+          </ul>
+          <a class="button gold" href="/request-a-quote/">Request a quote</a>
+        </div>
+        <figure>
+          <img src={pageVisuals.quote} alt={`Packaging quote planning for ${industry.title.toLowerCase()}`} loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="catalog-process-band industry-launch-band">
+      <div class="wrap">
+        <p class="section-kicker">From sample to launch</p>
+        <div class="catalog-process-grid">
+          {launchSteps.map((item, index) => (
+            <div>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <LineIcon name={item.icon} />
+              <strong>{item.title}</strong>
+              <small>{item.text}</small>
             </div>
-            <div class="detail-card">
-              <h3>Cost control</h3>
-              <ul>
-                {industry.costTips.map((item) => <li>{item}</li>)}
-              </ul>
-            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt catalog-guides">
+      <div class="wrap">
+        <div class="section-head compact">
+          <div>
+            <p class="section-kicker">Buyer guides</p>
+            <h2>Plan the packaging before artwork approval.</h2>
+          </div>
+          <a class="text-link inline" href="/guides/">View all guides</a>
+        </div>
+        <div class="catalog-guide-grid">
+          {relatedGuideCards.map((guide) => (
+            <a href={guide.href}>
+              <img src={guide.image} alt="" loading="lazy" />
+              <div>
+                <h3>{guide.title}</h3>
+                <span>Read guide</span>
+              </div>
+            </a>
+          ))}
+        </div>
+        <div class="catalog-faq">
+          <div>
+            <p class="section-kicker">Common questions</p>
+            <h2>Questions to settle before sampling.</h2>
           </div>
           <div class="faq">
             {industry.faqs.map((item) => (
@@ -153,14 +370,6 @@ const schema = {
                 <p>{item.a}</p>
               </div>
             ))}
-          </div>
-          <div class="note-panel">
-            <h3>Helpful guides</h3>
-            <ul class="link-list">
-              {relatedGuides.map(([title, href]) => (
-                <li><a href={href}>{title}</a></li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>

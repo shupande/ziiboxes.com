@@ -1,7 +1,52 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import LineIcon from "../components/LineIcon.astro";
 import QuoteSection from "../components/QuoteSection.astro";
 import { processSteps } from "../data/site";
+
+const serviceCapabilities = [
+  {
+    icon: "check",
+    title: "Quote planning",
+    text: "Structure, size, material, quantity and destination reviewed together.",
+  },
+  {
+    icon: "sample",
+    title: "Sample approval",
+    text: "Check fit, print and finish before committing to bulk production.",
+  },
+  {
+    icon: "factory",
+    title: "Production & QC",
+    text: "Production checks with clear photos and practical updates.",
+  },
+  {
+    icon: "truck",
+    title: "China-side handoff",
+    text: "Packing and carton details prepared for your supplier or forwarder.",
+  },
+];
+
+const serviceLinks = [
+  {
+    icon: "file",
+    title: "Packaging quote checklist",
+    text: "Send better first details for boxes, paper bags, inserts, samples and supplier delivery.",
+    href: "/packaging-quote-checklist/",
+  },
+  {
+    icon: "sample",
+    title: "Sample process",
+    text: "Check structure, size, print, finish and carton details before bulk production.",
+    href: "/custom-packaging-sample-process/",
+  },
+  {
+    icon: "box",
+    title: "Case studies",
+    text: "See project examples for gift boxes, paper bags, bottle boxes and China-side coordination.",
+    href: "/case-studies/",
+  },
+];
 ---
 
 <BaseLayout
@@ -10,45 +55,102 @@ import { processSteps } from "../data/site";
   path="/services/"
   solidHeader
 >
-  <main>
-    <section class="page-hero">
-      <div class="wrap">
-        <p class="eyebrow">Process</p>
-        <h1>One clear path from packaging idea to production.</h1>
-        <p>Use this page to understand what information is needed and what happens before mass production, packing or China-side handoff.</p>
+  <main class="services-page">
+    <section class="editorial-hero">
+      <div class="wrap editorial-hero-grid">
+        <div class="editorial-hero-copy">
+          <p class="eyebrow">Packaging services</p>
+          <h1>One clear path from packaging idea to export handoff.</h1>
+          <p>Plan the box, approve the sample and prepare production, packing and China-side delivery details in one practical workflow.</p>
+          <div class="actions">
+            <a class="button gold" href="/request-a-quote/">Request a quote</a>
+            <a class="button light" href="#service-process">See the process</a>
+          </div>
+        </div>
+        <figure class="editorial-hero-media">
+          <img src="/images/printing-machine.jpg" alt="Printing and packaging production machine" />
+        </figure>
       </div>
     </section>
-    <section class="section">
-      <div class="wrap process">
-        <div class="process-image">
-          <img src="/images/printing-machine.jpg" alt="Printing and packaging production machine" />
+
+    <section class="service-capability-band" aria-label="Packaging service capabilities">
+      <div class="wrap service-capability-grid">
+        {serviceCapabilities.map((item) => (
+          <div class="service-capability">
+            <LineIcon name={item.icon} />
+            <div>
+              <h2>{item.title}</h2>
+              <p>{item.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section alt" id="service-process">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">How it works</p>
+            <h2>Move from the first brief to a production-ready plan.</h2>
+          </div>
+          <p>Each decision is confirmed in order, so artwork, material and packing details do not need to be rebuilt later.</p>
         </div>
-        <div class="steps">
+        <div class="service-process-grid">
+          <figure class="service-process-photo">
+            <img src="/images/factory-line.jpg" alt="Packaging workshop preparing custom paper boxes" />
+          </figure>
+          <div class="service-step-list">
           {processSteps.map((step, index) => (
-            <div class="step">
-              <div class="step-num">{index + 1}</div>
+            <div class="service-step">
+              <span>{String(index + 1).padStart(2, "0")}</span>
               <div>
                 <h3>{step.title}</h3>
                 <p>{step.text}</p>
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </section>
-    <section class="section alt">
-      <div class="wrap detail-grid">
-        <div class="detail-card">
-          <h3><a href="/packaging-quote-checklist/">Packaging quote checklist</a></h3>
-          <p>Send better first details for boxes, paper bags, inserts, samples and supplier delivery.</p>
+
+    <section class="section service-production">
+      <div class="wrap service-production-grid">
+        <div>
+          <p class="section-kicker">Before bulk production</p>
+          <h2>Confirm the details that affect cost, quality and delivery.</h2>
+          <p class="lede-copy">
+            A useful quote is more than a unit price. It should reflect the product, structure, material, print, finish, packing method and route.
+          </p>
+          <a class="text-link" href="/packaging-quote-checklist/">Open the packaging quote checklist</a>
         </div>
-        <div class="detail-card">
-          <h3><a href="/custom-packaging-sample-process/">Sample process</a></h3>
-          <p>Check structure, size, print, finish and carton details before bulk production.</p>
+        <div class="service-production-points">
+          <div><strong>Product fit</strong><span>Send product dimensions, weight and photos.</span></div>
+          <div><strong>Material & finish</strong><span>Compare practical options before artwork approval.</span></div>
+          <div><strong>Sample check</strong><span>Review structure, print color and surface finish.</span></div>
+          <div><strong>Handoff details</strong><span>Confirm cartons, labels, destination and pickup route.</span></div>
         </div>
-        <div class="detail-card">
-          <h3><a href="/case-studies/">Case studies</a></h3>
-          <p>See project examples for gift boxes, paper bags, bottle boxes and China-side coordination.</p>
+      </div>
+    </section>
+
+    <section class="section alt service-next">
+      <div class="wrap">
+        <div class="section-head compact">
+          <div>
+            <p class="section-kicker">Plan your next step</p>
+            <h2>Start with the page that matches your project stage.</h2>
+          </div>
+        </div>
+        <div class="service-next-grid">
+          {serviceLinks.map((item) => (
+            <a href={item.href} class="service-next-card">
+              <LineIcon name={item.icon} />
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <span>View details</span>
+            </a>
+          ))}
         </div>
       </div>
     </section>
