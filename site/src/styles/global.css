@@ -23,8 +23,10 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Manrope", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.55;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 img {
@@ -94,7 +96,8 @@ h3 {
   align-items: center;
   gap: 24px;
   color: rgba(255, 255, 255, 0.86);
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .nav-toggle {
@@ -140,7 +143,7 @@ h3 {
   border-radius: 4px;
   background: var(--ink);
   color: var(--white);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
 }
 
@@ -206,11 +209,11 @@ h3 {
   position: relative;
   z-index: 2;
   min-height: 560px;
-  padding: 96px 0 34px;
+  padding: 92px 0 32px;
   display: grid;
-  grid-template-columns: minmax(0, 560px) 1fr;
+  grid-template-columns: minmax(0, 520px) 1fr;
   align-content: end;
-  gap: 28px 42px;
+  gap: 26px 42px;
 }
 
 .hero-copy {
@@ -221,7 +224,10 @@ h3 {
 
 .hero-visual {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 18%;
   z-index: 0;
   margin: 0;
 }
@@ -256,16 +262,17 @@ h1 {
 }
 
 .home-hero h1 {
-  max-width: 560px;
-  font-size: 46px;
-  line-height: 1.08;
+  max-width: 520px;
+  font-size: 42px;
+  line-height: 1.12;
 }
 
 .hero-lede {
-  max-width: 500px;
+  max-width: 470px;
   margin-bottom: 28px;
   color: rgba(255, 255, 255, 0.86);
-  font-size: 17px;
+  font-size: 15px;
+  line-height: 1.65;
 }
 
 .actions {
@@ -280,8 +287,8 @@ h1 {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(4, minmax(150px, max-content));
-  gap: 22px;
-  max-width: 780px;
+  gap: 26px;
+  max-width: 760px;
   margin-top: 8px;
 }
 
@@ -295,8 +302,8 @@ h1 {
 
 .proof-icon {
   grid-row: span 2;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(242, 213, 165, 0.54);
@@ -308,10 +315,10 @@ h1 {
 .service-icon svg,
 .process-icon svg,
 .confidence-icon svg {
-  width: 21px;
-  height: 21px;
+  width: 22px;
+  height: 22px;
   stroke: currentColor;
-  stroke-width: 1.8;
+  stroke-width: 1.55;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -319,13 +326,13 @@ h1 {
 .proof-item strong {
   display: block;
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.2;
 }
 
 .proof-item span {
   color: rgba(255, 255, 255, 0.76);
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .section {
@@ -355,9 +362,18 @@ h1 {
 
 h2 {
   margin-bottom: 0;
-  font-size: 42px;
+  font-size: 40px;
   line-height: 1.1;
   letter-spacing: 0;
+}
+
+.home-support h2,
+.home-products h2,
+.home-process h2,
+.home-guides h2,
+.case-preview-copy h2 {
+  font-size: 34px;
+  line-height: 1.14;
 }
 
 .section-head p,
@@ -457,19 +473,25 @@ h2 {
 }
 
 .service-icon {
-  width: 54px;
-  height: 54px;
+  width: 60px;
+  height: 60px;
   display: grid;
   place-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 26px;
   border: 1px solid var(--green);
   border-radius: 50%;
   color: var(--green);
 }
 
+.service-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
 .service-card h3 {
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 17px;
+  line-height: 1.25;
 }
 
 .service-card p {
@@ -596,8 +618,8 @@ h2 {
 }
 
 .process-icon {
-  width: 58px;
-  height: 58px;
+  width: 56px;
+  height: 56px;
   display: grid;
   place-items: center;
   margin-bottom: 12px;
@@ -605,6 +627,11 @@ h2 {
   border-radius: 50%;
   background: var(--white);
   color: var(--green);
+}
+
+.process-icon svg {
+  width: 25px;
+  height: 25px;
 }
 
 .process-num {
@@ -622,7 +649,7 @@ h2 {
 
 .process-card h3 {
   margin-bottom: 8px;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.25;
 }
 
@@ -1198,7 +1225,7 @@ h2 {
 
 .confidence-strip h2 {
   margin-bottom: 26px;
-  font-size: 30px;
+  font-size: 28px;
 }
 
 .confidence-grid {
@@ -1216,8 +1243,8 @@ h2 {
 }
 
 .confidence-icon {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(242, 213, 165, 0.48);
@@ -1225,9 +1252,14 @@ h2 {
   color: #f2d5a5;
 }
 
+.confidence-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
 .confidence-grid strong {
   display: block;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.2;
 }
 
@@ -1773,6 +1805,10 @@ h2 {
     background: rgba(8, 63, 58, 0.82);
   }
 
+  .hero-visual {
+    left: 0;
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
   }
@@ -1875,16 +1911,21 @@ h2 {
   }
 
   .hero-content {
-    min-height: 720px;
+    min-height: 680px;
   }
 
   .home-hero h1 {
     max-width: 360px;
-    font-size: 38px;
+    font-size: 34px;
+    line-height: 1.13;
+  }
+
+  .home-hero .hero-lede {
+    font-size: 15px;
   }
 
   .hero-visual img {
-    object-position: 36% center;
+    object-position: 22% center;
   }
 
   .hero-proof {
