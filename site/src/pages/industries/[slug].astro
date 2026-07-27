@@ -2,7 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LineIcon from "../../components/LineIcon.astro";
 import QuoteSection from "../../components/QuoteSection.astro";
-import { materialVisual } from "../../data/materialVisual";
+import { contentVisual, materialVisual } from "../../data/materialVisual";
 import { industries, products, site } from "../../data/site";
 
 export function getStaticPaths() {
@@ -123,7 +123,7 @@ const pageVisuals = industry.slug === "custom-cosmetic-boxes"
 const relatedGuideCards = relatedGuides.slice(0, 3).map(([title, href], index) => ({
   title,
   href,
-  image: pageVisuals.guides[index],
+  image: contentVisual(title, pageVisuals.guides[index]),
 }));
 const buyerNeeds = [
   { icon: "shield", title: industry.notes[0], text: "Plan this before the structure is approved." },
@@ -231,7 +231,7 @@ const schema = {
         <div class="industry-format-grid">
           {industry.products.map((item, index) => (
             <article>
-              <img src={pageVisuals.formats[index]} alt={`${item} for ${industry.title.toLowerCase()}`} loading="lazy" />
+              <img src={contentVisual(item, pageVisuals.formats[index])} alt={`${item} for ${industry.title.toLowerCase()}`} loading="lazy" />
               <div>
                 <span>{industry.applications[index] ?? industry.applications[0]}</span>
                 <h3>{item}</h3>
@@ -303,7 +303,7 @@ const schema = {
         <div class="industry-system-grid">
           {industry.products.slice(0, 3).map((item, index) => (
             <article>
-              <img src={pageVisuals.formats[index]} alt={`${item} packaging example`} loading="lazy" />
+              <img src={contentVisual(item, pageVisuals.formats[index])} alt={`${item} packaging example`} loading="lazy" />
               <div>
                 <h3>{item}</h3>
                 <p>{industry.costTips[index]}</p>

@@ -3419,6 +3419,32 @@ h2 {
     gap: 14px;
   }
 
+  .home-support .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 18px;
+  }
+
+  .home-support .service-card {
+    padding: 0;
+  }
+
+  .home-support .service-icon {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 14px;
+  }
+
+  .home-support .service-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .home-support .service-card p {
+    max-width: 19ch;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
   .process-line::before {
     display: none;
   }

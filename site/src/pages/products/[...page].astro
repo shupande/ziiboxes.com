@@ -4,7 +4,7 @@ import QuoteSection from "../../components/QuoteSection.astro";
 import { products } from "../../data/site";
 
 export function getStaticPaths({ paginate }) {
-  return paginate(products, { pageSize: 10 });
+  return paginate(products, { pageSize: 12 });
 }
 
 const { page } = Astro.props;

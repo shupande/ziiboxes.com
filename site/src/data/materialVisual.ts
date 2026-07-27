@@ -58,3 +58,44 @@ export function materialVisual(label: string) {
   return materialVisuals.find(([pattern]) => pattern.test(label))?.[1]
     ?? "/images/materials/paperboard.webp";
 }
+
+const contentVisuals: [RegExp, string][] = [
+  [/luxury paper gift bag/i, "/images/products/luxury-paper-gift-bags.jpg"],
+  [/white paper bag|shopping bag/i, "/images/products/custom-white-paper-shopping-bags.jpg"],
+  [/printed kraft paper bag/i, "/images/products/custom-printed-kraft-paper-bags.jpg"],
+  [/kraft.*bag|kraft vs white paper bag/i, "/images/products/custom-kraft-paper-bags.jpg"],
+  [/paper bag|bag handle|bag size|gift bag/i, "/images/products/custom-retail-paper-bags.jpg"],
+  [/clothing|apparel|socks|underwear/i, "/images/industries/custom-apparel-packaging-boxes.jpg"],
+  [/subscription/i, "/images/industries/custom-subscription-boxes.jpg"],
+  [/pr kit|launch kit/i, "/images/guides/supplier-mailer-gift-boxes.jpg"],
+  [/shopify|dtc|unboxing|e-?commerce|mailer/i, "/images/products/custom-mailer-boxes.jpg"],
+  [/amazon|fba|fnsku|barcode|master carton|export carton|shipping carton|freight|forwarder|shipping/i, "/images/products/custom-shipping-boxes.jpg"],
+  [/jewelry|ring|necklace|bracelet/i, "/images/industries/custom-jewelry-boxes.jpg"],
+  [/perfume|fragrance/i, "/images/industries/custom-perfume-boxes.jpg"],
+  [/wine/i, "/images/products/luxury-wine-boxes.jpg"],
+  [/liquor|spirit|bottle/i, "/images/products/liquor-bottle-gift-boxes.jpg"],
+  [/candle gift set|four scent/i, "/images/guides/supplier-four-scent-candle-gift-box.jpg"],
+  [/glass jar candle|candle.*insert|candle.*protection/i, "/images/guides/supplier-black-candle-box-insert.jpg"],
+  [/candle|jar|scented|holiday/i, "/images/industries/custom-candle-boxes.jpg"],
+  [/cosmetic|beauty/i, "/images/industries/custom-cosmetic-boxes.jpg"],
+  [/skincare|serum/i, "/images/industries/custom-skincare-boxes.jpg"],
+  [/soap/i, "/images/industries/custom-soap-boxes.jpg"],
+  [/tea/i, "/images/guides/pexels-tea-gift-box.jpg"],
+  [/cookie|macaron|cake/i, "/images/cookie-boxes.jpg"],
+  [/bakery|food|chocolate/i, "/images/industries/custom-bakery-boxes.jpg"],
+  [/coffee|belly band/i, "/images/guides/supplier-belly-band-packaging.jpg"],
+  [/insert|tray|divider/i, "/images/products/custom-paper-inserts.jpg"],
+  [/window/i, "/images/products/custom-window-boxes.jpg"],
+  [/sleeve/i, "/images/products/custom-sleeve-boxes.jpg"],
+  [/display/i, "/images/products/custom-display-boxes.jpg"],
+  [/gable/i, "/images/products/custom-gable-boxes.jpg"],
+  [/custom rigid|rigid gift|rigid box|lid-and-base|magnetic|book style|premium retail/i, "/images/products/custom-rigid-boxes.jpg"],
+  [/gift set|gift box|gift/i, "/images/products/custom-gift-boxes.jpg"],
+  [/drawer/i, "/images/drawer-boxes.jpg"],
+  [/folding carton/i, "/images/products/custom-folding-cartons.jpg"],
+  [/rigid|premium/i, "/images/products/custom-rigid-boxes.jpg"],
+];
+
+export function contentVisual(label: string, fallback: string) {
+  return contentVisuals.find(([pattern]) => pattern.test(label))?.[1] ?? fallback;
+}

@@ -2,7 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LineIcon from "../../components/LineIcon.astro";
 import QuoteSection from "../../components/QuoteSection.astro";
-import { materialVisual } from "../../data/materialVisual";
+import { contentVisual, materialVisual } from "../../data/materialVisual";
 import { products, site } from "../../data/site";
 
 export function getStaticPaths() {
@@ -232,7 +232,7 @@ const pageVisuals = product.slug === "custom-mailer-boxes"
 const relatedGuideCards = relatedGuides.slice(0, 3).map(([title, href], index) => ({
   title,
   href,
-  image: pageVisuals.guides[index],
+  image: contentVisual(title, pageVisuals.guides[index]),
 }));
 const quickFacts = [
   { icon: "box", title: product.uses[0], text: "Common use" },
@@ -336,7 +336,7 @@ const schema = {
         <div class="catalog-option-grid">
           {product.uses.slice(0, 3).map((use, index) => (
             <article class="catalog-option">
-              <img src={pageVisuals.gallery[index]} alt={`${use} using ${product.title.toLowerCase()}`} loading="lazy" />
+              <img src={contentVisual(use, pageVisuals.gallery[index])} alt={`${use} using ${product.title.toLowerCase()}`} loading="lazy" />
               <div>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <h3>{use}</h3>
