@@ -2,7 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LineIcon from "../../components/LineIcon.astro";
 import QuoteSection from "../../components/QuoteSection.astro";
-import { industries, site } from "../../data/site";
+import { materialVisual } from "../../data/materialVisual";
+import { industries, products, site } from "../../data/site";
 
 export function getStaticPaths() {
   return industries.map((industry) => ({
@@ -130,6 +131,10 @@ const buyerNeeds = [
   { icon: "palette", title: industry.notes[2], text: "Keep artwork and finish decisions consistent." },
   { icon: "sparkle", title: industry.notes[3], text: "Build the opening experience around the sales channel." },
 ];
+const finishItems = (
+  products.find((product) => product.slug === industry.slug)?.finishes
+  ?? industry.notes
+).slice(0, 6);
 const launchSteps = [
   { icon: "ruler", title: "Structure", text: "Confirm product fit." },
   { icon: "palette", title: "Artwork & color", text: "Review print details." },
@@ -264,11 +269,18 @@ const schema = {
         <p class="section-kicker">Brand details</p>
         <h2>Use print and finish where they add visible value.</h2>
         <div class="catalog-material-grid">
-          {industry.notes.map((item, index) => (
+          {finishItems.map((item) => (
             <div>
-              <span class:list={["material-swatch", `swatch-${(index % 6) + 1}`]}></span>
+              <img
+                class="material-photo"
+                src={materialVisual(item)}
+                alt={`${item} custom packaging example`}
+                loading="lazy"
+                width="480"
+                height="320"
+              />
               <strong>{item}</strong>
-              <small>Project option</small>
+              <small>Print or finish option</small>
             </div>
           ))}
         </div>

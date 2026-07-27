@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LineIcon from "../../components/LineIcon.astro";
 import QuoteSection from "../../components/QuoteSection.astro";
+import { materialVisual } from "../../data/materialVisual";
 import { products, site } from "../../data/site";
 
 export function getStaticPaths() {
@@ -239,6 +240,10 @@ const quickFacts = [
   { icon: "palette", title: product.finishes[0], text: "Print or finish" },
   { icon: "sample", title: "Sample first", text: "Before bulk" },
 ];
+const materialItems = [
+  ...product.materials.map((label) => ({ label, type: "Material option" })),
+  ...product.finishes.map((label) => ({ label, type: "Print or finish option" })),
+].slice(0, 6);
 const processItems = [
   { icon: "ruler", title: "Structure", text: "Confirm size and fit." },
   { icon: "palette", title: "Artwork & finish", text: "Review print details." },
@@ -376,11 +381,18 @@ const schema = {
         <p class="section-kicker">Materials and finishes</p>
         <h2>Compare the details customers see and touch.</h2>
         <div class="catalog-material-grid">
-          {[...product.materials, ...product.finishes].slice(0, 6).map((item, index) => (
+          {materialItems.map((item) => (
             <div>
-              <span class:list={["material-swatch", `swatch-${(index % 6) + 1}`]}></span>
-              <strong>{item}</strong>
-              <small>{index < product.materials.length ? "Material option" : "Print or finish option"}</small>
+              <img
+                class="material-photo"
+                src={materialVisual(item.label)}
+                alt={`${item.label} custom packaging example`}
+                loading="lazy"
+                width="480"
+                height="320"
+              />
+              <strong>{item.label}</strong>
+              <small>{item.type}</small>
             </div>
           ))}
         </div>
