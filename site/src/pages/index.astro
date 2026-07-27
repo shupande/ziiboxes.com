@@ -1,10 +1,121 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import QuoteSection from "../components/QuoteSection.astro";
-import { guideLinks, industries, processSteps, products, site } from "../data/site";
+import { site } from "../data/site";
 
-const featuredProducts = products.slice(0, 10);
-const productCount = products.length;
+const serviceTiles = [
+  {
+    label: "01",
+    title: "China-side packing",
+    text: "Inner packing, barcode labels, kits and bundles, custom inserts and paper bags before export.",
+    href: "/product-packing-service-china/",
+  },
+  {
+    label: "02",
+    title: "Inspection & QC",
+    text: "In-line and final checks with photos and simple notes before products are handed off.",
+    href: "/custom-packaging-sample-process/",
+  },
+  {
+    label: "03",
+    title: "Export documentation",
+    text: "Commercial invoice, packing list, carton details and route notes prepared earlier.",
+    href: "/amazon-fba-packaging-prep-china/",
+  },
+  {
+    label: "04",
+    title: "Export-ready handoff",
+    text: "Carton marking, palletizing and warehouse coordination for on-time pickup.",
+    href: "/china-packaging-agent/",
+  },
+];
+
+const homeProducts = [
+  {
+    title: "Custom Mailer Boxes",
+    text: "Ecommerce mailers with branded prints, strong protection and easy assembly.",
+    image: "/images/products/custom-mailer-boxes.jpg",
+    alt: "Custom mailer boxes for ecommerce packaging",
+    href: "/products/custom-mailer-boxes/",
+  },
+  {
+    title: "Rigid Gift Boxes",
+    text: "Magnetic, drawer and lift-top rigid boxes for premium presentation.",
+    image: "/images/rigid-boxes.jpg",
+    alt: "Rigid gift boxes for premium product packaging",
+    href: "/products/custom-rigid-boxes/",
+  },
+  {
+    title: "Folding Cartons",
+    text: "Printed folding cartons for retail packaging across many industries.",
+    image: "/images/products/custom-folding-cartons.jpg",
+    alt: "Custom printed folding cartons",
+    href: "/products/custom-folding-cartons/",
+  },
+  {
+    title: "Custom Paper Bags",
+    text: "Printed paper bags with handles to elevate your unboxing experience.",
+    image: "/images/products/custom-retail-paper-bags.jpg",
+    alt: "Custom printed paper bags with handles",
+    href: "/products/custom-paper-bags/",
+  },
+  {
+    title: "Product Inserts & Inner Packaging",
+    text: "EVA, foam, paper inserts and trays to secure and present your product.",
+    image: "/images/products/custom-paper-inserts.jpg",
+    alt: "Paper inserts and inner packaging",
+    href: "/products/custom-paper-inserts/",
+  },
+  {
+    title: "Corrugated Boxes & Shipping Cartons",
+    text: "Strong export-grade cartons for protection in transit.",
+    image: "/images/products/custom-shipping-boxes.jpg",
+    alt: "Corrugated shipping cartons for export",
+    href: "/products/custom-shipping-boxes/",
+  },
+];
+
+const processCards = [
+  ["1", "Share your needs", "Send box size, design, quantity and destination."],
+  ["2", "Get solution & quote", "We recommend the right materials and structure."],
+  ["3", "Sample before bulk", "Confirm material, print and structure with a pre-production sample."],
+  ["4", "Bulk production & QC", "Mass production with in-line and final inspection."],
+  ["5", "Packing & delivery", "China-side packing, export docs and handoff to your forwarder."],
+];
+
+const confidenceItems = [
+  ["20+ years", "export experience"],
+  ["100% quality", "inspection"],
+  ["On-time delivery", "and updates"],
+  ["Low MOQ", "friendly"],
+  ["Flexible payment", "options"],
+  ["Dedicated support", "in English"],
+];
+
+const featuredGuides = [
+  {
+    title: "The ultimate guide to custom mailer boxes for ecommerce",
+    text: "Materials, sizes, printing and cost tips to build mailer boxes your customers will love.",
+    image: "/images/guides/supplier-ecommerce-mailer-boxes.jpg",
+    alt: "Custom ecommerce mailer boxes",
+    href: "/guides/custom-mailer-box-design-for-shopify/",
+  },
+  {
+    title: "Rigid gift box styles: how to choose the right one",
+    text: "Magnetic, drawer, flip-top or book style? Compare structures and use cases.",
+    image: "/images/products/custom-rigid-boxes.jpg",
+    alt: "Rigid gift box styles",
+    href: "/guides/lid-and-base-rigid-boxes/",
+  },
+  {
+    title: "China-side packing checklist for ecommerce sellers",
+    text: "A practical checklist for smooth packing, labeling and export handoff.",
+    image: "/images/guides/supplier-delivery-packaging-boxes.jpg",
+    alt: "Export cartons prepared for ecommerce handoff",
+    href: "/guides/amazon-fba-packaging-prep-checklist/",
+  },
+];
+
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -56,118 +167,87 @@ const schema = {
   schema={schema}
 >
   <main>
-    <section class="hero">
-      <div class="hero-media" aria-hidden="true">
-        <img src="/images/mailer-boxes.jpg" alt="" />
-        <img src="/images/rigid-boxes.jpg" alt="" />
-        <img src="/images/jewelry-boxes.jpg" alt="" />
-        <img src="/images/printing-machine.jpg" alt="" />
-        <img src="/images/gift-boxes.jpg" alt="" />
-      </div>
-      <div class="hero-shade" aria-hidden="true"></div>
+    <section class="hero home-hero">
       <div class="hero-content wrap">
-        <div>
+        <div class="hero-copy">
           <p class="eyebrow">Ecommerce packaging from Shenzhen, China</p>
-          <h1>Custom printed boxes for ecommerce brands sourcing from China.</h1>
+          <h1>Custom printed boxes for ecommerce brands sourcing from China</h1>
           <p class="hero-lede">
-            A China-side packaging workflow for ecommerce products and gift sets: printed boxes, product packing, labels, carton details and freight/FBA handoff notes.
+            All-in-one packaging services for ecommerce sellers and suppliers: from custom packaging and China-side packing to export-ready handoff.
           </p>
           <div class="actions">
-            <a class="button" href="/request-a-quote/">Start a box quote</a>
-            <a class="button light" href="/china-packaging-agent/">China packaging agent</a>
+            <a class="button gold" href="/request-a-quote/">Request a quote</a>
+            <a class="button light" href="/china-packaging-agent/">Explore solutions</a>
           </div>
         </div>
+        <figure class="hero-visual">
+          <img src="/images/home-hero-packaging.jpg" alt="Custom printed boxes, rigid gift boxes, folding cartons and paper bags on a dark green background" />
+        </figure>
         <div class="hero-proof" aria-label="Key buying points">
           <div class="proof-item">
+            <span class="proof-icon" aria-hidden="true">20</span>
             <strong>20+ years</strong>
-            <span>printed paper packaging experience</span>
+            <span>export experience</span>
           </div>
           <div class="proof-item">
-            <strong>China-side agent</strong>
-            <span>packaging, packing and handoff coordination</span>
+            <span class="proof-icon" aria-hidden="true">CN</span>
+            <strong>China-side</strong>
+            <span>packing support</span>
           </div>
           <div class="proof-item">
-            <strong>China packing</strong>
-            <span>packing and checking before export</span>
+            <span class="proof-icon" aria-hidden="true">QC</span>
+            <strong>On-time delivery</strong>
+            <span>and updates</span>
           </div>
           <div class="proof-item">
-            <strong>Shenzhen export</strong>
-            <span>carton planning for sea and air freight</span>
+            <span class="proof-icon" aria-hidden="true">EX</span>
+            <strong>Export-ready</strong>
+            <span>handoff</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section alt">
+    <section class="section alt home-support">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head compact">
           <div>
-            <p class="section-kicker">China packing support</p>
-            <h2>Print boxes, pack products and prepare the handoff in one flow.</h2>
+            <p class="section-kicker">China-side packing support</p>
+            <h2>Pack products and prepare the handoff in one flow.</h2>
           </div>
-          <p>
-            A practical China-side packaging workflow for ecommerce products, gift sets and launches: boxes, packing, labels, carton data and handoff notes.
-            <a class="text-link" href="/china-packaging-agent/">See China packaging agent support</a>
-          </p>
+          <p>We help you save time, reduce risk and get export-ready shipments with clear updates at every step.</p>
         </div>
-        <div class="detail-grid">
-          <div class="detail-card">
-            <h3><a href="/product-packing-service-china/">Product packing</a></h3>
-            <ul>
-              <li>Put suitable products into printed boxes</li>
-              <li>Add sleeves, cards, dividers or paper inserts</li>
-              <li>Send empty boxes to your China factory if they pack the goods</li>
-              <li>Group small sets before export carton packing</li>
-            </ul>
+        <div class="service-grid">
+          {serviceTiles.map((item) => (
+            <a class="service-card" href={item.href}>
+              <span class="service-icon" aria-hidden="true">{item.label}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt home-products">
+      <div class="wrap">
+        <div class="section-head compact">
+          <div>
+            <p class="section-kicker">Packaging styles</p>
+            <h2>Packaging built for your brand and product.</h2>
           </div>
-          <div class="detail-card">
-            <h3>Product checks</h3>
-            <ul>
-              <li>Discuss visual checks before products are packed</li>
-              <li>Coordinate third-party testing when you require it</li>
-              <li>Confirm product condition before warehouse handoff</li>
-            </ul>
-          </div>
-          <div class="detail-card">
-            <h3><a href="/amazon-fba-packaging-prep-china/">Amazon and online sellers</a></h3>
-            <ul>
-              <li>Packaging for Amazon, Shopify and Etsy products</li>
-              <li>Barcode, label and unboxing details planned early</li>
-              <li>Small launch runs before repeat orders</li>
-            </ul>
-          </div>
-          <div class="detail-card">
-            <h3><a href="/amazon-fba-packaging-prep-china/">Freight and warehouse handoff</a></h3>
-            <ul>
-              <li>Help connect with a suitable freight forwarder or 3PL route</li>
-              <li>Discuss Amazon FBA labels and carton requirements</li>
-              <li>Prepare carton size, weight and packing list details</li>
-            </ul>
-          </div>
-          <div class="detail-card">
-            <h3><a href="/send-packaging-to-china-supplier/">China domestic delivery</a></h3>
-            <ul>
-              <li>Deliver finished boxes to your factory, packer or warehouse in China</li>
-              <li>Useful when your product supplier handles final packing</li>
-              <li>Keep your own freight route if that is already arranged</li>
-            </ul>
-          </div>
-          <div class="detail-card">
-            <h3><a href="/custom-paper-bags-china/">Paper bags with boxes</a></h3>
-            <ul>
-              <li>Custom shopping bags, kraft bags and luxury gift bags</li>
-              <li>Deliver bags with boxes to your China supplier or packer</li>
-              <li>Useful for retail handoff, gift sets and events</li>
-            </ul>
-          </div>
-          <div class="detail-card">
-            <h3>Less work after arrival</h3>
-            <ul>
-              <li>Avoid shipping empty boxes separately when possible</li>
-              <li>Reduce repacking work after goods arrive in your market</li>
-              <li>Confirm packing, labels and handoff steps before bulk production</li>
-            </ul>
-          </div>
+          <p><a class="text-link inline" href="/products/">View all products</a></p>
+        </div>
+        <div class="product-grid six">
+          {homeProducts.map((product) => (
+            <a class="product-card" href={product.href}>
+              <img src={product.image} alt={product.alt} />
+              <div class="product-copy">
+                <h3>{product.title}</h3>
+                <p>{product.text}</p>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
@@ -175,20 +255,20 @@ const schema = {
     <section class="section case-preview-section">
       <div class="wrap case-preview">
         <div class="case-preview-copy">
-          <p class="section-kicker">Case study</p>
-          <h2>UK gift box project: 20,000 rigid lid-and-base boxes.</h2>
+          <p class="section-kicker">Featured case study</p>
+          <h2>UK rigid gift boxes, 20,000 pcs</h2>
           <p>
-            A UK customer needed <a href="/custom-rigid-gift-boxes-china/">premium rigid gift boxes</a> and China-side help after production: supplier collection, logistics provider search, container loading and customs paperwork support.
+            For a UK lifestyle brand, we produced 20,000 rigid gift boxes with printed logo, custom insert and barcode labels, delivered on time for launch.
           </p>
-          <a class="button gold" href="/case-studies/uk-rigid-gift-boxes/">Read the case</a>
+          <a class="button gold" href="/case-studies/uk-rigid-gift-boxes/">View full case study</a>
         </div>
         <figure class="case-preview-photo">
-          <img src="/images/rigid-boxes.jpg" alt="Rigid lid-and-base gift boxes prepared for a packaging project" />
+          <img src="/images/rigid-boxes.jpg" alt="Rigid lid-and-base gift boxes prepared for a UK packaging project" />
         </figure>
         <div class="case-preview-stats" aria-label="UK gift box project results">
           <div>
             <strong>20,000</strong>
-            <span>rigid boxes</span>
+            <span>rigid gift boxes</span>
           </div>
           <div>
             <strong>100%</strong>
@@ -196,157 +276,70 @@ const schema = {
           </div>
           <div>
             <strong>China</strong>
-            <span>supplier collection</span>
+            <span>Shenzhen, China</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section alt">
+    <section class="section alt home-process">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head compact">
           <div>
-            <p class="section-kicker">Packaging styles</p>
-            <h2>Start from the paper packaging your product actually needs.</h2>
+            <p class="section-kicker">How it works</p>
+            <h2>From sample to shipment, a clear process.</h2>
           </div>
-          <p>Each page answers practical questions first: use case, material, MOQ, finishes, handles, sample timing and shipping notes.</p>
         </div>
-        <div class="product-grid five">
-          {featuredProducts.map((product) => (
-            <a class="product-card" href={`/products/${product.slug}/`}>
-              <img src={product.image} alt={product.alt} />
-              <div class="product-copy">
-                <small>{product.eyebrow}</small>
-                <h3>{product.title}</h3>
-                <p>{product.description}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-        <div class="actions product-section-actions">
-          <a class="button" href="/products/">Browse all {productCount}+ product styles</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="section-kicker">Industry pages</p>
-            <h2>Choose packaging by product use case, not only by box name.</h2>
-          </div>
-          <p>Use these pages to match box structure, material and finish to the product category you sell.</p>
-        </div>
-        <div class="industry-table">
-          {industries.slice(0, 4).map((industry) => (
-            <div class="industry-row">
-              <h3>
-                <a href={`/industries/${industry.slug}/`}>{industry.title.replace("Custom ", "")}</a>
-              </h3>
-              <p>{industry.description}</p>
+        <div class="process-line">
+          {processCards.map(([num, title, text]) => (
+            <div class="process-card">
+              <span>{num}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap process">
-        <div class="process-image">
-          <img src="/images/factory-line.jpg" alt="Packaging assembly line in a clean workshop" />
-        </div>
-        <div>
-          <p class="section-kicker">How quotes work</p>
-          <h2>A clear path from idea to export-ready packaging.</h2>
-          <div class="steps">
-            {processSteps.map((step, index) => (
-              <div class="step">
-                <div class="step-num">{index + 1}</div>
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div class="actions product-section-actions">
-            <a class="button" href="/packaging-quote-checklist/">Quote checklist</a>
-            <a class="button" href="/custom-packaging-sample-process/">Sample process</a>
-          </div>
+    <section class="confidence-strip">
+      <div class="wrap">
+        <p class="section-kicker">Buyer confidence</p>
+        <h2>Why ecommerce brands work with us.</h2>
+        <div class="confidence-grid">
+          {confidenceItems.map(([strong, text]) => (
+            <div>
+              <strong>{strong}</strong>
+              <span>{text}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
-    <section class="section alt">
+    <section class="section alt home-guides">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head compact">
           <div>
-            <p class="section-kicker">Buyer confidence</p>
-            <h2>More proof before you send a project brief.</h2>
+            <p class="section-kicker">Packaging guides</p>
+            <h2>Practical guides to help you package better.</h2>
           </div>
-          <p>Use these pages to understand what happens after first contact: sampling, quote details, case routes and China-side coordination.</p>
+          <p><a class="text-link inline" href="/guides/">View all guides</a></p>
         </div>
-        <div class="detail-grid">
-          <div class="detail-card">
-            <h3><a href="/custom-packaging-sample-process/">Sample process</a></h3>
-            <p>How to check size, print, finish, insert, handle strength and carton details before bulk production.</p>
-          </div>
-          <div class="detail-card">
-            <h3><a href="/packaging-quote-checklist/">Quote checklist</a></h3>
-            <p>What to send when you do not yet have final artwork, material choices or a finished dieline.</p>
-          </div>
-          <div class="detail-card">
-            <h3><a href="/case-studies/">Project examples</a></h3>
-            <p>See how gift boxes, paper bags and bottle packaging can connect with China-side handoff work.</p>
-          </div>
-          <div class="detail-card">
-            <h3><a href="/request-a-quote/">Start rough</a></h3>
-            <p>Send a rough brief first. ZiiBoxes can help refine material, sample and handoff details.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="section-kicker">Packaging blog</p>
-            <h2>Guides for choosing, quoting and improving custom packaging.</h2>
-          </div>
-          <p>
-            Clear answers when you compare box styles, paper bags, cost, finishes, materials, artwork, inserts and freight.
-            <a class="text-link" href="/guides/">View all packaging guides</a>
-          </p>
-        </div>
-        <div class="guide-grid">
-          {guideLinks.map((guide) => (
-            <a class="guide-card" href={`/guides/${guide.slug}/`}>
+        <div class="guide-highlight-grid">
+          {featuredGuides.map((guide) => (
+            <a class="guide-highlight-card" href={guide.href}>
+              <img src={guide.image} alt={guide.alt} />
               <div>
                 <h3>{guide.title}</h3>
-                <p>{guide.description}</p>
+                <p>{guide.text}</p>
               </div>
-              <span>Guide</span>
             </a>
           ))}
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap section-head">
-        <div>
-          <p class="section-kicker">Responsible packaging</p>
-          <h2>Paper box decisions your team may need to document.</h2>
-        </div>
-        <p>
-          Plan material, finish, packing and supplier requirements early so the sample matches your packaging policy, not only your artwork.
-          <a class="text-link" href="/responsible-packaging/">Review responsible packaging options</a>
-        </p>
-      </div>
-    </section>
-
-    <QuoteSection />
+    <QuoteSection compact />
   </main>
 </BaseLayout>

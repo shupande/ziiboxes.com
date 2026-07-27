@@ -1,30 +1,48 @@
 ---
 import { site } from "../data/site";
+
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
 ---
 
-<section id="quote" class="section dark">
+<section id="quote" class:list={["section", "dark", { "quote-compact": compact }]}>
   <div class="wrap quote-band">
     <div>
-      <p class="section-kicker">Request a quote</p>
-      <h2>Send the basic packaging details. Get a practical answer back.</h2>
+      <p class="section-kicker">{compact ? "Ready to get started?" : "Request a quote"}</p>
+      <h2>{compact ? "Request a quote" : "Send the basic packaging details. Get a practical answer back."}</h2>
       <p>
-        Share the box or bag style, size, quantity and destination. Artwork is helpful, but not required for the first estimate.
-        If your project has recycled paper, FSC paper, plastic-free packaging or supplier code requirements, send them before sampling.
+        {compact
+          ? "Tell us about your product and packaging needs. We will reply with a practical next step."
+          : "Share the box or bag style, size, quantity and destination. Artwork is helpful, but not required for the first estimate. If your project has recycled paper, FSC paper, plastic-free packaging or supplier code requirements, send them before sampling."}
       </p>
-      <div class="actions">
+      {!compact && <div class="actions">
         <a class="button light" href={`mailto:${site.email}`}>{site.email}</a>
         <a class="button light" href={site.whatsapp}>WhatsApp</a>
-      </div>
+      </div>}
     </div>
     <form class="quote-form" action="/api/quote" method="post" data-email={site.email} data-quote-form>
-      <input name="box_style" placeholder="Box or bag style" autocomplete="off" />
+      <input name="box_style" placeholder={compact ? "Product type" : "Box or bag style"} autocomplete="off" />
+      {compact && <input name="material_finish" placeholder="Packaging style" autocomplete="off" />}
       <input name="quantity" placeholder="Quantity" autocomplete="off" />
-      <input name="size" placeholder="Size" autocomplete="off" />
-      <input name="destination" placeholder="Destination country" autocomplete="country-name" />
-      <input name="contact" placeholder="Email or WhatsApp" autocomplete="email" required />
-      <input name="material_finish" placeholder="Material or finish" autocomplete="off" />
+      {!compact && (
+        <>
+          <input name="size" placeholder="Size" autocomplete="off" />
+          <input name="destination" placeholder="Destination country" autocomplete="country-name" />
+          <input name="contact" placeholder="Email or WhatsApp" autocomplete="email" required />
+          <input name="material_finish" placeholder="Material or finish" autocomplete="off" />
+        </>
+      )}
+      {compact && (
+        <>
+          <input name="destination" placeholder="Destination" autocomplete="country-name" />
+          <input name="contact" placeholder="Your email" autocomplete="email" required />
+        </>
+      )}
       <input type="hidden" name="company_website" tabindex="-1" autocomplete="off" />
-      <textarea name="notes" placeholder="Project notes or artwork link"></textarea>
+      {!compact && <textarea name="notes" placeholder="Project notes or artwork link"></textarea>}
       <div class="turnstile-field cf-turnstile" data-turnstile-widget data-action="turnstile-spin-v2" hidden></div>
       <button class="button gold quote-submit" type="submit">Send quote request</button>
       <p class="quote-status" data-quote-status aria-live="polite"></p>

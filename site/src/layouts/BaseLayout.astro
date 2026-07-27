@@ -77,55 +77,44 @@ const has51La = Boolean(la51Id && la51Ck);
     <slot />
     <footer class="site-footer">
       <div class="wrap footer-grid">
-        <div>
-          <strong>{site.name}</strong>
-          <p>{site.description}</p>
-          <p>{site.location}</p>
+        <div class="footer-brand">
+          <img src="/images/logo.png" alt="ZiiBoxes" />
+          <p>Custom printed packaging and China-side packing support for ecommerce brands and suppliers worldwide.</p>
+          <p class="footer-copy">&copy; 2026 ZiiBoxes. All rights reserved.</p>
         </div>
         <div>
           <strong>Products</strong>
-          <a href="/products/custom-mailer-boxes/">Mailer boxes</a>
-          <a href="/products/custom-folding-cartons/">Folding cartons</a>
-          <a href="/products/custom-rigid-boxes/">Rigid boxes</a>
-          <a href="/custom-paper-bags-china/">Paper bags</a>
-          <a href="/custom-rigid-gift-boxes-china/">Rigid gift boxes</a>
-          <a href="/cosmetic-gift-set-packaging-china/">Cosmetic gift sets</a>
+          <a href="/products/custom-mailer-boxes/">Custom Mailer Boxes</a>
+          <a href="/products/custom-rigid-boxes/">Rigid Gift Boxes</a>
+          <a href="/products/custom-folding-cartons/">Folding Cartons</a>
+          <a href="/products/custom-paper-bags/">Custom Paper Bags</a>
+          <a href="/products/custom-paper-inserts/">Product Inserts</a>
+          <a href="/products/custom-shipping-boxes/">Shipping Cartons</a>
         </div>
         <div>
-          <strong>Use cases</strong>
-          <a href="/china-packaging-agent/">China packaging agent</a>
-          <a href="/amazon-private-label-packaging-china/">Amazon private label packaging</a>
-          <a href="/jewelry-packaging-china/">Jewelry packaging</a>
-          <a href="/candle-packaging-china/">Candle packaging</a>
-          <a href="/soap-packaging-china/">Soap packaging</a>
-          <a href="/apparel-packaging-china/">Apparel packaging</a>
-          <a href="/perfume-packaging-china/">Perfume packaging</a>
-          <a href="/bakery-food-packaging-china/">Bakery food packaging</a>
-          <a href="/product-packing-service-china/">Product packing in China</a>
-          <a href="/send-packaging-to-china-supplier/">Send boxes to China supplier</a>
-          <a href="/custom-packaging-sample-process/">Sample process</a>
-          <a href="/packaging-quote-checklist/">Quote checklist</a>
-          <a href="/amazon-fba-packaging-prep-china/">Amazon FBA packaging prep</a>
-          <a href="/shopify-packaging-china/">Shopify packaging</a>
-          <a href="/ecommerce-packaging/">Ecommerce packaging</a>
-          <a href="/custom-paper-bags-china/">Custom paper bags</a>
-          <a href="/case-studies/">Case studies</a>
+          <strong>Solutions</strong>
+          <a href="/china-packaging-agent/">China-side Packing</a>
+          <a href="/custom-packaging-sample-process/">Inspection &amp; QC</a>
+          <a href="/amazon-fba-packaging-prep-china/">Export Documentation</a>
+          <a href="/product-packing-service-china/">Kitting &amp; Bundling</a>
+          <a href="/amazon-fba-packaging-prep-china/">Barcode &amp; Labeling</a>
+          <a href="/send-packaging-to-china-supplier/">Warehouse Support</a>
         </div>
         <div>
-          <strong>Blog</strong>
-          <a href="/guides/custom-box-moq/">MOQ guide</a>
-          <a href="/guides/custom-box-cost/">Cost guide</a>
-          <a href="/guides/artwork-file-checklist/">Artwork checklist</a>
-          <a href="/guides/custom-paper-bags-with-logo/">Paper bag guide</a>
-          <a href="/responsible-packaging/">Responsible packaging</a>
+          <strong>Company</strong>
+          <a href="/about/">About Us</a>
+          <a href="/case-studies/">Case Studies</a>
+          <a href="/services/">Process</a>
+          <a href="/guides/">Blog</a>
+          <a href="/responsible-packaging/">Responsibility</a>
+          <a href="/contact/">Contact Us</a>
         </div>
         <div>
           <strong>Contact</strong>
-          <a href="/about/">About ZiiBoxes</a>
-          <a href="/case-studies/">Case studies</a>
-          <a href={`mailto:${site.email}`}>{site.email}</a>
-          <a href={site.whatsapp}>WhatsApp</a>
+          <a href={`mailto:${site.email}`}>Email: {site.email}</a>
           <a href="/request-a-quote/">Request a quote</a>
+          <a href={site.whatsapp}>WhatsApp</a>
+          <span>{site.location}</span>
         </div>
       </div>
     </footer>
