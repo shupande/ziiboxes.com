@@ -131,8 +131,12 @@ const buyerNeeds = [
   { icon: "palette", title: industry.notes[2], text: "Keep artwork and finish decisions consistent." },
   { icon: "sparkle", title: industry.notes[3], text: "Build the opening experience around the sales channel." },
 ];
+const productSlug = {
+  "custom-apparel-packaging-boxes": "custom-apparel-boxes",
+  "custom-food-packaging-boxes": "custom-bakery-boxes",
+}[industry.slug] ?? industry.slug;
 const finishItems = (
-  products.find((product) => product.slug === industry.slug)?.finishes
+  products.find((product) => product.slug === productSlug)?.finishes
   ?? industry.notes
 ).slice(0, 6);
 const launchSteps = [
