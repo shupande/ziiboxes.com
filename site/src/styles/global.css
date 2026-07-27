@@ -66,6 +66,7 @@ h3 {
 }
 
 .nav {
+  width: min(1740px, calc(100% - 64px));
   position: relative;
   min-height: 78px;
   display: flex;
@@ -178,7 +179,7 @@ h3 {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(90deg, rgba(8, 63, 58, 0.98) 0%, rgba(8, 63, 58, 0.88) 36%, rgba(8, 63, 58, 0.36) 66%, rgba(8, 63, 58, 0.14) 100%);
+  background: linear-gradient(90deg, rgba(8, 63, 58, 0.9) 0%, rgba(8, 63, 58, 0.7) 34%, rgba(8, 63, 58, 0.14) 62%, transparent 100%);
 }
 
 .hero-media {
@@ -208,26 +209,26 @@ h3 {
 .hero-content {
   position: relative;
   z-index: 2;
-  min-height: 560px;
-  padding: 92px 0 32px;
+  min-height: clamp(650px, 45.9vw, 875px);
+  padding: 112px 0 46px;
   display: grid;
-  grid-template-columns: minmax(0, 520px) 1fr;
-  align-content: end;
+  grid-template-columns: minmax(0, 760px) 1fr;
+  grid-template-rows: 1fr auto;
+  align-content: stretch;
   gap: 26px 42px;
 }
 
 .hero-copy {
   position: relative;
   z-index: 3;
+  align-self: start;
+  margin-top: 72px;
   min-width: 0;
 }
 
 .hero-visual {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 18%;
+  inset: 0;
   z-index: 0;
   margin: 0;
 }
@@ -235,7 +236,7 @@ h3 {
 .hero-visual img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   object-position: center center;
 }
 
@@ -262,17 +263,32 @@ h1 {
 }
 
 .home-hero h1 {
-  max-width: 520px;
-  font-size: 42px;
-  line-height: 1.12;
+  max-width: 700px;
+  font-size: 60px;
+  line-height: 1.1;
+}
+
+.home-hero .hero-content {
+  width: min(1740px, calc(100% - 64px));
+}
+
+.home-support > .wrap,
+.home-products > .wrap,
+.case-preview-section > .wrap,
+.home-process > .wrap,
+.confidence-strip > .wrap,
+.home-guides > .wrap,
+.quote-compact > .wrap,
+.site-footer > .wrap {
+  width: min(1440px, calc(100% - 64px));
 }
 
 .hero-lede {
-  max-width: 470px;
+  max-width: 620px;
   margin-bottom: 28px;
   color: rgba(255, 255, 255, 0.86);
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 18px;
+  line-height: 1.58;
 }
 
 .actions {
@@ -286,10 +302,10 @@ h1 {
   z-index: 3;
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(4, minmax(150px, max-content));
-  gap: 26px;
-  max-width: 760px;
-  margin-top: 8px;
+  grid-template-columns: repeat(4, minmax(170px, max-content));
+  gap: 30px;
+  max-width: 880px;
+  margin-top: 18px;
 }
 
 .proof-item {
@@ -302,8 +318,8 @@ h1 {
 
 .proof-icon {
   grid-row: span 2;
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(242, 213, 165, 0.54);
@@ -315,10 +331,10 @@ h1 {
 .service-icon svg,
 .process-icon svg,
 .confidence-icon svg {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   stroke: currentColor;
-  stroke-width: 1.55;
+  stroke-width: 1.45;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -326,13 +342,13 @@ h1 {
 .proof-item strong {
   display: block;
   margin-bottom: 0;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.2;
 }
 
 .proof-item span {
   color: rgba(255, 255, 255, 0.76);
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .section {
@@ -473,19 +489,18 @@ h2 {
 }
 
 .service-icon {
-  width: 60px;
-  height: 60px;
+  width: 72px;
+  height: 72px;
   display: grid;
   place-items: center;
-  margin-bottom: 26px;
-  border: 1px solid var(--green);
-  border-radius: 50%;
+  margin-bottom: 22px;
   color: var(--green);
 }
 
 .service-icon svg {
-  width: 28px;
-  height: 28px;
+  width: 52px;
+  height: 52px;
+  stroke-width: 1.25;
 }
 
 .service-card h3 {
@@ -503,7 +518,6 @@ h2 {
 .service-card:hover h3,
 .service-card:hover .service-icon {
   color: var(--gold);
-  border-color: var(--gold);
 }
 
 .industry-table {
@@ -603,7 +617,7 @@ h2 {
 .process-line::before {
   content: "";
   position: absolute;
-  top: 29px;
+  top: 35px;
   left: 7%;
   right: 7%;
   height: 1px;
@@ -618,8 +632,8 @@ h2 {
 }
 
 .process-icon {
-  width: 56px;
-  height: 56px;
+  width: 68px;
+  height: 68px;
   display: grid;
   place-items: center;
   margin-bottom: 12px;
@@ -630,8 +644,9 @@ h2 {
 }
 
 .process-icon svg {
-  width: 25px;
-  height: 25px;
+  width: 34px;
+  height: 34px;
+  stroke-width: 1.35;
 }
 
 .process-num {
@@ -1237,24 +1252,23 @@ h2 {
 .confidence-grid div {
   min-width: 0;
   display: grid;
-  grid-template-columns: 38px 1fr;
+  grid-template-columns: 42px 1fr;
   gap: 10px;
   align-items: center;
 }
 
 .confidence-icon {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(242, 213, 165, 0.48);
-  border-radius: 50%;
   color: #f2d5a5;
 }
 
 .confidence-icon svg {
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
+  stroke-width: 1.35;
 }
 
 .confidence-grid strong {
@@ -1811,6 +1825,12 @@ h2 {
 
   .hero-content {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .hero-copy {
+    align-self: auto;
+    margin-top: 0;
   }
 
   .quote-compact .quote-band {
@@ -1833,6 +1853,18 @@ h2 {
 
 @media (max-width: 620px) {
   .wrap {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .home-hero .hero-content,
+  .home-support > .wrap,
+  .home-products > .wrap,
+  .case-preview-section > .wrap,
+  .home-process > .wrap,
+  .confidence-strip > .wrap,
+  .home-guides > .wrap,
+  .quote-compact > .wrap,
+  .site-footer > .wrap {
     width: min(100% - 28px, 1180px);
   }
 
@@ -1925,6 +1957,7 @@ h2 {
   }
 
   .hero-visual img {
+    object-fit: cover;
     object-position: 22% center;
   }
 
@@ -1948,6 +1981,11 @@ h2 {
     width: 42px;
     height: 42px;
     margin-bottom: 0;
+  }
+
+  .process-icon svg {
+    width: 24px;
+    height: 24px;
   }
 
   .process-num {
