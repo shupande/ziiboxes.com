@@ -1,0 +1,37 @@
+[
+  {
+    "topic": "Why Do Printed Packaging Colors Look Different from the Screen?",
+    "slug": "packaging-color-difference-screen-vs-print",
+    "primaryKeyword": "packaging color difference",
+    "secondaryKeywords": [
+      "screen color vs print color",
+      "CMYK color difference",
+      "Pantone packaging color"
+    ],
+    "category": "Artwork checklist",
+    "targetAudience": "US brand owners, ecommerce businesses, and packaging buyers",
+    "internalLinks": [
+      "/guides/artwork-file-checklist/",
+      "/guides/printing-finishes/",
+      "/products/custom-folding-cartons/",
+      "/request-a-quote/"
+    ],
+    "image": "/images/materials/pantone-color-fans.jpg",
+    "imageAlt": "Pantone color fans used to compare printed packaging colors",
+    "sources": [
+      {
+        "title": "Pantone: Understanding different color spaces",
+        "url": "https://www.pantone.com/eu/en-eu/articles/color-fundamentals/understanding-different-color-spaces"
+      },
+      {
+        "title": "Pantone: Coated and uncoated color appearance",
+        "url": "https://support.pantone.com/en/what-does-the-terms-coated-and-uncoated-mean-in-the-pantone-graphics-system"
+      },
+      {
+        "title": "International Color Consortium FAQ",
+        "url": "https://www.color.org/faqs.xalter"
+      }
+    ],
+    "status": "queued"
+  }
+]

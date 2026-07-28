@@ -56,6 +56,7 @@ const articleSchema = {
   description: guide.data.description,
   datePublished: guide.data.pubDate.toISOString(),
   dateModified: guide.data.updatedDate.toISOString(),
+  ...(guide.data.image ? { image: `${site.url}${guide.data.image}` } : {}),
   author: {
     "@type": "Organization",
     name: site.name,
@@ -89,7 +90,7 @@ if (faqs.length > 0) {
 ---
 
 <BaseLayout
-  title={guide.data.title}
+  title={guide.data.seoTitle || guide.data.title}
   description={guide.data.description}
   path={`/guides/${guide.id}/`}
   solidHeader

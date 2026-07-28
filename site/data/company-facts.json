@@ -1,0 +1,20 @@
+{
+  "company": "ZiiBoxes",
+  "website": "https://www.ziiboxes.com",
+  "targetMarket": "United States",
+  "verifiedFacts": [
+    "ZiiBoxes supplies custom paper boxes and paper bags.",
+    "The company can discuss product packing, supplier collection, carton details, and freight handoff in China.",
+    "A quote depends on the packaging style, size, quantity, destination, and artwork."
+  ],
+  "neverInvent": [
+    "exact minimum order quantity",
+    "exact lead time",
+    "price or savings percentage",
+    "certifications",
+    "production tolerances",
+    "recycled content",
+    "food-contact compliance",
+    "production capacity"
+  ]
+}

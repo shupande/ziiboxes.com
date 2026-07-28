@@ -1,0 +1,94 @@
+name: Generate scheduled guide draft
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 1 * * 2,5"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: ai-guide-generation
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v6
+
+      - name: Skip while another generated guide awaits review
+        id: guard
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          count="$(gh pr list --state open --json headRefName --jq '[.[] | select(.headRefName | startswith("ai-guide/"))] | length')"
+          if [ "$count" -gt 0 ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "An AI guide pull request is already awaiting review."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Node.js
+        if: steps.guard.outputs.skip != 'true'
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install the existing packages
+        if: steps.guard.outputs.skip != 'true'
+        working-directory: site
+        run: npm ci
+
+      - name: Build before generation
+        if: steps.guard.outputs.skip != 'true'
+        working-directory: site
+        run: npm run build
+
+      - name: Generate one approved guide
+        if: steps.guard.outputs.skip != 'true'
+        working-directory: site
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_BASE_URL: ${{ vars.AI_BASE_URL }}
+          AI_MODEL: ${{ vars.AI_MODEL }}
+        run: npm run generate:guide
+
+      - name: Check the article and rebuilt site
+        if: steps.guard.outputs.skip != 'true'
+        working-directory: site
+        run: |
+          npm run build
+          npm run check:guides
+
+      - name: Open a review request
+        if: steps.guard.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard site/src/content/guides)" ]; then
+            echo "No guide was generated."
+            exit 0
+          fi
+
+          branch="ai-guide/${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add site/src/content/guides site/data/blog-topics.json
+          git commit -m "content: add scheduled guide draft"
+          git push --set-upstream origin "$branch"
+
+          gh pr create \
+            --title "Review scheduled packaging guide" \
+            --body "This draft was generated from an approved topic and approved sources. Please review the facts, citations, links, and wording before merging. Merging publishes it through the existing Cloudflare connection." \
+            --base main \
+            --head "$branch"

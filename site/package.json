@@ -8,6 +8,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && node scripts/use-direct-sitemap.mjs",
+    "generate:guide": "node scripts/generate-guide.mjs",
+    "check:guides": "node scripts/validate-guides.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

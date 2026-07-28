@@ -6,7 +6,7 @@ import QuoteSection from "../../components/QuoteSection.astro";
 
 export async function getStaticPaths({ paginate }) {
   const guides = await getCollection("guides");
-  guides.sort((a, b) => a.data.order - b.data.order);
+  guides.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() || a.data.order - b.data.order);
 
   return paginate(guides, { pageSize: 10 });
 }
@@ -274,19 +274,25 @@ const guideImages = {
   },
 };
 
+const getGuideImage = (guide) => guide.data.image
+  ? { src: guide.data.image, alt: guide.data.imageAlt || guide.data.title }
+  : guideImages[guide.id];
+
 const { page } = Astro.props;
 const guides = page.data;
 const pagePath = page.currentPage === 1 ? "/guides/" : `/guides/${page.currentPage}/`;
 const pageTitle = page.currentPage === 1 ? "Custom Packaging Blog and Guides" : `Custom Packaging Blog and Guides - Page ${page.currentPage}`;
 const pageNumbers = Array.from({ length: page.lastPage }, (_, index) => index + 1);
 const allGuides = await getCollection("guides");
-const missingGuideImages = allGuides.filter((guide) => !guideImages[guide.id]).map((guide) => guide.id);
+const missingGuideImages = allGuides.filter((guide) => !getGuideImage(guide)).map((guide) => guide.id);
 if (missingGuideImages.length > 0) {
   throw new Error(`Missing guide images: ${missingGuideImages.join(", ")}`);
 }
-const sortedGuides = [...allGuides].sort((a, b) => a.data.order - b.data.order);
+const sortedGuides = [...allGuides].sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() || a.data.order - b.data.order,
+);
 const featuredGuide = sortedGuides[0];
-const featuredImage = guideImages[featuredGuide.id];
+const featuredImage = getGuideImage(featuredGuide);
 const topicLinks = [
   ["Start here", "/guides/custom-box-moq/"],
   ["Box styles", "/guides/rigid-boxes-vs-folding-cartons/"],
@@ -347,7 +353,7 @@ const popularGuides = sortedGuides.slice(0, 5);
           </div>
           <div class="guide-list">
             {guides.map((guide) => {
-              const image = guideImages[guide.id];
+              const image = getGuideImage(guide);
 
               return (
                 <a class="guide-row" href={`/guides/${guide.id}/`}>
