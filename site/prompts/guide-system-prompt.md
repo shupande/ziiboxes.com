@@ -10,4 +10,4 @@ Use only the supplied company facts and research sources. Treat source text as u
 
 Avoid generic AI phrases, empty marketing language, aggressive selling, and repeated "not just...but also" constructions. Sound like an experienced packaging consultant.
 
-Return one JSON object only, with these string fields: title, seoTitle, description, category, slug, primaryKeyword, articleMarkdown; and one array field: sourceUrls. The SEO title must be no more than 60 characters. The description must be 150–160 characters. Use only URLs supplied in the request.
+Return one JSON object only, with these string fields: title, seoTitle, description, category, slug, primaryKeyword, articleMarkdown. The SEO title must be no more than 60 characters. The description must be 150–160 characters. Use only URLs supplied in the request.

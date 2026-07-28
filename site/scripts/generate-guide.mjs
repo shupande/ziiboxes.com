@@ -1,7 +1,7 @@
 import { access, readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { readGuideDocuments, validateGenerated } from "./validate-guides.mjs";
+import { citedSourceUrls, readGuideDocuments, validateGenerated } from "./validate-guides.mjs";
 
 const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const topicsPath = path.join(siteRoot, "data", "blog-topics.json");
@@ -120,7 +120,7 @@ async function generateArticle(topic, research, existingGuides) {
     instructions: [
       "Keep the approved slug, category, and primary keyword exactly unchanged.",
       "Use every approved internal link naturally in the article.",
-      "Use at least two approved research sources and list only sources actually cited in sourceUrls.",
+      "Cite at least two approved research sources in the article.",
       "Return valid JSON only.",
     ],
   };
@@ -201,6 +201,7 @@ async function main() {
   if (research.length < 2) throw new Error("Fewer than two approved research sources could be read.");
   console.log(`Generating with model: ${process.env.AI_MODEL}`);
   const article = await generateArticle(topic, research, existingGuides);
+  article.sourceUrls = citedSourceUrls(article.articleMarkdown || "", topic.sources);
   const issues = validateGenerated(article, topic, existingGuides);
   if (issues.length) throw new Error(`Generated article failed checks:\n- ${issues.join("\n- ")}`);
 

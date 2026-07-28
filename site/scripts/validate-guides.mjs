@@ -31,6 +31,10 @@ export async function readGuideDocuments() {
   }));
 }
 
+export function citedSourceUrls(body, sources) {
+  return sources.map((source) => source.url).filter((url) => body.includes(url));
+}
+
 function words(text) {
   return text.match(/[A-Za-z0-9]+(?:[-'][A-Za-z0-9]+)*/g)?.length || 0;
 }
@@ -203,6 +207,10 @@ Send editable artwork and a clear color reference.`;
     articleMarkdown: body,
     sourceUrls: sources.map((source) => source.url),
   };
+  const cited = citedSourceUrls(body, [...sources, { url: "https://example.com/not-cited" }]);
+  if (cited.length !== 2 || cited.includes("https://example.com/not-cited")) {
+    throw new Error("Self-test failed to remove a source that was not cited");
+  }
   const issues = validateGenerated(article, topic);
   if (issues.length) throw new Error(`Self-test failed: ${issues.join("; ")}`);
   if (!validateGenerated({ ...article, articleMarkdown: body.replace(/\| Variable[\s\S]*?\| Light.*\n/, "") }, topic)
