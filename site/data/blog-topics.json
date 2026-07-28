@@ -35,5 +35,45 @@
     "status": "generated",
     "generatedSlug": "packaging-color-difference-screen-vs-print",
     "generatedAt": "2026-07-28T03:41:12.452Z"
+  },
+  {
+    "topic": "How to prepare your custom packaging for ISTA transit testing",
+    "slug": "ista-transit-testing-packaging-guide",
+    "primaryKeyword": "ISTA transit testing packaging",
+    "secondaryKeywords": [
+      "package performance testing",
+      "drop testing packaging",
+      "shipping box testing",
+      "transit testing for ecommerce"
+    ],
+    "category": "Transit testing guide",
+    "targetAudience": "US brand owners, ecommerce businesses, and packaging buyers",
+    "internalLinks": [
+      "/guides/mailer-boxes-vs-shipping-boxes/",
+      "/guides/shipping-carton-size-freight-cost/",
+      "/guides/master-carton-details-amazon-fba/",
+      "/request-a-quote/"
+    ],
+    "image": "/images/shipping-boxes.jpg",
+    "imageAlt": "Stacked shipping boxes ready for transit testing",
+    "sources": [
+      {
+        "title": "International Safe Transit Association: Test procedures",
+        "url": "https://ista.org/test_procedures.php"
+      },
+      {
+        "title": "USPS: How to prepare and send a package",
+        "url": "https://www.usps.com/ship/packages.htm"
+      },
+      {
+        "title": "FedEx: Packing tips and how-to guides",
+        "url": "https://www.fedex.com/en-us/shipping/packing.html"
+      }
+    ],
+    "status": "generated",
+    "selectedBy": "AI",
+    "selectedAt": "2026-07-28T10:40:01.537Z",
+    "generatedSlug": "ista-transit-testing-packaging-guide",
+    "generatedAt": "2026-07-28T10:41:39.153Z"
   }
 ]
