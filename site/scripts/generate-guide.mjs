@@ -1,12 +1,14 @@
-import { access, readFile, rename, writeFile } from "node:fs/promises";
+import { access, readFile, readdir, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { citedSourceUrls, readGuideDocuments, validateGenerated } from "./validate-guides.mjs";
+import { citedSourceUrls, readGuideDocuments, titleSimilarity, validateGenerated } from "./validate-guides.mjs";
 
 const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const topicsPath = path.join(siteRoot, "data", "blog-topics.json");
+const sourceCatalogPath = path.join(siteRoot, "data", "research-sources.json");
 const guidesDir = path.join(siteRoot, "src", "content", "guides");
 const maxSourceBytes = 1_500_000;
+const targetAudience = "US brand owners, ecommerce businesses, and packaging buyers";
 
 function chatUrl(baseUrl) {
   const base = baseUrl.replace(/\/+$/, "");
@@ -141,6 +143,204 @@ async function requestModelJson(messages) {
   return parseModelJson(content);
 }
 
+async function availableGuideImages() {
+  const files = await readdir(path.join(siteRoot, "public", "images"), { recursive: true });
+  return files
+    .filter((file) => /\.(?:jpe?g|png|webp)$/i.test(file))
+    .map((file) => `/images/${file.split(path.sep).join("/")}`)
+    .filter((file) => !/\/logo\.(?:jpe?g|png|webp)$/i.test(file))
+    .sort();
+}
+
+async function builtSectionLinks(section) {
+  try {
+    const entries = await readdir(path.join(siteRoot, "dist", section), { withFileTypes: true });
+    return entries
+      .filter((entry) => entry.isDirectory() && !/^\d+$/.test(entry.name))
+      .map((entry) => ({
+        title: entry.name.split("-").map((word) => word[0].toUpperCase() + word.slice(1)).join(" "),
+        url: `/${section}/${entry.name}/`,
+      }));
+  } catch {
+    return [];
+  }
+}
+
+async function availableInternalLinks(existingGuides) {
+  const links = [
+    ...existingGuides.map((guide) => ({ title: guide.data.title, url: `/guides/${guide.slug}/` })),
+    ...await builtSectionLinks("products"),
+    ...await builtSectionLinks("industries"),
+    { title: "Packaging quote checklist", url: "/packaging-quote-checklist/" },
+    { title: "Custom packaging sample process", url: "/custom-packaging-sample-process/" },
+    { title: "Request a custom packaging quote", url: "/request-a-quote/" },
+    { title: "Contact ZiiBoxes", url: "/contact/" },
+  ];
+  return [...new Map(links.map((link) => [link.url, link])).values()];
+}
+
+function topicCandidateIssues(candidate, context) {
+  const issues = [];
+  const sourceIds = Array.isArray(candidate.sourceIds) ? candidate.sourceIds : [];
+  const internalLinks = Array.isArray(candidate.internalLinks) ? candidate.internalLinks : [];
+  const secondaryKeywords = Array.isArray(candidate.secondaryKeywords) ? candidate.secondaryKeywords : [];
+  const knownSourceIds = new Set(context.sourceCatalog.map((source) => source.id));
+  const knownLinks = new Set(context.internalLinks.map((link) => link.url));
+  const knownImages = new Set(context.images);
+
+  if (!candidate.topic || candidate.topic.length < 20 || candidate.topic.length > 80) {
+    issues.push("The topic title must contain 20 to 80 characters.");
+  }
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(candidate.slug || "") || candidate.slug.length > 80) {
+    issues.push("The slug must be a lowercase hyphenated URL name no longer than 80 characters.");
+  }
+  if (!candidate.primaryKeyword || candidate.primaryKeyword.length < 3 || candidate.primaryKeyword.length > 70) {
+    issues.push("The primary keyword must contain 3 to 70 characters.");
+  }
+  if (secondaryKeywords.length < 2 || secondaryKeywords.length > 5 || secondaryKeywords.some((keyword) => typeof keyword !== "string")) {
+    issues.push("Provide 2 to 5 secondary keywords.");
+  }
+  if (!candidate.category || candidate.category.length < 3 || candidate.category.length > 40) {
+    issues.push("The category must contain 3 to 40 characters.");
+  }
+  if (internalLinks.length !== 4 || new Set(internalLinks).size !== 4) {
+    issues.push("Choose exactly four unique internal links.");
+  }
+  if (!internalLinks.includes("/request-a-quote/")) {
+    issues.push("The internal links must include /request-a-quote/.");
+  }
+  for (const url of internalLinks) {
+    if (!knownLinks.has(url)) issues.push(`Unknown internal link: ${url}`);
+  }
+  if (!knownImages.has(candidate.image)) issues.push(`Choose one image from the supplied image list.`);
+  if (!candidate.imageAlt || candidate.imageAlt.length < 20 || candidate.imageAlt.length > 140) {
+    issues.push("The image description must contain 20 to 140 characters.");
+  }
+  if (sourceIds.length < 2 || sourceIds.length > 3 || new Set(sourceIds).size !== sourceIds.length) {
+    issues.push("Choose two or three unique research source IDs.");
+  }
+  for (const id of sourceIds) {
+    if (!knownSourceIds.has(id)) issues.push(`Unknown research source ID: ${id}`);
+  }
+  const selectedHosts = new Set(context.sourceCatalog
+    .filter((source) => sourceIds.includes(source.id))
+    .map((source) => new URL(source.url).hostname));
+  if (sourceIds.length >= 2 && selectedHosts.size < 2) {
+    issues.push("Choose research from at least two different websites.");
+  }
+
+  const normalizedKeyword = candidate.primaryKeyword?.toLowerCase();
+  if (context.topics.some((topic) => topic.slug === candidate.slug)) issues.push("The slug was already used.");
+  if (context.guides.some((guide) => guide.slug === candidate.slug)) issues.push("The slug already belongs to an existing guide.");
+  if (context.topics.some((topic) => topic.primaryKeyword?.toLowerCase() === normalizedKeyword)) {
+    issues.push("The primary keyword was already used.");
+  }
+  for (const guide of context.guides) {
+    if (guide.data.primaryKeyword?.toLowerCase() === normalizedKeyword) issues.push("The primary keyword already belongs to an existing guide.");
+    if (candidate.topic && guide.data.title && titleSimilarity(guide.data.title, candidate.topic) >= 0.7) {
+      issues.push(`The topic is too similar to an existing guide: ${guide.data.title}`);
+    }
+  }
+  return [...new Set(issues)];
+}
+
+function resolveTopicCandidate(candidate, sourceCatalog) {
+  const sourcesById = new Map(sourceCatalog.map((source) => [source.id, source]));
+  return {
+    topic: candidate.topic,
+    slug: candidate.slug,
+    primaryKeyword: candidate.primaryKeyword,
+    secondaryKeywords: candidate.secondaryKeywords,
+    category: candidate.category,
+    targetAudience,
+    internalLinks: candidate.internalLinks,
+    image: candidate.image,
+    imageAlt: candidate.imageAlt,
+    sources: candidate.sourceIds.map((id) => {
+      const source = sourcesById.get(id);
+      return { title: source.title, url: source.url };
+    }),
+    status: "queued",
+    selectedBy: "AI",
+    selectedAt: new Date().toISOString(),
+  };
+}
+
+async function requestTopicCandidate(context, previousCandidate, issues) {
+  const systemPrompt = `You are the editorial planner for ZiiBoxes, a custom paper packaging manufacturer.
+Choose one useful, high-intent packaging question that is not already covered.
+Write for small and medium-sized US brands, ecommerce sellers, product managers, and packaging buyers.
+The topic must be supported by the supplied research catalog and help a buyer make a practical packaging decision.
+Avoid news, prices, legal advice, unsupported sustainability claims, and topics that depend on facts outside the supplied sources.
+Use only supplied source IDs, internal URLs, and image paths.
+Return valid JSON only with these fields: topic, slug, primaryKeyword, secondaryKeywords, category, internalLinks, image, imageAlt, sourceIds.`;
+  const request = {
+    task: previousCandidate
+      ? "Correct the proposed topic so every issue is fixed."
+      : "Select the next article topic.",
+    rules: [
+      "Choose a clear buyer question or decision topic, not a broad industry overview.",
+      "Do not duplicate or closely paraphrase an existing article.",
+      "Use a lowercase hyphenated slug.",
+      "Choose exactly four internal links, including /request-a-quote/.",
+      "Choose two or three relevant source IDs from at least two different websites.",
+      "Choose one supplied image that closely matches the topic.",
+      "Use concise American English and return JSON only.",
+    ],
+    existingArticles: context.guides.map((guide) => ({
+      title: guide.data.title,
+      slug: guide.slug,
+      category: guide.data.category,
+      primaryKeyword: guide.data.primaryKeyword || null,
+    })),
+    pastTopics: context.topics.map((topic) => ({
+      topic: topic.topic,
+      slug: topic.slug,
+      primaryKeyword: topic.primaryKeyword,
+    })),
+    researchCatalog: context.sourceCatalog.map(({ id, title, topics }) => ({ id, title, topics })),
+    allowedInternalLinks: context.internalLinks,
+    allowedImages: context.images,
+    previousCandidate,
+    validationIssues: issues,
+  };
+  return requestModelJson([
+    { role: "system", content: systemPrompt },
+    { role: "user", content: JSON.stringify(request) },
+  ]);
+}
+
+async function planAutomaticTopic(topics, guides) {
+  const context = {
+    topics,
+    guides,
+    sourceCatalog: JSON.parse(await readFile(sourceCatalogPath, "utf8")),
+    internalLinks: await availableInternalLinks(guides),
+    images: await availableGuideImages(),
+  };
+  let candidate;
+  let issues = [];
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    candidate = await requestTopicCandidate(context, candidate, issues);
+    issues = topicCandidateIssues(candidate, context);
+    if (!issues.length) {
+      const topic = resolveTopicCandidate(candidate, context.sourceCatalog);
+      const sourceResults = await Promise.allSettled(topic.sources.map(fetchSource));
+      const research = sourceResults.filter((result) => result.status === "fulfilled").map((result) => result.value);
+      const failed = sourceResults
+        .map((result, index) => result.status === "rejected" ? topic.sources[index].url : null)
+        .filter(Boolean);
+      if (research.length >= 2) {
+        topic.sources = topic.sources.filter((source) => research.some((item) => item.url === source.url));
+        return { topic, research };
+      }
+      issues = [`Fewer than two selected research pages were readable. Do not reuse these URLs: ${failed.join(", ")}`];
+    }
+    if (attempt < 2) console.log(`Automatic topic needs correction (${attempt + 1}/2): ${issues.join("; ")}`);
+  }
+  throw new Error(`Automatic topic failed checks:\n- ${issues.join("\n- ")}`);
+}
+
 async function generateArticle(topic, research, existingGuides) {
   const systemPrompt = await readFile(path.join(siteRoot, "prompts", "guide-system-prompt.md"), "utf8");
   const companyFacts = JSON.parse(await readFile(path.join(siteRoot, "data", "company-facts.json"), "utf8"));
@@ -214,16 +414,22 @@ async function main() {
     throw new Error("AI_API_KEY, AI_BASE_URL, and AI_MODEL must all be configured.");
   }
   const topics = JSON.parse(await readFile(topicsPath, "utf8"));
-  const topic = topics.find((item) => item.status === "queued");
+  const existingGuides = await readGuideDocuments();
+  let topic = topics.find((item) => item.status === "queued");
+  let research;
   if (!topic) {
-    console.log("No approved topic is queued.");
-    return;
+    console.log("No approved topic is queued. Planning one automatically.");
+    const planned = await planAutomaticTopic(topics, existingGuides);
+    topic = planned.topic;
+    research = planned.research;
+    topics.push(topic);
+    await writeFile(topicsPath, `${JSON.stringify(topics, null, 2)}\n`, "utf8");
+    console.log(`Planned automatic topic: ${topic.topic}`);
   }
   if (!Array.isArray(topic.sources) || topic.sources.length < 2 || topic.sources.length > 5) {
     throw new Error("A queued topic must have 2–5 approved research sources.");
   }
 
-  const existingGuides = await readGuideDocuments();
   if (existingGuides.some((guide) => guide.slug === topic.slug)) {
     throw new Error(`Guide already exists: ${topic.slug}`);
   }
@@ -231,10 +437,12 @@ async function main() {
   await access(path.join(siteRoot, "public", topic.image));
 
   console.log(`Reading ${topic.sources.length} approved sources for: ${topic.topic}`);
-  const sourceResults = await Promise.allSettled(topic.sources.map(fetchSource));
-  const research = sourceResults.filter((result) => result.status === "fulfilled").map((result) => result.value);
-  for (const result of sourceResults.filter((item) => item.status === "rejected")) {
-    console.warn(result.reason.message);
+  if (!research) {
+    const sourceResults = await Promise.allSettled(topic.sources.map(fetchSource));
+    research = sourceResults.filter((result) => result.status === "fulfilled").map((result) => result.value);
+    for (const result of sourceResults.filter((item) => item.status === "rejected")) {
+      console.warn(result.reason.message);
+    }
   }
   if (research.length < 2) throw new Error("Fewer than two approved research sources could be read.");
   console.log(`Generating with model: ${process.env.AI_MODEL}`);
@@ -271,7 +479,42 @@ function selfTest() {
   if (Object.keys(providerOptions("https://api.openai.com/v1")).length !== 0) {
     throw new Error("Other providers must not receive Alibaba-only options");
   }
-  console.log("AI provider options self-test passed.");
+  const context = {
+    topics: [],
+    guides: [{ slug: "existing-guide", data: { title: "Existing Packaging Guide" } }],
+    sourceCatalog: [
+      { id: "source-one", title: "Source one", url: "https://one.example.com/article" },
+      { id: "source-two", title: "Source two", url: "https://two.example.com/article" },
+    ],
+    internalLinks: [
+      { url: "/guides/existing-guide/" },
+      { url: "/products/custom-mailer-boxes/" },
+      { url: "/custom-packaging-sample-process/" },
+      { url: "/request-a-quote/" },
+    ],
+    images: ["/images/guides/example.jpg"],
+  };
+  const candidate = {
+    topic: "How Should You Plan Packaging for Product Returns?",
+    slug: "packaging-for-product-returns",
+    primaryKeyword: "packaging for product returns",
+    secondaryKeywords: ["return-ready packaging", "reusable ecommerce boxes"],
+    category: "Ecommerce packaging guide",
+    internalLinks: context.internalLinks.map((link) => link.url),
+    image: context.images[0],
+    imageAlt: "Reusable ecommerce mailer box prepared for a product return",
+    sourceIds: context.sourceCatalog.map((source) => source.id),
+  };
+  const issues = topicCandidateIssues(candidate, context);
+  if (issues.length) throw new Error(`Automatic topic self-test failed: ${issues.join("; ")}`);
+  if (!topicCandidateIssues({ ...candidate, slug: "existing-guide" }, context).includes("The slug already belongs to an existing guide.")) {
+    throw new Error("Automatic topic self-test failed to catch a duplicate slug");
+  }
+  const topic = resolveTopicCandidate(candidate, context.sourceCatalog);
+  if (topic.sources.length !== 2 || topic.status !== "queued") {
+    throw new Error("Automatic topic self-test failed to resolve the selected sources");
+  }
+  console.log("Guide generator self-test passed.");
 }
 
 if (path.resolve(process.argv[1] || "") === fileURLToPath(import.meta.url)) {

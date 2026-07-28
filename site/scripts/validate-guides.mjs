@@ -44,7 +44,7 @@ function titleTokens(title) {
   return new Set(title.toLowerCase().match(/[a-z0-9]+/g)?.filter((word) => !ignored.has(word)) || []);
 }
 
-function titleSimilarity(left, right) {
+export function titleSimilarity(left, right) {
   const a = titleTokens(left);
   const b = titleTokens(right);
   const common = [...a].filter((word) => b.has(word)).length;

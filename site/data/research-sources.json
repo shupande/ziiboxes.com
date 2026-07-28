@@ -1,0 +1,80 @@
+[
+  {
+    "id": "pantone-color-spaces",
+    "title": "Pantone: Understanding different color spaces",
+    "url": "https://www.pantone.com/eu/en-eu/articles/color-fundamentals/understanding-different-color-spaces",
+    "topics": ["RGB", "CMYK", "spot color", "print color"]
+  },
+  {
+    "id": "pantone-coated-uncoated",
+    "title": "Pantone: Coated and uncoated color appearance",
+    "url": "https://support.pantone.com/en/what-does-the-terms-coated-and-uncoated-mean-in-the-pantone-graphics-system",
+    "topics": ["coated paper", "uncoated paper", "Pantone", "paper color"]
+  },
+  {
+    "id": "icc-color-management",
+    "title": "International Color Consortium FAQ",
+    "url": "https://www.color.org/faqs.xalter",
+    "topics": ["color profiles", "proofing", "color management", "print consistency"]
+  },
+  {
+    "id": "ftc-green-guides",
+    "title": "FTC: Environmental claims summary of the Green Guides",
+    "url": "https://www.ftc.gov/business-guidance/resources/environmental-claims-summary-green-guides",
+    "topics": ["recyclable claims", "recycled content", "environmental claims", "certification claims"]
+  },
+  {
+    "id": "epa-sustainable-packaging",
+    "title": "US EPA: Sustainable packaging",
+    "url": "https://www.epa.gov/smm/sustainable-packaging",
+    "topics": ["packaging reduction", "material efficiency", "recovery", "sustainable materials"]
+  },
+  {
+    "id": "epa-packaging-data",
+    "title": "US EPA: Containers and packaging data",
+    "url": "https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/containers-and-packaging-product-specific",
+    "topics": ["paperboard", "corrugated boxes", "recycling data", "packaging materials"]
+  },
+  {
+    "id": "fsc-labels",
+    "title": "Forest Stewardship Council: What FSC labels mean",
+    "url": "https://us.fsc.org/what-is-fsc/what-do-the-fsc-labels-mean",
+    "topics": ["FSC 100%", "FSC Mix", "FSC Recycled", "certified paper"]
+  },
+  {
+    "id": "ista-test-procedures",
+    "title": "International Safe Transit Association: Test procedures",
+    "url": "https://ista.org/test_procedures.php",
+    "topics": ["transit testing", "drop testing", "vibration", "package performance"]
+  },
+  {
+    "id": "gs1-barcode-placement",
+    "title": "GS1 US: Barcode placement and printing guidelines",
+    "url": "https://www.gs1us.org/upcs-barcodes-prefixes/how-to-use-your-upc-barcodes/place-barcodes-on-products",
+    "topics": ["UPC barcode", "quiet zone", "barcode size", "barcode placement"]
+  },
+  {
+    "id": "usps-package-preparation",
+    "title": "USPS: How to prepare and send a package",
+    "url": "https://www.usps.com/ship/packages.htm",
+    "topics": ["shipping box", "cushioning", "package size", "tape and sealing"]
+  },
+  {
+    "id": "fedex-packing",
+    "title": "FedEx: Packing tips and how-to guides",
+    "url": "https://www.fedex.com/en-us/shipping/packing.html",
+    "topics": ["right-size boxes", "cushioning", "box sealing", "shipping protection"]
+  },
+  {
+    "id": "shopify-frustration-free-packaging",
+    "title": "Shopify: Frustration-free packaging",
+    "url": "https://www.shopify.com/blog/frustration-free-packaging",
+    "topics": ["ecommerce packaging", "easy opening", "unboxing", "right sizing"]
+  },
+  {
+    "id": "amazon-packaging-prep",
+    "title": "Amazon Seller Forums: Packaging and prep requirements",
+    "url": "https://sellercentral.amazon.com/seller-forums/discussions/t/a6a5bbb9-3d5e-4ec1-afb6-e1459dd810f6?postId=a6a5bbb9-3d5e-4ec1-afb6-e1459dd810f6",
+    "topics": ["FBA packaging", "unit preparation", "sets", "barcodes", "fragile products"]
+  }
+]

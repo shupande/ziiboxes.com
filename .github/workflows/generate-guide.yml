@@ -53,7 +53,7 @@ jobs:
         working-directory: site
         run: npm run build
 
-      - name: Generate one approved guide
+      - name: Select and generate one guide
         if: steps.guard.outputs.skip != 'true'
         working-directory: site
         env:
@@ -89,6 +89,6 @@ jobs:
 
           gh pr create \
             --title "Review scheduled packaging guide" \
-            --body "This draft was generated from an approved topic and approved sources. Please review the facts, citations, links, and wording before merging. Merging publishes it through the existing Cloudflare connection." \
+            --body "This draft was generated from an automatically selected topic and the verified source catalog. Please review the facts, citations, links, and wording before merging. Merging publishes it through the existing Cloudflare connection." \
             --base main \
             --head "$branch"
