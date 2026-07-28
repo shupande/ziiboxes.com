@@ -13,6 +13,12 @@ function chatUrl(baseUrl) {
   return base.endsWith("/chat/completions") ? base : `${base}/chat/completions`;
 }
 
+export function providerOptions(baseUrl) {
+  return new URL(baseUrl).hostname.toLowerCase().endsWith(".aliyuncs.com")
+    ? { enable_thinking: false }
+    : {};
+}
+
 function checkSourceUrl(rawUrl) {
   const url = new URL(rawUrl);
   const blockedHost = /^(localhost|127\.|10\.|192\.168\.|169\.254\.|172\.(1[6-9]|2\d|3[01])\.|::1$)/i;
@@ -137,6 +143,7 @@ async function generateArticle(topic, research, existingGuides) {
         { role: "system", content: systemPrompt },
         { role: "user", content: JSON.stringify(request) },
       ],
+      ...providerOptions(baseUrl),
       response_format: { type: "json_object" },
       max_tokens: 8192,
     }),
@@ -147,8 +154,14 @@ async function generateArticle(topic, research, existingGuides) {
     throw new Error(`AI request failed with HTTP ${response.status}: ${detail}`);
   }
   const payload = await response.json();
-  const content = payload.choices?.[0]?.message?.content;
-  if (!content) throw new Error("AI response did not contain an article.");
+  const choice = payload.choices?.[0];
+  const content = choice?.message?.content;
+  if (!content) {
+    const reasoningLength = choice?.message?.reasoning_content?.length || 0;
+    throw new Error(
+      `AI response did not contain an article (finish reason: ${choice?.finish_reason || "unknown"}, reasoning characters: ${reasoningLength}).`,
+    );
+  }
   return parseModelJson(content);
 }
 
@@ -221,6 +234,17 @@ async function main() {
   console.log(`Created ${path.relative(siteRoot, articlePath)}. It is ready for review.`);
 }
 
+function selfTest() {
+  if (providerOptions("https://dashscope.aliyuncs.com/compatible-mode/v1").enable_thinking !== false) {
+    throw new Error("Alibaba requests must disable thinking");
+  }
+  if (Object.keys(providerOptions("https://api.openai.com/v1")).length !== 0) {
+    throw new Error("Other providers must not receive Alibaba-only options");
+  }
+  console.log("AI provider options self-test passed.");
+}
+
 if (path.resolve(process.argv[1] || "") === fileURLToPath(import.meta.url)) {
-  await main();
+  if (process.argv.includes("--self-test")) selfTest();
+  else await main();
 }
