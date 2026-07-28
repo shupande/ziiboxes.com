@@ -105,31 +105,10 @@ function parseModelJson(content) {
   return JSON.parse(String(text).replace(/^```(?:json)?\s*|\s*```$/gi, "").trim());
 }
 
-async function generateArticle(topic, research, existingGuides) {
+async function requestModelJson(messages) {
   const apiKey = process.env.AI_API_KEY;
   const baseUrl = process.env.AI_BASE_URL;
   const model = process.env.AI_MODEL;
-
-  const systemPrompt = await readFile(path.join(siteRoot, "prompts", "guide-system-prompt.md"), "utf8");
-  const companyFacts = JSON.parse(await readFile(path.join(siteRoot, "data", "company-facts.json"), "utf8"));
-  const existingArticles = existingGuides.map((guide) => ({
-    slug: guide.slug,
-    title: guide.data.title,
-    description: guide.data.description,
-    primaryKeyword: guide.data.primaryKeyword || null,
-  }));
-  const request = {
-    approvedTopic: topic,
-    companyFacts,
-    existingArticles,
-    research,
-    instructions: [
-      "Keep the approved slug, category, and primary keyword exactly unchanged.",
-      "Use every approved internal link naturally in the article.",
-      "Cite at least two approved research sources in the article.",
-      "Return valid JSON only.",
-    ],
-  };
 
   const response = await fetch(chatUrl(baseUrl), {
     method: "POST",
@@ -139,10 +118,7 @@ async function generateArticle(topic, research, existingGuides) {
     },
     body: JSON.stringify({
       model,
-      messages: [
-        { role: "system", content: systemPrompt },
-        { role: "user", content: JSON.stringify(request) },
-      ],
+      messages,
       ...providerOptions(baseUrl),
       response_format: { type: "json_object" },
       max_tokens: 8192,
@@ -163,6 +139,55 @@ async function generateArticle(topic, research, existingGuides) {
     );
   }
   return parseModelJson(content);
+}
+
+async function generateArticle(topic, research, existingGuides) {
+  const systemPrompt = await readFile(path.join(siteRoot, "prompts", "guide-system-prompt.md"), "utf8");
+  const companyFacts = JSON.parse(await readFile(path.join(siteRoot, "data", "company-facts.json"), "utf8"));
+  const existingArticles = existingGuides.map((guide) => ({
+    slug: guide.slug,
+    title: guide.data.title,
+    description: guide.data.description,
+    primaryKeyword: guide.data.primaryKeyword || null,
+  }));
+  const request = {
+    approvedTopic: topic,
+    companyFacts,
+    existingArticles,
+    research,
+    instructions: [
+      "Keep the approved slug, category, and primary keyword exactly unchanged.",
+      "Use every approved internal link naturally in the article.",
+      "Cite at least two approved research sources in the article.",
+      "Return valid JSON only.",
+    ],
+  };
+  return requestModelJson([
+    { role: "system", content: systemPrompt },
+    { role: "user", content: JSON.stringify(request) },
+  ]);
+}
+
+async function repairArticle(article, topic, issues) {
+  const systemPrompt = await readFile(path.join(siteRoot, "prompts", "guide-system-prompt.md"), "utf8");
+  return requestModelJson([
+    { role: "system", content: systemPrompt },
+    {
+      role: "user",
+      content: JSON.stringify({
+        task: "Correct the full draft so every validation issue is fixed. Return the complete JSON article, not a patch.",
+        validationIssues: issues,
+        rules: [
+          "Do not change the approved slug, category, primary keyword, verified claims, citations, or internal links.",
+          "Keep the article between 1,800 and 2,500 words.",
+          "The description must contain 150–160 characters.",
+          "Use the exact heading `## FAQ`, followed by exactly five questions formatted as `### Question?` with an answer after each.",
+        ],
+        approvedTopic: topic,
+        draftArticle: article,
+      }),
+    },
+  ]);
 }
 
 function markdownDocument(article, topic, order, date) {
@@ -213,10 +238,15 @@ async function main() {
   }
   if (research.length < 2) throw new Error("Fewer than two approved research sources could be read.");
   console.log(`Generating with model: ${process.env.AI_MODEL}`);
-  const article = await generateArticle(topic, research, existingGuides);
-  article.sourceUrls = citedSourceUrls(article.articleMarkdown || "", topic.sources);
-  const issues = validateGenerated(article, topic, existingGuides);
-  if (issues.length) throw new Error(`Generated article failed checks:\n- ${issues.join("\n- ")}`);
+  let article = await generateArticle(topic, research, existingGuides);
+  for (let repairs = 0; ; repairs += 1) {
+    article.sourceUrls = citedSourceUrls(article.articleMarkdown || "", topic.sources);
+    const issues = validateGenerated(article, topic, existingGuides);
+    if (!issues.length) break;
+    if (repairs === 2) throw new Error(`Generated article failed checks:\n- ${issues.join("\n- ")}`);
+    console.log(`Draft needs correction (${repairs + 1}/2): ${issues.join("; ")}`);
+    article = await repairArticle(article, topic, issues);
+  }
 
   const order = Math.max(...existingGuides.map((guide) => Number(guide.data.order) || 0)) + 1;
   const date = new Date().toISOString().slice(0, 10);
