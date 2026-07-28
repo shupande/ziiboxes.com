@@ -1,0 +1,36 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+const filteredHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{
+  filteredHeadings.length > 0 && (
+    <nav class="toc-container" aria-label="Table of Contents">
+      <details class="toc-details" open>
+        <summary class="toc-summary">
+          <span class="toc-title">Table of Contents</span>
+          <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <ul class="toc-list">
+          {filteredHeadings.map((h) => (
+            <li class={`toc-item depth-${h.depth}`}>
+              <a href={`#${h.slug}`}>{h.text}</a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    </nav>
+  )
+}

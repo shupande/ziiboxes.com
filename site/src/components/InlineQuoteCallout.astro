@@ -1,0 +1,35 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  buttonText?: string;
+}
+
+const {
+  title = "Planning Custom Packaging from China?",
+  subtitle = "Get accurate factory pricing, free material suggestions, and dieline support tailored to your product specs.",
+  buttonText = "Request a Free Quote",
+} = Astro.props;
+---
+
+<aside class="inline-quote-callout" aria-label="Custom Packaging Quote">
+  <div class="callout-content">
+    <div class="callout-badge">Direct Factory Supply</div>
+    <h3 class="callout-title">{title}</h3>
+    <p class="callout-subtitle">{subtitle}</p>
+    <div class="callout-features">
+      <span>✓ Low MOQ & Custom Samples</span>
+      <span>✓ Fast Dieline Support</span>
+      <span>✓ Worldwide Shipping</span>
+    </div>
+  </div>
+  <div class="callout-action">
+    <a class="button gold callout-btn" href="/request-a-quote/">
+      {buttonText}
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>
+  </div>
+</aside>

@@ -2,6 +2,8 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import QuoteSection from "../../components/QuoteSection.astro";
+import TableOfContents from "../../components/TableOfContents.astro";
+import InlineQuoteCallout from "../../components/InlineQuoteCallout.astro";
 import { site } from "../../data/site";
 
 export async function getStaticPaths() {
@@ -13,13 +15,41 @@ export async function getStaticPaths() {
 }
 
 const { guide } = Astro.props;
-const { Content } = await render(guide);
+const { Content, headings } = await render(guide);
+
+// Extract FAQs for FAQPage JSON-LD schema
+function extractFaqs(body: string) {
+  if (!body) return [];
+  const faqParts = body.split(/^## FAQ\s*$/m);
+  if (faqParts.length < 2) return [];
+  const faqSection = faqParts[1];
+  const items: { question: string; answer: string }[] = [];
+  const matches = faqSection.matchAll(/^### (.*?)\r?\n+([\s\S]*?)(?=(?:^### |^## |$))/gm);
+  for (const match of matches) {
+    const question = match[1].trim();
+    const answer = match[2].trim().replace(/\r?\n+/g, " ");
+    if (question && answer) {
+      items.push({ question, answer });
+    }
+  }
+  return items;
+}
+
+const faqs = extractFaqs(guide.body || "");
+
+// Contextual related guides: prioritize same category
 const allGuides = await getCollection("guides");
-const relatedGuides = allGuides
-  .filter((item) => item.id !== guide.id)
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 4);
-const schema = {
+const sameCategoryGuides = allGuides
+  .filter((item) => item.id !== guide.id && item.data.category === guide.data.category)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const otherGuides = allGuides
+  .filter((item) => item.id !== guide.id && item.data.category !== guide.data.category)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const relatedGuides = [...sameCategoryGuides, ...otherGuides].slice(0, 4);
+
+const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: guide.data.title,
@@ -39,6 +69,23 @@ const schema = {
     },
   },
 };
+
+const schemas: any[] = [articleSchema];
+
+if (faqs.length > 0) {
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  });
+}
 ---
 
 <BaseLayout
@@ -46,7 +93,7 @@ const schema = {
   description={guide.data.description}
   path={`/guides/${guide.id}/`}
   solidHeader
-  schema={schema}
+  schema={schemas}
 >
   <main>
     <section class="page-hero">
@@ -56,11 +103,29 @@ const schema = {
         <p>{guide.data.description}</p>
       </div>
     </section>
+
     <section class="section alt">
-      <article class="wrap prose">
-        <Content />
-      </article>
+      <div class="wrap guide-detail-layout">
+        <aside class="guide-sticky-sidebar">
+          <TableOfContents headings={headings} />
+          <div class="sidebar-callout-wrapper">
+            <InlineQuoteCallout
+              title="Need Custom Box Pricing?"
+              subtitle="Get an exact quote with custom dimensions, material options, and shipping rates."
+              buttonText="Get Instant Quote"
+            />
+          </div>
+        </aside>
+
+        <article class="prose guide-article-main">
+          <Content />
+          <div class="inline-article-cta">
+            <InlineQuoteCallout />
+          </div>
+        </article>
+      </div>
     </section>
+
     <section class="section">
       <div class="wrap">
         <div class="section-head">
@@ -83,6 +148,7 @@ const schema = {
         </div>
       </div>
     </section>
+
     <QuoteSection />
   </main>
 </BaseLayout>
