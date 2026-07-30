@@ -279,7 +279,6 @@ const getGuideImage = (guide) => guide.data.image
   : guideImages[guide.id];
 
 const { page } = Astro.props;
-const guides = page.data;
 const pagePath = page.currentPage === 1 ? "/guides/" : `/guides/${page.currentPage}/`;
 const pageTitle = page.currentPage === 1 ? "Custom Packaging Blog and Guides" : `Custom Packaging Blog and Guides - Page ${page.currentPage}`;
 const pageNumbers = Array.from({ length: page.lastPage }, (_, index) => index + 1);
@@ -337,7 +336,23 @@ const popularGuides = sortedGuides.slice(0, 5);
 
     <nav class="guide-topics" aria-label="Packaging guide topics">
       <div class="wrap guide-topic-list">
-        {topicLinks.map(([title, href]) => <a href={href}>{title}</a>)}
+        <div class="guide-topic-links">
+          {topicLinks.map(([title, href]) => <a href={href}>{title}</a>)}
+        </div>
+        <div class="guide-search" role="search">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m20 20-4-4"></path>
+          </svg>
+          <input
+            id="guide-search"
+            type="search"
+            placeholder="Search guides"
+            aria-label="Search all packaging guides"
+            aria-controls="guide-list"
+            autocomplete="off"
+          />
+        </div>
       </div>
     </nav>
 
@@ -347,16 +362,28 @@ const popularGuides = sortedGuides.slice(0, 5);
           <div class="guide-list-heading">
             <div>
               <p class="section-kicker">Latest guides</p>
-              <h2>{page.currentPage === 1 ? "Packaging decisions explained clearly." : `More packaging guides - page ${page.currentPage}.`}</h2>
+              <h2 data-guide-heading>{page.currentPage === 1 ? "Packaging decisions explained clearly." : `More packaging guides - page ${page.currentPage}.`}</h2>
             </div>
-            <span>{page.total} guides</span>
+            <span aria-live="polite" data-guide-count>{page.total} guides</span>
           </div>
-          <div class="guide-list">
-            {guides.map((guide) => {
+          <div class="guide-list" id="guide-list" data-current-page={page.currentPage}>
+            {sortedGuides.map((guide, index) => {
               const image = getGuideImage(guide);
+              const guidePage = Math.floor(index / page.size) + 1;
+              const searchText = [
+                guide.data.title,
+                guide.data.description,
+                guide.data.category,
+              ].join(" ").toLocaleLowerCase();
 
               return (
-                <a class="guide-row" href={`/guides/${guide.id}/`}>
+                <a
+                  class="guide-row"
+                  href={`/guides/${guide.id}/`}
+                  data-page={guidePage}
+                  data-search={searchText}
+                  hidden={guidePage !== page.currentPage}
+                >
                   <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
                   <div class="guide-row-copy">
                     <span>{guide.data.category}</span>
@@ -368,6 +395,7 @@ const popularGuides = sortedGuides.slice(0, 5);
               );
             })}
           </div>
+          <p class="guide-search-empty" role="status" hidden>No guides match your search. Try fewer or broader words.</p>
           {page.lastPage > 1 && (
             <nav class="pagination" aria-label="Blog pagination">
               {page.currentPage > 1 ? (
@@ -423,3 +451,44 @@ const popularGuides = sortedGuides.slice(0, 5);
     <QuoteSection />
   </main>
 </BaseLayout>
+
+<script>
+  const searchInput = document.querySelector("#guide-search");
+  const guideList = document.querySelector("#guide-list");
+  const guideHeading = document.querySelector("[data-guide-heading]");
+  const guideCount = document.querySelector("[data-guide-count]");
+  const emptyMessage = document.querySelector(".guide-search-empty");
+  const pagination = document.querySelector(".pagination");
+
+  if (searchInput instanceof HTMLInputElement && guideList instanceof HTMLElement) {
+    const guideRows = Array.from(guideList.querySelectorAll(".guide-row"));
+    const currentPage = guideList.dataset.currentPage;
+    const defaultHeading = guideHeading?.textContent || "";
+    const defaultCount = guideCount?.textContent || "";
+
+    const updateGuideResults = () => {
+      const query = searchInput.value.trim().toLocaleLowerCase();
+      const terms = query.split(/\s+/).filter(Boolean);
+      let matches = 0;
+
+      guideRows.forEach((guideRow) => {
+        if (!(guideRow instanceof HTMLElement)) return;
+
+        const isMatch = terms.length > 0
+          ? terms.every((term) => guideRow.dataset.search?.includes(term))
+          : guideRow.dataset.page === currentPage;
+
+        guideRow.hidden = !isMatch;
+        if (terms.length > 0 && isMatch) matches += 1;
+      });
+
+      if (guideHeading) guideHeading.textContent = terms.length > 0 ? "Search results" : defaultHeading;
+      if (guideCount) guideCount.textContent = terms.length > 0 ? `${matches} ${matches === 1 ? "guide" : "guides"}` : defaultCount;
+      if (emptyMessage instanceof HTMLElement) emptyMessage.hidden = terms.length === 0 || matches > 0;
+      if (pagination instanceof HTMLElement) pagination.hidden = terms.length > 0;
+    };
+
+    searchInput.addEventListener("input", updateGuideResults);
+    updateGuideResults();
+  }
+</script>

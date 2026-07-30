@@ -2030,11 +2030,18 @@ h2 {
 .guide-topic-list {
   width: min(1440px, calc(100% - 64px));
   display: flex;
+  align-items: center;
   gap: 0;
+  overflow: hidden;
+}
+
+.guide-topic-links {
+  min-width: 0;
+  display: flex;
   overflow-x: auto;
 }
 
-.guide-topic-list a {
+.guide-topic-links a {
   flex: 0 0 auto;
   padding: 18px 22px;
   border-left: 1px solid var(--line);
@@ -2043,13 +2050,60 @@ h2 {
   font-weight: 800;
 }
 
-.guide-topic-list a:last-child {
+.guide-topic-links a:last-child {
   border-right: 1px solid var(--line);
 }
 
-.guide-topic-list a:hover {
+.guide-topic-links a:hover {
   color: var(--green);
   background: var(--paper);
+}
+
+.guide-search {
+  position: relative;
+  flex: 1 1 420px;
+  min-width: 280px;
+  max-width: 486px;
+  margin-left: auto;
+  padding: 7px 0 7px 24px;
+}
+
+.guide-search svg {
+  position: absolute;
+  top: 50%;
+  left: 38px;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  color: var(--green);
+  pointer-events: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.guide-search input {
+  width: 100%;
+  height: 42px;
+  padding: 0 40px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  outline: 0;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+}
+
+.guide-search input::placeholder {
+  color: var(--muted);
+  opacity: 0.82;
+}
+
+.guide-search input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px rgba(13, 99, 92, 0.14);
 }
 
 .guides-layout {
@@ -2079,6 +2133,19 @@ h2 {
 
 .guides-page .guide-list {
   max-width: none;
+}
+
+.guides-page .guide-row[hidden] {
+  display: none;
+}
+
+.guide-search-empty {
+  margin: 0;
+  padding: 32px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--muted);
+  text-align: center;
 }
 
 .guides-page .guide-row {
@@ -3110,6 +3177,29 @@ h2 {
 }
 
 @media (max-width: 980px) {
+  .guide-topic-list {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .guide-topic-links {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .guide-search {
+    flex: 1 1 100%;
+    min-width: 0;
+    max-width: none;
+    margin-left: 0;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .guide-search svg {
+    left: 14px;
+  }
+
   .nav-toggle {
     display: block;
   }
