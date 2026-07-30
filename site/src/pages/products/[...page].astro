@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import QuoteSection from "../../components/QuoteSection.astro";
-import { products } from "../../data/site";
+import { products, site } from "../../data/site";
 
 export function getStaticPaths({ paginate }) {
   return paginate(products, { pageSize: 12 });
@@ -14,22 +14,90 @@ const pagePath = page.currentPage === 1 ? "/products/" : `/products/${page.curre
 const pageTitle =
   page.currentPage === 1 ? `${productCount}+ Custom Paper Packaging Products` : `${productCount}+ Custom Paper Packaging Products - Page ${page.currentPage}`;
 const pageNumbers = Array.from({ length: page.lastPage }, (_, index) => index + 1);
+const description = `Explore ${productCount}+ custom paper packaging products for ecommerce, retail and gifts, including printed boxes, paper bags, mailers, inserts and shipping cartons.`;
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: pageTitle,
+  description,
+  url: `${site.url}${pagePath}`,
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: productList.map((product, index) => ({
+      "@type": "ListItem",
+      position: (page.currentPage - 1) * page.size + index + 1,
+      name: product.title,
+      url: `${site.url}/products/${product.slug}/`,
+    })),
+  },
+};
 ---
 
 <BaseLayout
   title={pageTitle}
-  description={`Explore ${productCount}+ custom paper packaging styles for ecommerce, retail, gift, wine, spirits, tea, chocolate, electronics, supplement, pet, stationery, toy, paper bag and Amazon packaging projects.`}
+  description={description}
   path={pagePath}
   solidHeader
+  schema={schema}
 >
   <main>
     <section class="page-hero">
       <div class="wrap">
         <p class="eyebrow">Products</p>
-        <h1>{productCount}+ custom paper packaging styles for online, retail and gift projects.</h1>
-        <p>Start with the product use case, then compare structure, material, size, printing, finish, handle, sample and shipping.</p>
+        <h1>Custom paper packaging products for ecommerce, retail and gifts.</h1>
+        <p>Compare {productCount}+ printed boxes, paper bags, mailers, inserts and shipping cartons by product use, structure, material and finish.</p>
       </div>
     </section>
+    {page.currentPage === 1 && (
+      <section class="section">
+        <div class="wrap prose">
+          <p class="section-kicker">Choose by packaging job</p>
+          <h2>Start with what the paper packaging needs to do.</h2>
+          <p>
+            Custom paper products cover several packaging levels. Folding cartons and rigid boxes present the product, mailer boxes and shipping cartons protect it in delivery, paper inserts hold it in position, and paper bags support retail or gift handoff.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Packaging need</th>
+                <th>Useful starting options</th>
+                <th>Confirm first</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Retail product box</td>
+                <td><a href="/products/custom-folding-cartons/">Folding cartons</a>, sleeves and window boxes</td>
+                <td>Product size, shelf display and label space</td>
+              </tr>
+              <tr>
+                <td>Premium gift presentation</td>
+                <td><a href="/products/custom-rigid-boxes/">Rigid boxes</a>, drawer boxes and magnetic boxes</td>
+                <td>Insert layout, finish and freight volume</td>
+              </tr>
+              <tr>
+                <td>Ecommerce delivery</td>
+                <td><a href="/products/custom-mailer-boxes/">Mailer boxes</a> and shipping cartons</td>
+                <td>Product weight, protection and shipping route</td>
+              </tr>
+              <tr>
+                <td>Product organization</td>
+                <td><a href="/products/custom-paper-inserts/">Paper inserts</a> and dividers</td>
+                <td>Real product fit and packing steps</td>
+              </tr>
+              <tr>
+                <td>Retail or gift handoff</td>
+                <td><a href="/products/custom-paper-bags/">Paper bags</a> and shopping bags</td>
+                <td>Packed size, weight and handle type</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            For a smaller first run, compare <a href="/guides/low-moq-custom-packaging-small-brands/">low MOQ packaging solutions</a> before adding several structures or finishes. When the product size and quantity are ready, <a href="/request-a-quote/">request a custom packaging quote</a>.
+          </p>
+        </div>
+      </section>
+    )}
     <section class="section alt">
       <div class="wrap product-grid">
         {productList.map((product) => (

@@ -5,8 +5,8 @@ import { site } from "../data/site";
 
 const faqs = [
   {
-    q: "Can you help with Amazon FBA packaging prep in China?",
-    a: "ZiiBoxes can help with packaging-side prep such as custom boxes, inserts, label space, carton details, packing lists and handoff to your confirmed freight or FBA route.",
+    q: "Is ZiiBoxes an FBA prep center in China?",
+    a: "ZiiBoxes provides China-side packaging and packing support for suitable products, including custom boxes, inserts, label application, master-carton details and handoff to your confirmed freight or FBA route. It does not manage your Amazon account or shipment plan.",
   },
   {
     q: "Do you manage my Amazon shipment plan?",
@@ -30,11 +30,18 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebPage",
-      name: "Amazon FBA Packaging Prep in China",
+      "@type": "Service",
+      name: "China FBA prep and packaging support",
       description:
-        "China-side packaging prep for Amazon sellers: custom boxes, inserts, barcode space, carton details, packing lists and freight or FBA route handoff support.",
+        "China-side packaging and packing support for Amazon sellers, including custom boxes, inserts, label application, carton details and freight handoff.",
       url: `${site.url}/amazon-fba-packaging-prep-china/`,
+      provider: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.url,
+      },
+      areaServed: "Worldwide",
+      serviceType: "Amazon FBA prep and packaging support in China",
     },
     {
       "@type": "FAQPage",
@@ -52,8 +59,8 @@ const schema = {
 ---
 
 <BaseLayout
-  title="Amazon FBA Packaging Prep in China"
-  description="China-side packaging prep for Amazon sellers: custom boxes, inserts, barcode space, carton details, packing lists and freight or FBA route handoff support."
+  title="China FBA Prep and Packaging Support"
+  description="China FBA prep and packaging support for Amazon sellers: custom boxes, inserts, labels, product packing, master cartons and handoff to your confirmed route."
   path="/amazon-fba-packaging-prep-china/"
   solidHeader
   schema={schema}
@@ -61,10 +68,10 @@ const schema = {
   <main>
     <section class="page-hero">
       <div class="wrap">
-        <p class="eyebrow">Amazon seller packaging</p>
-        <h1>Prepare product packaging in China before your FBA route.</h1>
+        <p class="eyebrow">China FBA prep support</p>
+        <h1>Prepare, label and pack suitable products in China before FBA handoff.</h1>
         <p>
-          If you source products from China for Amazon, ZiiBoxes can help prepare custom boxes, inserts, barcode space, carton details, packing lists and handoff notes before your goods go to a forwarder, warehouse or FBA route.
+          If you source products from China for Amazon, ZiiBoxes can make the packaging, apply supplied labels, pack suitable products, record master-carton details and hand the shipment to your confirmed forwarder, warehouse or FBA route.
         </p>
       </div>
     </section>
@@ -123,7 +130,7 @@ const schema = {
       <div class="wrap split">
         <div>
           <p class="section-kicker">Clear boundaries</p>
-          <h2>Packaging prep is not the same as managing your Amazon account.</h2>
+          <h2>What this China FBA prep service includes—and what stays with your team.</h2>
           <p class="lede-copy">
             ZiiBoxes helps with the China-side packaging workflow. Your Amazon shipment plan, label rules, final warehouse address and account-level requirements should come from your Amazon account, warehouse or logistics partner.
           </p>

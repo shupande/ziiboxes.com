@@ -4,7 +4,7 @@ description: "A practical guide to minimum order quantity for custom paper boxes
 category: "MOQ guide"
 order: 1
 pubDate: "2026-07-24"
-updatedDate: "2026-07-24"
+updatedDate: "2026-07-30"
 ---
 
 The MOQ for custom printed boxes depends on the box style, material, printing method, surface finish and destination. A simple folding carton usually has a different minimum from a rigid box, gift box or custom corrugated mailer.
@@ -44,6 +44,8 @@ For example, instead of asking only "What is your MOQ?", ask: "Please quote 500 
 ## When a low MOQ is not the cheapest option
 
 A lower quantity can reduce total cash outlay, but it may increase unit cost. Printing setup, sampling, cutting and packing are spread across fewer boxes. If the product will be reordered, a larger first run can sometimes be more practical.
+
+If you are still choosing a structure for a first launch, compare the [low MOQ packaging solutions](/guides/low-moq-custom-packaging-small-brands/) before requesting prices.
 
 ## FAQ
 
