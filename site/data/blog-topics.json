@@ -75,5 +75,40 @@
     "selectedAt": "2026-07-28T10:40:01.537Z",
     "generatedSlug": "ista-transit-testing-packaging-guide",
     "generatedAt": "2026-07-28T10:41:39.153Z"
+  },
+  {
+    "topic": "Barcode placement and sizing rules for custom packaging",
+    "slug": "barcode-placement-sizing-custom-packaging",
+    "primaryKeyword": "barcode placement packaging",
+    "secondaryKeywords": [
+      "UPC label size",
+      "GS1 quiet zone",
+      "barcode printing guidelines"
+    ],
+    "category": "Label guide",
+    "targetAudience": "US brand owners, ecommerce businesses, and packaging buyers",
+    "internalLinks": [
+      "/guides/fnsku-barcode-label-packaging-china/",
+      "/guides/artwork-file-checklist/",
+      "/guides/amazon-fba-packaging-prep-checklist/",
+      "/request-a-quote/"
+    ],
+    "image": "/images/materials/sticker-labels.webp",
+    "imageAlt": "Barcode label placement on custom packaging boxes",
+    "sources": [
+      {
+        "title": "GS1 US: Barcode placement and printing guidelines",
+        "url": "https://www.gs1us.org/upcs-barcodes-prefixes/how-to-use-your-upc-barcodes/place-barcodes-on-products"
+      },
+      {
+        "title": "Amazon Seller Forums: Packaging and prep requirements",
+        "url": "https://sellercentral.amazon.com/seller-forums/discussions/t/a6a5bbb9-3d5e-4ec1-afb6-e1459dd810f6?postId=a6a5bbb9-3d5e-4ec1-afb6-e1459dd810f6"
+      }
+    ],
+    "status": "generated",
+    "selectedBy": "AI",
+    "selectedAt": "2026-07-31T04:38:39.745Z",
+    "generatedSlug": "barcode-placement-sizing-custom-packaging",
+    "generatedAt": "2026-07-31T04:40:13.637Z"
   }
 ]
