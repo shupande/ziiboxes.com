@@ -110,5 +110,41 @@
     "selectedAt": "2026-07-31T04:38:39.745Z",
     "generatedSlug": "barcode-placement-sizing-custom-packaging",
     "generatedAt": "2026-07-31T04:40:13.637Z"
+  },
+  {
+    "topic": "How to package fragile products for shipping: box, cushioning and sealing rules",
+    "slug": "fragile-product-packaging-shipping-protection",
+    "primaryKeyword": "fragile product packaging",
+    "secondaryKeywords": [
+      "shipping fragile items",
+      "cushioning for fragile products",
+      "box sealing for shipping",
+      "fragile package protection"
+    ],
+    "category": "Shipping protection guide",
+    "targetAudience": "US brand owners, ecommerce businesses, and packaging buyers",
+    "internalLinks": [
+      "/guides/glass-jar-candle-packaging-protection/",
+      "/guides/ista-transit-testing-packaging-guide/",
+      "/guides/mailer-boxes-vs-shipping-boxes/",
+      "/request-a-quote/"
+    ],
+    "image": "/images/shipping-boxes.jpg",
+    "imageAlt": "Fragile products packed in a shipping box with cushioning and sealed tape",
+    "sources": [
+      {
+        "title": "USPS: How to prepare and send a package",
+        "url": "https://www.usps.com/ship/packages.htm"
+      },
+      {
+        "title": "FedEx: Packing tips and how-to guides",
+        "url": "https://www.fedex.com/en-us/shipping/packing.html"
+      }
+    ],
+    "status": "generated",
+    "selectedBy": "AI",
+    "selectedAt": "2026-08-04T04:29:56.860Z",
+    "generatedSlug": "fragile-product-packaging-shipping-protection",
+    "generatedAt": "2026-08-04T04:31:07.562Z"
   }
 ]
