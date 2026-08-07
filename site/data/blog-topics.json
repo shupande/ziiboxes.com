@@ -146,5 +146,42 @@
     "selectedAt": "2026-08-04T04:29:56.860Z",
     "generatedSlug": "fragile-product-packaging-shipping-protection",
     "generatedAt": "2026-08-04T04:31:07.562Z"
+  },
+  {
+    "topic": "What FSC labels mean for custom paper packaging and when to use them",
+    "slug": "fsc-labels-meaning-custom-paper-packaging",
+    "primaryKeyword": "FSC labels packaging",
+    "secondaryKeywords": [
+      "FSC certified paper",
+      "FSC 100%",
+      "FSC Mix",
+      "FSC Recycled",
+      "certified paper packaging"
+    ],
+    "category": "FSC label guide",
+    "targetAudience": "US brand owners, ecommerce businesses, and packaging buyers",
+    "internalLinks": [
+      "/guides/custom-paper-bags-with-logo/",
+      "/products/custom-kraft-paper-bags/",
+      "/industries/custom-food-packaging-boxes/",
+      "/request-a-quote/"
+    ],
+    "image": "/images/materials/kraft-paper.webp",
+    "imageAlt": "FSC certified kraft paper used for custom packaging",
+    "sources": [
+      {
+        "title": "Forest Stewardship Council: What FSC labels mean",
+        "url": "https://us.fsc.org/what-is-fsc/what-do-the-fsc-labels-mean"
+      },
+      {
+        "title": "US EPA: Sustainable packaging",
+        "url": "https://www.epa.gov/smm/sustainable-packaging"
+      }
+    ],
+    "status": "generated",
+    "selectedBy": "AI",
+    "selectedAt": "2026-08-07T04:03:42.976Z",
+    "generatedSlug": "fsc-labels-meaning-custom-paper-packaging",
+    "generatedAt": "2026-08-07T04:04:51.755Z"
   }
 ]
