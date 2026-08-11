@@ -183,5 +183,44 @@
     "selectedAt": "2026-08-07T04:03:42.976Z",
     "generatedSlug": "fsc-labels-meaning-custom-paper-packaging",
     "generatedAt": "2026-08-07T04:04:51.755Z"
+  },
+  {
+    "topic": "How to right-size ecommerce shipping boxes to reduce damage and dimensional cost",
+    "slug": "right-size-ecommerce-shipping-box-guide",
+    "primaryKeyword": "right-size shipping box",
+    "secondaryKeywords": [
+      "ecommerce box sizing",
+      "dimensional shipping cost",
+      "package cushioning"
+    ],
+    "category": "Shipping box guide",
+    "targetAudience": "US brand owners, ecommerce businesses, and packaging buyers",
+    "internalLinks": [
+      "/guides/mailer-boxes-vs-shipping-boxes/",
+      "/guides/fragile-product-packaging-shipping-protection/",
+      "/products/custom-shipping-boxes/",
+      "/request-a-quote/"
+    ],
+    "image": "/images/shipping-boxes.jpg",
+    "imageAlt": "Stack of corrugated shipping boxes ready for ecommerce fulfillment",
+    "sources": [
+      {
+        "title": "USPS: How to prepare and send a package",
+        "url": "https://www.usps.com/ship/packages.htm"
+      },
+      {
+        "title": "FedEx: Packing tips and how-to guides",
+        "url": "https://www.fedex.com/en-us/shipping/packing.html"
+      },
+      {
+        "title": "Shopify: Frustration-free packaging",
+        "url": "https://www.shopify.com/blog/frustration-free-packaging"
+      }
+    ],
+    "status": "generated",
+    "selectedBy": "AI",
+    "selectedAt": "2026-08-11T03:11:26.448Z",
+    "generatedSlug": "right-size-ecommerce-shipping-box-guide",
+    "generatedAt": "2026-08-11T03:13:19.205Z"
   }
 ]
