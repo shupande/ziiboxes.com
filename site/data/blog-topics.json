@@ -222,5 +222,40 @@
     "selectedAt": "2026-08-11T03:11:26.448Z",
     "generatedSlug": "right-size-ecommerce-shipping-box-guide",
     "generatedAt": "2026-08-11T03:13:19.205Z"
+  },
+  {
+    "topic": "When to use Pantone spot colors vs CMYK for custom packaging",
+    "slug": "pantone-spot-color-vs-cmyk-packaging",
+    "primaryKeyword": "pantone spot color packaging",
+    "secondaryKeywords": [
+      "cmyk vs spot color printing",
+      "pantone packaging colors",
+      "brand color matching"
+    ],
+    "category": "Color guide",
+    "targetAudience": "US brand owners, ecommerce businesses, and packaging buyers",
+    "internalLinks": [
+      "/guides/packaging-color-difference-screen-vs-print/",
+      "/guides/artwork-file-checklist/",
+      "/guides/printing-finishes/",
+      "/request-a-quote/"
+    ],
+    "image": "/images/materials/pantone-color.webp",
+    "imageAlt": "Pantone color fan deck for spot color matching in custom packaging",
+    "sources": [
+      {
+        "title": "Pantone: Understanding different color spaces",
+        "url": "https://www.pantone.com/eu/en-eu/articles/color-fundamentals/understanding-different-color-spaces"
+      },
+      {
+        "title": "International Color Consortium FAQ",
+        "url": "https://www.color.org/faqs.xalter"
+      }
+    ],
+    "status": "generated",
+    "selectedBy": "AI",
+    "selectedAt": "2026-08-18T02:21:02.397Z",
+    "generatedSlug": "pantone-spot-color-vs-cmyk-packaging",
+    "generatedAt": "2026-08-18T02:22:39.073Z"
   }
 ]
