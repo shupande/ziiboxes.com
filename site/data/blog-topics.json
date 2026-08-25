@@ -257,5 +257,40 @@
     "selectedAt": "2026-08-18T02:21:02.397Z",
     "generatedSlug": "pantone-spot-color-vs-cmyk-packaging",
     "generatedAt": "2026-08-18T02:22:39.073Z"
+  },
+  {
+    "topic": "How to seal and tape custom shipping boxes to meet carrier requirements",
+    "slug": "how-to-seal-and-tape-shipping-boxes",
+    "primaryKeyword": "sealing shipping boxes",
+    "secondaryKeywords": [
+      "packing tape for shipping boxes",
+      "carrier packaging requirements",
+      "box sealing methods"
+    ],
+    "category": "Shipping protection guide",
+    "targetAudience": "US brand owners, ecommerce businesses, and packaging buyers",
+    "internalLinks": [
+      "/guides/right-size-ecommerce-shipping-box-guide/",
+      "/guides/fragile-product-packaging-shipping-protection/",
+      "/products/custom-shipping-boxes/",
+      "/request-a-quote/"
+    ],
+    "image": "/images/materials/b-flute.webp",
+    "imageAlt": "Close up of a corrugated shipping box sealed with packing tape",
+    "sources": [
+      {
+        "title": "USPS: How to prepare and send a package",
+        "url": "https://www.usps.com/ship/packages.htm"
+      },
+      {
+        "title": "FedEx: Packing tips and how-to guides",
+        "url": "https://www.fedex.com/en-us/shipping/packing.html"
+      }
+    ],
+    "status": "generated",
+    "selectedBy": "AI",
+    "selectedAt": "2026-08-25T02:31:16.063Z",
+    "generatedSlug": "how-to-seal-and-tape-shipping-boxes",
+    "generatedAt": "2026-08-25T02:32:43.072Z"
   }
 ]
